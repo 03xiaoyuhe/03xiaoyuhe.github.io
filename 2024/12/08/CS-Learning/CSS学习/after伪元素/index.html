@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.3.0">
+<link rel="stylesheet" href="/css/custom.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="[!tip] 前端实验室 Playground | MDN (mozilla.org)   尝试一下 ::after (:after) CSS伪元素::after用来创建一个伪元素，作为已选中元素的最后一个子元素。通常会配合content属性来为该元素添加装饰内容。这个虚拟元素默认是行内元素。  语法 123::after &#123;  &#x2F;* ... *&#x2F;&#125;  [!info] 备注：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="O3xiaoyuhe">
+<meta property="og:url" content="http://example.com/2024/12/08/CS-Learning/CSS%E5%AD%A6%E4%B9%A0/after%E4%BC%AA%E5%85%83%E7%B4%A0/index.html">
+<meta property="og:site_name" content="O3xiaoyuhe">
+<meta property="og:description" content="[!tip] 前端实验室 Playground | MDN (mozilla.org)   尝试一下 ::after (:after) CSS伪元素::after用来创建一个伪元素，作为已选中元素的最后一个子元素。通常会配合content属性来为该元素添加装饰内容。这个虚拟元素默认是行内元素。  语法 123::after &#123;  &#x2F;* ... *&#x2F;&#125;  [!info] 备注：">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202403191633686.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202403191639761.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202403191648745.png">
+<meta property="article:published_time" content="2024-12-08T12:29:06.771Z">
+<meta property="article:modified_time" content="2024-11-13T14:52:55.072Z">
+<meta property="article:author" content="听">
+<meta property="article:tag" content="学习&#x2F;编程语言&#x2F;CSS">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202403191633686.png">
+
+<link rel="canonical" href="http://example.com/2024/12/08/CS-Learning/CSS%E5%AD%A6%E4%B9%A0/after%E4%BC%AA%E5%85%83%E7%B4%A0/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title> | O3xiaoyuhe</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">O3xiaoyuhe</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/12/08/CS-Learning/CSS%E5%AD%A6%E4%B9%A0/after%E4%BC%AA%E5%85%83%E7%B4%A0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="听">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="O3xiaoyuhe">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-12-08 20:29:06" itemprop="dateCreated datePublished" datetime="2024-12-08T20:29:06+08:00">2024-12-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-11-13 22:52:55" itemprop="dateModified" datetime="2024-11-13T22:52:55+08:00">2024-11-13</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <blockquote>
+<p>[!tip] 前端实验室 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/play">Playground | MDN (mozilla.org)</a></p>
+<iframe style="width:100%;height:600px;" src="https://developer.mozilla.org/zh-CN/play"></iframe>
+</blockquote>
+<h2 id="尝试一下">尝试一下</h2>
+<h1>::after (:after)</h1>
+<p>CSS<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/Pseudo-elements">伪元素</a><code>::after</code>用来创建一个伪元素，作为已选中元素的最后一个子元素。通常会配合<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/content"><code>content</code></a>属性来为该元素添加装饰内容。这个虚拟元素默认是行内元素。</p>
+<iframe style="width:100%;height:580px;" src="https://interactive-examples.mdn.mozilla.net/pages/tabbed/pseudo-element-after.html"></iframe>
+<h2 id="语法">语法</h2>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-pseudo">::after</span> &#123;</span><br><span class="line">  <span class="comment">/* ... */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>[!info] <strong>备注：</strong> CSS 引入 <code>::after</code> 表示法（两个冒号）是用来区分<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/Pseudo-classes">伪类</a>和<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/Pseudo-elements">伪元素</a>的。同时为了向后兼容，浏览器也支持前文介绍的 <code>:after</code>。</p>
+</blockquote>
+<h2 id="示例">示例</h2>
+<h3 id="简单用法">简单用法</h3>
+<p>让我们创建两个类：一个无趣的和一个有趣的。我们可以在每个段尾添加伪元素来标记他们。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">&quot;boring-text&quot;</span>&gt;</span>这是些无聊的文字<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>这是不无聊也不有趣的文字<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">&quot;exciting-text&quot;</span>&gt;</span>  </span><br><span class="line">	在 MDN 上做贡献简单又轻松。按右上角的编辑按钮添加新示例或改进旧示例！</span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.exciting-text</span><span class="selector-pseudo">::after</span> &#123;   </span><br><span class="line">	<span class="attribute">content</span>: <span class="string">&quot;&lt;- 让人兴兴兴奋！&quot;</span>;   </span><br><span class="line">	<span class="attribute">color</span>: green; </span><br><span class="line">&#125;  </span><br><span class="line"><span class="selector-class">.boring-text</span><span class="selector-pseudo">::after</span> &#123;   </span><br><span class="line">	<span class="attribute">content</span>: <span class="string">&quot;&lt;- 无聊！&quot;</span>;   </span><br><span class="line">	<span class="attribute">color</span>: red; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="结果">结果</h4>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202403191633686.png" alt="image.png"></p>
+<h3 id="装饰用法">装饰用法</h3>
+<p>我们几乎可以用想要的任何方法给 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/content"><code>content</code></a> 属性里的文字和图片的加上样式。</p>
+<p>HTMLPlayCopy to Clipboard</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;ribbon&quot;</span>&gt;</span></span><br><span class="line">	Notice where the orange box is.</span><br><span class="line"><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>解释</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.ribbon</span> &#123;   </span><br><span class="line">	<span class="attribute">background-color</span>: <span class="number">#5bc8f7</span>; </span><br><span class="line">&#125;  </span><br><span class="line"><span class="selector-class">.ribbon</span><span class="selector-pseudo">::after</span> &#123;   </span><br><span class="line">	<span class="attribute">content</span>: <span class="string">&quot;Look at this orange box.&quot;</span>;   </span><br><span class="line">	<span class="attribute">background-color</span>: <span class="number">#ffba10</span>;   </span><br><span class="line">	<span class="attribute">border-color</span>: black;   </span><br><span class="line">	<span class="attribute">border-style</span>: dotted; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="结果-2">结果</h4>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202403191639761.png" alt="image.png"></p>
+<h3 id="提示用法">提示用法</h3>
+<p>接下来的示例展示了用<code>::after</code><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/Pseudo-elements">伪元素</a>，<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/attr"><code>attr()</code></a>CSS 表达式和一个<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/HTML/Global_attributes#attr-data-*">自定义数据属性</a> <code>data-descr</code> 创建一个纯 CSS，词汇表提示工具。在<a target="_blank" rel="noopener" href="https://developer.mozilla.org/files/4591/css-only_tooltips.html" title="This is a link to an unwritten page">单独页面</a>看这个例子。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>   </span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">  这是上面代码的实现<span class="tag">&lt;<span class="name">br</span> /&gt;</span></span><br><span class="line">  我们有一些</span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span> <span class="attr">data-descr</span>=<span class="string">&quot;collection of words and punctuation&quot;</span>&gt;</span>文字<span class="tag">&lt;/<span class="name">span</span>&gt;</span> 有一些</span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span> <span class="attr">data-descr</span>=<span class="string">&quot;small popups which also hide again&quot;</span>&gt;</span>提示<span class="tag">&lt;/<span class="name">span</span>&gt;</span>。<span class="tag">&lt;<span class="name">br</span> /&gt;</span></span><br><span class="line">  把鼠标放上去<span class="tag">&lt;<span class="name">span</span> <span class="attr">data-descr</span>=<span class="string">&quot;not to be taken literally&quot;</span>&gt;</span>看看<span class="tag">&lt;/<span class="name">span</span>&gt;</span>。</span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>CSSPlayCopy to Clipboard</p>
+<p>解释</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">span</span><span class="selector-attr">[data-descr]</span> &#123;   </span><br><span class="line">	<span class="attribute">position</span>: relative;   </span><br><span class="line">	<span class="attribute">text-decoration</span>: underline;   </span><br><span class="line">	<span class="attribute">color</span>: <span class="number">#00f</span>;   </span><br><span class="line">	<span class="attribute">cursor</span>: help; </span><br><span class="line">&#125;  </span><br><span class="line"></span><br><span class="line"><span class="selector-tag">span</span><span class="selector-attr">[data-descr]</span><span class="selector-pseudo">:hover</span><span class="selector-pseudo">::after</span> &#123;</span><br><span class="line">	<span class="attribute">content</span>: <span class="built_in">attr</span>(data-descr);   </span><br><span class="line">	<span class="attribute">position</span>: absolute;   </span><br><span class="line">	<span class="attribute">left</span>: <span class="number">0</span>;   </span><br><span class="line">	<span class="attribute">top</span>: <span class="number">24px</span>;   </span><br><span class="line">	<span class="attribute">min-width</span>: <span class="number">200px</span>;   </span><br><span class="line">	<span class="attribute">border</span>: <span class="number">1px</span> <span class="number">#aaaaaa</span> solid;   </span><br><span class="line">	<span class="attribute">border-radius</span>: <span class="number">10px</span>;   </span><br><span class="line">	<span class="attribute">background-color</span>: <span class="number">#ffffcc</span>;   </span><br><span class="line">	<span class="attribute">padding</span>: <span class="number">12px</span>;   </span><br><span class="line">	<span class="attribute">color</span>: <span class="number">#000000</span>;   </span><br><span class="line">	<span class="attribute">font-size</span>: <span class="number">14px</span>;   </span><br><span class="line">	<span class="attribute">z-index</span>: <span class="number">1</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="结果-3">结果</h4>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202403191648745.png" alt="image.png"></p>
+<h2 id="规范">规范</h2>
+<table>
+<thead>
+<tr>
+<th>Specification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://drafts.csswg.org/css-pseudo/#generated-content">CSS Pseudo-Elements Module Level 4  <br># generated-content</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="浏览器兼容性"><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/::after#%E6%B5%8F%E8%A7%88%E5%99%A8%E5%85%BC%E5%AE%B9%E6%80%A7">浏览器兼容性</a></h2>
+<p><a target="_blank" rel="noopener" href="https://github.com/mdn/browser-compat-data/issues/new?mdn-url=https%3A%2F%2Fdeveloper.mozilla.org%2Fzh-CN%2Fdocs%2FWeb%2FCSS%2F%3A%3Aafter&amp;metadata=%3C%21--+Do+not+make+changes+below+this+line+--%3E%0A%3Cdetails%3E%0A%3Csummary%3EMDN+page+report+details%3C%2Fsummary%3E%0A%0A*+Query%3A+%60css.selectors.after%60%0A*+Report+started%3A+2024-03-19T08%3A09%3A18.649Z%0A%0A%3C%2Fdetails%3E&amp;title=css.selectors.after+-+%3CSUMMARIZE+THE+PROBLEM%3E&amp;template=data-problem.yml" title="Report an issue with this compatibility data">Report problems with this compatibility data on GitHub</a></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>desktop</th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th>mobile</th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>Chrome</td>
+<td>Edge</td>
+<td>Firefox</td>
+<td>Opera</td>
+<td>Safari</td>
+<td>Chrome Android</td>
+<td>Firefox for Android</td>
+<td>Opera Android</td>
+<td>Safari on iOS</td>
+<td>Samsung Internet</td>
+<td>WebView Android</td>
+</tr>
+<tr>
+<td><code>::after</code></td>
+<td>1<br><br>more<br><br>Toggle history</td>
+<td>12<br><br>more<br><br>Toggle history</td>
+<td>1.5<br><br>footnotemore<br><br>Toggle history</td>
+<td>7<br><br>more<br><br>Toggle history</td>
+<td>4<br><br>more<br><br>Toggle history</td>
+<td>18<br><br>more<br><br>Toggle history</td>
+<td>4<br><br>footnotemore<br><br>Toggle history</td>
+<td>10.1<br><br>more<br><br>Toggle history</td>
+<td>3.2<br><br>more<br><br>Toggle history</td>
+<td>1.0<br><br>more<br><br>Toggle history</td>
+<td>37<br><br>more<br><br>Toggle history</td>
+</tr>
+<tr>
+<td>Animation and transition support</td>
+<td>26<br><br>Toggle history</td>
+<td>12<br><br>Toggle history</td>
+<td>4<br><br>Toggle history</td>
+<td>15<br><br>Toggle history</td>
+<td>No<br><br>Toggle history</td>
+<td>26<br><br>Toggle history</td>
+<td>4<br><br>Toggle history</td>
+<td>14<br><br>Toggle history</td>
+<td>No<br><br>Toggle history</td>
+<td>1.5<br><br>Toggle history</td>
+<td>4.4<br><br>Toggle history</td>
+</tr>
+</tbody>
+</table>
+<h3 id="Legend">Legend</h3>
+<p>Tip: you can click/tap on a cell for more information.</p>
+<p>Full support</p>
+<p>Full support</p>
+<p>No support</p>
+<p>No support</p>
+<p>See implementation notes.</p>
+<p>Uses a non-standard name.</p>
+<p>Has more compatibility info.</p>
+<h2 id="参见">参见</h2>
+<p><code>::before</code>  [[Content属性|content]]</p>
+<h3 id="高级用法">高级用法</h3>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/getComputedStyle">getComputedStyle</a></p>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/CSSStyleDeclaration/getPropertyValue">getPropertyValue</a></p>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/CSSStyleDeclaration/setProperty">setProperty</a></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%AD%A6%E4%B9%A0-%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80-CSS/" rel="tag"># 学习/编程语言/CSS</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2024/12/08/CS-Learning/CSS%E5%AD%A6%E4%B9%A0/backdrop/" rel="prev" title="">
+      <i class="fa fa-chevron-left"></i> 
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2024/12/08/CS-Learning/CSS%E5%AD%A6%E4%B9%A0/Content%E5%B1%9E%E6%80%A7/" rel="next" title="">
+       <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%9D%E8%AF%95%E4%B8%80%E4%B8%8B"><span class="nav-number">1.</span> <span class="nav-text">尝试一下</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number"></span> <span class="nav-text">::after (:after)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B"><span class="nav-number">2.</span> <span class="nav-text">示例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%80%E5%8D%95%E7%94%A8%E6%B3%95"><span class="nav-number">2.1.</span> <span class="nav-text">简单用法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%93%E6%9E%9C"><span class="nav-number">2.1.1.</span> <span class="nav-text">结果</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A3%85%E9%A5%B0%E7%94%A8%E6%B3%95"><span class="nav-number">2.2.</span> <span class="nav-text">装饰用法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%93%E6%9E%9C-2"><span class="nav-number">2.2.1.</span> <span class="nav-text">结果</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8F%90%E7%A4%BA%E7%94%A8%E6%B3%95"><span class="nav-number">2.3.</span> <span class="nav-text">提示用法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%93%E6%9E%9C-3"><span class="nav-number">2.3.1.</span> <span class="nav-text">结果</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%84%E8%8C%83"><span class="nav-number">3.</span> <span class="nav-text">规范</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E5%85%BC%E5%AE%B9%E6%80%A7"><span class="nav-number">4.</span> <span class="nav-text">浏览器兼容性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Legend"><span class="nav-number">4.1.</span> <span class="nav-text">Legend</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%A7%81"><span class="nav-number">5.</span> <span class="nav-text">参见</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%AB%98%E7%BA%A7%E7%94%A8%E6%B3%95"><span class="nav-number">5.1.</span> <span class="nav-text">高级用法</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">听</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">653</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">48</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">听</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

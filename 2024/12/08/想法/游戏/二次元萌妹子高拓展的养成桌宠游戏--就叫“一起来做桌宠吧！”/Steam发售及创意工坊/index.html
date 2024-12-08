@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.3.0">
+<link rel="stylesheet" href="/css/custom.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="1. 发布前准备   申请Steamworks开发者账户：访问 Steamworks 申请开发者账户，完成必要的开发者协议和费用支付。   创建Steam应用：在Steamworks中为游戏创建应用程序条目，配置名称、描述、分类、系统需求等信息。   游戏打包和发布设置：配置打包设置，确保游戏的所有依赖项和资源都包含在内。为后续更新发布准备Steam客户端集成（如API，成就系统，云存储等）。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="O3xiaoyuhe">
+<meta property="og:url" content="http://example.com/2024/12/08/%E6%83%B3%E6%B3%95/%E6%B8%B8%E6%88%8F/%E4%BA%8C%E6%AC%A1%E5%85%83%E8%90%8C%E5%A6%B9%E5%AD%90%E9%AB%98%E6%8B%93%E5%B1%95%E7%9A%84%E5%85%BB%E6%88%90%E6%A1%8C%E5%AE%A0%E6%B8%B8%E6%88%8F--%E5%B0%B1%E5%8F%AB%E2%80%9C%E4%B8%80%E8%B5%B7%E6%9D%A5%E5%81%9A%E6%A1%8C%E5%AE%A0%E5%90%A7%EF%BC%81%E2%80%9D/Steam%E5%8F%91%E5%94%AE%E5%8F%8A%E5%88%9B%E6%84%8F%E5%B7%A5%E5%9D%8A/index.html">
+<meta property="og:site_name" content="O3xiaoyuhe">
+<meta property="og:description" content="1. 发布前准备   申请Steamworks开发者账户：访问 Steamworks 申请开发者账户，完成必要的开发者协议和费用支付。   创建Steam应用：在Steamworks中为游戏创建应用程序条目，配置名称、描述、分类、系统需求等信息。   游戏打包和发布设置：配置打包设置，确保游戏的所有依赖项和资源都包含在内。为后续更新发布准备Steam客户端集成（如API，成就系统，云存储等）。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-12-08T12:29:01.399Z">
+<meta property="article:modified_time" content="2024-11-13T14:56:07.712Z">
+<meta property="article:author" content="听">
+<meta property="article:tag" content="想法&#x2F;游戏">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2024/12/08/%E6%83%B3%E6%B3%95/%E6%B8%B8%E6%88%8F/%E4%BA%8C%E6%AC%A1%E5%85%83%E8%90%8C%E5%A6%B9%E5%AD%90%E9%AB%98%E6%8B%93%E5%B1%95%E7%9A%84%E5%85%BB%E6%88%90%E6%A1%8C%E5%AE%A0%E6%B8%B8%E6%88%8F--%E5%B0%B1%E5%8F%AB%E2%80%9C%E4%B8%80%E8%B5%B7%E6%9D%A5%E5%81%9A%E6%A1%8C%E5%AE%A0%E5%90%A7%EF%BC%81%E2%80%9D/Steam%E5%8F%91%E5%94%AE%E5%8F%8A%E5%88%9B%E6%84%8F%E5%B7%A5%E5%9D%8A/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title> | O3xiaoyuhe</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">O3xiaoyuhe</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/12/08/%E6%83%B3%E6%B3%95/%E6%B8%B8%E6%88%8F/%E4%BA%8C%E6%AC%A1%E5%85%83%E8%90%8C%E5%A6%B9%E5%AD%90%E9%AB%98%E6%8B%93%E5%B1%95%E7%9A%84%E5%85%BB%E6%88%90%E6%A1%8C%E5%AE%A0%E6%B8%B8%E6%88%8F--%E5%B0%B1%E5%8F%AB%E2%80%9C%E4%B8%80%E8%B5%B7%E6%9D%A5%E5%81%9A%E6%A1%8C%E5%AE%A0%E5%90%A7%EF%BC%81%E2%80%9D/Steam%E5%8F%91%E5%94%AE%E5%8F%8A%E5%88%9B%E6%84%8F%E5%B7%A5%E5%9D%8A/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="听">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="O3xiaoyuhe">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-12-08 20:29:01" itemprop="dateCreated datePublished" datetime="2024-12-08T20:29:01+08:00">2024-12-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-11-13 22:56:07" itemprop="dateModified" datetime="2024-11-13T22:56:07+08:00">2024-11-13</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h3 id="1-发布前准备">1. 发布前准备</h3>
+<ul class="lvl-0">
+<li class="lvl-3">
+<p><strong>申请Steamworks开发者账户</strong>：访问 Steamworks 申请开发者账户，完成必要的开发者协议和费用支付。</p>
+</li>
+<li class="lvl-2">
+<p><strong>创建Steam应用</strong>：在Steamworks中为游戏创建应用程序条目，配置名称、描述、分类、系统需求等信息。</p>
+</li>
+<li class="lvl-2">
+<p><strong>游戏打包和发布设置</strong>：配置打包设置，确保游戏的所有依赖项和资源都包含在内。为后续更新发布准备Steam客户端集成（如API，成就系统，云存储等）。</p>
+</li>
+</ul>
+<h3 id="2-集成Steam创意工坊">2. 集成Steam创意工坊</h3>
+<h4 id="2-1-创意工坊支持功能设计">2.1 创意工坊支持功能设计</h4>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>皮肤、动作和语音包</strong>：支持用户上传自定义皮肤、动画和语音包，使用指定文件格式与命名规则，确保用户的自定义内容可以被游戏直接读取。</p>
+</li>
+<li class="lvl-2">
+<p><strong>3D场景与互动元素</strong>：开放特定的3D场景和物件模块，让用户能够创建并上传自定义的虚拟活动空间或场景扩展包。</p>
+</li>
+<li class="lvl-2">
+<p><strong>情绪和行为脚本</strong>：支持用户上传自定义脚本（例如简单的行为树或状态机脚本），以更改宠物的情绪与行为表现。</p>
+</li>
+</ul>
+<h4 id="2-2-技术实现">2.2 技术实现</h4>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>Steam创意工坊API集成</strong>：在项目中集成Steam创意工坊API，使用其内容创建和管理功能，支持用户上传和下载创意工坊内容。</p>
+<ul class="lvl-2">
+<li class="lvl-6">
+<p>使用Steamworks SDK的 <code>ISteamUGC</code> 接口，完成内容上传、更新、订阅等操作。</p>
+</li>
+<li class="lvl-6">
+<p>实现用户内容订阅后的自动下载功能，以便游戏启动时检测用户已订阅的创意工坊项目并加载到游戏中。</p>
+</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p><strong>本地内容管理与加载</strong>：配置自定义内容的存储路径，开发内容加载器，检测并读取创意工坊订阅内容。</p>
+<ul class="lvl-2">
+<li class="lvl-6">
+<p><strong>内容缓存</strong>：设计自定义内容的缓存机制，在首次加载后缓存本地资源，提升内容读取效率。</p>
+</li>
+<li class="lvl-6">
+<p><strong>版本管理</strong>：实现对创意工坊内容的版本管理，确保更新后可无缝读取最新内容。</p>
+</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p><strong>自定义内容兼容性检测</strong>：对自定义内容（尤其是脚本和模型文件）进行基本的格式与兼容性验证，防止用户上传的内容导致游戏崩溃。</p>
+</li>
+</ul>
+<h3 id="3-学习路线">3. 学习路线</h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>Steamworks SDK</strong>：学习Steamworks SDK文档，熟悉API和集成步骤，了解如何在游戏中实现创意工坊订阅、下载和内容管理。</p>
+</li>
+<li class="lvl-2">
+<p><strong>内容加载与管理</strong>：学习文件系统操作与内容加载机制（尤其是自定义内容的动态加载），掌握如何检测和读取用户自定义资源。</p>
+</li>
+<li class="lvl-2">
+<p><strong>文件格式与兼容性</strong>：掌握多种资源格式（3D模型、动画、音频等）的读取和解析，确保创意工坊内容能够被游戏顺利加载。</p>
+</li>
+<li class="lvl-2">
+<p><strong>创意工坊内容发布流程</strong>：学习创意工坊内容上传与管理步骤，理解Steam对创意工坊项目的内容审核和发布要求。</p>
+</li>
+</ul>
+<h3 id="4-项目发布与维护">4. 项目发布与维护</h3>
+<ol>
+<li class="lvl-3">
+<p><strong>测试和调试</strong>：在发布前，广泛测试创意工坊内容的订阅、加载、更新功能，确保游戏稳定性。</p>
+</li>
+<li class="lvl-3">
+<p><strong>发布支持文档</strong>：提供创意工坊使用指南，帮助玩家创建符合格式要求的内容，提供简单的开发教程。</p>
+</li>
+<li class="lvl-3">
+<p><strong>更新与维护</strong>：根据用户反馈，定期更新游戏，改进创意工坊支持和功能，提供兼容性更新和错误修复。</p>
+</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%83%B3%E6%B3%95-%E6%B8%B8%E6%88%8F/" rel="tag"># 想法/游戏</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2024/12/08/%E6%83%B3%E6%B3%95/%E6%B8%B8%E6%88%8F/%E4%BA%8C%E6%AC%A1%E5%85%83%E8%90%8C%E5%A6%B9%E5%AD%90%E9%AB%98%E6%8B%93%E5%B1%95%E7%9A%84%E5%85%BB%E6%88%90%E6%A1%8C%E5%AE%A0%E6%B8%B8%E6%88%8F--%E5%B0%B1%E5%8F%AB%E2%80%9C%E4%B8%80%E8%B5%B7%E6%9D%A5%E5%81%9A%E6%A1%8C%E5%AE%A0%E5%90%A7%EF%BC%81%E2%80%9D/%E4%BA%A4%E4%BA%92%E7%B3%BB%E7%BB%9F%E5%8F%8A%E6%8B%93%E5%B1%95%E6%94%AF%E6%8C%81/" rel="prev" title="">
+      <i class="fa fa-chevron-left"></i> 
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2024/12/08/%E6%83%B3%E6%B3%95/%E6%B8%B8%E6%88%8F/%E4%BA%8C%E6%AC%A1%E5%85%83%E8%90%8C%E5%A6%B9%E5%AD%90%E9%AB%98%E6%8B%93%E5%B1%95%E7%9A%84%E5%85%BB%E6%88%90%E6%A1%8C%E5%AE%A0%E6%B8%B8%E6%88%8F--%E5%B0%B1%E5%8F%AB%E2%80%9C%E4%B8%80%E8%B5%B7%E6%9D%A5%E5%81%9A%E6%A1%8C%E5%AE%A0%E5%90%A7%EF%BC%81%E2%80%9D/%E9%A1%B9%E7%9B%AE%E8%8D%89%E6%A1%88/" rel="next" title="">
+       <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%8F%91%E5%B8%83%E5%89%8D%E5%87%86%E5%A4%87"><span class="nav-number">1.</span> <span class="nav-text">1. 发布前准备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E9%9B%86%E6%88%90Steam%E5%88%9B%E6%84%8F%E5%B7%A5%E5%9D%8A"><span class="nav-number">2.</span> <span class="nav-text">2. 集成Steam创意工坊</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-%E5%88%9B%E6%84%8F%E5%B7%A5%E5%9D%8A%E6%94%AF%E6%8C%81%E5%8A%9F%E8%83%BD%E8%AE%BE%E8%AE%A1"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 创意工坊支持功能设计</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-%E6%8A%80%E6%9C%AF%E5%AE%9E%E7%8E%B0"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 技术实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF"><span class="nav-number">3.</span> <span class="nav-text">3. 学习路线</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E9%A1%B9%E7%9B%AE%E5%8F%91%E5%B8%83%E4%B8%8E%E7%BB%B4%E6%8A%A4"><span class="nav-number">4.</span> <span class="nav-text">4. 项目发布与维护</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">听</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">653</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">48</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">听</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

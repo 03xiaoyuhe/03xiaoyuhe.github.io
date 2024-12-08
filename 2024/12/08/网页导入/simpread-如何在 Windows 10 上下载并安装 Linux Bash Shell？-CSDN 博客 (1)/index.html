@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.3.0">
+<link rel="stylesheet" href="/css/custom.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="本文由 简悦 SimpRead 转码， 原文地址 blog.csdn.net  Bash is the command-line interface for Linux distributions like Ubuntu, CentOS, Debian, Mint, Kali, RedHat, Fedora, etc. Bash provides a lot of different types">
+<meta property="og:type" content="article">
+<meta property="og:title" content="O3xiaoyuhe">
+<meta property="og:url" content="http://example.com/2024/12/08/%E7%BD%91%E9%A1%B5%E5%AF%BC%E5%85%A5/simpread-%E5%A6%82%E4%BD%95%E5%9C%A8%20Windows%2010%20%E4%B8%8A%E4%B8%8B%E8%BD%BD%E5%B9%B6%E5%AE%89%E8%A3%85%20Linux%20Bash%20Shell%EF%BC%9F-CSDN%20%E5%8D%9A%E5%AE%A2%20(1)/index.html">
+<meta property="og:site_name" content="O3xiaoyuhe">
+<meta property="og:description" content="本文由 简悦 SimpRead 转码， 原文地址 blog.csdn.net  Bash is the command-line interface for Linux distributions like Ubuntu, CentOS, Debian, Mint, Kali, RedHat, Fedora, etc. Bash provides a lot of different types">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/18195570304a0a235651732110d9a224.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/adf1a6e32d48ecad30fa0a135fc68668.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/957eebf9521b2b6f53b1c1404c4d0f25.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/1e25b29385df74b2264f30efdd4affba.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/221b100d62ad31c5371ccc5ab9bcff24.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/4e8f2a0d8fc7237de6f8212ad934778d.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/0cd6e705d7bdce406eb7d1ee569cb5b5.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/a824ea234d89bf249a7f81175c9bf014.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/bf80892c09b5e9706030f3e684a136aa.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/5a50a566ea0eb63e19d549f5f66087fd.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/dfe409cba7bd833e89399b4c978a394d.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/60e7bf786529d386643e43ac1efb9fca.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/b116667d098b4ea4debf10c962d35488.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/ec16f8dd0a894b3202402950238cc37c.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/538d051049ac21c68d5a2d348264f25d.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/4d5969208053d643a68b3c9394086f4f.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/034f0a062b72849016c8ff2714163dcd.png">
+<meta property="article:published_time" content="2024-12-08T12:29:01.334Z">
+<meta property="article:modified_time" content="2024-11-13T10:45:27.909Z">
+<meta property="article:author" content="听">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/img_convert/18195570304a0a235651732110d9a224.png">
+
+<link rel="canonical" href="http://example.com/2024/12/08/%E7%BD%91%E9%A1%B5%E5%AF%BC%E5%85%A5/simpread-%E5%A6%82%E4%BD%95%E5%9C%A8%20Windows%2010%20%E4%B8%8A%E4%B8%8B%E8%BD%BD%E5%B9%B6%E5%AE%89%E8%A3%85%20Linux%20Bash%20Shell%EF%BC%9F-CSDN%20%E5%8D%9A%E5%AE%A2%20(1)/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title> | O3xiaoyuhe</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">O3xiaoyuhe</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/12/08/%E7%BD%91%E9%A1%B5%E5%AF%BC%E5%85%A5/simpread-%E5%A6%82%E4%BD%95%E5%9C%A8%20Windows%2010%20%E4%B8%8A%E4%B8%8B%E8%BD%BD%E5%B9%B6%E5%AE%89%E8%A3%85%20Linux%20Bash%20Shell%EF%BC%9F-CSDN%20%E5%8D%9A%E5%AE%A2%20(1)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="听">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="O3xiaoyuhe">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-12-08 20:29:01" itemprop="dateCreated datePublished" datetime="2024-12-08T20:29:01+08:00">2024-12-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-11-13 18:45:27" itemprop="dateModified" datetime="2024-11-13T18:45:27+08:00">2024-11-13</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <blockquote>
+<p>本文由 <a target="_blank" rel="noopener" href="http://ksria.com/simpread/">简悦 SimpRead</a> 转码， 原文地址 <a target="_blank" rel="noopener" href="https://blog.csdn.net/cunjiu9486/article/details/109077601">blog.csdn.net</a></p>
+</blockquote>
+<p>Bash is the command-line interface for Linux distributions like <a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=Ubuntu&amp;spm=1001.2101.3001.7020">Ubuntu</a>, CentOS, Debian, Mint, Kali, RedHat, Fedora, etc. Bash provides a lot of different types of commands and tools to manage a Linux system. In this tutorial, we will learn how to install Bash on a Windows operating system like Windows 10.</p>
+<p>Bash 是 Linux 发行版的命令行界面，如 Ubuntu，CentOS，<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=Debian&amp;spm=1001.2101.3001.7020">Debian</a>，Mint，Kali，RedHat，Fedora 等。Bash 提供了许多不同类型的命令和工具来管理 Linux 系统。 在本教程中，我们将学习如何在 Windows 10 等 Windows 操作系统上安装 Bash。</p>
+<h3 id="什么是-Bash？-What-Is-Bash">什么是 Bash？ (What Is  Bash?)</h3>
+<p>Bash is the most popular shell or command line used in Linux distributions. Bash alternatives are Sh, KornShell, CShell, etc. Bash is the short form of the GNU Bourne-Again Shell and created in 1989 by the GNU supporter Free Software Foundation (FSF).</p>
+<p>Bash 是 Linux 发行版中最流行的 shell 或命令行。 Bash 的替代品包括 Sh，KornShell，CShell 等。Bash 是 GNU Bourne-Again Shell 的简称，由 GNU 支持者自由软件基金会 (FSF) 于 1989 年创建。</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/18195570304a0a235651732110d9a224.png" alt=""> What Is  Bash? 什么是 Bash？</p>
+<h3 id="Windows-Linux-子系统-WSL-Windows-Subsystem-for-Linux-WSL">Windows Linux 子系统 (WSL) (Windows Subsystem for Linux (WSL))</h3>
+<p>Containers are a new era of Virtualization where provides less resource usage and less complexity. Containers provide isolated environments for applications, processes, files, etc like a virtual system. Docker is the most known and popular containerization system. Windows also started full and complete container usage on Windows for Linux. It is called Windows Subsystem for Linux (WSL). This means the Linux operating system calls and standards are provided as a container on a Windows operating system. WSL is currently supported by the modern Windows operating systems like Windows 10 and Windows Server 2016 and 2019.</p>
+<p>容器是虚拟化的新纪元，在此时代，资源使用量减少，复杂性降低。 容器为应用程序，进程，文件等 (如虚拟系统) 提供隔离的环境。 Docker 是最著名和最受欢迎的容器化系统。 Windows 还开始在 Windows for Linux 上完全使用和完全使用容器。 它称为 Linux 的 Windows 子系统 (WSL)。 这意味着 Linux 操作系统调用和标准作为 Windows 操作系统上的容器提供。 当前，现代 Windows 操作系统(例如 Windows 10 和 Windows Server 2016 和 2019) 支持 WSL。</p>
+<h3 id="Bash-安装-Bash-Installation">Bash 安装 (Bash Installation)</h3>
+<p>In order to install Bash on Windows, we will enable the WSL and download a Linux container image like Ubuntu, SUSE, etc from Microsoft store. Then we will run this container from the Windows command line MS-DOS or PowerShell.</p>
+<p>为了在 Windows 上安装 Bash，我们将启用 WSL 并从 Microsoft 商店下载 Linux 容器映像，例如 Ubuntu，SUSE 等。 然后，我们将从 Windows 命令行 MS-DOS 或 PowerShell 运行此容器。</p>
+<h4 id="为-Linux-启用-Windows-子系统-Enable-Windows-Subsystem-For-Linux">为 Linux 启用 Windows 子系统 (Enable Windows Subsystem For Linux)</h4>
+<p>First, we will enable or install Windows Subsystem For Linux (WSL) with the PowerShell.  We need <code>Administrative</code> features enabled by running <code>PowerShell</code> from <code>Start Menu</code> where we will right-click and then select <code>Run as administrator</code>.</p>
+<p>首先，我们将使用 PowerShell 启用或安装 Linux 的 Windows 子系统 (WSL)。 我们需要通过从<code>Start Menu</code>运行<code>PowerShell</code>来启用<code>Administrative</code>功能，在该<code>Start Menu</code>上单击鼠标右键，然后选择<code>Run as administrator</code> 。</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/adf1a6e32d48ecad30fa0a135fc68668.png" alt=""> Enable Windows Subsystem For Linux 为 Linux 启用 Windows 子系统</p>
+<p>We will run the following <code>Enable-WindowsOptionalFeature</code>command in order to install and enable <code>Microsoft-Windows-Subsystem-Linux</code> feature.</p>
+<p>我们将运行以下<code>Enable-WindowsOptionalFeature</code>命令以安装并启用<code>Microsoft-Windows-Subsystem-Linux</code>功能。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ whoami</span><br><span class="line"> </span><br><span class="line">$ ping poftut.com</span><br><span class="line"> </span><br><span class="line">$ uname -a</span><br><span class="line"> </span><br><span class="line">$ cat /etc/lsb-release</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/957eebf9521b2b6f53b1c1404c4d0f25.png" alt=""> Enable Microsoft-Windows-Subsystem-Linux 启用 Microsoft-Windows - 子系统 - Linux</p>
+<p>We will be asked is we want to restart the computer after the installation is complete. We will answer <code>Y</code>.</p>
+<p>系统将询问我们是否要在安装完成后重新启动计算机。 我们将回答<code>Y</code></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/1e25b29385df74b2264f30efdd4affba.png" alt=""> Restart The Computer 重新启动电脑</p>
+<p>This will restart the system automatically in order to start the Windows with the WSL enabled.</p>
+<p>为了启动启用了 WSL 的 Windows，这将自动重新启动系统。</p>
+<h4 id="从-Windows-Store-下载-Linux-映像-发行版-Download-Linux-Image-Distributions-From-Windows-Store">从 Windows Store 下载 Linux 映像 / 发行版 (Download Linux Image/Distributions From Windows Store)</h4>
+<p>In order to run bash, we have to download a Linux image/distributions which will provide the bash shell. Linux distributions can be downloaded from the <code>Microsoft Store</code> like below. We can access Microsoft Store from start menu with <code>Microsoft Store</code> keyword.</p>
+<p>为了运行 bash，我们必须下载将提供 bash shellLinux 映像 / 发行版。 可以从<code>Microsoft Store</code>下载 Linux 发行版，如下所示。 我们可以使用<code>Microsoft Store</code>关键字从开始菜单访问 Microsoft Store。</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/221b100d62ad31c5371ccc5ab9bcff24.png" alt=""> Download Linux Image/Distributions From Windows Store 从 Windows Store 下载 Linux 映像 / 发行版</p>
+<p>We will write <code>linux</code> to the search box and search. Alternatively, if we are looking for a specific Linux</p>
+<p>我们将<code>linux</code>写入搜索框并进行搜索。 或者，如果我们正在寻找特定 Linux</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/4e8f2a0d8fc7237de6f8212ad934778d.png" alt=""> Search Linux Images 搜索 Linux 映像</p>
+<p>The search results for the Linux container will be listed below. We can see that Linux distributions like <a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=Kali&amp;spm=1001.2101.3001.7020">Kali</a>, Ubuntu, Debian, Suse, etc. The following information also provided with the search results.</p>
+<p>Linux 容器的搜索结果将在下面列出。 我们可以看到 Linux 发行版，例如 Kali，Ubuntu，Debian，Suse 等。以下信息也随搜索结果提供。</p>
+<ul class="lvl-0">
+<li class="lvl-4">
+<p><code>Popularity</code> provides the count of the rating provided the given Linux distribution image.</p>
+<p><code>Popularity</code>提供了给定 Linux 发行映像所提供的等级计数。</p>
+</li>
+<li class="lvl-4">
+<p><code>Rating</code> is the provided points or starts for the given Linux distribution.</p>
+<p><code>Rating</code>是给定 Linux 发行版提供的分数或起点。</p>
+</li>
+<li class="lvl-4">
+<p><code>Supported Systems</code> shows which environments can run given Linux image like Computer, Phone, etc.</p>
+<p><code>Supported Systems</code>显示了可以在给定 Linux 映像 (例如计算机，电话等) 下运行的环境。</p>
+</li>
+<li class="lvl-4">
+<p><code>Price</code> is generally zero but used to show the price of the given Linux image.</p>
+<p><code>Price</code>通常为零，但用于显示给定 Linux 映像的价格。</p>
+</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/0cd6e705d7bdce406eb7d1ee569cb5b5.png" alt=""> WSL Linux Images List WSL Linux 映像列表</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/a824ea234d89bf249a7f81175c9bf014.png" alt=""> WSL Ubuntu Image WSL Ubuntu 映像</p>
+<p>We will select the  Linux distribution like Kali, Ubuntu, Debian, SUSE like below just click them. In this example, we will select the Ubuntu image with the latest version. Ubuntu 18.04 LTS can be downloaded for Lon Term Support.</p>
+<p>我们将选择如下所示 Linux 发行版，如 Kali，Ubuntu，Debian，SUSE，如下所示。 在此示例中，我们将选择最新版本的 Ubuntu 映像。 可以下载 Ubuntu 18.04 LTS 以获得长期支持。</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/bf80892c09b5e9706030f3e684a136aa.png" alt=""> WSL Ubuntu Image Download WSL Ubuntu 映像下载</p>
+<p>During the download, the download status will be shown in the header like below. We can see that the Ubuntu image is about 221 MB and downloaded very fast.</p>
+<p>在下载过程中，下载状态将显示在下面的标题中。 我们可以看到 Ubuntu 映像约为 221 MB，并且下载速度非常快。</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/5a50a566ea0eb63e19d549f5f66087fd.png" alt=""> WSL Ubuntu Image Download WSL Ubuntu 映像下载</p>
+<h3 id="从-Microsoft-Store-启动-Bash-Launch-Bash-From-Microsoft-Store">从 Microsoft Store 启动 Bash(Launch Bash From Microsoft Store)</h3>
+<p>When the download is complete we can launch Ubuntu container from the Microsoft Store from the <code>Launch</code> button like below.</p>
+<p>下载完成后，我们可以通过如下所示的 “ <code>Launch</code>按钮从 Microsoft Store 启动 Ubuntu 容器。</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/dfe409cba7bd833e89399b4c978a394d.png" alt=""> Launch Ubuntu Container On Windows 在 Windows 上启动 Ubuntu 容器</p>
+<p>We will see the following bash shell where it is initialized for the first run. As it says it may take a few minutes to see the shell.</p>
+<p>我们将看到以下 bash shell，其中该 bash shell 在首次运行时被初始化。 就像说的那样，可能需要几分钟才能看到外壳。</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/60e7bf786529d386643e43ac1efb9fca.png" alt=""> Ubuntu Shell Ubuntu Shell</p>
+<p>Before starting to use bash we will be asked some basic questions like the username and password which will set. In this example, we set the username <code>ismail</code>.  The password is not shown for security reasons. We see that the hostname part of the bash shell is the name of the computer which is <code>DESKTOP-HQVAMA3</code> and the user name is <code>ismail</code>.</p>
+<p>在开始使用 bash 之前，我们将被询问一些基本问题，例如将设置的用户名和密码。 在此示例中，我们将用户名设置为<code>ismail</code> 。 出于安全原因，未显示密码。 我们看到 bash shell 的主机名部分是计算机的名称，它是<code>DESKTOP-HQVAMA3</code> ，用户名是<code>ismail</code> 。</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/b116667d098b4ea4debf10c962d35488.png" alt=""> Linux Bash Shell On Windows 10 Windows 10 上 Linux Bash Shell</p>
+<h3 id="从-MS-DOS-和-PowerShell-启动-Bash-Start-Bash-From-MS-DOS-and-PowerShell">从 MS-DOS 和 PowerShell 启动 Bash (Start Bash From MS-DOS and PowerShell)</h3>
+<p>We can also start the Bash from the command line. MS-DOS or PowerShell can be used to start bash shell with the <code>bash</code> command like below.</p>
+<p>我们也可以从命令行启动 Bash。 可以使用 MS-DOS 或 PowerShell 通过如下所示的<code>bash</code>命令启动 bash 外壳。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ cd /mnt</span><br><span class="line"> </span><br><span class="line">$ cd c</span><br></pre></td></tr></table></figure>
+<p>OR</p>
+<p>要么</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PS&gt; bash</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/ec16f8dd0a894b3202402950238cc37c.png" alt=""> Start Bash From MS-DOS 从 MS-DOS 启动 Bash</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/538d051049ac21c68d5a2d348264f25d.png" alt=""> Start Bash From PowerShell 从 PowerShell 启动 Bash</p>
+<h3 id="在-Windows-上运行-Bash-命令-Run-Bash-Commands-On-Windows">在 Windows 上运行 Bash 命令 (Run Bash Commands On Windows)</h3>
+<p>We can run any Linux bash command on Windows like below. In this part, we will run commands like <code>ping</code>, <code>uname</code> , <code>lsb-release</code>.</p>
+<p>我们可以在 Windows 上运行任何 Linux bash 命令，如下所示。 在这一部分中，我们将运行<code>ping</code> ， <code>uname</code> ， <code>lsb-release</code>类的命令。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ whoami</span><br><span class="line"> </span><br><span class="line">$ ping poftut.com</span><br><span class="line"> </span><br><span class="line">$ uname -a</span><br><span class="line"> </span><br><span class="line">$ cat /etc/lsb-release</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/4d5969208053d643a68b3c9394086f4f.png" alt=""> Run Bash Commands On Windows 在 Windows 上运行 Bash 命令</p>
+<h3 id="访问-Windows-驱动器-C：-，D：-Access-Windows-Drives-C-D">访问 Windows 驱动器 C：\，D：(Access Windows Drives C:\ , D:)</h3>
+<p>After starting the bash on Windows we may need to access Windows partitions like C:, D:, and the users <code>Documents and Settings</code> folders. These partitions and folders are mounted in <code>/mnt</code> directory with their partition names. In this following example, we see the folders are listed in the <code>C:\</code> partition.</p>
+<p>在 Windows 上启动 bash 之后，我们可能需要访问 Windows 分区，例如 C：\，D：\，以及用户的<code>Documents and Settings</code>文件夹。 这些分区和文件夹及其分区名称挂载在<code>/mnt</code>目录中。 在下面的示例中，我们看到文件夹在<code>C:\</code>分区中列出。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ cd /mnt</span><br><span class="line"> </span><br><span class="line">$ cd c</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/034f0a062b72849016c8ff2714163dcd.png" alt=""> Access Windows Drives C:\ , D:\ 访问 Windows 驱动器 C：\，D：\</p>
+<p><a target="_blank" rel="noopener" href="https://www.poftut.com/check-file-exists-linux-bash/">LEARN MORE  How To Check If File Exists In Linux Bash?</a></p>
+<p>了解更多如何检查 Linux Bash 中是否存在文件？</p>
+<blockquote>
+<p>翻译自: <a target="_blank" rel="noopener" href="https://www.poftut.com/how-to-download-and-install-linux-bash-shell-on-windows-10/">https://www.poftut.com/how-to-download-and-install-linux-bash-shell-on-windows-10/</a></p>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2024/12/08/%E7%BD%91%E9%A1%B5%E5%AF%BC%E5%85%A5/simpread-%E5%A6%82%E4%BD%95%E5%9C%A8%20Windows%2010%20%E4%B8%8A%E4%B8%8B%E8%BD%BD%E5%B9%B6%E5%AE%89%E8%A3%85%20Linux%20Bash%20Shell%EF%BC%9F-CSDN%20%E5%8D%9A%E5%AE%A2/" rel="prev" title="">
+      <i class="fa fa-chevron-left"></i> 
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2024/12/08/%E7%BD%91%E9%A1%B5%E5%AF%BC%E5%85%A5/simpread-VSCode(Visual%20Studio%20Code)%20%E6%89%A9%E5%B1%95%E5%8F%8A%E7%BC%93%E5%AD%98%E5%8D%A0%E7%94%A8%20C%20%E7%9B%98%E7%A9%BA%E9%97%B4%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3_visual%20studio%20%E5%8D%A0%E7%94%A8%20c%20%E7%9B%98%20-%20CSDN%20%E5%8D%9A%E5%AE%A2/" rel="next" title="">
+       <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF-Bash%EF%BC%9F-What-Is-Bash"><span class="nav-number">1.</span> <span class="nav-text">什么是 Bash？ (What Is  Bash?)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Windows-Linux-%E5%AD%90%E7%B3%BB%E7%BB%9F-WSL-Windows-Subsystem-for-Linux-WSL"><span class="nav-number">2.</span> <span class="nav-text">Windows Linux 子系统 (WSL) (Windows Subsystem for Linux (WSL))</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Bash-%E5%AE%89%E8%A3%85-Bash-Installation"><span class="nav-number">3.</span> <span class="nav-text">Bash 安装 (Bash Installation)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%BA-Linux-%E5%90%AF%E7%94%A8-Windows-%E5%AD%90%E7%B3%BB%E7%BB%9F-Enable-Windows-Subsystem-For-Linux"><span class="nav-number">3.1.</span> <span class="nav-text">为 Linux 启用 Windows 子系统 (Enable Windows Subsystem For Linux)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%8E-Windows-Store-%E4%B8%8B%E8%BD%BD-Linux-%E6%98%A0%E5%83%8F-%E5%8F%91%E8%A1%8C%E7%89%88-Download-Linux-Image-Distributions-From-Windows-Store"><span class="nav-number">3.2.</span> <span class="nav-text">从 Windows Store 下载 Linux 映像 &#x2F; 发行版 (Download Linux Image&#x2F;Distributions From Windows Store)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%8E-Microsoft-Store-%E5%90%AF%E5%8A%A8-Bash-Launch-Bash-From-Microsoft-Store"><span class="nav-number">4.</span> <span class="nav-text">从 Microsoft Store 启动 Bash(Launch Bash From Microsoft Store)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%8E-MS-DOS-%E5%92%8C-PowerShell-%E5%90%AF%E5%8A%A8-Bash-Start-Bash-From-MS-DOS-and-PowerShell"><span class="nav-number">5.</span> <span class="nav-text">从 MS-DOS 和 PowerShell 启动 Bash (Start Bash From MS-DOS and PowerShell)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%A8-Windows-%E4%B8%8A%E8%BF%90%E8%A1%8C-Bash-%E5%91%BD%E4%BB%A4-Run-Bash-Commands-On-Windows"><span class="nav-number">6.</span> <span class="nav-text">在 Windows 上运行 Bash 命令 (Run Bash Commands On Windows)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BF%E9%97%AE-Windows-%E9%A9%B1%E5%8A%A8%E5%99%A8-C%EF%BC%9A-%EF%BC%8CD%EF%BC%9A-Access-Windows-Drives-C-D"><span class="nav-number">7.</span> <span class="nav-text">访问 Windows 驱动器 C：\，D：(Access Windows Drives C:\ , D:)</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">听</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">653</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">48</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">听</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

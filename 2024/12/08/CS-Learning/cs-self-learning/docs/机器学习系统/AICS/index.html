@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.3.0">
+<link rel="stylesheet" href="/css/custom.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="智能计算系统 课程简介   所属大学：中国科学院大学   先修要求：体系结构，深度学习   编程语言：Python, C++, BCL   课程难度：🌟🌟🌟   预计学时：100 小时+   智能计算系统是智能的核心物质载体，每年全球要制造数以十亿计的智能计算系统（包括智能手机、智能服务器、智能可穿戴设备等），需要大量的智能计算系统的设计者和开发者。智能计算系统人才的培养直接关系到我国智能产">
+<meta property="og:type" content="article">
+<meta property="og:title" content="O3xiaoyuhe">
+<meta property="og:url" content="http://example.com/2024/12/08/CS-Learning/cs-self-learning/docs/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%B3%BB%E7%BB%9F/AICS/index.html">
+<meta property="og:site_name" content="O3xiaoyuhe">
+<meta property="og:description" content="智能计算系统 课程简介   所属大学：中国科学院大学   先修要求：体系结构，深度学习   编程语言：Python, C++, BCL   课程难度：🌟🌟🌟   预计学时：100 小时+   智能计算系统是智能的核心物质载体，每年全球要制造数以十亿计的智能计算系统（包括智能手机、智能服务器、智能可穿戴设备等），需要大量的智能计算系统的设计者和开发者。智能计算系统人才的培养直接关系到我国智能产">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-12-08T12:29:05.762Z">
+<meta property="article:modified_time" content="2024-11-13T14:50:48.247Z">
+<meta property="article:author" content="听">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2024/12/08/CS-Learning/cs-self-learning/docs/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%B3%BB%E7%BB%9F/AICS/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title> | O3xiaoyuhe</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">O3xiaoyuhe</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/12/08/CS-Learning/cs-self-learning/docs/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%B3%BB%E7%BB%9F/AICS/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="听">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="O3xiaoyuhe">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-12-08 20:29:05" itemprop="dateCreated datePublished" datetime="2024-12-08T20:29:05+08:00">2024-12-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-11-13 22:50:48" itemprop="dateModified" datetime="2024-11-13T22:50:48+08:00">2024-11-13</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1>智能计算系统</h1>
+<h2 id="课程简介">课程简介</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>所属大学：中国科学院大学</p>
+</li>
+<li class="lvl-2">
+<p>先修要求：体系结构，深度学习</p>
+</li>
+<li class="lvl-2">
+<p>编程语言：Python, C++, BCL</p>
+</li>
+<li class="lvl-2">
+<p>课程难度：🌟🌟🌟</p>
+</li>
+<li class="lvl-2">
+<p>预计学时：100 小时+</p>
+</li>
+</ul>
+<p>智能计算系统是智能的核心物质载体，每年全球要制造数以十亿计的智能计算系统（包括智能手机、智能服务器、智能可穿戴设备等），需要大量的智能计算系统的设计者和开发者。智能计算系统人才的培养直接关系到我国智能产业的核心竞争力。因此，对智能计算系统的认识和理解是智能时代计算机类专业学生培养方案中不可或缺的重要组成部分，是计算机类专业学生的核心竞争力。</p>
+<p>国内的陈云霁老师开的课，在其他若干个大学也都有开对应的课程。这门课用一个个实验带大家以一个完整的视野理解人工智能的技术栈。从上层的深度学习框架，到用底层语言编写算子，再到硬件中 MLU 的设计，让大家形成系统思维，体会自上而下，融会贯通的乐趣。</p>
+<p>我做了其中的 2,3,4,5 这几个实验，其中综合实验和硬件实验没有做，如果有做了的同学欢迎大家补上你的链接。</p>
+<p>个人体会是第三章实现算子的实验让我对深度学习框架的了解加深了很多。第五章的实验BCL语言编写算子如果了解 CUDA 的话会感觉很熟悉。</p>
+<p>推荐去买一本教材看一看，会让我们理解整体的技术栈。熟悉深度学习的同学可以直接从第五章开始看，看看深度学习框架底层到底是什么样的。</p>
+<p>我因为这门课的启发，参考一本书（书名在仓库中）写了一个简易的<a target="_blank" rel="noopener" href="https://github.com/ysj1173886760/PyToy">深度学习框架</a>。在这个框架里可以看到智能计算系统实验中的一些影子。同时受到 build-your-own-x 系列的启发，我也打算写一下教程，教大家写一个自己的深度学习框架。代码用 Python 写的，代码量较少，适合有一定基础的同学阅读。之后打算添加更多的算子，有望实现一个较为全面的框架，并希望移植到 C++ 中，以兼顾性能与开发效率。</p>
+<h2 id="课程资源">课程资源</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>课程网站：<a target="_blank" rel="noopener" href="https://novel.ict.ac.cn/aics/">官网</a></p>
+</li>
+<li class="lvl-2">
+<p>课程视频：<a target="_blank" rel="noopener" href="https://space.bilibili.com/494117284">bilibili</a></p>
+</li>
+<li class="lvl-2">
+<p>课程教材：智能计算系统（陈云霁）</p>
+</li>
+<li class="lvl-2">
+<p>课程作业：6 个实验(包括编写卷积算子，为 TensorFlow 添加算子，用 BCL 编写算子并集成到 TensorFlow 中等)(具体内容在官网可以找到)</p>
+</li>
+<li class="lvl-2">
+<p>实验手册：<a target="_blank" rel="noopener" href="https://forum.cambricon.com/index.php?m=content&amp;c=index&amp;a=show&amp;catid=155&amp;id=708">实验 2.0 指导手册</a></p>
+</li>
+<li class="lvl-2">
+<p>学习笔记：<a target="_blank" rel="noopener" href="https://sanzo.top/categories/AI-Computing-Systems/">https://sanzo.top/categories/AI-Computing-Systems/</a>，参考实验手册总结的笔记</p>
+</li>
+</ul>
+<h2 id="资源汇总">资源汇总</h2>
+<p>@ysj1173886760 在学习这门课中用到的所有资源和作业实现都汇总在 <a target="_blank" rel="noopener" href="https://github.com/ysj1173886760/Learning/tree/master/ai-system">ysj1173886760/Learning: ai-system - GitHub</a> 中。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2024/12/08/CS-Learning/cs-self-learning/docs/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%B3%BB%E7%BB%9F/CMU10-414.en/" rel="prev" title="">
+      <i class="fa fa-chevron-left"></i> 
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2024/12/08/CS-Learning/cs-self-learning/docs/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%B3%BB%E7%BB%9F/CMU10-414/" rel="next" title="">
+       <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">智能计算系统</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%BE%E7%A8%8B%E7%AE%80%E4%BB%8B"><span class="nav-number">1.1.</span> <span class="nav-text">课程简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%BE%E7%A8%8B%E8%B5%84%E6%BA%90"><span class="nav-number">1.2.</span> <span class="nav-text">课程资源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B5%84%E6%BA%90%E6%B1%87%E6%80%BB"><span class="nav-number">1.3.</span> <span class="nav-text">资源汇总</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">听</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">653</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">48</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">听</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

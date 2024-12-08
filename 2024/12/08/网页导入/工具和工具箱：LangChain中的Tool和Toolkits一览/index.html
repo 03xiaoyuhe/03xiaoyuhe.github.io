@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.3.0">
+<link rel="stylesheet" href="/css/custom.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="你好，我是黄佳，欢迎来到 LangChain 实战课！ 这节课我们来一起看一看 LangChain 中各种强大的工具（Tool），以及如何使用它们。 在之前的几节课中，我们深入讲解了 LangChain 中的代理。未来的 AI Agent，应该就是以 LLM 为核心控制器的代理系统。而工具，则是代理身上延展出的三头六臂，是代理的武器，代理通过工具来与世界进行交互，控制并改造世界。 工具是代理的武器">
+<meta property="og:type" content="article">
+<meta property="og:title" content="O3xiaoyuhe">
+<meta property="og:url" content="http://example.com/2024/12/08/%E7%BD%91%E9%A1%B5%E5%AF%BC%E5%85%A5/%E5%B7%A5%E5%85%B7%E5%92%8C%E5%B7%A5%E5%85%B7%E7%AE%B1%EF%BC%9ALangChain%E4%B8%AD%E7%9A%84Tool%E5%92%8CToolkits%E4%B8%80%E8%A7%88/index.html">
+<meta property="og:site_name" content="O3xiaoyuhe">
+<meta property="og:description" content="你好，我是黄佳，欢迎来到 LangChain 实战课！ 这节课我们来一起看一看 LangChain 中各种强大的工具（Tool），以及如何使用它们。 在之前的几节课中，我们深入讲解了 LangChain 中的代理。未来的 AI Agent，应该就是以 LLM 为核心控制器的代理系统。而工具，则是代理身上延展出的三头六臂，是代理的武器，代理通过工具来与世界进行交互，控制并改造世界。 工具是代理的武器">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://static001.geekbang.org/resource/image/eb/b6/ebcyyaccd79133c03f417c45c225d1b6.png?wh=1456x636">
+<meta property="og:image" content="https://static001.geekbang.org/resource/image/e2/5b/e2f8a0318b4f1da7f0e756e87761d95b.jpg?wh=1459x2148">
+<meta property="og:image" content="https://static001.geekbang.org/resource/image/6e/57/6e1195d608d47fbe5b67131c1fe32357.jpg?wh=1041x1519">
+<meta property="og:image" content="https://static001.geekbang.org/resource/image/c8/27/c87be0638409b278c2657a66f45aa927.jpg?wh=1223x1314">
+<meta property="og:image" content="https://static001.geekbang.org/resource/image/8a/21/8a3c72f48c231bd2d886b4d99e9f3321.jpg?wh=1170x854">
+<meta property="og:image" content="https://static001.geekbang.org/resource/image/38/ab/3822d1effb90c855c133acdecea2eaab.jpg?wh=1930x711">
+<meta property="og:image" content="https://static001.geekbang.org/resource/image/96/f3/96a788e8a1f7d4f32e3d23eb94cce8f3.jpg?wh=1688x1172">
+<meta property="og:image" content="https://static001.geekbang.org/resource/image/0f/29/0f746cfa48ba60c0fe98e657cb3yyb29.jpg?wh=1925x810">
+<meta property="og:image" content="https://static001.geekbang.org/resource/image/19/2f/195ec3590bb075ecff42911f13d2f22f.jpg?wh=823x1214">
+<meta property="og:image" content="https://static001.geekbang.org/resource/image/f6/b0/f6829a70c320161a1002ee3380c5b1b0.jpg?wh=506x509">
+<meta property="og:image" content="https://static001.geekbang.org/resource/image/54/78/541c541b377063b49d74ddc53f41d578.jpg?wh=304x55">
+<meta property="og:image" content="https://static001.geekbang.org/resource/image/f2/b4/f23144b35b44fef8d900d0d50c9da6b4.jpg?wh=147x52">
+<meta property="og:image" content="https://static001.geekbang.org/resource/image/0e/37/0e2a7df295caa50512552e05ea3def37.jpg?wh=562x146">
+<meta property="og:image" content="https://static001.geekbang.org/resource/image/32/51/3208ff117674ebf3f08eac6118393e51.jpg?wh=488x664">
+<meta property="og:image" content="https://static001.geekbang.org/resource/image/0c/30/0cc81560c4bc412104b5144a474c5530.jpg?wh=546x119">
+<meta property="og:image" content="https://static001.geekbang.org/resource/image/45/cf/455f8cb0138cd3860869e5eee74f8ecf.jpg?wh=1296x605">
+<meta property="og:image" content="https://static001.geekbang.org/resource/image/c9/e4/c95a8e75cdc78a7da4960c8f2yyf8be4.jpg?wh=1291x159">
+<meta property="og:image" content="https://static001.geekbang.org/resource/image/1b/2e/1bc0dcd6e05133f934ed926cdcc9eb2e.jpg?wh=1898x851">
+<meta property="og:image" content="https://static001.geekbang.org/resource/image/e0/ea/e037cf6460826e189811ea2af4bb96ea.jpg?wh=1281x747">
+<meta property="article:published_time" content="2024-12-08T12:29:01.365Z">
+<meta property="article:modified_time" content="2024-11-18T11:26:50.045Z">
+<meta property="article:author" content="听">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://static001.geekbang.org/resource/image/eb/b6/ebcyyaccd79133c03f417c45c225d1b6.png?wh=1456x636">
+
+<link rel="canonical" href="http://example.com/2024/12/08/%E7%BD%91%E9%A1%B5%E5%AF%BC%E5%85%A5/%E5%B7%A5%E5%85%B7%E5%92%8C%E5%B7%A5%E5%85%B7%E7%AE%B1%EF%BC%9ALangChain%E4%B8%AD%E7%9A%84Tool%E5%92%8CToolkits%E4%B8%80%E8%A7%88/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title> | O3xiaoyuhe</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">O3xiaoyuhe</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/12/08/%E7%BD%91%E9%A1%B5%E5%AF%BC%E5%85%A5/%E5%B7%A5%E5%85%B7%E5%92%8C%E5%B7%A5%E5%85%B7%E7%AE%B1%EF%BC%9ALangChain%E4%B8%AD%E7%9A%84Tool%E5%92%8CToolkits%E4%B8%80%E8%A7%88/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="听">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="O3xiaoyuhe">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-12-08 20:29:01" itemprop="dateCreated datePublished" datetime="2024-12-08T20:29:01+08:00">2024-12-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-11-18 19:26:50" itemprop="dateModified" datetime="2024-11-18T19:26:50+08:00">2024-11-18</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>你好，我是黄佳，欢迎来到 LangChain 实战课！</p>
+<p>这节课我们来一起看一看 LangChain 中各种强大的工具（Tool），以及如何使用它们。</p>
+<p>在之前的几节课中，我们深入讲解了 LangChain 中的代理。未来的 AI Agent，应该就是以 LLM 为核心控制器的代理系统。而<strong>工具，则是代理身上延展出的三头六臂，是代理的武器，代理通过工具来与世界进行交互，控制并改造世界</strong>。</p>
+<h2 id="工具是代理的武器">工具是代理的武器</h2>
+<p>LangChain 之所以强大，第一是大模型的推理能力强大，第二则是工具的执行能力强大！孙猴子法力再强，没有金箍棒，也降伏不了妖怪。大模型再能思考，没有工具也不行。</p>
+<p>工具是代理可以用来与世界交互的功能。这些工具可以是通用实用程序（例如搜索），也可以是其他链，甚至其他的代理。</p>
+<p>那么到底什么是工具？在 LangChain 中，工具是如何发挥作用的？</p>
+<p>LangChain 通过提供一个统一的框架来集成功能的具体实现。在这个框架中，每个功能都被封装成一个工具。每个工具都有自己的输入和输出，以及处理这些输入和生成输出的方法。</p>
+<p>当代理接收到一个任务时，它会根据任务的类型和需求，通过大模型的推理，来选择合适的工具处理这个任务。这个选择过程可以基于各种策略，例如基于工具的性能，或者基于工具处理特定类型任务的能力。</p>
+<p>一旦选择了合适的工具，LangChain 就会将任务的输入传递给这个工具，然后工具会处理这些输入并生成输出。这个输出又经过大模型的推理，可以被用作其他工具的输入，或者作为最终结果，被返回给用户。</p>
+<p><img src="https://static001.geekbang.org/resource/image/eb/b6/ebcyyaccd79133c03f417c45c225d1b6.png?wh=1456x636" alt=""></p>
+<p>通过这种方式，LangChain 大大延展了大模型的功能。大模型的推理，加上工具的调用，都集成在一个系统中，而这个系统可以处理多种类型的任务。这提高了系统的灵活性和可扩展性，也大大简化了开发者的工作。</p>
+<h2 id="如何加载工具">如何加载工具</h2>
+<p>在程序中，可以使用以下代码片段加载工具。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">from langchain.agents import load_tools</span><br><span class="line">tool_names = [...]</span><br><span class="line">tools = load_tools(tool_names)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>某些工具（例如链、代理）可能需要 LLM 来初始化它们。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">from langchain.agents import load_tools</span><br><span class="line">tool_names = [...]</span><br><span class="line">llm = ...</span><br><span class="line">tools = load_tools(tool_names, llm=llm)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="LangChain-支持的工具一览">LangChain 支持的工具一览</h2>
+<p>下面，我给你列出目前 LangChain 中所支持的工具。</p>
+<p><img src="https://static001.geekbang.org/resource/image/e2/5b/e2f8a0318b4f1da7f0e756e87761d95b.jpg?wh=1459x2148" alt=""></p>
+<p>当然这个列表随着时间的推移会越来越长，也就意味着 LangChain 的功能会越来越强大。</p>
+<h2 id="使用-arXiv-工具开发科研助理">使用 arXiv 工具开发科研助理</h2>
+<p>其中有一些工具，比如 SerpAPI，你已经用过了，这里我们再来用一下 arXiv 工具。arXiv 本身就是一个论文研究的利器，里面的论文数量比 AI 顶会还早、还多、还全。那么把它以工具的形式集成到 LangChain 中，能让你在研究学术最新进展时如虎添翼。</p>
+<p>arXiv 是一个提供免费访问的预印本库，供研究者在正式出版前上传和分享其研究工作。它成立于 1991 年，最初是作为物理学预印本数据库开始的，但后来扩展到了数学、计算机科学、生物学、经济学等多个领域。</p>
+<p>预印本是研究者完成的、但尚未经过同行评议或正式出版的论文。Arxiv 允许研究者上传这些预印本，使其他研究者可以在正式出版之前查看、评论和使用这些工作。这样，研究的发现可以更快地传播和分享，促进学术交流。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"># 设置OpenAI API的密钥</span><br><span class="line">import os </span><br><span class="line">os.environ[&quot;OPENAI_API_KEY&quot;] = &#x27;Your Key&#x27; </span><br><span class="line"></span><br><span class="line"># 导入库</span><br><span class="line">from langchain.chat_models import ChatOpenAI</span><br><span class="line">from langchain.agents import load_tools, initialize_agent, AgentType</span><br><span class="line"></span><br><span class="line"># 初始化模型和工具</span><br><span class="line">llm = ChatOpenAI(temperature=0.0)</span><br><span class="line">tools = load_tools(</span><br><span class="line">    [&quot;arxiv&quot;],</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"># 初始化链</span><br><span class="line">agent_chain = initialize_agent(</span><br><span class="line">    tools,</span><br><span class="line">    llm,</span><br><span class="line">    agent=AgentType.ZERO_SHOT_REACT_DESCRIPTION,</span><br><span class="line">    verbose=True,</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"># 运行链</span><br><span class="line">agent_chain.run(&quot;介绍一下2005.14165这篇论文的创新点?&quot;)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>首先，我们还是来研究一下 ZERO_SHOT_REACT_DESCRIPTION 这个 Agent 是怎么通过提示来引导模型调用工具的。</p>
+<p>“prompts”: [</p>
+<p>&quot;Answer the following questions as best you can. You have access to the following tools:\n\n</p>
+<p>首先告诉模型，要尽力回答问题，但是可以访问下面的工具。</p>
+<p><strong>arxiv:</strong> A wrapper around <a target="_blank" rel="noopener" href="http://Arxiv.org">Arxiv.org</a> Useful for when you need to answer questions about Physics, Mathematics, Computer Science, Quantitative Biology, Quantitative Finance, Statistics, Electrical Engineering, and Economics from scientific articles on <a target="_blank" rel="noopener" href="http://arxiv.org">arxiv.org</a>. Input should be a search query.\n\n</p>
+<p>arxiv 工具：一个围绕 <a target="_blank" rel="noopener" href="http://Arxiv.org">Arxiv.org</a> 的封装工具。当你需要回答关于物理学、数学、计算机科学、定量生物学、定量金融、统计学、电气工程和经济学的问题时，来自 <a target="_blank" rel="noopener" href="http://arxiv.org">arxiv.org</a> 上的科学文章非常有用。同时还告诉模型：输入这个工具的内容应该是搜索查询。</p>
+<p>Use the following format:\n\n</p>
+<p>指导模型输出下面的内容。</p>
+<p>Question: the input question you must answer\n （问题：需要回答的问题）</p>
+<p>Thought: you should always think about what to do\n （思考：应该总是思考下一步做什么）</p>
+<p>Action: the action to take, should be one of [arxiv]\n （行动：从具体工具列表中选择行动——这里只有 arxiv 一个工具）</p>
+<p>Action Input: the input to the action\n （行动的输入：输入工具的内容）</p>
+<p>Observation: the result of the action\n… （观察：工具返回的结果）</p>
+<p>(this Thought/Action/Action Input/Observation can repeat N times)\n （上面 Thought/Action/Action Input/Observation 的过程将重复 N 次）</p>
+<p>Thought: I now know the final answer\n （现在我知道最终答案了）</p>
+<p>Final Answer: the final answer to the original input question\n\n （原始问题的最终答案）</p>
+<p><strong>Begin!</strong>\n\n</p>
+<p>现在开始！</p>
+<p><strong>Question</strong>: 'Chain-of-Thought Prompting Elicits Reasoning in Large Language Models’这篇论文的创新点 \ n</p>
+<p>真正的问题在此。</p>
+<p>Thought:&quot;</p>
+<p>开始思考吧！</p>
+<p>然后，我们来看看 Chain 的运行过程。</p>
+<p><img src="https://static001.geekbang.org/resource/image/6e/57/6e1195d608d47fbe5b67131c1fe32357.jpg?wh=1041x1519" alt=""></p>
+<p>其中，代理的思考过程中的第一个返回结果如下：</p>
+<p>“text”: &quot; I need to read the paper to understand the innovation\n （思考：我需要阅读文章才能理解创新点）</p>
+<p>Action: arxiv\n （行动：arxiv 工具）</p>
+<p>Action Input: ‘Chain-of-Thought Prompting Elicits Reasoning in Large Language Models’&quot;, （行动的输入：论文的标题）</p>
+<p>因为在之前的提示中，LangChain 告诉大模型，对于 Arxiv 工具的输入总是以搜索的形式出现，因此尽管我指明了论文的 ID，Arxiv 还是根据这篇论文的关键词搜索到了 3 篇相关论文的信息。</p>
+<p>模型对这些信息进行了总结，认为信息已经完善，并给出了最终答案。</p>
+<p>Thought: I now know the final answer</p>
+<p>想法：我现在知道了最终答案。</p>
+<p>Final Answer: The innovation of the paper ‘Chain-of-Thought Prompting Elicits Reasoning in Large Language Models’ is the introduction of a simple method called chain of thought prompting, where a few chain of thought demonstrations are provided as exemplars in prompting, which significantly improves the ability of large language models to perform complex reasoning.&quot;</p>
+<p>最终答案：这篇名为《链式思考提示促使大型语言模型进行推理》的论文的创新之处在于，引入了一种简单的方法，即链式思考提示，在提示中提供了一些链式思考的示例，这大大提高了大型语言模型执行复杂推理的能力。</p>
+<h2 id="LangChain-中的工具箱一览">LangChain 中的工具箱一览</h2>
+<p>下面，我给你列出了目前 LangChain 中所支持的工具箱。每个工具箱中都有一系列工具。</p>
+<p><img src="https://static001.geekbang.org/resource/image/c8/27/c87be0638409b278c2657a66f45aa927.jpg?wh=1223x1314" alt=""></p>
+<h2 id="使用-Gmail-工具箱开发个人助理">使用 Gmail 工具箱开发个人助理</h2>
+<p>刚才，你使用了 arXiv 工具帮助你做了一些科研工作。你当然还希望你的 AI Agent 能够成为你的全能自动助理，你开发出的智能应用应该能帮你检查邮件、写草稿，甚至发邮件、写文档，对吧？</p>
+<p>上面这一切的一切，LangChain 当然能够安排上！</p>
+<ul class="lvl-0">
+<li class="lvl-4">
+<p>通过 Gmail 工具箱，你可以通过 LangChain 应用检查邮件、删除垃圾邮件，甚至让它帮你撰写邮件草稿。</p>
+</li>
+<li class="lvl-4">
+<p>通过 Office365 工具箱，你可以让 LangChain 应用帮你读写文档、总结文档，甚至做 PPT。</p>
+</li>
+<li class="lvl-4">
+<p>通过 GitHub 工具箱，你可以指示 LangChain 应用来检查最新的代码，Commit Changes、Merge Branches，甚至尝试让大模型自动回答 Issues 中的问题——反正大模型解决代码问题的能力本来就更强。</p>
+</li>
+</ul>
+<p>这些都不再是梦想。</p>
+<p>下面咱们从一个最简单的应用开始。</p>
+<p><strong>目标：我要让 AI 应用来访问我的 Gmail 邮件，让他每天早晨检查一次我的邮箱，看看 “易速鲜花” 的客服有没有给我发信息。</strong>（因为我可能正在焦急地等待他们的退款?）</p>
+<p>现在开始。</p>
+<h3 id="第一步：在-Google-Cloud-中设置你的应用程序接口">第一步：在 Google Cloud 中设置你的应用程序接口</h3>
+<p>这个步骤你要跟着 Gmail API 的官方配置<a href="https://link.juejin.cn/?target=https%3A%2F%2Fdevelopers.google.com%2Fgmail%2Fapi%2Fquickstart%2Fpython%3Fhl%3Dzh-cn%23authorize_credentials_for_a_desktop_application" title="https://developers.google.com/gmail/api/quickstart/python?hl=zh-cn#authorize_credentials_for_a_desktop_application">链接</a>完成，这个和 LangChain 无关。蛮复杂的，你需要有点耐心。跟着流程一步步配置就好了。</p>
+<p>下面是我在这个设置过程中截取的一部分图片，只是供你参考。详细配置你要 follow Google 的官方说明。</p>
+<p><img src="https://static001.geekbang.org/resource/image/8a/21/8a3c72f48c231bd2d886b4d99e9f3321.jpg?wh=1170x854" alt=""></p>
+<p><img src="https://static001.geekbang.org/resource/image/38/ab/3822d1effb90c855c133acdecea2eaab.jpg?wh=1930x711" alt=""></p>
+<p><img src="https://static001.geekbang.org/resource/image/96/f3/96a788e8a1f7d4f32e3d23eb94cce8f3.jpg?wh=1688x1172" alt=""></p>
+<p><img src="https://static001.geekbang.org/resource/image/0f/29/0f746cfa48ba60c0fe98e657cb3yyb29.jpg?wh=1925x810" alt=""></p>
+<p>下面这个 OAuth 同意屏幕里面的配置非常重要，你的智能代理能做什么，不能做什么，就看你怎么给权限了！</p>
+<p><img src="https://static001.geekbang.org/resource/image/19/2f/195ec3590bb075ecff42911f13d2f22f.jpg?wh=823x1214" alt=""></p>
+<p>所有设置都完成之后，在 OAuth 客户段已创建这个页面，你拥有了开发密钥。</p>
+<p><img src="https://static001.geekbang.org/resource/image/f6/b0/f6829a70c320161a1002ee3380c5b1b0.jpg?wh=506x509" alt=""></p>
+<h3 id="第二步：根据密钥生成开发-Token">第二步：根据密钥生成开发 Token</h3>
+<p>在这一步之前，你可能需要安装一些相关的包。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">pip install --upgrade google-api-python-client </span><br><span class="line">pip install --upgrade google-auth-oauthlib</span><br><span class="line">pip install --upgrade google-auth-httplib2</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>然后，把密钥下载下来，保存为 credentials.json。</p>
+<p>运行下面的代码，生成 token.json。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line">from __future__ import print_function</span><br><span class="line"></span><br><span class="line">import os.path</span><br><span class="line"></span><br><span class="line">from google.auth.transport.requests import Request</span><br><span class="line">from google.oauth2.credentials import Credentials</span><br><span class="line">from google_auth_oauthlib.flow import InstalledAppFlow</span><br><span class="line">from googleapiclient.discovery import build</span><br><span class="line">from googleapiclient.errors import HttpError</span><br><span class="line"></span><br><span class="line"># If modifying these scopes, delete the file token.json.</span><br><span class="line">SCOPES = [&#x27;https://www.googleapis.com/auth/gmail.readonly&#x27;]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def main():</span><br><span class="line">    &quot;&quot;&quot;Shows basic usage of the Gmail API.</span><br><span class="line">    Lists the user&#x27;s Gmail labels.</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    creds = None</span><br><span class="line">    # The file token.json stores the user&#x27;s access and refresh tokens, and is</span><br><span class="line">    # created automatically when the authorization flow completes for the first</span><br><span class="line">    # time.</span><br><span class="line">    if os.path.exists(&#x27;token.json&#x27;):</span><br><span class="line">        creds = Credentials.from_authorized_user_file(&#x27;token.json&#x27;, SCOPES)</span><br><span class="line">    # If there are no (valid) credentials available, let the user log in.</span><br><span class="line">    if not creds or not creds.valid:</span><br><span class="line">        if creds and creds.expired and creds.refresh_token:</span><br><span class="line">            creds.refresh(Request())</span><br><span class="line">        else:</span><br><span class="line">            flow = InstalledAppFlow.from_client_secrets_file(</span><br><span class="line">                &#x27;credentials.json&#x27;, SCOPES)</span><br><span class="line">            creds = flow.run_local_server(port=8088)</span><br><span class="line">        # Save the credentials for the next run</span><br><span class="line">        with open(&#x27;token.json&#x27;, &#x27;w&#x27;) as token:</span><br><span class="line">            token.write(creds.to_json())</span><br><span class="line"></span><br><span class="line">    try:</span><br><span class="line">        # Call the Gmail API</span><br><span class="line">        service = build(&#x27;gmail&#x27;, &#x27;v1&#x27;, credentials=creds)</span><br><span class="line">        results = service.users().labels().list(userId=&#x27;me&#x27;).execute()</span><br><span class="line">        labels = results.get(&#x27;labels&#x27;, [])</span><br><span class="line"></span><br><span class="line">        if not labels:</span><br><span class="line">            print(&#x27;No labels found.&#x27;)</span><br><span class="line">            return</span><br><span class="line">        print(&#x27;Labels:&#x27;)</span><br><span class="line">        for label in labels:</span><br><span class="line">            print(label[&#x27;name&#x27;])</span><br><span class="line"></span><br><span class="line">    except HttpError as error:</span><br><span class="line">        # TODO(developer) - Handle errors from gmail API.</span><br><span class="line">        print(f&#x27;An error occurred: &#123;error&#125;&#x27;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ == &#x27;__main__&#x27;:</span><br><span class="line">    main()</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>这是 Google API 网站提供的标准示例代码，里面给了读取权限（gmail.readonly）的 Token，如果你要编写邮件，甚至发送邮件，需要根据需求来调整权限。更多细节可以参阅 Google API 的<a href="https://link.juejin.cn/?target=https%3A%2F%2Fcloud.google.com%2Fcompute%2Fdocs%2Fapis%3Fhl%3Dzh-cn" title="https://cloud.google.com/compute/docs/apis?hl=zh-cn">文档</a>。</p>
+<p>这个程序会生成一个 token.json 文件，是有相关权限的开发令牌。这个文件在 LangChain 应用中需要和密钥一起使用。</p>
+<p><img src="https://static001.geekbang.org/resource/image/54/78/541c541b377063b49d74ddc53f41d578.jpg?wh=304x55" alt=""></p>
+<p>把密钥和 Token 文件都放在程序的同一个目录中，你就可以开始开发应用程序了。</p>
+<p><img src="https://static001.geekbang.org/resource/image/f2/b4/f23144b35b44fef8d900d0d50c9da6b4.jpg?wh=147x52" alt=""></p>
+<h3 id="第三步：用-LangChain-框架开发-Gmail-App">第三步：用 LangChain 框架开发 Gmail App</h3>
+<p>这段代码的核心目的是连接到 Gmail API，查询用户的邮件，并通过 LangChain 的 Agent 框架智能化地调用 API（用语言而不是具体 API），与邮件进行互动。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"># 设置OpenAI API的密钥</span><br><span class="line">import os </span><br><span class="line">os.environ[&quot;OPENAI_API_KEY&quot;] = &#x27;Your Key&#x27; </span><br><span class="line"></span><br><span class="line"># 导入与Gmail交互所需的工具包</span><br><span class="line">from langchain.agents.agent_toolkits import GmailToolkit</span><br><span class="line"></span><br><span class="line"># 初始化Gmail工具包</span><br><span class="line">toolkit = GmailToolkit()</span><br><span class="line"></span><br><span class="line"># 从gmail工具中导入一些有用的功能</span><br><span class="line">from langchain.tools.gmail.utils import build_resource_service, get_gmail_credentials</span><br><span class="line"></span><br><span class="line"># 获取Gmail API的凭证，并指定相关的权限范围</span><br><span class="line">credentials = get_gmail_credentials(</span><br><span class="line">    token_file=&quot;token.json&quot;,  # Token文件路径</span><br><span class="line">    scopes=[&quot;https://mail.google.com/&quot;],  # 具有完全的邮件访问权限</span><br><span class="line">    client_secrets_file=&quot;credentials.json&quot;,  # 客户端的秘密文件路径</span><br><span class="line">)</span><br><span class="line"># 使用凭证构建API资源服务</span><br><span class="line">api_resource = build_resource_service(credentials=credentials)</span><br><span class="line">toolkit = GmailToolkit(api_resource=api_resource)</span><br><span class="line"></span><br><span class="line"># 获取工具</span><br><span class="line">tools = toolkit.get_tools()</span><br><span class="line">print(tools)</span><br><span class="line"></span><br><span class="line"># 导入与聊天模型相关的包</span><br><span class="line">from langchain.chat_models import ChatOpenAI</span><br><span class="line">from langchain.agents import initialize_agent, AgentType</span><br><span class="line"></span><br><span class="line"># 初始化聊天模型</span><br><span class="line">llm = ChatOpenAI(temperature=0, model=&#x27;gpt-4&#x27;)</span><br><span class="line"></span><br><span class="line"># 通过指定的工具和聊天模型初始化agent</span><br><span class="line">agent = initialize_agent(</span><br><span class="line">    tools=toolkit.get_tools(),</span><br><span class="line">    llm=llm,</span><br><span class="line">    agent=AgentType.STRUCTURED_CHAT_ZERO_SHOT_REACT_DESCRIPTION,</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"># 使用agent运行一些查询或指令</span><br><span class="line">result = agent.run(</span><br><span class="line">    &quot;今天易速鲜花客服给我发邮件了么？最新的邮件是谁发给我的？&quot;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"># 打印结果</span><br><span class="line">print(result)  </span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>代码的核心部分主要是连接到 Gmail API，获取用户的邮件数据，并通过特定的 Agent 查询这些数据。</p>
+<p>你的请求是查询今天是否收到了来自 “易速鲜花客服” 的邮件，以及最新邮件的发送者是谁。<strong>这个请求是模糊的，是自然语言格式，具体调用什么 API，由 Agent、Tool 也就是 Gmail API 它俩商量着来。</strong> 这与我们之前所进行的清晰的、具体 API 调用式的应用开发迥然不同。</p>
+<p>第一次运行程序，会进行一些确认，并让我 Login 我的 Gmail。</p>
+<p><img src="https://static001.geekbang.org/resource/image/0e/37/0e2a7df295caa50512552e05ea3def37.jpg?wh=562x146" alt=""></p>
+<p><img src="https://static001.geekbang.org/resource/image/32/51/3208ff117674ebf3f08eac6118393e51.jpg?wh=488x664" alt=""></p>
+<p><img src="https://static001.geekbang.org/resource/image/0c/30/0cc81560c4bc412104b5144a474c5530.jpg?wh=546x119" alt=""></p>
+<p>之后，我就得到了智能助手的回答！</p>
+<p><img src="https://static001.geekbang.org/resource/image/45/cf/455f8cb0138cd3860869e5eee74f8ecf.jpg?wh=1296x605" alt=""></p>
+<p>她说：<strong>主人，看起来你没有收到 “易速鲜花” 的邮件耶，还需要我帮你做些什么吗？</strong> 真的很贴心，这样的话，我每天早晨就不需要自己去检查邮件啦！</p>
+<p>后来，我又问她，那么谁给我发来了新邮件呢？</p>
+<p><img src="https://static001.geekbang.org/resource/image/c9/e4/c95a8e75cdc78a7da4960c8f2yyf8be4.jpg?wh=1291x159" alt=""></p>
+<p>她告诉我说，Medium - Programing 给我发了一篇 VS code 的 10 个 tips 的文章，还有 Kubernetes 的点子啥的。</p>
+<p>嗯，这是我订阅的内容。下一步，我还可以让她针对这些内容给我总结总结！这也是她的强项！</p>
+<h2 id="总结时刻">总结时刻</h2>
+<p>学到现在，你应该对 LangChain 的核心价值有了更深的感悟吧。它的价值，在于它将模型运行和交互的复杂性进行了封装和抽象化，为开发者提供了一个更简单、更直观的接口来利用大模型。</p>
+<ul class="lvl-0">
+<li class="lvl-4">
+<p><strong>集成多模型和多策略：</strong> LangChain 提供了一种方法，使得多个模型或策略能够在一个统一的框架下工作。例如，arXiv 是一个单独的工具，它负责处理特定的任务。这种工具可以与其他工具（例如用于处理自然语言查询或者数据库查询的工具）一起作为一个集成的系统存在。这样，你可以轻松地创建一个系统，该系统可以处理多种类型的输入并执行多种任务，而不必为每个任务单独写代码。</p>
+</li>
+<li class="lvl-4">
+<p><strong>更易于交互和维护：</strong> 通过 LangChain，你可以更方便地管理和维护你的工具和模型。LangChain 提供的工具和代理（Agent）抽象使得开发者可以将关注点从底层实现细节转向实现应用的高层逻辑。而且，LangChain 封装了像模型的加载、输入输出的处理、工具的调度等底层任务，使得开发者能够更专注于如何组合这些工具以解决实际问题。</p>
+</li>
+<li class="lvl-4">
+<p><strong>适应性：</strong> LangChain 提供的架构允许你轻松地添加新的工具或模型，或者替换现有的工具或模型。这种灵活性使得你的系统可以很容易地适应新的需求或改变。</p>
+</li>
+<li class="lvl-4">
+<p><strong>可解释性：</strong> LangChain 还提供了对模型决策的可解释性。在你的示例中，LangChain 提供的对话历史和工具选择的记录可以帮助理解系统做出某些决策的原因。</p>
+</li>
+</ul>
+<p>总的来说，尽管直接调用模型可能对于单一任务或简单应用来说足够了，但是当你需要处理更复杂的场景，例如需要协调多个模型或工具，或者需要处理多种类型的输入时，使用像 LangChain 这样的框架可以大大简化你的工作。</p>
+<h2 id="思考题">思考题</h2>
+<ol>
+<li class="lvl-4">
+<p>上面 Gmail 的示例中我只是展示了邮件读取功能，你能否让你的 AI 助理帮你写邮件的草稿甚至发送邮件？</p>
+</li>
+<li class="lvl-4">
+<p>你可否尝试使用 GitHub 工具开发一些 App 来自动完成一部分 GitHub 任务，比如查看 Issues、Merge Branches 之类的事儿。</p>
+</li>
+</ol>
+<p>提示：参考此<a href="https://link.juejin.cn/?target=https%3A%2F%2Fdocs.github.com%2Fen%2Fapps%2Fcreating-github-apps%2Fregistering-a-github-app%2Fregistering-a-github-app" title="https://docs.github.com/en/apps/creating-github-apps/registering-a-github-app/registering-a-github-app">链接</a>创建 GitHub App，以及 LangChain 的<a href="https://link.juejin.cn/?target=https%3A%2F%2Fpython.langchain.com%2Fdocs%2Fintegrations%2Ftoolkits%2Fgithub" title="https://python.langchain.com/docs/integrations/toolkits/github">参考文档</a>。</p>
+<p><img src="https://static001.geekbang.org/resource/image/1b/2e/1bc0dcd6e05133f934ed926cdcc9eb2e.jpg?wh=1898x851" alt=""></p>
+<p><img src="https://static001.geekbang.org/resource/image/e0/ea/e037cf6460826e189811ea2af4bb96ea.jpg?wh=1281x747" alt=""></p>
+<p>期待在留言区看到你的分享，如果你觉得内容对你有帮助，也欢迎分享给有需要的朋友！最后如果你学有余力，可以进一步学习下面的延伸阅读。</p>
+<h2 id="延伸阅读">延伸阅读</h2>
+<ol>
+<li class="lvl-4">
+<p>文档：LangChain 中集成的所有<a href="https://link.juejin.cn/?target=https%3A%2F%2Fpython.langchain.com%2Fdocs%2Fintegrations%2Ftools%2F" title="https://python.langchain.com/docs/integrations/tools/">工具</a></p>
+</li>
+<li class="lvl-4">
+<p>文档：LangChain 中集成的所有<a href="https://link.juejin.cn/?target=https%3A%2F%2Fpython.langchain.com%2Fdocs%2Fintegrations%2Ftoolkits%2F" title="https://python.langchain.com/docs/integrations/toolkits/">工具箱</a></p>
+</li>
+<li class="lvl-4">
+<p>文档：Google Cloud <a href="https://link.juejin.cn/?target=https%3A%2F%2Fcloud.google.com%2Fcompute%2Fdocs%2Fapis%3Fhl%3Dzh-cn" title="https://cloud.google.com/compute/docs/apis?hl=zh-cn">API</a></p>
+</li>
+<li class="lvl-4">
+<p>文档：Github REST <a href="https://link.juejin.cn/?target=https%3A%2F%2Fsupport.github.com%2Ffeatures%2Frest-api" title="https://support.github.com/features/rest-api">API</a></p>
+</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2024/12/08/%E7%BD%91%E9%A1%B5%E5%AF%BC%E5%85%A5/%E6%8F%90%E7%A4%BA%E5%B7%A5%E7%A8%8B%EF%BC%88%E4%B8%8A%EF%BC%89%EF%BC%9A%E7%94%A8%E5%B0%91%E6%A0%B7%E6%9C%ACFewShotTemplate%E5%92%8CExampleSelector%E5%88%9B%E5%BB%BA%E5%BA%94%E6%99%AF%E6%96%87%E6%A1%88/" rel="prev" title="">
+      <i class="fa fa-chevron-left"></i> 
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2024/12/08/%E7%BD%91%E9%A1%B5%E5%AF%BC%E5%85%A5/%E9%93%BE%EF%BC%88%E4%B8%8B%EF%BC%89%EF%BC%9A%E6%83%B3%E5%AD%A6%E2%80%9C%E8%82%B2%E8%8A%B1%E2%80%9D%E8%BF%98%E6%98%AF%E2%80%9C%E6%8F%92%E8%8A%B1%E2%80%9D%EF%BC%9F%E7%94%A8RouterChain%E7%A1%AE%E5%AE%9A%E5%AE%A2%E6%88%B7%E6%84%8F%E5%9B%BE/" rel="next" title="">
+       <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B7%A5%E5%85%B7%E6%98%AF%E4%BB%A3%E7%90%86%E7%9A%84%E6%AD%A6%E5%99%A8"><span class="nav-number">1.</span> <span class="nav-text">工具是代理的武器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E5%8A%A0%E8%BD%BD%E5%B7%A5%E5%85%B7"><span class="nav-number">2.</span> <span class="nav-text">如何加载工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LangChain-%E6%94%AF%E6%8C%81%E7%9A%84%E5%B7%A5%E5%85%B7%E4%B8%80%E8%A7%88"><span class="nav-number">3.</span> <span class="nav-text">LangChain 支持的工具一览</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-arXiv-%E5%B7%A5%E5%85%B7%E5%BC%80%E5%8F%91%E7%A7%91%E7%A0%94%E5%8A%A9%E7%90%86"><span class="nav-number">4.</span> <span class="nav-text">使用 arXiv 工具开发科研助理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LangChain-%E4%B8%AD%E7%9A%84%E5%B7%A5%E5%85%B7%E7%AE%B1%E4%B8%80%E8%A7%88"><span class="nav-number">5.</span> <span class="nav-text">LangChain 中的工具箱一览</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-Gmail-%E5%B7%A5%E5%85%B7%E7%AE%B1%E5%BC%80%E5%8F%91%E4%B8%AA%E4%BA%BA%E5%8A%A9%E7%90%86"><span class="nav-number">6.</span> <span class="nav-text">使用 Gmail 工具箱开发个人助理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E6%AD%A5%EF%BC%9A%E5%9C%A8-Google-Cloud-%E4%B8%AD%E8%AE%BE%E7%BD%AE%E4%BD%A0%E7%9A%84%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E6%8E%A5%E5%8F%A3"><span class="nav-number">6.1.</span> <span class="nav-text">第一步：在 Google Cloud 中设置你的应用程序接口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E6%AD%A5%EF%BC%9A%E6%A0%B9%E6%8D%AE%E5%AF%86%E9%92%A5%E7%94%9F%E6%88%90%E5%BC%80%E5%8F%91-Token"><span class="nav-number">6.2.</span> <span class="nav-text">第二步：根据密钥生成开发 Token</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E6%AD%A5%EF%BC%9A%E7%94%A8-LangChain-%E6%A1%86%E6%9E%B6%E5%BC%80%E5%8F%91-Gmail-App"><span class="nav-number">6.3.</span> <span class="nav-text">第三步：用 LangChain 框架开发 Gmail App</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93%E6%97%B6%E5%88%BB"><span class="nav-number">7.</span> <span class="nav-text">总结时刻</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%9D%E8%80%83%E9%A2%98"><span class="nav-number">8.</span> <span class="nav-text">思考题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BB%B6%E4%BC%B8%E9%98%85%E8%AF%BB"><span class="nav-number">9.</span> <span class="nav-text">延伸阅读</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">听</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">653</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">48</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">听</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

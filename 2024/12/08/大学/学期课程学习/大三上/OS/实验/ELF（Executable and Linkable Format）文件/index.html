@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.3.0">
+<link rel="stylesheet" href="/css/custom.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="您列出的内容涉及的是 ELF（Executable and Linkable Format）文件中段（Section）的标志（Flags），通常在 readelf 工具或类似工具输出中会显示这些标志。这些标志描述了 ELF 文件中各段的属性和用途。 以下是这些标志的含义：  ELF 段标志（Section Flags） ELF 文件是 Linux 和其他类 UNIX 系统中广泛使用的一种可执行文件">
+<meta property="og:type" content="article">
+<meta property="og:title" content="O3xiaoyuhe">
+<meta property="og:url" content="http://example.com/2024/12/08/%E5%A4%A7%E5%AD%A6/%E5%AD%A6%E6%9C%9F%E8%AF%BE%E7%A8%8B%E5%AD%A6%E4%B9%A0/%E5%A4%A7%E4%B8%89%E4%B8%8A/OS/%E5%AE%9E%E9%AA%8C/ELF%EF%BC%88Executable%20and%20Linkable%20Format%EF%BC%89%E6%96%87%E4%BB%B6/index.html">
+<meta property="og:site_name" content="O3xiaoyuhe">
+<meta property="og:description" content="您列出的内容涉及的是 ELF（Executable and Linkable Format）文件中段（Section）的标志（Flags），通常在 readelf 工具或类似工具输出中会显示这些标志。这些标志描述了 ELF 文件中各段的属性和用途。 以下是这些标志的含义：  ELF 段标志（Section Flags） ELF 文件是 Linux 和其他类 UNIX 系统中广泛使用的一种可执行文件">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-12-08T12:29:06.985Z">
+<meta property="article:modified_time" content="2024-11-29T01:39:33.912Z">
+<meta property="article:author" content="听">
+<meta property="article:tag" content="大学&#x2F;学科学习">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2024/12/08/%E5%A4%A7%E5%AD%A6/%E5%AD%A6%E6%9C%9F%E8%AF%BE%E7%A8%8B%E5%AD%A6%E4%B9%A0/%E5%A4%A7%E4%B8%89%E4%B8%8A/OS/%E5%AE%9E%E9%AA%8C/ELF%EF%BC%88Executable%20and%20Linkable%20Format%EF%BC%89%E6%96%87%E4%BB%B6/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title> | O3xiaoyuhe</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">O3xiaoyuhe</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/12/08/%E5%A4%A7%E5%AD%A6/%E5%AD%A6%E6%9C%9F%E8%AF%BE%E7%A8%8B%E5%AD%A6%E4%B9%A0/%E5%A4%A7%E4%B8%89%E4%B8%8A/OS/%E5%AE%9E%E9%AA%8C/ELF%EF%BC%88Executable%20and%20Linkable%20Format%EF%BC%89%E6%96%87%E4%BB%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="听">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="O3xiaoyuhe">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-12-08 20:29:06" itemprop="dateCreated datePublished" datetime="2024-12-08T20:29:06+08:00">2024-12-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-11-29 09:39:33" itemprop="dateModified" datetime="2024-11-29T09:39:33+08:00">2024-11-29</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>您列出的内容涉及的是 <strong>ELF（Executable and Linkable Format）文件</strong>中段（Section）的标志（Flags），通常在 <code>readelf</code> 工具或类似工具输出中会显示这些标志。这些标志描述了 ELF 文件中各段的属性和用途。</p>
+<p>以下是这些标志的含义：</p>
+<hr>
+<h3 id="ELF-段标志（Section-Flags）"><strong>ELF 段标志（Section Flags）</strong></h3>
+<p>ELF 文件是 Linux 和其他类 UNIX 系统中广泛使用的一种可执行文件、共享库或目标文件格式。段标志用于定义段的特性，例如是否可写、是否需要分配内存等。</p>
+<h4 id="常见标志解释"><strong>常见标志解释</strong></h4>
+<ol>
+<li class="lvl-3">
+<p><strong>W（Write）- 可写</strong><br>
+段包含可写数据。例如，数据段 <code>.data</code> 通常具有此标志。</p>
+</li>
+<li class="lvl-3">
+<p><strong>A（Alloc）- 需要分配内存</strong><br>
+段在程序加载时需要分配到内存中。例如，代码段 <code>.text</code> 和数据段 <code>.data</code> 都具有此标志。</p>
+</li>
+<li class="lvl-3">
+<p><strong>X（Execute）- 可执行</strong><br>
+段包含可执行代码。例如，代码段 <code>.text</code> 通常具有此标志。</p>
+</li>
+<li class="lvl-3">
+<p><strong>M（Merge）- 可合并</strong><br>
+段中包含可以合并的内容，通常用于节省内存。例如，某些字符串表或调试信息段可能具有此标志。</p>
+</li>
+<li class="lvl-3">
+<p><strong>S（Strings）- 字符串</strong><br>
+段包含以 NULL 结尾的字符串。例如 <code>.rodata</code>（只读数据段）可能有此标志。</p>
+</li>
+<li class="lvl-3">
+<p><strong>I（Info）- 信息</strong><br>
+段包含一些与程序运行无关的信息，通常是调试符号段的标志。</p>
+</li>
+<li class="lvl-3">
+<p><strong>L（Link Order）- 链接顺序</strong><br>
+段的内容与链接顺序有关，用于指导链接器处理。</p>
+</li>
+<li class="lvl-3">
+<p><strong>O（Extra OS Processing Required）- 操作系统特定</strong><br>
+需要操作系统进行额外的处理，通常由 OS 定义。</p>
+</li>
+<li class="lvl-3">
+<p><strong>G（Group）- 段属于某个组</strong><br>
+用于分组的段，例如 <code>.group</code> 段。</p>
+</li>
+<li class="lvl-4">
+<p><strong>T（TLS）- 线程局部存储</strong><br>
+段用于线程局部存储（Thread Local Storage）。</p>
+</li>
+<li class="lvl-4">
+<p><strong>C（Compressed）- 压缩</strong><br>
+段内容是压缩的。</p>
+</li>
+<li class="lvl-4">
+<p><strong>E（Exclude）- 排除</strong><br>
+段不会被加载到内存中，通常用于调试信息。</p>
+</li>
+<li class="lvl-4">
+<p><strong>1（Large）- 大段</strong><br>
+段非常大。</p>
+</li>
+<li class="lvl-4">
+<p><strong>P（Processor Specific）- 处理器特定</strong><br>
+段由特定处理器定义。</p>
+</li>
+<li class="lvl-4">
+<p><strong>X（Unknown）- 未知</strong><br>
+未定义的标志，可能是某些特定工具或格式扩展。</p>
+</li>
+</ol>
+<hr>
+<h3 id="查看段标志"><strong>查看段标志</strong></h3>
+<p>您可以使用以下命令来查看 ELF 文件的段标志：</p>
+<ol>
+<li class="lvl-3">
+<p>使用 <code>readelf</code> 查看：</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">readelf -S &lt;file&gt;</span><br></pre></td></tr></table></figure>
+<p>输出示例：</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[Nr] Name              Type            Addr     Off    Size   ES Flg Lk Inf Al</span><br><span class="line">[ 0]                   NULL            00000000 000000 000000 00      0   0  0</span><br><span class="line">[ 1] .text             PROGBITS        080483f4 0003f4 000124 00 AX   0   0  4</span><br><span class="line">[ 2] .data             PROGBITS        08049518 001518 000004 00 WA   0   0  4</span><br></pre></td></tr></table></figure>
+<ul class="lvl-2">
+<li class="lvl-6">
+<p><code>AX</code> 表示 <code>.text</code> 段具有 <strong>A（Alloc）</strong> 和 <strong>X（Execute）</strong> 标志。</p>
+</li>
+<li class="lvl-6">
+<p><code>WA</code> 表示 <code>.data</code> 段具有 <strong>W（Write）</strong> 和 <strong>A（Alloc）</strong> 标志。</p>
+</li>
+</ul>
+</li>
+<li class="lvl-3">
+<p>使用 <code>objdump</code> 查看：</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">objdump -h &lt;file&gt;</span><br></pre></td></tr></table></figure>
+<p>输出段标志类似于 <code>readelf</code>。</p>
+</li>
+</ol>
+<hr>
+<h3 id="总结"><strong>总结</strong></h3>
+<p>您列出的标志是 ELF 文件格式中用于描述段特性的常见标志。通过理解这些标志的含义，可以帮助您更好地分析和优化程序，例如调试信息的排除、只读数据段的保护以及代码段的执行权限等。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%A4%A7%E5%AD%A6-%E5%AD%A6%E7%A7%91%E5%AD%A6%E4%B9%A0/" rel="tag"># 大学/学科学习</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2024/12/08/%E5%A4%A7%E5%AD%A6/%E5%AD%A6%E6%9C%9F%E8%AF%BE%E7%A8%8B%E5%AD%A6%E4%B9%A0/%E5%A4%A7%E4%B8%89%E4%B8%8A/OS/%E6%94%B9%E9%94%99%E6%9C%AC/" rel="prev" title="">
+      <i class="fa fa-chevron-left"></i> 
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2024/12/08/%E5%A4%A7%E5%AD%A6/%E5%AD%A6%E6%9C%9F%E8%AF%BE%E7%A8%8B%E5%AD%A6%E4%B9%A0/%E5%A4%A7%E4%B8%89%E4%B8%8A/%E8%AE%A1%E7%BB%84/%E7%8E%8B%E9%81%93/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%BF%B0/" rel="next" title="">
+       <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#ELF-%E6%AE%B5%E6%A0%87%E5%BF%97%EF%BC%88Section-Flags%EF%BC%89"><span class="nav-number">1.</span> <span class="nav-text">ELF 段标志（Section Flags）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E6%A0%87%E5%BF%97%E8%A7%A3%E9%87%8A"><span class="nav-number">1.1.</span> <span class="nav-text">常见标志解释</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E6%AE%B5%E6%A0%87%E5%BF%97"><span class="nav-number">2.</span> <span class="nav-text">查看段标志</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">听</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">653</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">48</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">听</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

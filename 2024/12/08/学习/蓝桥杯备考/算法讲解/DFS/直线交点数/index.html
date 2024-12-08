@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.3.0">
+<link rel="stylesheet" href="/css/custom.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="题目描述 假设平面上有 $N$ 条直线，且无三线共点，那么这些直线有多少种可能的交点数？ 输入格式 一行，一个整数 $N$，代表有 $N$ 条直线。 输出格式 一行，一个整数，表示方案总数。 样例 #1 样例输入 #1 14 样例输出 #1 15 提示 对于所有数据，满足 $1 \le N \le 25$。 题解 由于不存在三线共点，故只会存在相互平行，或者相互必产生一交点两种情况。 故，可以通过">
+<meta property="og:type" content="article">
+<meta property="og:title" content="O3xiaoyuhe">
+<meta property="og:url" content="http://example.com/2024/12/08/%E5%AD%A6%E4%B9%A0/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%A4%87%E8%80%83/%E7%AE%97%E6%B3%95%E8%AE%B2%E8%A7%A3/DFS/%E7%9B%B4%E7%BA%BF%E4%BA%A4%E7%82%B9%E6%95%B0/index.html">
+<meta property="og:site_name" content="O3xiaoyuhe">
+<meta property="og:description" content="题目描述 假设平面上有 $N$ 条直线，且无三线共点，那么这些直线有多少种可能的交点数？ 输入格式 一行，一个整数 $N$，代表有 $N$ 条直线。 输出格式 一行，一个整数，表示方案总数。 样例 #1 样例输入 #1 14 样例输出 #1 15 提示 对于所有数据，满足 $1 \le N \le 25$。 题解 由于不存在三线共点，故只会存在相互平行，或者相互必产生一交点两种情况。 故，可以通过">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-12-08T12:29:01.507Z">
+<meta property="article:modified_time" content="2024-11-13T14:54:48.628Z">
+<meta property="article:author" content="听">
+<meta property="article:tag" content="大学&#x2F;竞赛&#x2F;蓝桥杯">
+<meta property="article:tag" content="学习&#x2F;编程语言&#x2F;Cpp">
+<meta property="article:tag" content="学习&#x2F;算法&#x2F;DFS">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2024/12/08/%E5%AD%A6%E4%B9%A0/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%A4%87%E8%80%83/%E7%AE%97%E6%B3%95%E8%AE%B2%E8%A7%A3/DFS/%E7%9B%B4%E7%BA%BF%E4%BA%A4%E7%82%B9%E6%95%B0/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title> | O3xiaoyuhe</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">O3xiaoyuhe</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/12/08/%E5%AD%A6%E4%B9%A0/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%A4%87%E8%80%83/%E7%AE%97%E6%B3%95%E8%AE%B2%E8%A7%A3/DFS/%E7%9B%B4%E7%BA%BF%E4%BA%A4%E7%82%B9%E6%95%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="听">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="O3xiaoyuhe">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-12-08 20:29:01" itemprop="dateCreated datePublished" datetime="2024-12-08T20:29:01+08:00">2024-12-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-11-13 22:54:48" itemprop="dateModified" datetime="2024-11-13T22:54:48+08:00">2024-11-13</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="题目描述">题目描述</h2>
+<p>假设平面上有 $N$ 条直线，且无三线共点，那么这些直线有多少种可能的交点数？</p>
+<h2 id="输入格式">输入格式</h2>
+<p>一行，一个整数 $N$，代表有 $N$ 条直线。</p>
+<h2 id="输出格式">输出格式</h2>
+<p>一行，一个整数，表示方案总数。</p>
+<h2 id="样例-1">样例 #1</h2>
+<h3 id="样例输入-1">样例输入 #1</h3>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">4</span><br></pre></td></tr></table></figure>
+<h3 id="样例输出-1">样例输出 #1</h3>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">5</span><br></pre></td></tr></table></figure>
+<h2 id="提示">提示</h2>
+<p>对于所有数据，满足 $1 \le N \le 25$。</p>
+<h1>题解</h1>
+<p>由于不存在三线共点，故只会存在相互平行，或者相互必产生一交点两种情况。</p>
+<p>故，可以通过讨论共有几条线平行的情况来解决</p>
+<p>通过分析</p>
+<ol>
+<li class="lvl-3">
+<p>当边数为 0 时</p>
+<ol>
+<li class="lvl-7">此时交点数为 0，只有一种情况</li>
+</ol>
+</li>
+<li class="lvl-3">
+<p>当边数为 1 时</p>
+<ol>
+<li class="lvl-7">此时只有一条直线相互平行一种情况，剩下 0 条边，转化为 0 条边的情况，每种情况的交点数为：平行边 1 条和其余边的交点数，加上 0 条边情况构造的交点数</li>
+</ol>
+</li>
+<li class="lvl-3">
+<p>当边数为 2 时</p>
+<ol>
+<li class="lvl-7">当只有一条直线相互平行，即自己和自己平行时，剩下 1 条边，转化为 1 条边的子情况，每种子情况的交点数为：平行边 1 条和其余边的交点数，加上 1 条边当前子情况的交点数，</li>
+<li class="lvl-7">当有两条直线相互平行时，剩下 0 条边，转化为 0 条边的情况，</li>
+</ol>
+</li>
+</ol>
+<p>以此类推，同时为防止交点数统计重复，用 flag 数组标记已经统计过的点；</p>
+<p>代码如下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">// P2789</span><br><span class="line">  </span><br><span class="line">#include &lt;bits/stdc++.h&gt;</span><br><span class="line">  </span><br><span class="line">using namespace std;</span><br><span class="line">  </span><br><span class="line">vector&lt;int&gt; flag(1000, 0);</span><br><span class="line">  </span><br><span class="line">int ans;</span><br><span class="line">  </span><br><span class="line">void F(int k, int DotCount)</span><br><span class="line">&#123;</span><br><span class="line">    if (k == 0)</span><br><span class="line">    &#123;</span><br><span class="line">        if (flag[DotCount] == 0)</span><br><span class="line">        &#123;</span><br><span class="line">            ans++;</span><br><span class="line">            flag[DotCount] = 1;</span><br><span class="line">        &#125;</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line">    for (int i = 1; i &lt;= k; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        int NextDotCount = i * (k - i);</span><br><span class="line">        int NextEdge = (k - i);</span><br><span class="line">        F(NextEdge, NextDotCount + DotCount);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">  </span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int num;</span><br><span class="line">    cin &gt;&gt; num;</span><br><span class="line">    F(num, 0);</span><br><span class="line">    cout &lt;&lt; ans;</span><br><span class="line">    system(&quot;pause&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%A4%A7%E5%AD%A6-%E7%AB%9E%E8%B5%9B-%E8%93%9D%E6%A1%A5%E6%9D%AF/" rel="tag"># 大学/竞赛/蓝桥杯</a>
+              <a href="/tags/%E5%AD%A6%E4%B9%A0-%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80-Cpp/" rel="tag"># 学习/编程语言/Cpp</a>
+              <a href="/tags/%E5%AD%A6%E4%B9%A0-%E7%AE%97%E6%B3%95-DFS/" rel="tag"># 学习/算法/DFS</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2024/12/08/%E5%AD%A6%E4%B9%A0/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%A4%87%E8%80%83/%E7%AE%97%E6%B3%95%E8%AE%B2%E8%A7%A3/BFS/BFS%E5%AD%A6%E4%B9%A0/" rel="prev" title="">
+      <i class="fa fa-chevron-left"></i> 
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2024/12/08/%E5%AD%A6%E4%B9%A0/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%A4%87%E8%80%83/%E7%AE%97%E6%B3%95%E8%AE%B2%E8%A7%A3/DFS/DFS%E7%AC%94%E8%AE%B0%E7%9B%AE%E5%BD%95/" rel="next" title="">
+       <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A0%BC%E5%BC%8F"><span class="nav-number">2.</span> <span class="nav-text">输入格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F"><span class="nav-number">3.</span> <span class="nav-text">输出格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%B7%E4%BE%8B-1"><span class="nav-number">4.</span> <span class="nav-text">样例 #1</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B7%E4%BE%8B%E8%BE%93%E5%85%A5-1"><span class="nav-number">4.1.</span> <span class="nav-text">样例输入 #1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B7%E4%BE%8B%E8%BE%93%E5%87%BA-1"><span class="nav-number">4.2.</span> <span class="nav-text">样例输出 #1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%90%E7%A4%BA"><span class="nav-number">5.</span> <span class="nav-text">提示</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number"></span> <span class="nav-text">题解</span></a></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">听</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">653</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">48</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">听</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

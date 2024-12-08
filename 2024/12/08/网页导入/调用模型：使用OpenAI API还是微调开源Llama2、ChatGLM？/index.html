@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.3.0">
+<link rel="stylesheet" href="/css/custom.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="你好，我是黄佳，欢迎来到 LangChain 实战课！ 之前，我们花了两节课的内容讲透了提示工程的原理以及 LangChain 中的具体使用方式。今天，我们来着重讨论 Model I&#x2F;O 中的第二个子模块，LLM。  让我们带着下面的问题来开始这一节课的学习。大语言模型，不止 ChatGPT 一种。调用 OpenAI 的 API，当然方便且高效，不过，如果我就是想用其他的模型（比如说开源的 Lla">
+<meta property="og:type" content="article">
+<meta property="og:title" content="O3xiaoyuhe">
+<meta property="og:url" content="http://example.com/2024/12/08/%E7%BD%91%E9%A1%B5%E5%AF%BC%E5%85%A5/%E8%B0%83%E7%94%A8%E6%A8%A1%E5%9E%8B%EF%BC%9A%E4%BD%BF%E7%94%A8OpenAI%20API%E8%BF%98%E6%98%AF%E5%BE%AE%E8%B0%83%E5%BC%80%E6%BA%90Llama2%E3%80%81ChatGLM%EF%BC%9F/index.html">
+<meta property="og:site_name" content="O3xiaoyuhe">
+<meta property="og:description" content="你好，我是黄佳，欢迎来到 LangChain 实战课！ 之前，我们花了两节课的内容讲透了提示工程的原理以及 LangChain 中的具体使用方式。今天，我们来着重讨论 Model I&#x2F;O 中的第二个子模块，LLM。  让我们带着下面的问题来开始这一节课的学习。大语言模型，不止 ChatGPT 一种。调用 OpenAI 的 API，当然方便且高效，不过，如果我就是想用其他的模型（比如说开源的 Lla">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/aa2e629d7bbd42e791b73ead6dabc98b~tplv-k3u1fbpfcp-jj-mark:2268:0:0:0:q75.awebp#?w=4000&amp;h=1536&amp;s=504459&amp;e=jpg&amp;b=eefcf1">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/de0a990946884334bb7725e30bd73407~tplv-k3u1fbpfcp-jj-mark:2268:0:0:0:q75.awebp#?w=10666&amp;h=4300&amp;s=876799&amp;e=jpg&amp;b=ffffff">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0ef96d0e60864b6a8642d1a5ffbe73e4~tplv-k3u1fbpfcp-jj-mark:2268:0:0:0:q75.awebp#?w=10666&amp;h=6000&amp;s=954543&amp;e=jpg&amp;b=ffffff">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/77de71b3192c4214a06eb6fae70365db~tplv-k3u1fbpfcp-jj-mark:2268:0:0:0:q75.awebp#?w=10666&amp;h=5061&amp;s=840274&amp;e=jpg&amp;b=ffffff">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/dd94f10a986f4df0920bebaf8100fc1b~tplv-k3u1fbpfcp-jj-mark:2268:0:0:0:q75.awebp#?w=1475&amp;h=668&amp;s=501685&amp;e=png&amp;b=fefcfc">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/136e9035944547739db7296b63910ead~tplv-k3u1fbpfcp-jj-mark:2268:0:0:0:q75.awebp#?w=3028&amp;h=710&amp;s=375013&amp;e=png&amp;b=fef8f7">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/018cde81ef93445293b5949b529c4a4f~tplv-k3u1fbpfcp-jj-mark:2268:0:0:0:q75.awebp#?w=3029&amp;h=1662&amp;s=392474&amp;e=png&amp;b=fffdfd">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7236954938cb4330883275f0dfff4c5f~tplv-k3u1fbpfcp-jj-mark:2268:0:0:0:q75.awebp#?w=1653&amp;h=651&amp;s=207641&amp;e=png&amp;b=fefdfd">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e211313253dd4ab882989b31e9e6a60a~tplv-k3u1fbpfcp-jj-mark:2268:0:0:0:q75.awebp#?w=547&amp;h=149&amp;s=13256&amp;e=png&amp;a=1&amp;b=ffffff">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ce02bf5715db48fd862fba0f1407a29b~tplv-k3u1fbpfcp-jj-mark:2268:0:0:0:q75.awebp#?w=578&amp;h=92&amp;s=6429&amp;e=png&amp;b=f7f7f8">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9bbf2c4cc7064061b3637b82b296150c~tplv-k3u1fbpfcp-jj-mark:2268:0:0:0:q75.awebp#?w=2490&amp;h=1034&amp;s=375096&amp;e=jpg&amp;b=fafbfe">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/07a642bb691a4ec5afd14cbd3967fde6~tplv-k3u1fbpfcp-jj-mark:2268:0:0:0:q75.awebp#?w=6396&amp;h=3569&amp;s=1095318&amp;e=jpg&amp;b=fbf8f8">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0d64e046d393422792a57d00d40d2d71~tplv-k3u1fbpfcp-jj-mark:2268:0:0:0:q75.awebp#?w=3879&amp;h=1976&amp;s=572980&amp;e=png&amp;b=fffdfd">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a36e095e365f45cd9ab84d36fcfc510f~tplv-k3u1fbpfcp-jj-mark:2268:0:0:0:q75.awebp#?w=6369&amp;h=1322&amp;s=561228&amp;e=jpg&amp;b=fbfafa">
+<meta property="article:published_time" content="2024-12-08T12:29:01.365Z">
+<meta property="article:modified_time" content="2024-11-18T11:07:45.638Z">
+<meta property="article:author" content="听">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/aa2e629d7bbd42e791b73ead6dabc98b~tplv-k3u1fbpfcp-jj-mark:2268:0:0:0:q75.awebp#?w=4000&amp;h=1536&amp;s=504459&amp;e=jpg&amp;b=eefcf1">
+
+<link rel="canonical" href="http://example.com/2024/12/08/%E7%BD%91%E9%A1%B5%E5%AF%BC%E5%85%A5/%E8%B0%83%E7%94%A8%E6%A8%A1%E5%9E%8B%EF%BC%9A%E4%BD%BF%E7%94%A8OpenAI%20API%E8%BF%98%E6%98%AF%E5%BE%AE%E8%B0%83%E5%BC%80%E6%BA%90Llama2%E3%80%81ChatGLM%EF%BC%9F/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title> | O3xiaoyuhe</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">O3xiaoyuhe</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/12/08/%E7%BD%91%E9%A1%B5%E5%AF%BC%E5%85%A5/%E8%B0%83%E7%94%A8%E6%A8%A1%E5%9E%8B%EF%BC%9A%E4%BD%BF%E7%94%A8OpenAI%20API%E8%BF%98%E6%98%AF%E5%BE%AE%E8%B0%83%E5%BC%80%E6%BA%90Llama2%E3%80%81ChatGLM%EF%BC%9F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="听">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="O3xiaoyuhe">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-12-08 20:29:01" itemprop="dateCreated datePublished" datetime="2024-12-08T20:29:01+08:00">2024-12-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-11-18 19:07:45" itemprop="dateModified" datetime="2024-11-18T19:07:45+08:00">2024-11-18</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>你好，我是黄佳，欢迎来到 LangChain 实战课！</p>
+<p>之前，我们花了两节课的内容讲透了提示工程的原理以及 LangChain 中的具体使用方式。今天，我们来着重讨论 Model I/O 中的第二个子模块，LLM。</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/aa2e629d7bbd42e791b73ead6dabc98b~tplv-k3u1fbpfcp-jj-mark:2268:0:0:0:q75.awebp#?w=4000&amp;h=1536&amp;s=504459&amp;e=jpg&amp;b=eefcf1" alt=""></p>
+<p>让我们带着下面的问题来开始这一节课的学习。大语言模型，不止 ChatGPT 一种。调用 OpenAI 的 API，当然方便且高效，不过，如果我就是想用其他的模型（比如说开源的 Llama2 或者 ChatGLM），该怎么做？再进一步，如果我就是想在本机上从头训练出来一个新模型，然后在 LangChain 中使用自己的模型，又该怎么做？</p>
+<p>关于大模型的微调（或称精调）、预训练、重新训练、乃至从头训练，这是一个相当大的话题，不仅仅需要足够的知识和经验，还需要大量的语料数据、GPU 硬件和强大的工程能力。别说一节课了，我想两三个专栏也不一定能讲全讲透。不过，我可以提纲挈领地把大模型的训练流程和使用方法给你缕一缕。这样你就能体验到，在 LangChain 中使用自己微调的模型是完全没问题的。</p>
+<h2 id="大语言模型发展史">大语言模型发展史</h2>
+<p>说到语言模型，我们不妨先从其发展史中去了解一些关键信息。</p>
+<p>Google 2018 年的论文名篇 Attention is all you need，提出了 Transformer 架构，也给这一次 AI 的腾飞点了火。Transformer 是几乎所有预训练模型的核心底层架构。基于 Transformer 预训练所得的大规模语言模型也被叫做 “基础模型”（Foundation Model 或 Base Model）。</p>
+<p>在这个过程中，模型学习了词汇、语法、句子结构以及上下文信息等丰富的语言知识。这种在大量数据上学到的知识，为后续的下游任务（如情感分析、文本分类、命名实体识别、问答系统等）提供了一个通用的、丰富的语言表示基础，为解决许多复杂的 NLP 问题提供了可能。</p>
+<p>在预训练模型出现的早期，BERT 毫无疑问是最具代表性的，也是影响力最大的模型。BERT 通过同时学习文本的前向和后向上下文信息，实现对句子结构的深入理解。BERT 之后，各种大型预训练模型如雨后春笋般地涌现，自然语言处理（NLP）领域进入了一个新时代。这些模型推动了 NLP 技术的快速发展，解决了许多以前难以应对的问题，比如翻译、文本总结、聊天对话等等，提供了强大的工具。</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/de0a990946884334bb7725e30bd73407~tplv-k3u1fbpfcp-jj-mark:2268:0:0:0:q75.awebp#?w=10666&amp;h=4300&amp;s=876799&amp;e=jpg&amp;b=ffffff" alt=""></p>
+<p>当然，现今的预训练模型的趋势是参数越来越多，模型也越来越大，训练一次的费用可达几百万美元。这样大的开销和资源的耗费，只有世界顶级大厂才能够负担得起，普通的学术组织和高等院校很难在这个领域继续引领科技突破，这种现象开始被普通研究人员所诟病。</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0ef96d0e60864b6a8642d1a5ffbe73e4~tplv-k3u1fbpfcp-jj-mark:2268:0:0:0:q75.awebp#?w=10666&amp;h=6000&amp;s=954543&amp;e=jpg&amp;b=ffffff" alt=""></p>
+<h2 id="预训练-微调的模式">预训练 + 微调的模式</h2>
+<p>不过，话虽如此，大型预训练模型的确是工程师的福音。因为，经过预训练的大模型中所习得的语义信息和所蕴含的语言知识，能够非常容易地向下游任务迁移。NLP 应用人员可以对模型的头部或者部分参数根据自己的需要进行适应性的调整，这通常涉及在相对较小的有标注数据集上进行有监督学习，让模型适应特定任务的需求。</p>
+<p>这就是对预训练模型的微调（Fine-tuning）。微调过程相比于从头训练一个模型要快得多，且需要的数据量也要少得多，这使得作为工程师的我们能够更高效地开发和部署各种 NLP 解决方案。</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/77de71b3192c4214a06eb6fae70365db~tplv-k3u1fbpfcp-jj-mark:2268:0:0:0:q75.awebp#?w=10666&amp;h=5061&amp;s=840274&amp;e=jpg&amp;b=ffffff" alt=""></p>
+<p>图中的 “具体任务”，其实也可以更换为 “具体领域”。那么总结来说：</p>
+<ul class="lvl-0">
+<li class="lvl-4">
+<p><strong>预训练</strong>：在大规模无标注文本数据上进行模型的训练，目标是让模型学习自然语言的基础表达、上下文信息和语义知识，为后续任务提供一个通用的、丰富的语言表示基础。</p>
+</li>
+<li class="lvl-4">
+<p><strong>微调</strong>：在预训练模型的基础上，可以根据特定的下游任务对模型进行微调。现在你经常会听到各行各业的人说：<em>我们的优势就是领域知识嘛！我们比不过国内外大模型，我们可以拿开源模型做垂直领域嘛！做垂类模型！</em>—— 啥叫垂类？指的其实就是根据领域数据微调开源模型这件事儿。</p>
+</li>
+</ul>
+<p>这种预训练 + 微调的大模型应用模式优势明显。首先，预训练模型能够将大量的通用语言知识迁移到各种下游任务上，作为应用人员，我们不需要自己寻找语料库，从头开始训练大模型，这减少了训练时间和数据需求；其次，微调过程可以快速地根据特定任务进行优化，简化了模型部署的难度；最后，预训练 + 微调的架构具有很强的可扩展性，可以方便地应用于各种自然语言处理任务，大大提高了 NLP 技术在实际应用中的可用性和普及程度，给我们带来了巨大的便利。</p>
+<p>好，下面咱们开始一步步地使用开源模型。今天我要带你玩的模型主要是 Meta（Facebook）推出的 Llama2。当然你可以去 Llama 的官网下载模型，然后通过 Llama 官方 <a href="https://link.juejin.cn/?target=https%3A%2F%2Fgithub.com%2Ffacebookresearch%2Fllama" title="https://github.com/facebookresearch/llama">GitHub</a> 中提供的方法来调用它。但是，我还是会推荐你从 HuggingFace 下载并导入模型。因为啊，前天百川，昨天千问，今天流行 Llama，明天不就流行别的了嘛。模型总在变，但是 HuggingFace 一直在那里，支持着各种开源模型。我们学东西，尽量选择学一次能够复用的知识。</p>
+<h2 id="用-HuggingFace-跑开源模型">用 HuggingFace 跑开源模型</h2>
+<h3 id="注册并安装-HuggingFace">注册并安装 HuggingFace</h3>
+<p>第一步，还是要登录 <a href="https://link.juejin.cn/?target=https%3A%2F%2Fhuggingface.co%2F" title="https://huggingface.co/">HuggingFace</a> 网站，并拿到专属于你的 Token。（如果你做了前面几节课的实战案例，那么你应该已经有这个 API Token 了）</p>
+<p>第二步，用 <code>pip install transformers</code> 安装 HuggingFace Library。详见<a href="https://link.juejin.cn/?target=https%3A%2F%2Fhuggingface.co%2Fdocs%2Ftransformers%2Finstallation" title="https://huggingface.co/docs/transformers/installation">这里</a>。</p>
+<p>第三步，在命令行中运行 <code>huggingface-cli login</code>，设置你的 API Token。</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/dd94f10a986f4df0920bebaf8100fc1b~tplv-k3u1fbpfcp-jj-mark:2268:0:0:0:q75.awebp#?w=1475&amp;h=668&amp;s=501685&amp;e=png&amp;b=fefcfc" alt=""></p>
+<p>当然，也可以在程序中设置你的 API Token，但是这不如在命令行中设置来得安全。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 导入HuggingFace API Token</span><br><span class="line">import os</span><br><span class="line">os.environ[&#x27;HUGGINGFACEHUB_API_TOKEN&#x27;] = &#x27;你的HuggingFace API Token&#x27;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="申请使用-Meta-的-Llama2-模型">申请使用 Meta 的 Llama2 模型</h3>
+<p>在 HuggingFace 的 Model 中，找到 <a href="https://link.juejin.cn/?target=https%3A%2F%2Fhuggingface.co%2Fmeta-llama%2FLlama-2-7b" title="https://huggingface.co/meta-llama/Llama-2-7b">meta-llama/Llama-2-7b</a>。注意，各种各样版本的 Llama2 模型多如牛毛，我们这里用的是最小的 7B 版。此外，还有 13b\70b\chat 版以及各种各样的非 Meta 官方版。</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/136e9035944547739db7296b63910ead~tplv-k3u1fbpfcp-jj-mark:2268:0:0:0:q75.awebp#?w=3028&amp;h=710&amp;s=375013&amp;e=png&amp;b=fef8f7" alt=""></p>
+<p>选择 meta-llama/Llama-2-7b 这个模型后，你能够看到这个模型的基本信息。如果你是第一次用 Llama，你需要申请 Access，因为我已经申请过了，所以屏幕中间有句话：“You have been granted access to this model”。从申请到批准，大概是几分钟的事儿。</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/018cde81ef93445293b5949b529c4a4f~tplv-k3u1fbpfcp-jj-mark:2268:0:0:0:q75.awebp#?w=3029&amp;h=1662&amp;s=392474&amp;e=png&amp;b=fffdfd" alt=""></p>
+<h3 id="通过-HuggingFace-调用-Llama">通过 HuggingFace 调用 Llama</h3>
+<p>好，万事俱备，现在我们可以使用 HuggingFace 的 Transformers 库来调用 Llama 啦！</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"># 导入必要的库</span><br><span class="line">from transformers import AutoTokenizer, AutoModelForCausalLM</span><br><span class="line"></span><br><span class="line"># 加载预训练模型的分词器</span><br><span class="line">tokenizer = AutoTokenizer.from_pretrained(&quot;meta-llama/Llama-2-7b-chat-hf&quot;)</span><br><span class="line"></span><br><span class="line"># 加载预训练的模型</span><br><span class="line"># 使用 device_map 参数将模型自动加载到可用的硬件设备上，例如GPU</span><br><span class="line">model = AutoModelForCausalLM.from_pretrained(</span><br><span class="line">          &quot;meta-llama/Llama-2-7b-chat-hf&quot;, </span><br><span class="line">          device_map = &#x27;auto&#x27;)  </span><br><span class="line"></span><br><span class="line"># 定义一个提示，希望模型基于此提示生成故事</span><br><span class="line">prompt = &quot;请给我讲个玫瑰的爱情故事?&quot;</span><br><span class="line"></span><br><span class="line"># 使用分词器将提示转化为模型可以理解的格式，并将其移动到GPU上</span><br><span class="line">inputs = tokenizer(prompt, return_tensors=&quot;pt&quot;).to(&quot;cuda&quot;)</span><br><span class="line"></span><br><span class="line"># 使用模型生成文本，设置最大生成令牌数为2000</span><br><span class="line">outputs = model.generate(inputs[&quot;input_ids&quot;], max_new_tokens=2000)</span><br><span class="line"></span><br><span class="line"># 将生成的令牌解码成文本，并跳过任何特殊的令牌，例如[CLS], [SEP]等</span><br><span class="line">response = tokenizer.decode(outputs[0], skip_special_tokens=True)</span><br><span class="line"></span><br><span class="line"># 打印生成的响应</span><br><span class="line">print(response)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>这段程序是一个很典型的 HuggingFace 的 Transformers 库的用例，该库提供了大量预训练的模型和相关的工具。</p>
+<ul class="lvl-0">
+<li class="lvl-4">
+<p>导入 AutoTokenizer：这是一个用于自动加载预训练模型的相关分词器的工具。分词器负责将文本转化为模型可以理解的数字格式。</p>
+</li>
+<li class="lvl-4">
+<p>导入 AutoModelForCausalLM：这是用于加载因果语言模型（用于文本生成）的工具。</p>
+</li>
+<li class="lvl-4">
+<p>使用 from_pretrained 方法来加载预训练的分词器和模型。其中，<code>device_map = 'auto'</code> 是为了自动地将模型加载到可用的设备上，例如 GPU。</p>
+</li>
+<li class="lvl-4">
+<p>然后，给定一个提示（prompt）：<code>&quot;请给我讲个玫瑰的爱情故事?&quot;</code>，并使用分词器将该提示转换为模型可以接受的格式，<code>return_tensors=&quot;pt&quot;</code> 表示返回 PyTorch 张量。语句中的 <code>.to(&quot;cuda&quot;)</code> 是 GPU 设备格式转换，因为我在 GPU 上跑程序，不用这个的话会报错，如果你使用 CPU，可以试一下删掉它。</p>
+</li>
+<li class="lvl-4">
+<p>最后使用模型的 <code>.generate()</code> 方法生成响应。<code>max_new_tokens=2000</code> 限制生成的文本的长度。使用分词器的 <code>.decode()</code> 方法将输出的数字转化回文本，并且跳过任何特殊的标记。</p>
+</li>
+</ul>
+<p>因为是在本地进行推理，耗时时间比较久。在我的机器上，大概需要 30s～2min 产生结果。</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7236954938cb4330883275f0dfff4c5f~tplv-k3u1fbpfcp-jj-mark:2268:0:0:0:q75.awebp#?w=1653&amp;h=651&amp;s=207641&amp;e=png&amp;b=fefdfd" alt=""></p>
+<p>这样的回答肯定不能直接用做商业文案，而且，我的意思是玫瑰花相关的故事，它明显把玫瑰理解成一个女孩的名字了。所以，开源模型，尤其是 7B 的小模型和 Open AI 的 ChatGPT 还是有一定差距的。</p>
+<h2 id="LangChain-和-HuggingFace-的接口">LangChain 和 HuggingFace 的接口</h2>
+<p>讲了半天，LangChain 未出场。下面让我们看一看，如何把 HuggingFace 里面的模型接入 LangChain。</p>
+<h3 id="通过-HuggingFace-Hub">通过 HuggingFace Hub</h3>
+<p>第一种集成方式，是通过 HuggingFace Hub。HuggingFace Hub 是一个开源模型中心化存储库，主要用于分享、协作和存储预训练模型、数据集以及相关组件。</p>
+<p>我们给出一个 HuggingFace Hub 和 LangChain 集成的代码示例。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"># 导入HuggingFace API Token</span><br><span class="line">import os</span><br><span class="line">os.environ[&#x27;HUGGINGFACEHUB_API_TOKEN&#x27;] = &#x27;你的HuggingFace API Token&#x27;</span><br><span class="line"></span><br><span class="line"># 导入必要的库</span><br><span class="line">from langchain import PromptTemplate, HuggingFaceHub, LLMChain</span><br><span class="line"></span><br><span class="line"># 初始化HF LLM</span><br><span class="line">llm = HuggingFaceHub(</span><br><span class="line">    repo_id=&quot;google/flan-t5-small&quot;,</span><br><span class="line">    #repo_id=&quot;meta-llama/Llama-2-7b-chat-hf&quot;,</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"># 创建简单的question-answering提示模板</span><br><span class="line">template = &quot;&quot;&quot;Question: &#123;question&#125;</span><br><span class="line">              Answer: &quot;&quot;&quot;</span><br><span class="line"></span><br><span class="line"># 创建Prompt          </span><br><span class="line">prompt = PromptTemplate(template=template, input_variables=[&quot;question&quot;])</span><br><span class="line"></span><br><span class="line"># 调用LLM Chain --- 我们以后会详细讲LLM Chain</span><br><span class="line">llm_chain = LLMChain(</span><br><span class="line">    prompt=prompt,</span><br><span class="line">    llm=llm</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"># 准备问题</span><br><span class="line">question = &quot;Rose is which type of flower?&quot;</span><br><span class="line"></span><br><span class="line"># 调用模型并返回结果</span><br><span class="line">print(llm_chain.run(question))</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>可以看出，这个集成过程非常简单，只需要在 HuggingFaceHub 类的 repo_id 中指定模型名称，就可以直接下载并使用模型，模型会自动下载到 HuggingFace 的 Cache 目录，并不需要手工下载。</p>
+<p>初始化 LLM，创建提示模板，生成提示的过程，你已经很熟悉了。这段代码中有一个新内容是我通过 llm_chain 来调用了 LLM。这段代码也不难理解，有关 Chain 的概念我们以后还会详述。</p>
+<p>不过，我尝试使用 meta-llama/Llama-2-7b-chat-hf 这个模型时，出现了错误，因此我只好用比较旧的模型做测试。我随便选择了 google/flan-t5-small，问了它一个很简单的问题，想看看它是否知道玫瑰是哪一种花。</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e211313253dd4ab882989b31e9e6a60a~tplv-k3u1fbpfcp-jj-mark:2268:0:0:0:q75.awebp#?w=547&amp;h=149&amp;s=13256&amp;e=png&amp;a=1&amp;b=ffffff" alt=""></p>
+<p>模型告诉我，玫瑰是花。对，答案只有一个字，flower。这… 不得不说，2023 年之前的模型，和 2023 年之后的模型，水平没得比。以前的模型能说话就不错了。</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ce02bf5715db48fd862fba0f1407a29b~tplv-k3u1fbpfcp-jj-mark:2268:0:0:0:q75.awebp#?w=578&amp;h=92&amp;s=6429&amp;e=png&amp;b=f7f7f8" alt=""></p>
+<h3 id="通过-HuggingFace-Pipeline">通过 HuggingFace Pipeline</h3>
+<p>既然 HuggingFace Hub 还不能完成 Llama-2 的测试，让我们来尝试另外一种方法，HuggingFace Pipeline。HuggingFace 的 Pipeline 是一种高级工具，它简化了多种常见自然语言处理（NLP）任务的使用流程，使得用户不需要深入了解模型细节，也能够很容易地利用预训练模型来做任务。</p>
+<p>让我来看看下面的示例：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"># 指定预训练模型的名称</span><br><span class="line">model = &quot;meta-llama/Llama-2-7b-chat-hf&quot;</span><br><span class="line"></span><br><span class="line"># 从预训练模型中加载词汇器</span><br><span class="line">from transformers import AutoTokenizer</span><br><span class="line">tokenizer = AutoTokenizer.from_pretrained(model)</span><br><span class="line"></span><br><span class="line"># 创建一个文本生成的管道</span><br><span class="line">import transformers</span><br><span class="line">import torch</span><br><span class="line">pipeline = transformers.pipeline(</span><br><span class="line">    &quot;text-generation&quot;,</span><br><span class="line">    model=model,</span><br><span class="line">    torch_dtype=torch.float16,</span><br><span class="line">    device_map=&quot;auto&quot;,</span><br><span class="line">    max_length = 1000</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"># 创建HuggingFacePipeline实例</span><br><span class="line">from langchain import HuggingFacePipeline</span><br><span class="line">llm = HuggingFacePipeline(pipeline = pipeline, </span><br><span class="line">                          model_kwargs = &#123;&#x27;temperature&#x27;:0&#125;)</span><br><span class="line"></span><br><span class="line"># 定义输入模板，该模板用于生成花束的描述</span><br><span class="line">template = &quot;&quot;&quot;</span><br><span class="line">              为以下的花束生成一个详细且吸引人的描述：</span><br><span class="line">              花束的详细信息：</span><br><span class="line">              ```&#123;flower_details&#125;```</span><br><span class="line">           &quot;&quot;&quot;</span><br><span class="line"></span><br><span class="line"># 使用模板创建提示</span><br><span class="line">from langchain import PromptTemplate,  LLMChain</span><br><span class="line">prompt = PromptTemplate(template=template, </span><br><span class="line">                     input_variables=[&quot;flower_details&quot;])</span><br><span class="line"></span><br><span class="line"># 创建LLMChain实例</span><br><span class="line">from langchain import PromptTemplate</span><br><span class="line">llm_chain = LLMChain(prompt=prompt, llm=llm)</span><br><span class="line"></span><br><span class="line"># 需要生成描述的花束的详细信息</span><br><span class="line">flower_details = &quot;12支红玫瑰，搭配白色满天星和绿叶，包装在浪漫的红色纸中。&quot;</span><br><span class="line"></span><br><span class="line"># 打印生成的花束描述</span><br><span class="line">print(llm_chain.run(flower_details))</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>这里简单介绍一下代码中使用到的 transformers pipeline 的配置参数。</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9bbf2c4cc7064061b3637b82b296150c~tplv-k3u1fbpfcp-jj-mark:2268:0:0:0:q75.awebp#?w=2490&amp;h=1034&amp;s=375096&amp;e=jpg&amp;b=fafbfe" alt=""></p>
+<p>生成的结果之一如下：</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/07a642bb691a4ec5afd14cbd3967fde6~tplv-k3u1fbpfcp-jj-mark:2268:0:0:0:q75.awebp#?w=6396&amp;h=3569&amp;s=1095318&amp;e=jpg&amp;b=fbf8f8" alt=""></p>
+<p>此结果不敢恭维。但是，后续的测试告诉我，这很有可能是 7B 这个模型太小，尽管有形成中文的相应能力，但是能力不够强大，也就导致了这样的结果。</p>
+<p>至此，通过 HuggingFace 接口调用各种开源模型的尝试成功结束。下面，我们进行最后一个测试，看看 LangChain 到底能否直接调用本地模型。</p>
+<h2 id="用-LangChain-调用自定义语言模型">用 LangChain 调用自定义语言模型</h2>
+<p>最后，我们来尝试回答这节课开头提出的问题，假设你就是想训练属于自己的模型。而且出于商业秘密的原因，不想开源它，不想上传到 HuggingFace，就是要在本机运行模型。此时应该如何利用 LangChain 的功能？</p>
+<p>我们可以创建一个 LLM 的衍生类，自己定义模型。而 LLM 这个基类，则位于 langchain.llms.base 中，通过 from langchain.llms.base import LLM 语句导入。</p>
+<p>这个自定义的 LLM 类只需要实现一个方法：</p>
+<ul class="lvl-0">
+<li class="lvl-4">
+<p>_call 方法：用于接收输入字符串并返回响应字符串。</p>
+</li>
+</ul>
+<p>以及一个可选方法：</p>
+<ul class="lvl-0">
+<li class="lvl-4">
+<p>_identifying_params 方法：用于帮助打印此类的属性。</p>
+</li>
+</ul>
+<p>下面，让我们先从 HuggingFace 的<a href="https://link.juejin.cn/?target=https%3A%2F%2Fhuggingface.co%2FTheBloke%2FLlama-2-7B-Chat-GGML%2Ftree%2Fmain" title="https://huggingface.co/TheBloke/Llama-2-7B-Chat-GGML/tree/main">这里</a>，下载一个 llama-2-7b-chat.ggmlv3.q4_K_S.bin 模型，并保存在本地。</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0d64e046d393422792a57d00d40d2d71~tplv-k3u1fbpfcp-jj-mark:2268:0:0:0:q75.awebp#?w=3879&amp;h=1976&amp;s=572980&amp;e=png&amp;b=fffdfd" alt=""></p>
+<p>你可能会质疑我，不是说自己训练，自己微调，不再用 HuggingFace 了吗？</p>
+<p>不好意思，容许我解释一下。自己训练一个能用的模型没那么容易。这个模型，它并不是原始的 Llama 模型，而是 TheBloke 这位老兄用他的手段为我们量化过的新模型，你也可以理解成，他已经为我们压缩或者说微调了 Llama 模型。</p>
+<p>量化是 AI 模型大小和性能优化的常用技术，它将模型的权重简化到较少的位数，以减少模型的大小和计算需求，让大模型甚至能够在 CPU 上面运行。当你看到模型的后缀有 GGML 或者 GPTQ，就说明模型已经被量化过，其中 GPTQ 是一种仅适用于 GPU 的特定格式。GGML 专为 CPU 和 Apple M 系列设计，但也可以加速 GPU 上的某些层。llama-cpp-python 这个包就是为了实现 GGML 而制作的。</p>
+<p>所以，这里你就假设，咱们下载下来的 llama-2-7b-chat.ggmlv3.q4_K_S.bin 这个模型，就是你自己微调过的。将来你真的微调了 Llama2、ChatGLM、百川或者千问的开源版，甚至是自己从头训练了一个 mini-ChatGPT，你也可以保存为 you_own_model.bin 的格式，就按照下面的方式加载到 LangChain 之中。</p>
+<p>然后，为了使用 llama-2-7b-chat.ggmlv3.q4_K_S.bin 这个模型，你需要安装 pip install llama-cpp-python 这个包。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"># 导入需要的库</span><br><span class="line">from llama_cpp import Llama</span><br><span class="line">from typing import Optional, List, Mapping, Any</span><br><span class="line">from langchain.llms.base import LLM</span><br><span class="line"></span><br><span class="line"># 模型的名称和路径常量</span><br><span class="line">MODEL_NAME = &#x27;llama-2-7b-chat.ggmlv3.q4_K_S.bin&#x27;</span><br><span class="line">MODEL_PATH = &#x27;/home/huangj/03_Llama/&#x27;</span><br><span class="line"></span><br><span class="line"># 自定义的LLM类，继承自基础LLM类</span><br><span class="line">class CustomLLM(LLM):</span><br><span class="line">    model_name = MODEL_NAME</span><br><span class="line"></span><br><span class="line">    # 该方法使用Llama库调用模型生成回复</span><br><span class="line">    def _call(self, prompt: str, stop: Optional[List[str]] = None) -&gt; str:</span><br><span class="line">        prompt_length = len(prompt) + 5</span><br><span class="line">        # 初始化Llama模型，指定模型路径和线程数</span><br><span class="line">        llm = Llama(model_path=MODEL_PATH+MODEL_NAME, n_threads=4)</span><br><span class="line">        # 使用Llama模型生成回复</span><br><span class="line">        response = llm(f&quot;Q: &#123;prompt&#125; A: &quot;, max_tokens=256)</span><br><span class="line">        </span><br><span class="line">        # 从返回的回复中提取文本部分</span><br><span class="line">        output = response[&#x27;choices&#x27;][0][&#x27;text&#x27;].replace(&#x27;A: &#x27;, &#x27;&#x27;).strip()</span><br><span class="line"></span><br><span class="line">        # 返回生成的回复，同时剔除了问题部分和额外字符</span><br><span class="line">        return output[prompt_length:]</span><br><span class="line"></span><br><span class="line">    # 返回模型的标识参数，这里只是返回模型的名称</span><br><span class="line">    @property</span><br><span class="line">    def _identifying_params(self) -&gt; Mapping[str, Any]:</span><br><span class="line">        return &#123;&quot;name_of_model&quot;: self.model_name&#125;</span><br><span class="line"></span><br><span class="line">    # 返回模型的类型，这里是&quot;custom&quot;</span><br><span class="line">    @property</span><br><span class="line">    def _llm_type(self) -&gt; str:</span><br><span class="line">        return &quot;custom&quot;</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line"># 初始化自定义LLM类</span><br><span class="line">llm = CustomLLM()</span><br><span class="line"></span><br><span class="line"># 使用自定义LLM生成一个回复</span><br><span class="line">result = llm(&quot;昨天有一个客户抱怨他买了花给女朋友之后，两天花就枯了，你说作为客服我应该怎么解释？&quot;)</span><br><span class="line"></span><br><span class="line"># 打印生成的回复</span><br><span class="line">print(result)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>代码中需要解释的内容不多，基本上就是 CustomLLM 类的构建和使用，类内部通过 Llama 类来实现大模型的推理功能，然后直接返回模型的回答。</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a36e095e365f45cd9ab84d36fcfc510f~tplv-k3u1fbpfcp-jj-mark:2268:0:0:0:q75.awebp#?w=6369&amp;h=1322&amp;s=561228&amp;e=jpg&amp;b=fbfafa" alt=""></p>
+<p>似乎 Llama 经过量化之后，虽然仍读得懂中文，但是不会讲中文了。</p>
+<p>翻译成中文，他的回答是这样的。</p>
+<p><em>当客户抱怨他们为女朋友买的花在两天内就枯萎了，我会以礼貌和专业的方式这样解释：</em></p>
+<p><em>“感谢您把这个问题告诉我们。对于给您带来的任何不便，我深感抱歉。有可能这些花没有被正确地存储或照料，这可能影响了它们的生命期。我们始终以提供高质量的产品为荣，但有时可能会出现意外的问题。请您知道，我们非常重视您的满意度并随时为您提供帮助。您希望我为您提供替换或退款吗？”</em></p>
+<p>看上去，除了中文能力不大灵光之外，Llama2 的英文表现真的非常完美，和 GPT3.5 差距不是很大，要知道：</p>
+<ol>
+<li class="lvl-4">
+<p>这可是开源模型，而且是允许商业的免费模型。</p>
+</li>
+<li class="lvl-4">
+<p>这是在本机 CPU 的环境下运行的，模型的推理速度还是可以接受的。</p>
+</li>
+<li class="lvl-4">
+<p>这仅仅是 Llama 的最小版本，也就是 7B 的量化版，就达到了这么好的效果。</p>
+</li>
+</ol>
+<p>基于上述三点原因，我给 Llama2 打 98.5 分。</p>
+<h2 id="总结时刻">总结时刻</h2>
+<p>今天的课程到此就结束了，相信你学到了很多新东西吧。的确，进入大模型开发这个领域，就好像打开了通往新世界的一扇门，有太多的新知识，等待着你去探索。</p>
+<p>现在，你已经知道大模型训练涉及在大量数据上使用深度学习算法，通常需要大量计算资源和时间。训练后，模型可能不完全适合特定任务，因此需要微调，即在特定数据集上继续训练，以使模型更适应该任务。为了减小部署模型的大小和加快推理速度，模型还会经过量化，即将模型参数从高精度格式减少到较低精度。</p>
+<p>如果你想继续深入学习大模型，那么有几个工具你不得不接着研究。</p>
+<ul class="lvl-0">
+<li class="lvl-4">
+<p>PyTorch 是一个流行的深度学习框架，常用于模型的训练和微调。</p>
+</li>
+<li class="lvl-4">
+<p>HuggingFace 是一个开源社区，提供了大量预训练模型和微调工具，尤其是 NLP 任务。</p>
+</li>
+<li class="lvl-4">
+<p>LangChain 则擅长于利用大语言模型的推理功能，开发新的工具或应用，完成特定的任务。</p>
+</li>
+</ul>
+<p>这些工具和库在 AI 模型的全生命周期中起到关键作用，使研究者和开发者更容易开发和部署高效的 AI 系统。</p>
+<h2 id="思考题">思考题</h2>
+<ol>
+<li class="lvl-4">
+<p>现在请你再回答一下，什么时候应该使用 OpenAI 的 API？什么时候应该使用开源模型？或者自己开发 / 微调的模型？ 提示：的确，文中没有给出这个问题的答案。因为这个问题并没有标准答案。</p>
+</li>
+<li class="lvl-4">
+<p>请你使用 HuggingFace 的 Transformers 库，下载新的模型进行推理，比较它们的性能。</p>
+</li>
+<li class="lvl-4">
+<p>请你在 LangChain 中，使用 HuggingFaceHub 和 HuggingFace Pipeline 这两种接口，调用当前最流行的大语言模型。 提示：HuggingFace Model 页面，有模型下载量的当月排序，当月下载最多的模型就是最流行的模型。</p>
+</li>
+</ol>
+<p>期待在留言区看到你的分享，我们一起交流探讨，共创一个良好的学习氛围。如果你觉得内容对你有帮助，也欢迎分享给有需要的朋友！最后如果你学有余力，可以进一步学习下面的延伸阅读。</p>
+<h2 id="延伸阅读">延伸阅读</h2>
+<ol>
+<li class="lvl-4">
+<p>Llama2，开源的可商用类 ChatGPT 模型，<a href="https://link.juejin.cn/?target=https%3A%2F%2Fai.meta.com%2Fresearch%2Fpublications%2Fllama-2-open-foundation-and-fine-tuned-chat-models%2F" title="https://ai.meta.com/research/publications/llama-2-open-foundation-and-fine-tuned-chat-models/">Facebook 链接</a>、<a href="https://link.juejin.cn/?target=https%3A%2F%2Fgithub.com%2Ffacebookresearch%2Fllama" title="https://github.com/facebookresearch/llama">GitHub 链接</a></p>
+</li>
+<li class="lvl-4">
+<p>HuggingFace <a href="https://link.juejin.cn/?target=https%3A%2F%2Fhuggingface.co%2Fdocs%2Ftransformers%2Findex" title="https://huggingface.co/docs/transformers/index">Transformer</a> 文档</p>
+</li>
+<li class="lvl-4">
+<p>PyTorch 官方<a href="https://link.juejin.cn/?target=https%3A%2F%2Fpytorch.org%2Ftutorials%2F" title="https://pytorch.org/tutorials/">教程</a>、<a href="https://link.juejin.cn/?target=https%3A%2F%2Fpytorch.org%2Fdocs%2Fstable%2Findex.html" title="https://pytorch.org/docs/stable/index.html">文档</a></p>
+</li>
+<li class="lvl-4">
+<p><a href="https://link.juejin.cn/?target=https%3A%2F%2Fgithub.com%2FPanQiWei%2FAutoGPTQ" title="https://github.com/PanQiWei/AutoGPTQ">AutoGPTQ</a> 基于 GPTQ 算法的大模型量化工具包</p>
+</li>
+<li class="lvl-4">
+<p><a href="https://link.juejin.cn/?target=https%3A%2F%2Fgithub.com%2Fggerganov%2Fllama.cpp" title="https://github.com/ggerganov/llama.cpp">Llama CPP</a> 支持 <a href="https://link.juejin.cn/?target=https%3A%2F%2Fgithub.com%2Fggerganov%2Fggml" title="https://github.com/ggerganov/ggml">GGML</a>，目标是在 MacBook（或类似的非 GPU 的普通家用硬件环境）上使用 4 位整数量化运行 Llama 模型</p>
+</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2024/12/08/%E7%BD%91%E9%A1%B5%E5%AF%BC%E5%85%A5/%E8%BE%93%E5%87%BA%E8%A7%A3%E6%9E%90%EF%BC%9A%E7%94%A8OutputParser%E7%94%9F%E6%88%90%E9%B2%9C%E8%8A%B1%E6%8E%A8%E8%8D%90%E5%88%97%E8%A1%A8/" rel="prev" title="">
+      <i class="fa fa-chevron-left"></i> 
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2024/12/08/%E7%BD%91%E9%A1%B5%E5%AF%BC%E5%85%A5/%E8%AE%B0%E5%BF%86%EF%BC%9A%E9%80%9A%E8%BF%87Memory%E8%AE%B0%E4%BD%8F%E5%AE%A2%E6%88%B7%E4%B8%8A%E6%AC%A1%E4%B9%B0%E8%8A%B1%E6%97%B6%E7%9A%84%E5%AF%B9%E8%AF%9D%E7%BB%86%E8%8A%82/" rel="next" title="">
+       <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%E5%8F%91%E5%B1%95%E5%8F%B2"><span class="nav-number">1.</span> <span class="nav-text">大语言模型发展史</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%84%E8%AE%AD%E7%BB%83-%E5%BE%AE%E8%B0%83%E7%9A%84%E6%A8%A1%E5%BC%8F"><span class="nav-number">2.</span> <span class="nav-text">预训练 + 微调的模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%A8-HuggingFace-%E8%B7%91%E5%BC%80%E6%BA%90%E6%A8%A1%E5%9E%8B"><span class="nav-number">3.</span> <span class="nav-text">用 HuggingFace 跑开源模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B3%A8%E5%86%8C%E5%B9%B6%E5%AE%89%E8%A3%85-HuggingFace"><span class="nav-number">3.1.</span> <span class="nav-text">注册并安装 HuggingFace</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%B3%E8%AF%B7%E4%BD%BF%E7%94%A8-Meta-%E7%9A%84-Llama2-%E6%A8%A1%E5%9E%8B"><span class="nav-number">3.2.</span> <span class="nav-text">申请使用 Meta 的 Llama2 模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%9A%E8%BF%87-HuggingFace-%E8%B0%83%E7%94%A8-Llama"><span class="nav-number">3.3.</span> <span class="nav-text">通过 HuggingFace 调用 Llama</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LangChain-%E5%92%8C-HuggingFace-%E7%9A%84%E6%8E%A5%E5%8F%A3"><span class="nav-number">4.</span> <span class="nav-text">LangChain 和 HuggingFace 的接口</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%9A%E8%BF%87-HuggingFace-Hub"><span class="nav-number">4.1.</span> <span class="nav-text">通过 HuggingFace Hub</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%9A%E8%BF%87-HuggingFace-Pipeline"><span class="nav-number">4.2.</span> <span class="nav-text">通过 HuggingFace Pipeline</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%A8-LangChain-%E8%B0%83%E7%94%A8%E8%87%AA%E5%AE%9A%E4%B9%89%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B"><span class="nav-number">5.</span> <span class="nav-text">用 LangChain 调用自定义语言模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93%E6%97%B6%E5%88%BB"><span class="nav-number">6.</span> <span class="nav-text">总结时刻</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%9D%E8%80%83%E9%A2%98"><span class="nav-number">7.</span> <span class="nav-text">思考题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BB%B6%E4%BC%B8%E9%98%85%E8%AF%BB"><span class="nav-number">8.</span> <span class="nav-text">延伸阅读</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">听</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">653</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">48</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">听</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

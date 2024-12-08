@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.3.0">
+<link rel="stylesheet" href="/css/custom.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="好书推荐  由于版权原因，下面列举的图书中除了开源资源提供了链接，其他的资源请大家自行通过 libgen 或 z-lib 查找。 资源汇总   Free Programming Books: 开源编程书籍资源汇总   CS Textbook Recommendations: 计算机科学方向推荐教材列表   C Book Guide and List: C语言相关的编程书籍推荐列表   C++ Bo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="O3xiaoyuhe">
+<meta property="og:url" content="http://example.com/2024/12/08/CS-Learning/cs-self-learning/docs/%E5%A5%BD%E4%B9%A6%E6%8E%A8%E8%8D%90/index.html">
+<meta property="og:site_name" content="O3xiaoyuhe">
+<meta property="og:description" content="好书推荐  由于版权原因，下面列举的图书中除了开源资源提供了链接，其他的资源请大家自行通过 libgen 或 z-lib 查找。 资源汇总   Free Programming Books: 开源编程书籍资源汇总   CS Textbook Recommendations: 计算机科学方向推荐教材列表   C Book Guide and List: C语言相关的编程书籍推荐列表   C++ Bo">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-12-08T12:29:05.406Z">
+<meta property="article:modified_time" content="2024-11-13T14:44:22.210Z">
+<meta property="article:author" content="听">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2024/12/08/CS-Learning/cs-self-learning/docs/%E5%A5%BD%E4%B9%A6%E6%8E%A8%E8%8D%90/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title> | O3xiaoyuhe</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">O3xiaoyuhe</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/12/08/CS-Learning/cs-self-learning/docs/%E5%A5%BD%E4%B9%A6%E6%8E%A8%E8%8D%90/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="听">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="O3xiaoyuhe">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-12-08 20:29:05" itemprop="dateCreated datePublished" datetime="2024-12-08T20:29:05+08:00">2024-12-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-11-13 22:44:22" itemprop="dateModified" datetime="2024-11-13T22:44:22+08:00">2024-11-13</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1>好书推荐</h1>
+<!-- 
+    汇总类的书籍资源请放在 资源汇总 板块下
+
+    书籍格式要求: 
+        书籍名(优先英文原版，开源则附上链接，多版本则默认最新版) [豆瓣链接] [其他相关资源链接（如相关课程）]
+    
+    同板块下的顺序要求：
+        先中文后英文，同种语言先开源后闭源，最后按从基础到深入或者字母序。
+ -->
+<p>由于版权原因，下面列举的图书中除了开源资源提供了链接，其他的资源请大家自行通过 <a target="_blank" rel="noopener" href="http://libgen.is/">libgen</a> 或 <a target="_blank" rel="noopener" href="https://z-lib.org/">z-lib</a> 查找。</p>
+<h2 id="资源汇总">资源汇总</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><a target="_blank" rel="noopener" href="https://github.com/EbookFoundation/free-programming-books">Free Programming Books</a>: 开源编程书籍资源汇总</p>
+</li>
+<li class="lvl-2">
+<p><a target="_blank" rel="noopener" href="https://4chan-science.fandom.com/wiki/Computer_Science_and_Engineering">CS Textbook Recommendations</a>: 计算机科学方向推荐教材列表</p>
+</li>
+<li class="lvl-2">
+<p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/562303/the-definitive-c-book-guide-and-list">C Book Guide and List</a>: C语言相关的编程书籍推荐列表</p>
+</li>
+<li class="lvl-2">
+<p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/388242/the-definitive-c-book-guide-and-list">C++ Book Guide and List</a>: C++语言相关的编程书籍推荐列表</p>
+</li>
+<li class="lvl-2">
+<p><a target="_blank" rel="noopener" href="https://pythonbooks.org/">Python Book Guide and List</a>: Python语言相关的编程书籍推荐列表</p>
+</li>
+<li class="lvl-2">
+<p><a target="_blank" rel="noopener" href="https://www.folio3.ai/blog/best-computer-vision-books/">Computer Vision Textbook Recommendations</a>: 计算机视觉方向推荐教材列表</p>
+</li>
+<li class="lvl-2">
+<p><a target="_blank" rel="noopener" href="https://www.mostrecommendedbooks.com/lists/best-deep-learning-books">Deep Learning Textbook Recommendations</a>: 深度学习方向推荐教材列表</p>
+</li>
+</ul>
+<h2 id="系统入门">系统入门</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>Computer Systems: A Programmer’s Perspective [<a target="_blank" rel="noopener" href="https://book.douban.com/subject/26912767/">豆瓣</a>]</p>
+</li>
+<li class="lvl-2">
+<p>Principles of Computer System Design: An Introduction [<a target="_blank" rel="noopener" href="https://book.douban.com/subject/3707841/">豆瓣</a>]</p>
+</li>
+</ul>
+<h2 id="操作系统">操作系统</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><a target="_blank" rel="noopener" href="https://ipads.se.sjtu.edu.cn/mospi/">现代操作系统: 原理与实现</a> [<a target="_blank" rel="noopener" href="https://book.douban.com/subject/35208251/">豆瓣</a>]</p>
+</li>
+<li class="lvl-2">
+<p><a target="_blank" rel="noopener" href="https://pages.cs.wisc.edu/~remzi/OSTEP/">Operating Systems: Three Easy Pieces</a> [<a target="_blank" rel="noopener" href="https://book.douban.com/subject/19973015/">豆瓣</a>]</p>
+</li>
+<li class="lvl-2">
+<p>Modern Operating Systems [<a target="_blank" rel="noopener" href="https://book.douban.com/subject/27096665/">豆瓣</a>]</p>
+</li>
+<li class="lvl-2">
+<p>Operating Systems: Principles and Practice [<a target="_blank" rel="noopener" href="https://book.douban.com/subject/25984145/">豆瓣</a>]</p>
+</li>
+</ul>
+<h2 id="计算机网络">计算机网络</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><a target="_blank" rel="noopener" href="https://book.systemsapproach.org/foreword.html">Computer Networks: A Systems Approach</a> [<a target="_blank" rel="noopener" href="https://book.douban.com/subject/26417896/">豆瓣</a>]</p>
+</li>
+<li class="lvl-2">
+<p><a target="_blank" rel="noopener" href="https://www.ucg.ac.me/skladiste/blog_44233/objava_64433/fajlovi/Computer%20Networking%20_%20A%20Top%20Down%20Approach,%207th,%20converted.pdf">Computer Networking: A Top-Down Approach</a> [<a target="_blank" rel="noopener" href="https://book.douban.com/subject/30280001/">豆瓣</a>]</p>
+</li>
+<li class="lvl-2">
+<p>How Networks Work [<a target="_blank" rel="noopener" href="https://book.douban.com/subject/26941639/">豆瓣</a>]</p>
+</li>
+</ul>
+<h2 id="分布式系统">分布式系统</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><a target="_blank" rel="noopener" href="https://github.com/dreamhead/patterns-of-distributed-systems">Patterns of Distributed System (Blog)</a></p>
+</li>
+<li class="lvl-2">
+<p><a target="_blank" rel="noopener" href="http://book.mixu.net/distsys/index.html">Distributed Systems for Fun and Profit (Blog)</a></p>
+</li>
+<li class="lvl-2">
+<p><a target="_blank" rel="noopener" href="https://github.com/Vonng/ddia">Designing Data-Intensive Applications: The Big Ideas Behind Reliable, Scalable, and Maintainable Systems</a> [<a target="_blank" rel="noopener" href="https://book.douban.com/subject/26197294/">豆瓣</a>]</p>
+</li>
+</ul>
+<h2 id="数据库系统">数据库系统</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><a target="_blank" rel="noopener" href="https://dsf.berkeley.edu/papers/fntdb07-architecture.pdf">Architecture of a Database System</a> [<a target="_blank" rel="noopener" href="https://book.douban.com/subject/17665384/">豆瓣</a>]</p>
+</li>
+<li class="lvl-2">
+<p><a target="_blank" rel="noopener" href="http://www.redbook.io/">Readings in Database Systems</a> [<a target="_blank" rel="noopener" href="https://book.douban.com/subject/2256069/">豆瓣</a>]</p>
+</li>
+<li class="lvl-2">
+<p>Database System Concepts : 7th Edition [<a target="_blank" rel="noopener" href="https://book.douban.com/subject/30345517/">豆瓣</a>]</p>
+</li>
+</ul>
+<h2 id="编译原理">编译原理</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>Engineering a Compiler [<a target="_blank" rel="noopener" href="https://book.douban.com/subject/5288601/">豆瓣</a>]</p>
+</li>
+<li class="lvl-2">
+<p>Compilers: Principles, Techniques, and Tools [<a target="_blank" rel="noopener" href="https://book.douban.com/subject/1866231/">豆瓣</a>]</p>
+</li>
+<li class="lvl-2">
+<p><a target="_blank" rel="noopener" href="https://craftinginterpreters.com/contents.html">Crafting Interpreters</a><a target="_blank" rel="noopener" href="https://book.douban.com/subject/35548379/">[豆瓣]</a><a target="_blank" rel="noopener" href="https://github.com/GuoYaxiang/craftinginterpreters_zh">[开源中文翻译]</a></p>
+</li>
+</ul>
+<h2 id="计算机编程语言">计算机编程语言</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>计算机程序的构造和解释 [<a target="_blank" rel="noopener" href="https://book.douban.com/subject/1148282/">豆瓣</a>]</p>
+</li>
+<li class="lvl-2">
+<p><a target="_blank" rel="noopener" href="https://eopl3.com/">Essentials of Programming Languages</a> [<a target="_blank" rel="noopener" href="https://book.douban.com/subject/3136252/">豆瓣</a>]</p>
+</li>
+<li class="lvl-2">
+<p><a target="_blank" rel="noopener" href="https://www.cs.cmu.edu/~rwh/pfpl.html">Practical Foundations for Programming Languages</a> [<a target="_blank" rel="noopener" href="https://book.douban.com/subject/26782198/">豆瓣</a>]</p>
+</li>
+<li class="lvl-2">
+<p><a target="_blank" rel="noopener" href="https://softwarefoundations.cis.upenn.edu/">Software Foundations</a> [<a target="_blank" rel="noopener" href="https://book.douban.com/subject/25712292/">豆瓣</a>] [<a target="_blank" rel="noopener" href="https://xiongyingfei.github.io/SF/2021/">北大相关课程</a>]</p>
+</li>
+<li class="lvl-2">
+<p><a target="_blank" rel="noopener" href="https://www.cis.upenn.edu/~bcpierce/tapl/">Types and Programming Languages</a> [<a target="_blank" rel="noopener" href="https://book.douban.com/subject/1761910/">豆瓣</a>] [<a target="_blank" rel="noopener" href="https://xiongyingfei.github.io/DPPL/2021/main.htm">北大相关课程</a>]</p>
+</li>
+</ul>
+<h2 id="体系结构">体系结构</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>超标量处理器设计: Superscalar RISC Processor Design [<a target="_blank" rel="noopener" href="https://book.douban.com/subject/26293546/">豆瓣</a>]</p>
+</li>
+<li class="lvl-2">
+<p>Computer Organization and Design RISC-V Edition [<a target="_blank" rel="noopener" href="https://book.douban.com/subject/27103952/">豆瓣</a>]</p>
+</li>
+<li class="lvl-2">
+<p>Computer Organization and Design: The Hardware/Software Interface [<a target="_blank" rel="noopener" href="https://book.douban.com/subject/26604008/">豆瓣</a>]</p>
+</li>
+<li class="lvl-2">
+<p>Computer Architecture: A Quantitative Approach [<a target="_blank" rel="noopener" href="https://book.douban.com/subject/6795919/">豆瓣</a>]</p>
+</li>
+</ul>
+<h2 id="理论计算机科学">理论计算机科学</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>Introduction to the Theory of Computation [<a target="_blank" rel="noopener" href="https://book.douban.com/subject/1852515/">豆瓣</a>]</p>
+</li>
+</ul>
+<h2 id="密码学">密码学</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>Cryptography Engineering: Design Principles and Practical Applications [<a target="_blank" rel="noopener" href="https://book.douban.com/subject/26416592/">豆瓣</a>]</p>
+</li>
+<li class="lvl-2">
+<p>Introduction to Modern Cryptography [<a target="_blank" rel="noopener" href="https://book.douban.com/subject/2678340/">豆瓣</a>]</p>
+</li>
+</ul>
+<h2 id="逆向工程">逆向工程</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>逆向工程核心原理 [<a target="_blank" rel="noopener" href="https://book.douban.com/subject/25866389/">豆瓣</a>]</p>
+</li>
+<li class="lvl-2">
+<p>加密与解密 [<a target="_blank" rel="noopener" href="https://book.douban.com/subject/30288807/">豆瓣</a>]</p>
+</li>
+</ul>
+<h2 id="计算机图形学">计算机图形学</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><a target="_blank" rel="noopener" href="https://artowen.su.domains/mc/">Monte Carlo theory, methods and examples</a>[<a target="_blank" rel="noopener" href="https://book.douban.com/subject/6089923/">豆瓣</a>]</p>
+</li>
+<li class="lvl-2">
+<p>Advanced Global Illumination [<a target="_blank" rel="noopener" href="https://book.douban.com/subject/2751153/">豆瓣</a>]</p>
+</li>
+<li class="lvl-2">
+<p>Fundamentals of Computer Graphics [<a target="_blank" rel="noopener" href="https://book.douban.com/subject/26868819/">豆瓣</a>]</p>
+</li>
+<li class="lvl-2">
+<p><a target="_blank" rel="noopener" href="http://wiki.cgt3d.cn/mediawiki/images/4/43/Fluid_Simulation_for_Computer_Graphics_Second_Edition.pdf">Fluid Simulation for Computer Graphics</a> [<a target="_blank" rel="noopener" href="https://book.douban.com/subject/2584523/">豆瓣</a>]</p>
+</li>
+<li class="lvl-2">
+<p><a target="_blank" rel="noopener" href="https://research.quanfita.cn/files/Physically_Based_Rendering_Third_Edition.pdf">Physically Based Rendering: From Theory To Implementation</a> [<a target="_blank" rel="noopener" href="https://book.douban.com/subject/4306242/">豆瓣</a>]</p>
+</li>
+<li class="lvl-2">
+<p><a target="_blank" rel="noopener" href="https://research.quanfita.cn/files/Real-Time_Rendering_4th_Edition.pdf">Real-Time Rendering</a> [<a target="_blank" rel="noopener" href="https://book.douban.com/subject/30296179/">豆瓣</a>]</p>
+</li>
+</ul>
+<h2 id="游戏引擎">游戏引擎</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>游戏编程模式: Game Programming Patterns [<a target="_blank" rel="noopener" href="https://book.douban.com/subject/26880704/">豆瓣</a>]</p>
+</li>
+<li class="lvl-2">
+<p>实时碰撞检测算法技术 [<a target="_blank" rel="noopener" href="https://book.douban.com/subject/4861957/">豆瓣</a>]</p>
+</li>
+<li class="lvl-2">
+<p><a target="_blank" rel="noopener" href="http://www.gameaipro.com/">Game AI Pro Series</a> [<a target="_blank" rel="noopener" href="https://search.douban.com/book/subject_search?search_text=Game+AI+Pro&amp;cat=1001">豆瓣</a>]</p>
+</li>
+<li class="lvl-2">
+<p>Artificial Intelligence for Games [<a target="_blank" rel="noopener" href="https://book.douban.com/subject/3836472/">豆瓣</a>]</p>
+</li>
+<li class="lvl-2">
+<p>Game Engine Architecture [<a target="_blank" rel="noopener" href="https://book.douban.com/subject/25815142/">豆瓣</a>]</p>
+</li>
+<li class="lvl-2">
+<p>Game Programming Gems Series [<a target="_blank" rel="noopener" href="https://search.douban.com/book/subject_search?search_text=Game+Programming+Gems&amp;cat=1001">豆瓣</a>]</p>
+</li>
+</ul>
+<h2 id="软件工程">软件工程</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><a target="_blank" rel="noopener" href="https://abseil.io/resources/swe-book">Software Engineering at Google</a> [<a target="_blank" rel="noopener" href="https://book.douban.com/subject/34875994/">豆瓣</a>]</p>
+</li>
+</ul>
+<h2 id="设计模式">设计模式</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>设计模式: 可复用面向对象软件的基础 [<a target="_blank" rel="noopener" href="https://book.douban.com/subject/1052241/">豆瓣</a>]</p>
+</li>
+<li class="lvl-2">
+<p>大话设计模式 [<a target="_blank" rel="noopener" href="https://book.douban.com/subject/2334288/">豆瓣</a>]</p>
+</li>
+<li class="lvl-2">
+<p>Head First Design Patterns 2nd ed. [<a target="_blank" rel="noopener" href="https://book.douban.com/subject/35097022/">豆瓣</a>]</p>
+</li>
+</ul>
+<h2 id="深度学习">深度学习</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><a target="_blank" rel="noopener" href="https://zh.d2l.ai">动手学深度学习</a> [<a target="_blank" rel="noopener" href="https://book.douban.com/subject/33450010/">豆瓣</a>]</p>
+</li>
+<li class="lvl-2">
+<p><a target="_blank" rel="noopener" href="https://nndl.github.io/">神经网络与深度学习</a> [<a target="_blank" rel="noopener" href="https://book.douban.com/subject/35044046/">豆瓣</a>]</p>
+</li>
+<li class="lvl-2">
+<p>深度学习入门 [<a target="_blank" rel="noopener" href="https://book.douban.com/subject/30270959/">豆瓣</a>]</p>
+</li>
+<li class="lvl-2">
+<p><a target="_blank" rel="noopener" href="https://tf.wiki/">简单粗暴 TensorFlow 2 (Tutorial)</a></p>
+</li>
+<li class="lvl-2">
+<p><a target="_blank" rel="noopener" href="https://web.stanford.edu/~jurafsky/slp3/">Speech and Language Processing</a> [<a target="_blank" rel="noopener" href="https://book.douban.com/subject/5373023/">豆瓣</a>]</p>
+</li>
+</ul>
+<h2 id="计算机视觉">计算机视觉</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><a target="_blank" rel="noopener" href="https://github.com/DeepRobot2020/books/blob/master/Multiple%20View%20Geometry%20in%20Computer%20Vision%20(Second%20Edition).pdf">Multiple View Geometry in Computer Vision</a>  [<a target="_blank" rel="noopener" href="https://book.douban.com/subject/1841346/">豆瓣</a>]</p>
+</li>
+</ul>
+<h2 id="机器人">机器人</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><a target="_blank" rel="noopener" href="https://docs.ufpr.br/~danielsantos/ProbabilisticRobotics.pdf">Probabilistic Robotics</a> [<a target="_blank" rel="noopener" href="https://book.douban.com/subject/2861227/">豆瓣</a>]</p>
+</li>
+</ul>
+<h2 id="面试">面试</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>剑指 Offer：名企面试官精讲典型编程题 [<a target="_blank" rel="noopener" href="https://book.douban.com/subject/27008702/">豆瓣</a>]</p>
+</li>
+<li class="lvl-2">
+<p>Cracking The Coding Interview [<a target="_blank" rel="noopener" href="https://book.douban.com/subject/10436668/">豆瓣</a>]</p>
+</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2024/12/08/CS-Learning/cs-self-learning/docs/%E5%90%8E%E8%AE%B0/" rel="prev" title="">
+      <i class="fa fa-chevron-left"></i> 
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2024/12/08/CS-Learning/cs-self-learning/docs/Web%E5%BC%80%E5%8F%91/CS142.en/" rel="next" title="">
+       <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">好书推荐</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B5%84%E6%BA%90%E6%B1%87%E6%80%BB"><span class="nav-number">1.1.</span> <span class="nav-text">资源汇总</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8"><span class="nav-number">1.2.</span> <span class="nav-text">系统入门</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F"><span class="nav-number">1.3.</span> <span class="nav-text">操作系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C"><span class="nav-number">1.4.</span> <span class="nav-text">计算机网络</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F"><span class="nav-number">1.5.</span> <span class="nav-text">分布式系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F"><span class="nav-number">1.6.</span> <span class="nav-text">数据库系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86"><span class="nav-number">1.7.</span> <span class="nav-text">编译原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80"><span class="nav-number">1.8.</span> <span class="nav-text">计算机编程语言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84"><span class="nav-number">1.9.</span> <span class="nav-text">体系结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%90%86%E8%AE%BA%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6"><span class="nav-number">1.10.</span> <span class="nav-text">理论计算机科学</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%86%E7%A0%81%E5%AD%A6"><span class="nav-number">1.11.</span> <span class="nav-text">密码学</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B"><span class="nav-number">1.12.</span> <span class="nav-text">逆向工程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6"><span class="nav-number">1.13.</span> <span class="nav-text">计算机图形学</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B8%B8%E6%88%8F%E5%BC%95%E6%93%8E"><span class="nav-number">1.14.</span> <span class="nav-text">游戏引擎</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B"><span class="nav-number">1.15.</span> <span class="nav-text">软件工程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F"><span class="nav-number">1.16.</span> <span class="nav-text">设计模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0"><span class="nav-number">1.17.</span> <span class="nav-text">深度学习</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89"><span class="nav-number">1.18.</span> <span class="nav-text">计算机视觉</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%BA%E5%99%A8%E4%BA%BA"><span class="nav-number">1.19.</span> <span class="nav-text">机器人</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9D%A2%E8%AF%95"><span class="nav-number">1.20.</span> <span class="nav-text">面试</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">听</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">653</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">48</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">听</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

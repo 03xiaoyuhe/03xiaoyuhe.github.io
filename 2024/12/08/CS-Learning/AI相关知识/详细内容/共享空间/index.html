@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.3.0">
+<link rel="stylesheet" href="/css/custom.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="在双塔模型的共享空间中，&quot;拉近&quot;相关模态对（例如图像和描述该图像的文本），以及&quot;拉远&quot;不相关模态对（例如图像与不匹配的文本），这是通过对比学习和相似度度量来实现的。主要目的是让模型能够学会在共享的语义空间中，识别和匹配不同模态之间的相关性，从而将语义上相似的内容表示为接近的特征向量，而将无关的内容表示为远离的特征向量。 原理：相似度与对比学习 假设我们有一个">
+<meta property="og:type" content="article">
+<meta property="og:title" content="O3xiaoyuhe">
+<meta property="og:url" content="http://example.com/2024/12/08/CS-Learning/AI%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86/%E8%AF%A6%E7%BB%86%E5%86%85%E5%AE%B9/%E5%85%B1%E4%BA%AB%E7%A9%BA%E9%97%B4/index.html">
+<meta property="og:site_name" content="O3xiaoyuhe">
+<meta property="og:description" content="在双塔模型的共享空间中，&quot;拉近&quot;相关模态对（例如图像和描述该图像的文本），以及&quot;拉远&quot;不相关模态对（例如图像与不匹配的文本），这是通过对比学习和相似度度量来实现的。主要目的是让模型能够学会在共享的语义空间中，识别和匹配不同模态之间的相关性，从而将语义上相似的内容表示为接近的特征向量，而将无关的内容表示为远离的特征向量。 原理：相似度与对比学习 假设我们有一个">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-12-08T12:29:05.263Z">
+<meta property="article:modified_time" content="2024-11-13T14:44:00.342Z">
+<meta property="article:author" content="听">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2024/12/08/CS-Learning/AI%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86/%E8%AF%A6%E7%BB%86%E5%86%85%E5%AE%B9/%E5%85%B1%E4%BA%AB%E7%A9%BA%E9%97%B4/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title> | O3xiaoyuhe</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">O3xiaoyuhe</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/12/08/CS-Learning/AI%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86/%E8%AF%A6%E7%BB%86%E5%86%85%E5%AE%B9/%E5%85%B1%E4%BA%AB%E7%A9%BA%E9%97%B4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="听">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="O3xiaoyuhe">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-12-08 20:29:05" itemprop="dateCreated datePublished" datetime="2024-12-08T20:29:05+08:00">2024-12-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-11-13 22:44:00" itemprop="dateModified" datetime="2024-11-13T22:44:00+08:00">2024-11-13</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>在双塔模型的共享空间中，&quot;拉近&quot;相关模态对（例如图像和描述该图像的文本），以及&quot;拉远&quot;不相关模态对（例如图像与不匹配的文本），这是通过<strong>对比学习</strong>和相似度度量来实现的。主要目的是让模型能够学会在共享的语义空间中，识别和匹配不同模态之间的相关性，从而将语义上相似的内容表示为接近的特征向量，而将无关的内容表示为远离的特征向量。</p>
+<h3 id="原理：相似度与对比学习">原理：相似度与对比学习</h3>
+<p>假设我们有一个图像-文本对，图像和文本分别经过各自的塔（子网络）后，被映射到共享空间，产生两个向量。我们通过相似度度量（如<strong>余弦相似度</strong>或<strong>欧几里得距离</strong>）来衡量它们在这个空间中的相似度。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>余弦相似度</strong>：表示两个向量之间的夹角，越接近1表示向量越相似，越接近0表示它们不相似。</p>
+</li>
+<li class="lvl-2">
+<p><strong>欧几里得距离</strong>：计算两个向量在高维空间中的距离，距离越小表示两个模态之间的相似度越高。</p>
+</li>
+</ul>
+<p>通过<strong>对比学习</strong>，我们希望：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>相关模态对（图像和其对应的文本）之间的相似度尽可能大</strong>，即余弦相似度接近1，或者欧几里得距离接近0。这个过程被称为“<strong>拉近</strong>”。</p>
+</li>
+<li class="lvl-2">
+<p><strong>不相关模态对（图像和不对应的文本）之间的相似度尽可能小</strong>，即余弦相似度接近0，或欧几里得距离增大。这个过程被称为“<strong>拉远</strong>”。</p>
+</li>
+</ul>
+<h3 id="实现“拉近”和“拉远”的机制">实现“拉近”和“拉远”的机制</h3>
+<p>这种“拉近”和“拉远”的机制通常通过<strong>对比学习的损失函数</strong>实现，最常用的是<strong>InfoNCE Loss</strong>或<strong>对比损失</strong>。</p>
+<h4 id="1-InfoNCE-Loss（对比损失）">1. <strong>InfoNCE Loss（对比损失）</strong></h4>
+<p>InfoNCE损失是一种常用的对比学习损失函数。其基本思想是给定一个样本（例如图像），它有一个正样本（正确的文本描述）和多个负样本（错误的文本描述）。模型的目标是让正样本的相似度比负样本的相似度高。</p>
+<p>假设我们有一个图像-文本对（<code>image_i</code>, <code>text_i</code>），以及多个负样本<code>text_j</code>（它们与<code>image_i</code>不相关）。我们可以用以下损失函数实现对比学习：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn.functional <span class="keyword">as</span> F</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">contrastive_loss</span>(<span class="params">similarity_matrix, temperature=<span class="number">0.1</span></span>):</span><br><span class="line">    <span class="comment"># 使用temperature控制对比学习的敏感度</span></span><br><span class="line">    similarity_matrix = similarity_matrix / temperature</span><br><span class="line">    <span class="comment"># 为每个样本计算cross entropy损失</span></span><br><span class="line">    labels = torch.arange(similarity_matrix.size(<span class="number">0</span>)).to(similarity_matrix.device)</span><br><span class="line">    loss_i2t = F.cross_entropy(similarity_matrix, labels)  <span class="comment"># 图像到文本的损失</span></span><br><span class="line">    loss_t2i = F.cross_entropy(similarity_matrix.t(), labels)  <span class="comment"># 文本到图像的损失</span></span><br><span class="line">    <span class="keyword">return</span> (loss_i2t + loss_t2i) / <span class="number">2</span></span><br></pre></td></tr></table></figure>
+<p>在这段代码中：</p>
+<ul class="lvl-0">
+<li class="lvl-5">
+<p><strong>similarity_matrix</strong>是图像和文本之间的余弦相似度矩阵。</p>
+</li>
+<li class="lvl-5">
+<p><code>labels</code>是一个标记矩阵，表示每个图像与哪个文本配对。对于图像<code>image_i</code>，它的正样本是<code>text_i</code>。</p>
+</li>
+<li class="lvl-5">
+<p><strong>cross_entropy</strong>损失用于“拉近”正样本对，并“拉远”负样本对。</p>
+</li>
+</ul>
+<h4 id="2-损失函数细节解释">2. <strong>损失函数细节解释</strong></h4>
+<ul class="lvl-0">
+<li class="lvl-5">
+<p><strong>图像到文本的损失</strong>（<code>loss_i2t</code>）：对于每一个图像<code>image_i</code>，我们期望它与正确的文本<code>text_i</code>的相似度最大，而与其他负样本<code>text_j</code>的相似度最小。我们通过交叉熵损失函数来计算这个损失，目标是模型输出的分布尽量靠近真实的配对分布。</p>
+</li>
+<li class="lvl-5">
+<p><strong>文本到图像的损失</strong>（<code>loss_t2i</code>）：同理，对于每一个文本<code>text_i</code>，我们希望它与正确的图像<code>image_i</code>的相似度最大，而与其他不相关的图像<code>image_j</code>的相似度最小。</p>
+</li>
+</ul>
+<p>通过优化这个损失函数，模型会自动学习如何：</p>
+<ul class="lvl-0">
+<li class="lvl-5">
+<p><strong>拉近</strong>正样本对（即相关的图像和文本），让它们的特征表示在共享空间中更加接近。</p>
+</li>
+<li class="lvl-5">
+<p><strong>拉远</strong>负样本对（即不相关的图像和文本），使它们的特征表示在共享空间中更加分离。</p>
+</li>
+</ul>
+<h3 id="训练过程中的直观效果">训练过程中的直观效果</h3>
+<p>在模型训练过程中，你可以将图像和文本的特征表示看作高维空间中的点。通过对比学习，模型不断调整这些点的位置：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>相关样本对</strong>（图像和正确的文本描述）之间的点会逐渐靠近，这就是“拉近”。</p>
+</li>
+<li class="lvl-2">
+<p><strong>不相关样本对</strong>（图像和错误的文本描述）之间的点会逐渐远离，这就是“拉远”。</p>
+</li>
+</ul>
+<p>下图可以帮助你直观理解这一过程：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">初始状态（未训练）：                   训练后状态：</span><br><span class="line">图像:     X                              图像:     X</span><br><span class="line">文本:     O                              文本:     O</span><br><span class="line"></span><br><span class="line">X  O  X  O                              X---O      X  O</span><br><span class="line">X     O                                  X  O      X   O</span><br><span class="line">X O                                      X   O      X  O</span><br></pre></td></tr></table></figure>
+<p>在初始状态下，图像和文本的表示分布可能是随机的或者混乱的，但随着训练的进行，相关的图像和文本特征会越来越靠近，形成语义上的对齐，而不相关的样本则被推远。</p>
+<h3 id="3-扩展：Triplet-Loss">3. <strong>扩展：Triplet Loss</strong></h3>
+<p>另一种常用的对比学习方法是<strong>三元组损失（Triplet Loss）</strong>。它会同时考虑正样本和负样本，目标是让正样本（<code>positive</code>）与主样本（<code>anchor</code>）的距离小于负样本（<code>negative</code>）与主样本的距离。</p>
+<p>假设有一个三元组<code>(anchor, positive, negative)</code>，它表示一个图像及其正确和错误的文本描述。三元组损失的公式如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">triplet_loss</span>(<span class="params">anchor, positive, negative, margin=<span class="number">1.0</span></span>):</span><br><span class="line">    positive_distance = F.pairwise_distance(anchor, positive)</span><br><span class="line">    negative_distance = F.pairwise_distance(anchor, negative)</span><br><span class="line">    <span class="keyword">return</span> F.relu(positive_distance - negative_distance + margin)</span><br></pre></td></tr></table></figure>
+<p>在这里：</p>
+<ul class="lvl-0">
+<li class="lvl-5">
+<p><code>positive_distance</code>是<code>anchor</code>和<code>positive</code>之间的距离。</p>
+</li>
+<li class="lvl-5">
+<p><code>negative_distance</code>是<code>anchor</code>和<code>negative</code>之间的距离。</p>
+</li>
+<li class="lvl-5">
+<p><code>margin</code>是一个控制正负样本之间的最小距离的参数。</p>
+</li>
+</ul>
+<p>通过最小化这个损失，模型会将<code>anchor</code>和<code>positive</code>拉近，同时将<code>anchor</code>和<code>negative</code>拉远。</p>
+<h3 id="总结">总结</h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>拉近</strong>：通过调整模型，使得相关模态对（如图像和其对应的文本）的特征向量在共享空间中距离更近，通常通过优化对比损失或三元组损失实现。</p>
+</li>
+<li class="lvl-2">
+<p><strong>拉远</strong>：使不相关模态对（如图像和错误的文本）的特征向量在共享空间中彼此远离，从而确保模型能够区分不同模态之间的相关性。</p>
+</li>
+</ul>
+<p>这种机制帮助模型学会对齐不同模态的数据表示，从而支持诸如跨模态检索、图像生成等任务。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2024/12/08/CS-Learning/AI%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86/%E8%AF%A6%E7%BB%86%E5%86%85%E5%AE%B9/AI%20%E9%A2%86%E5%9F%9F%E5%8F%91%E5%B1%95%E6%A6%82%E8%BF%B0/" rel="prev" title="">
+      <i class="fa fa-chevron-left"></i> 
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2024/12/08/CS-Learning/AI%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86/%E8%AF%A6%E7%BB%86%E5%86%85%E5%AE%B9/%E5%A4%9A%E6%A8%A1%E6%80%81AI/" rel="next" title="">
+       <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%9F%E7%90%86%EF%BC%9A%E7%9B%B8%E4%BC%BC%E5%BA%A6%E4%B8%8E%E5%AF%B9%E6%AF%94%E5%AD%A6%E4%B9%A0"><span class="nav-number">1.</span> <span class="nav-text">原理：相似度与对比学习</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E2%80%9C%E6%8B%89%E8%BF%91%E2%80%9D%E5%92%8C%E2%80%9C%E6%8B%89%E8%BF%9C%E2%80%9D%E7%9A%84%E6%9C%BA%E5%88%B6"><span class="nav-number">2.</span> <span class="nav-text">实现“拉近”和“拉远”的机制</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-InfoNCE-Loss%EF%BC%88%E5%AF%B9%E6%AF%94%E6%8D%9F%E5%A4%B1%EF%BC%89"><span class="nav-number">2.1.</span> <span class="nav-text">1. InfoNCE Loss（对比损失）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0%E7%BB%86%E8%8A%82%E8%A7%A3%E9%87%8A"><span class="nav-number">2.2.</span> <span class="nav-text">2. 损失函数细节解释</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%AD%E7%BB%83%E8%BF%87%E7%A8%8B%E4%B8%AD%E7%9A%84%E7%9B%B4%E8%A7%82%E6%95%88%E6%9E%9C"><span class="nav-number">3.</span> <span class="nav-text">训练过程中的直观效果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E6%89%A9%E5%B1%95%EF%BC%9ATriplet-Loss"><span class="nav-number">4.</span> <span class="nav-text">3. 扩展：Triplet Loss</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">听</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">653</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">48</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">听</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
