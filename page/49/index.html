@@ -116,22 +116,22 @@
   </li>
         <li class="menu-item menu-item-about">
 
-    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+    <a href="/about" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+    <a href="/tags" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+    <a href="/categories" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+    <a href="/archives" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
 
   </li>
   </ul>
@@ -1425,90 +1425,6 @@ On macOS, you can remap keys in system settings, see this <a target="_blank" rel
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/12/08/CS-Learning/cs-self-learning/docs/%E5%BF%85%E5%AD%A6%E5%B7%A5%E5%85%B7/Scoop/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="听">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="O3xiaoyuhe">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2024/12/08/CS-Learning/cs-self-learning/docs/%E5%BF%85%E5%AD%A6%E5%B7%A5%E5%85%B7/Scoop/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2024-12-08 20:29:05" itemprop="dateCreated datePublished" datetime="2024-12-08T20:29:05+08:00">2024-12-08</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-11-13 22:41:56" itemprop="dateModified" datetime="2024-11-13T22:41:56+08:00">2024-11-13</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="为什么使用-Scoop">为什么使用 Scoop</h2>
-<p>在 Windows 下，搭建开发环境一直是一个复杂且困难的问题。由于没有一个统一的标准，导致各种开发环境的安装方式差异巨大，需要付出很多不必要的时间成本。而 Scoop 可以帮助你统一安装并管理常见的开发软件，省去了手动下载安装，配置环境变量等繁琐步骤。</p>
-<p>例如安装 python 和 nodejs 只需要执行：</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">scoop install python</span><br><span class="line">scoop install nodejs</span><br></pre></td></tr></table></figure>
-<h2 id="安装-Scoop">安装 Scoop</h2>
-<p>Scoop 需要 <a target="_blank" rel="noopener" href="https://aka.ms/wmf5download">Windows PowerShell 5.1</a> 或者 <a target="_blank" rel="noopener" href="https://aka.ms/powershell">PowerShell</a> 作为运行环境，如果你使用的是 Windows 10 及以上版本，Windows PowerShell 是内置在系统中的。而 Windows 7 内置的 Windows PowerShell 版本过于陈旧，你需要手动安装新版本的 PowerShell。</p>
-<blockquote>
-<p>由于发现很多同学在设置 Windows 用户时使用了中文用户名，导致了用户目录也变成了中文名。如果按照 Scoop 的默认方式将软件安装到用户目录下，可能会造成部分软件执行错误。所以这里推荐安装到自定义目录，如果需要其他安装方式请参考： <a target="_blank" rel="noopener" href="https://github.com/ScoopInstaller/Install">ScoopInstaller/Install</a></p>
-</blockquote>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 设置 PowerShell 执行策略</span></span><br><span class="line"><span class="built_in">Set-ExecutionPolicy</span> <span class="literal">-ExecutionPolicy</span> RemoteSigned <span class="literal">-Scope</span> CurrentUser</span><br><span class="line"><span class="comment"># 下载安装脚本</span></span><br><span class="line"><span class="built_in">irm</span> get.scoop.sh <span class="literal">-outfile</span> <span class="string">&#x27;install.ps1&#x27;</span></span><br><span class="line"><span class="comment"># 执行安装, --ScoopDir 参数指定 Scoop 安装路径</span></span><br><span class="line">.\install.ps1 <span class="literal">-ScoopDir</span> <span class="string">&#x27;C:\Scoop&#x27;</span></span><br></pre></td></tr></table></figure>
-<h2 id="使用-Scoop">使用 Scoop</h2>
-<p>Scoop 的官方文档对于新手非常友好，相对于在此处赘述更推荐阅读 <a target="_blank" rel="noopener" href="https://github.com/ScoopInstaller/Scoop">官方文档</a> 或 <a target="_blank" rel="noopener" href="https://github.com/ScoopInstaller/Scoop/wiki/Quick-Start">快速入门</a> 。</p>
-<h2 id="Q-A">Q&amp;A</h2>
-<h3 id="Scoop-能配置镜像源吗？">Scoop 能配置镜像源吗？</h3>
-<p>Scoop 社区仅维护安装配置，所有的软件都是从该软件官方提供的下载链接进行下载，所以无法提供镜像源。如果因为你的网络环境导致多次下载失败，那么你需要一点点 <a href="%E7%BF%BB%E5%A2%99.md">魔法</a>。</p>
-<h3 id="为什么找不到-Java8？">为什么找不到 Java8？</h3>
-<p>原因同上，官方已不再提供 Java8 的下载链接，推荐使用 <a target="_blank" rel="noopener" href="https://github.com/ScoopInstaller/Java/blob/master/bucket/ojdkbuild8.json">ojdkbuild8</a> 替代。</p>
-<h3 id="我需要安装-python2-该如何操作？">我需要安装 python2 该如何操作？</h3>
-<p>对于已经过时弃用的软件，Scoop 社区会将其从 <a target="_blank" rel="noopener" href="https://github.com/ScoopInstaller/Main">ScoopInstaller/Main</a> 中移除并将其添加到 <a target="_blank" rel="noopener" href="https://github.com/ScoopInstaller/Versions">ScoopInstaller/Versions</a> 中。如果你需要这些软件的话需要手动添加 bucket：</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">scoop bucket add versions</span><br><span class="line">scoop install python27</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2024/12/08/CS-Learning/cs-self-learning/docs/%E5%BF%85%E5%AD%A6%E5%B7%A5%E5%85%B7/Scoop.en/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1575,6 +1491,90 @@ On macOS, you can remap keys in system settings, see this <a target="_blank" rel
 <h3 id="How-Do-I-Install-Python-2">How Do I Install Python 2?</h3>
 <p>For software that is outdated and no longer in use, the Scoop community removes it from <a target="_blank" rel="noopener" href="https://github.com/ScoopInstaller/Main">ScoopInstaller/Main</a> and adds it to <a target="_blank" rel="noopener" href="https://github.com/ScoopInstaller/Versions">ScoopInstaller/Versions</a>. If you need such software, you need to manually add the bucket:</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">scoop bucket add versions</span><br><span class="line">scoop install python27</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/12/08/CS-Learning/cs-self-learning/docs/%E5%BF%85%E5%AD%A6%E5%B7%A5%E5%85%B7/Scoop/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="听">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="O3xiaoyuhe">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/12/08/CS-Learning/cs-self-learning/docs/%E5%BF%85%E5%AD%A6%E5%B7%A5%E5%85%B7/Scoop/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-12-08 20:29:05" itemprop="dateCreated datePublished" datetime="2024-12-08T20:29:05+08:00">2024-12-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-11-13 22:41:56" itemprop="dateModified" datetime="2024-11-13T22:41:56+08:00">2024-11-13</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="为什么使用-Scoop">为什么使用 Scoop</h2>
+<p>在 Windows 下，搭建开发环境一直是一个复杂且困难的问题。由于没有一个统一的标准，导致各种开发环境的安装方式差异巨大，需要付出很多不必要的时间成本。而 Scoop 可以帮助你统一安装并管理常见的开发软件，省去了手动下载安装，配置环境变量等繁琐步骤。</p>
+<p>例如安装 python 和 nodejs 只需要执行：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">scoop install python</span><br><span class="line">scoop install nodejs</span><br></pre></td></tr></table></figure>
+<h2 id="安装-Scoop">安装 Scoop</h2>
+<p>Scoop 需要 <a target="_blank" rel="noopener" href="https://aka.ms/wmf5download">Windows PowerShell 5.1</a> 或者 <a target="_blank" rel="noopener" href="https://aka.ms/powershell">PowerShell</a> 作为运行环境，如果你使用的是 Windows 10 及以上版本，Windows PowerShell 是内置在系统中的。而 Windows 7 内置的 Windows PowerShell 版本过于陈旧，你需要手动安装新版本的 PowerShell。</p>
+<blockquote>
+<p>由于发现很多同学在设置 Windows 用户时使用了中文用户名，导致了用户目录也变成了中文名。如果按照 Scoop 的默认方式将软件安装到用户目录下，可能会造成部分软件执行错误。所以这里推荐安装到自定义目录，如果需要其他安装方式请参考： <a target="_blank" rel="noopener" href="https://github.com/ScoopInstaller/Install">ScoopInstaller/Install</a></p>
+</blockquote>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 设置 PowerShell 执行策略</span></span><br><span class="line"><span class="built_in">Set-ExecutionPolicy</span> <span class="literal">-ExecutionPolicy</span> RemoteSigned <span class="literal">-Scope</span> CurrentUser</span><br><span class="line"><span class="comment"># 下载安装脚本</span></span><br><span class="line"><span class="built_in">irm</span> get.scoop.sh <span class="literal">-outfile</span> <span class="string">&#x27;install.ps1&#x27;</span></span><br><span class="line"><span class="comment"># 执行安装, --ScoopDir 参数指定 Scoop 安装路径</span></span><br><span class="line">.\install.ps1 <span class="literal">-ScoopDir</span> <span class="string">&#x27;C:\Scoop&#x27;</span></span><br></pre></td></tr></table></figure>
+<h2 id="使用-Scoop">使用 Scoop</h2>
+<p>Scoop 的官方文档对于新手非常友好，相对于在此处赘述更推荐阅读 <a target="_blank" rel="noopener" href="https://github.com/ScoopInstaller/Scoop">官方文档</a> 或 <a target="_blank" rel="noopener" href="https://github.com/ScoopInstaller/Scoop/wiki/Quick-Start">快速入门</a> 。</p>
+<h2 id="Q-A">Q&amp;A</h2>
+<h3 id="Scoop-能配置镜像源吗？">Scoop 能配置镜像源吗？</h3>
+<p>Scoop 社区仅维护安装配置，所有的软件都是从该软件官方提供的下载链接进行下载，所以无法提供镜像源。如果因为你的网络环境导致多次下载失败，那么你需要一点点 <a href="%E7%BF%BB%E5%A2%99.md">魔法</a>。</p>
+<h3 id="为什么找不到-Java8？">为什么找不到 Java8？</h3>
+<p>原因同上，官方已不再提供 Java8 的下载链接，推荐使用 <a target="_blank" rel="noopener" href="https://github.com/ScoopInstaller/Java/blob/master/bucket/ojdkbuild8.json">ojdkbuild8</a> 替代。</p>
+<h3 id="我需要安装-python2-该如何操作？">我需要安装 python2 该如何操作？</h3>
+<p>对于已经过时弃用的软件，Scoop 社区会将其从 <a target="_blank" rel="noopener" href="https://github.com/ScoopInstaller/Main">ScoopInstaller/Main</a> 中移除并将其添加到 <a target="_blank" rel="noopener" href="https://github.com/ScoopInstaller/Versions">ScoopInstaller/Versions</a> 中。如果你需要这些软件的话需要手动添加 bucket：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">scoop bucket add versions</span><br><span class="line">scoop install python27</span><br></pre></td></tr></table></figure>
+
       
     </div>
 
@@ -1726,7 +1726,7 @@ On macOS, you can remap keys in system settings, see this <a target="_blank" rel
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-          <a href="/archives/">
+          <a href="/archives">
         
           <span class="site-state-item-count">653</span>
           <span class="site-state-item-name">日志</span>

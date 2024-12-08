@@ -116,22 +116,22 @@
   </li>
         <li class="menu-item menu-item-about">
 
-    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+    <a href="/about" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+    <a href="/tags" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+    <a href="/categories" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+    <a href="/archives" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
 
   </li>
   </ul>
@@ -532,109 +532,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/12/08/%E5%AD%A6%E4%B9%A0/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%A4%87%E8%80%83/%E9%A2%98%E9%9B%86/%E6%B4%9B%E8%B0%B7/P1123%20%E5%8F%96%E6%95%B0%E6%B8%B8%E6%88%8F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="听">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="O3xiaoyuhe">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2024/12/08/%E5%AD%A6%E4%B9%A0/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%A4%87%E8%80%83/%E9%A2%98%E9%9B%86/%E6%B4%9B%E8%B0%B7/P1123%20%E5%8F%96%E6%95%B0%E6%B8%B8%E6%88%8F/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2024-12-08 20:29:01" itemprop="dateCreated datePublished" datetime="2024-12-08T20:29:01+08:00">2024-12-08</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-11-13 22:55:19" itemprop="dateModified" datetime="2024-11-13T22:55:19+08:00">2024-11-13</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1>取数游戏</h1>
-<h2 id="题目描述">题目描述</h2>
-<p>一个 $N\times M$ 的由非负整数构成的数字矩阵，你需要在其中取出若干个数字，使得取出的任意两个数字不相邻（若一个数字在另外一个数字相邻 $8$ 个格子中的一个即认为这两个数字相邻），求取出数字和最大是多少。</p>
-<h2 id="输入格式">输入格式</h2>
-<p>第一行有一个正整数 $T$，表示了有 $T$ 组数据。</p>
-<p>对于每一组数据，第一行有两个正整数 $N$ 和 $M$，表示了数字矩阵为 $N$ 行 $M$ 列。</p>
-<p>接下来 $N$ 行，每行 $M$ 个非负整数，描述了这个数字矩阵。</p>
-<h2 id="输出格式">输出格式</h2>
-<p>共 $T$ 行，每行一个非负整数，输出所求得的答案。</p>
-<h2 id="样例-1">样例 #1</h2>
-<h3 id="样例输入-1">样例输入 #1</h3>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">4 4</span><br><span class="line">67 75 63 10</span><br><span class="line">29 29 92 14</span><br><span class="line">21 68 71 56</span><br><span class="line">8 67 91 25</span><br><span class="line">2 3</span><br><span class="line">87 70 85</span><br><span class="line">10 3 17</span><br><span class="line">3 3</span><br><span class="line">1 1 1</span><br><span class="line">1 99 1</span><br><span class="line">1 1 1</span><br></pre></td></tr></table></figure>
-<h3 id="样例输出-1">样例输出 #1</h3>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">271</span><br><span class="line">172</span><br><span class="line">99</span><br></pre></td></tr></table></figure>
-<h2 id="提示">提示</h2>
-<h3 id="样例解释">样例解释</h3>
-<p>对于第一组数据，取数方式如下：</p>
-<p>$$\begin{matrix}<br>
-[67] &amp; 75 &amp; 63 &amp; 10 \<br>
-29 &amp; 29 &amp; [92] &amp; 14 \<br>
-[21] &amp; 68 &amp; 71 &amp; 56 \<br>
-8 &amp; 67 &amp; [91] &amp; 25 \<br>
-\end{matrix}$$</p>
-<h3 id="数据范围及约定">数据范围及约定</h3>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>对于$20%$的数据，$1\le N, M \le 3$；</p>
-</li>
-<li class="lvl-2">
-<p>对于$40%$的数据，$1\le N, M\le 4$；</p>
-</li>
-<li class="lvl-2">
-<p>对于$60%$的数据，$1\le N, M\le 5$；</p>
-</li>
-<li class="lvl-2">
-<p>对于 $100%$ 的数据，$1\le N, M\le 6$，$1\le T\le 20$。</p>
-</li>
-</ul>
-<h2 id="我的题解">我的题解</h2>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> nearX[] = &#123;<span class="number">-1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">-1</span>,<span class="number">1</span>,<span class="number">-1</span>,<span class="number">0</span>,<span class="number">1</span>,&#125;;</span><br><span class="line"><span class="type">int</span> nearY[] = &#123;<span class="number">-1</span>,<span class="number">-1</span>,<span class="number">-1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,&#125;;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> NearCount[<span class="number">10</span>][<span class="number">10</span>];</span><br><span class="line"><span class="type">int</span> Nums[<span class="number">10</span>][<span class="number">10</span>];</span><br><span class="line"><span class="type">int</span> sizeX = <span class="number">0</span>;</span><br><span class="line"><span class="type">int</span> sizeY = <span class="number">0</span>;</span><br><span class="line"><span class="type">int</span> ans = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">DFS</span><span class="params">(<span class="type">int</span> x, <span class="type">int</span> y, <span class="type">int</span> Ans)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// 边界检查</span></span><br><span class="line">    <span class="keyword">if</span> (y &gt;= sizeY)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">DFS</span>(x + <span class="number">1</span>, <span class="number">0</span>, Ans);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (x &gt;= sizeX)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (Ans &gt; ans)</span><br><span class="line">            ans = Ans;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 选择当前点</span></span><br><span class="line">    <span class="keyword">if</span> (NearCount[x][y] == <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">8</span>; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="type">int</span> nx = x + nearX[i];</span><br><span class="line">            <span class="type">int</span> ny = y + nearY[i];</span><br><span class="line">            <span class="keyword">if</span> (nx &lt; <span class="number">0</span> || nx &gt;= sizeX || ny &lt; <span class="number">0</span> || ny &gt;= sizeY)</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            NearCount[nx][ny]++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">DFS</span>(x, y + <span class="number">1</span>, Ans + Nums[x][y]);</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">8</span>; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="type">int</span> nx = x + nearX[i];</span><br><span class="line">            <span class="type">int</span> ny = y + nearY[i];</span><br><span class="line">            <span class="keyword">if</span> (nx &lt; <span class="number">0</span> || nx &gt;= sizeX || ny &lt; <span class="number">0</span> || ny &gt;= sizeY)</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            NearCount[nx][ny]--;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 不选该点</span></span><br><span class="line">    <span class="built_in">DFS</span>(x, y + <span class="number">1</span>, Ans);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> T;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;T);</span><br><span class="line">    <span class="keyword">while</span> (T--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d %d&quot;</span>, &amp;sizeX, &amp;sizeY);</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; sizeX; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; sizeY; j++)</span><br><span class="line">            &#123;</span><br><span class="line">                cin &gt;&gt; Nums[i][j];</span><br><span class="line">                NearCount[i][j] = <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        ans = <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">DFS</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, ans);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;](&lt;<span class="meta">#<span class="keyword">include</span> %3Cbits/stdc++.h%3E</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 近邻操作集</span></span><br><span class="line"><span class="type">int</span> nearX[] = &#123;<span class="number">-1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">-1</span>,<span class="number">1</span>,<span class="number">-1</span>,<span class="number">0</span>,<span class="number">1</span>,&#125;;</span><br><span class="line"><span class="type">int</span> nearY[] = &#123;<span class="number">-1</span>,<span class="number">-1</span>,<span class="number">-1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,&#125;;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> NearCount[<span class="number">10</span>][<span class="number">10</span>];<span class="comment">// 近邻矩阵，表示第 &#123;x,y&#125; 个数周围有 NearCount[x][y] 个已被选择的数</span></span><br><span class="line"><span class="type">int</span> Nums[<span class="number">10</span>][<span class="number">10</span>];<span class="comment">// 数值矩阵</span></span><br><span class="line"><span class="type">int</span> sizeX = <span class="number">0</span>;<span class="comment">// 标识矩阵行数 </span></span><br><span class="line"><span class="type">int</span> sizeY = <span class="number">0</span>;<span class="comment">// 标识矩阵列数</span></span><br><span class="line"><span class="type">int</span> ans = <span class="number">0</span>;<span class="comment">// 存放答案</span></span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="built_in">DFS</span>(<span class="type">int</span> x, <span class="type">int</span> y, <span class="type">int</span> Ans)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 边界检查</span></span><br><span class="line">    <span class="keyword">if</span> (y &gt;= sizeY) <span class="comment">// 到达右边界，跳到下一行起点开始遍历</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">DFS</span>(x + <span class="number">1</span>, <span class="number">0</span>, Ans);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (x &gt;= sizeX) <span class="comment">// 到达最后一行的下一行，数字矩阵被遍历完，输出结果</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (Ans &gt; ans)</span><br><span class="line">            ans = Ans;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 选择当前点</span></span><br><span class="line">    <span class="keyword">if</span> (NearCount[x][y] == <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">8</span>; i++)<span class="comment">// 维护近邻数组</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="type">int</span> nx = x + nearX[i];</span><br><span class="line">            <span class="type">int</span> ny = y + nearY[i];</span><br><span class="line">            <span class="keyword">if</span> (nx &lt; <span class="number">0</span> || nx &gt;= sizeX || ny &lt; <span class="number">0</span> || ny &gt;= sizeY)</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            NearCount[nx][ny]++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">DFS</span>(x, y + <span class="number">1</span>, Ans + Nums[x][y]);<span class="comment">// 接着访问其后元素</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">8</span>; i++)<span class="comment">// 还原近邻数组，因为下面是不选择该点</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="type">int</span> nx = x + nearX[i];</span><br><span class="line">            <span class="type">int</span> ny = y + nearY[i];</span><br><span class="line">            <span class="keyword">if</span> (nx &lt; <span class="number">0</span> || nx &gt;= sizeX || ny &lt; <span class="number">0</span> || ny &gt;= sizeY)</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            NearCount[nx][ny]--;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 不选该点</span></span><br><span class="line">    <span class="built_in">DFS</span>(x, y + <span class="number">1</span>, Ans);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="built_in">main</span>()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> T;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;T);</span><br><span class="line">    <span class="keyword">while</span> (T--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d %d&quot;</span>, &amp;sizeX, &amp;sizeY);</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; sizeX; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; sizeY; j++)</span><br><span class="line">            &#123;</span><br><span class="line">                cin &gt;&gt; Nums[i][j];</span><br><span class="line">                NearCount[i][j] = <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        ans = <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">DFS</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, ans);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2024/12/08/%E5%AD%A6%E4%B9%A0/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%A4%87%E8%80%83/%E9%A2%98%E9%9B%86/%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86/%E4%B8%80%E7%BB%B4%E5%B7%AE%E5%88%86/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -800,6 +697,109 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/12/08/%E5%AD%A6%E4%B9%A0/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%A4%87%E8%80%83/%E9%A2%98%E9%9B%86/%E6%B4%9B%E8%B0%B7/P1123%20%E5%8F%96%E6%95%B0%E6%B8%B8%E6%88%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="听">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="O3xiaoyuhe">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/12/08/%E5%AD%A6%E4%B9%A0/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%A4%87%E8%80%83/%E9%A2%98%E9%9B%86/%E6%B4%9B%E8%B0%B7/P1123%20%E5%8F%96%E6%95%B0%E6%B8%B8%E6%88%8F/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-12-08 20:29:01" itemprop="dateCreated datePublished" datetime="2024-12-08T20:29:01+08:00">2024-12-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-11-13 22:55:19" itemprop="dateModified" datetime="2024-11-13T22:55:19+08:00">2024-11-13</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1>取数游戏</h1>
+<h2 id="题目描述">题目描述</h2>
+<p>一个 $N\times M$ 的由非负整数构成的数字矩阵，你需要在其中取出若干个数字，使得取出的任意两个数字不相邻（若一个数字在另外一个数字相邻 $8$ 个格子中的一个即认为这两个数字相邻），求取出数字和最大是多少。</p>
+<h2 id="输入格式">输入格式</h2>
+<p>第一行有一个正整数 $T$，表示了有 $T$ 组数据。</p>
+<p>对于每一组数据，第一行有两个正整数 $N$ 和 $M$，表示了数字矩阵为 $N$ 行 $M$ 列。</p>
+<p>接下来 $N$ 行，每行 $M$ 个非负整数，描述了这个数字矩阵。</p>
+<h2 id="输出格式">输出格式</h2>
+<p>共 $T$ 行，每行一个非负整数，输出所求得的答案。</p>
+<h2 id="样例-1">样例 #1</h2>
+<h3 id="样例输入-1">样例输入 #1</h3>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">4 4</span><br><span class="line">67 75 63 10</span><br><span class="line">29 29 92 14</span><br><span class="line">21 68 71 56</span><br><span class="line">8 67 91 25</span><br><span class="line">2 3</span><br><span class="line">87 70 85</span><br><span class="line">10 3 17</span><br><span class="line">3 3</span><br><span class="line">1 1 1</span><br><span class="line">1 99 1</span><br><span class="line">1 1 1</span><br></pre></td></tr></table></figure>
+<h3 id="样例输出-1">样例输出 #1</h3>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">271</span><br><span class="line">172</span><br><span class="line">99</span><br></pre></td></tr></table></figure>
+<h2 id="提示">提示</h2>
+<h3 id="样例解释">样例解释</h3>
+<p>对于第一组数据，取数方式如下：</p>
+<p>$$\begin{matrix}<br>
+[67] &amp; 75 &amp; 63 &amp; 10 \<br>
+29 &amp; 29 &amp; [92] &amp; 14 \<br>
+[21] &amp; 68 &amp; 71 &amp; 56 \<br>
+8 &amp; 67 &amp; [91] &amp; 25 \<br>
+\end{matrix}$$</p>
+<h3 id="数据范围及约定">数据范围及约定</h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>对于$20%$的数据，$1\le N, M \le 3$；</p>
+</li>
+<li class="lvl-2">
+<p>对于$40%$的数据，$1\le N, M\le 4$；</p>
+</li>
+<li class="lvl-2">
+<p>对于$60%$的数据，$1\le N, M\le 5$；</p>
+</li>
+<li class="lvl-2">
+<p>对于 $100%$ 的数据，$1\le N, M\le 6$，$1\le T\le 20$。</p>
+</li>
+</ul>
+<h2 id="我的题解">我的题解</h2>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> nearX[] = &#123;<span class="number">-1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">-1</span>,<span class="number">1</span>,<span class="number">-1</span>,<span class="number">0</span>,<span class="number">1</span>,&#125;;</span><br><span class="line"><span class="type">int</span> nearY[] = &#123;<span class="number">-1</span>,<span class="number">-1</span>,<span class="number">-1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,&#125;;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> NearCount[<span class="number">10</span>][<span class="number">10</span>];</span><br><span class="line"><span class="type">int</span> Nums[<span class="number">10</span>][<span class="number">10</span>];</span><br><span class="line"><span class="type">int</span> sizeX = <span class="number">0</span>;</span><br><span class="line"><span class="type">int</span> sizeY = <span class="number">0</span>;</span><br><span class="line"><span class="type">int</span> ans = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">DFS</span><span class="params">(<span class="type">int</span> x, <span class="type">int</span> y, <span class="type">int</span> Ans)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// 边界检查</span></span><br><span class="line">    <span class="keyword">if</span> (y &gt;= sizeY)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">DFS</span>(x + <span class="number">1</span>, <span class="number">0</span>, Ans);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (x &gt;= sizeX)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (Ans &gt; ans)</span><br><span class="line">            ans = Ans;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 选择当前点</span></span><br><span class="line">    <span class="keyword">if</span> (NearCount[x][y] == <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">8</span>; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="type">int</span> nx = x + nearX[i];</span><br><span class="line">            <span class="type">int</span> ny = y + nearY[i];</span><br><span class="line">            <span class="keyword">if</span> (nx &lt; <span class="number">0</span> || nx &gt;= sizeX || ny &lt; <span class="number">0</span> || ny &gt;= sizeY)</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            NearCount[nx][ny]++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">DFS</span>(x, y + <span class="number">1</span>, Ans + Nums[x][y]);</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">8</span>; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="type">int</span> nx = x + nearX[i];</span><br><span class="line">            <span class="type">int</span> ny = y + nearY[i];</span><br><span class="line">            <span class="keyword">if</span> (nx &lt; <span class="number">0</span> || nx &gt;= sizeX || ny &lt; <span class="number">0</span> || ny &gt;= sizeY)</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            NearCount[nx][ny]--;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 不选该点</span></span><br><span class="line">    <span class="built_in">DFS</span>(x, y + <span class="number">1</span>, Ans);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> T;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;T);</span><br><span class="line">    <span class="keyword">while</span> (T--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d %d&quot;</span>, &amp;sizeX, &amp;sizeY);</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; sizeX; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; sizeY; j++)</span><br><span class="line">            &#123;</span><br><span class="line">                cin &gt;&gt; Nums[i][j];</span><br><span class="line">                NearCount[i][j] = <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        ans = <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">DFS</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, ans);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;](&lt;<span class="meta">#<span class="keyword">include</span> %3Cbits/stdc++.h%3E</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 近邻操作集</span></span><br><span class="line"><span class="type">int</span> nearX[] = &#123;<span class="number">-1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">-1</span>,<span class="number">1</span>,<span class="number">-1</span>,<span class="number">0</span>,<span class="number">1</span>,&#125;;</span><br><span class="line"><span class="type">int</span> nearY[] = &#123;<span class="number">-1</span>,<span class="number">-1</span>,<span class="number">-1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,&#125;;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> NearCount[<span class="number">10</span>][<span class="number">10</span>];<span class="comment">// 近邻矩阵，表示第 &#123;x,y&#125; 个数周围有 NearCount[x][y] 个已被选择的数</span></span><br><span class="line"><span class="type">int</span> Nums[<span class="number">10</span>][<span class="number">10</span>];<span class="comment">// 数值矩阵</span></span><br><span class="line"><span class="type">int</span> sizeX = <span class="number">0</span>;<span class="comment">// 标识矩阵行数 </span></span><br><span class="line"><span class="type">int</span> sizeY = <span class="number">0</span>;<span class="comment">// 标识矩阵列数</span></span><br><span class="line"><span class="type">int</span> ans = <span class="number">0</span>;<span class="comment">// 存放答案</span></span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="built_in">DFS</span>(<span class="type">int</span> x, <span class="type">int</span> y, <span class="type">int</span> Ans)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 边界检查</span></span><br><span class="line">    <span class="keyword">if</span> (y &gt;= sizeY) <span class="comment">// 到达右边界，跳到下一行起点开始遍历</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">DFS</span>(x + <span class="number">1</span>, <span class="number">0</span>, Ans);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (x &gt;= sizeX) <span class="comment">// 到达最后一行的下一行，数字矩阵被遍历完，输出结果</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (Ans &gt; ans)</span><br><span class="line">            ans = Ans;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 选择当前点</span></span><br><span class="line">    <span class="keyword">if</span> (NearCount[x][y] == <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">8</span>; i++)<span class="comment">// 维护近邻数组</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="type">int</span> nx = x + nearX[i];</span><br><span class="line">            <span class="type">int</span> ny = y + nearY[i];</span><br><span class="line">            <span class="keyword">if</span> (nx &lt; <span class="number">0</span> || nx &gt;= sizeX || ny &lt; <span class="number">0</span> || ny &gt;= sizeY)</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            NearCount[nx][ny]++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">DFS</span>(x, y + <span class="number">1</span>, Ans + Nums[x][y]);<span class="comment">// 接着访问其后元素</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">8</span>; i++)<span class="comment">// 还原近邻数组，因为下面是不选择该点</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="type">int</span> nx = x + nearX[i];</span><br><span class="line">            <span class="type">int</span> ny = y + nearY[i];</span><br><span class="line">            <span class="keyword">if</span> (nx &lt; <span class="number">0</span> || nx &gt;= sizeX || ny &lt; <span class="number">0</span> || ny &gt;= sizeY)</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            NearCount[nx][ny]--;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 不选该点</span></span><br><span class="line">    <span class="built_in">DFS</span>(x, y + <span class="number">1</span>, Ans);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="built_in">main</span>()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> T;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;T);</span><br><span class="line">    <span class="keyword">while</span> (T--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d %d&quot;</span>, &amp;sizeX, &amp;sizeY);</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; sizeX; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; sizeY; j++)</span><br><span class="line">            &#123;</span><br><span class="line">                cin &gt;&gt; Nums[i][j];</span><br><span class="line">                NearCount[i][j] = <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        ans = <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">DFS</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, ans);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2024/12/08/%E5%AD%A6%E4%B9%A0/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%A4%87%E8%80%83/%E9%A2%98%E9%9B%86/%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86/%E4%B8%80%E7%BB%B4%E5%89%8D%E7%BC%80%E5%92%8C/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -862,6 +862,83 @@
 <blockquote>
 <p>[!tip]- 题解</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"> #include &lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">const int N = 1e5+10;</span><br><span class="line">int nums[N] , presum[N] , n , m , l , r; </span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">   cin&gt;&gt;n&gt;&gt;m;</span><br><span class="line">   for (int i = 1 ; i &lt;= n ; ++i)</span><br><span class="line">   &#123;</span><br><span class="line">       cin&gt;&gt;nums[i];</span><br><span class="line">       presum[i] = presum[i-1] + nums[i];</span><br><span class="line">   &#125;</span><br><span class="line">   while(m--)</span><br><span class="line">   &#123;</span><br><span class="line">       cin&gt;&gt;l&gt;&gt;r;</span><br><span class="line">       cout&lt;&lt;presum[r] - presum[l-1]&lt;&lt;endl; //这就算出来了，多爽啊~</span><br><span class="line">   &#125;</span><br><span class="line">   return 0;</span><br><span class="line">&gt;&#125;</span><br></pre></td></tr></table></figure></blockquote>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/12/08/%E5%AD%A6%E4%B9%A0/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%A4%87%E8%80%83/%E7%AE%97%E6%B3%95%E8%AE%B2%E8%A7%A3/%E9%AB%98%E7%B2%BE%E5%BA%A6/%E9%AB%98%E7%B2%BE%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%9B%AE%E5%BD%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="听">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="O3xiaoyuhe">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/12/08/%E5%AD%A6%E4%B9%A0/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%A4%87%E8%80%83/%E7%AE%97%E6%B3%95%E8%AE%B2%E8%A7%A3/%E9%AB%98%E7%B2%BE%E5%BA%A6/%E9%AB%98%E7%B2%BE%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%9B%AE%E5%BD%95/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-12-08 20:29:01" itemprop="dateCreated datePublished" datetime="2024-12-08T20:29:01+08:00">2024-12-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-11-13 22:55:08" itemprop="dateModified" datetime="2024-11-13T22:55:08+08:00">2024-11-13</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <ul class="lvl-0">
+<li class="lvl-2">
+<p>CSDN - 高精度算法讲解 [[高精度（加、减、乘、除）算法详解_高精度阶乘为何求余 - CSDN 博客]]</p>
+</li>
+<li class="lvl-2">
+<p>AcWin - 高精度乘法题解 [[AcWing 793_ 高精度乘法 A x b 和 A x B 的模版（大数相加、大数相乘通用模板） - AcWing]]</p>
+</li>
+<li class="lvl-2">
+<p>AcWin - 高精度减法题解 [[AcWing 792_ 高精度减法 - AcWing]]</p>
+</li>
+<li class="lvl-2">
+</li>
+</ul>
 
       
     </div>
@@ -961,83 +1038,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/12/08/%E5%AD%A6%E4%B9%A0/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%A4%87%E8%80%83/%E7%AE%97%E6%B3%95%E8%AE%B2%E8%A7%A3/%E9%AB%98%E7%B2%BE%E5%BA%A6/%E9%AB%98%E7%B2%BE%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%9B%AE%E5%BD%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="听">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="O3xiaoyuhe">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2024/12/08/%E5%AD%A6%E4%B9%A0/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%A4%87%E8%80%83/%E7%AE%97%E6%B3%95%E8%AE%B2%E8%A7%A3/%E9%AB%98%E7%B2%BE%E5%BA%A6/%E9%AB%98%E7%B2%BE%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%9B%AE%E5%BD%95/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2024-12-08 20:29:01" itemprop="dateCreated datePublished" datetime="2024-12-08T20:29:01+08:00">2024-12-08</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-11-13 22:55:08" itemprop="dateModified" datetime="2024-11-13T22:55:08+08:00">2024-11-13</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <ul class="lvl-0">
-<li class="lvl-2">
-<p>CSDN - 高精度算法讲解 [[高精度（加、减、乘、除）算法详解_高精度阶乘为何求余 - CSDN 博客]]</p>
-</li>
-<li class="lvl-2">
-<p>AcWin - 高精度乘法题解 [[AcWing 793_ 高精度乘法 A x b 和 A x B 的模版（大数相加、大数相乘通用模板） - AcWing]]</p>
-</li>
-<li class="lvl-2">
-<p>AcWin - 高精度减法题解 [[AcWing 792_ 高精度减法 - AcWing]]</p>
-</li>
-<li class="lvl-2">
-</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1105,7 +1105,7 @@
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-          <a href="/archives/">
+          <a href="/archives">
         
           <span class="site-state-item-count">653</span>
           <span class="site-state-item-name">日志</span>

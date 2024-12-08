@@ -116,22 +116,22 @@
   </li>
         <li class="menu-item menu-item-about">
 
-    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+    <a href="/about" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+    <a href="/tags" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+    <a href="/categories" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+    <a href="/archives" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
 
   </li>
   </ul>
@@ -1250,6 +1250,177 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/12/08/CS-Learning/CSS%E5%AD%A6%E4%B9%A0/dialog/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="听">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="O3xiaoyuhe">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/12/08/CS-Learning/CSS%E5%AD%A6%E4%B9%A0/dialog/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-12-08 20:29:06" itemprop="dateCreated datePublished" datetime="2024-12-08T20:29:06+08:00">2024-12-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-11-13 22:53:00" itemprop="dateModified" datetime="2024-11-13T22:53:00+08:00">2024-11-13</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1>&lt; dialog &gt;：对话框元素</h1>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTML">HTML</a> <strong><code>&lt;dialog&gt;</code></strong> 元素表示一个对话框或其他交互式组件，例如一个可关闭警告、检查器或者窗口。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Content_categories">内容分类</a></td>
+<td><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Content_categories#%e6%b5%81%e5%bc%8f%e5%86%85%e5%ae%b9">流式元素</a>、<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Heading_Elements#sectioning_roots">分段内容</a></td>
+</tr>
+<tr>
+<td>允许的内容</td>
+<td><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Content_categories#%e6%b5%81%e5%bc%8f%e5%85%83%e7%b4%a0">流式元素</a></td>
+</tr>
+<tr>
+<td>标签是否可省略</td>
+<td>不允许，开始标签和结束标签都不能省略。</td>
+</tr>
+<tr>
+<td>允许的父元素</td>
+<td>任何接受<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Content_categories#%e6%b5%81%e5%bc%8f%e5%86%85%e5%ae%b9">流式元素</a>的元素</td>
+</tr>
+<tr>
+<td>隐式 ARIA 角色</td>
+<td><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/dialog_role" title="Currently only available in English (US)">dialog (en-US)</a></td>
+</tr>
+<tr>
+<td>允许的 ARIA 角色</td>
+<td><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/alertdialog_role" title="Currently only available in English (US)"><code>alertdialog</code> (en-US)</a></td>
+</tr>
+<tr>
+<td>DOM 接口</td>
+<td><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLDialogElement"><code>HTMLDialogElement</code></a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="属性"><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/dialog#%E5%B1%9E%E6%80%A7">属性</a></h2>
+<p>这个元素包含了<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Global_attributes">全局属性</a>。</p>
+<p><strong>警告：</strong> <code>tabindex</code> 属性不能被使用在 <code>&lt;dialog&gt;</code> 元素上。</p>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/dialog#open"><code>open</code></a></p>
+<p>指示这个对话框是激活的和能互动的。当没有设置 <code>open</code> 属性时，对话框 <em>不应该</em> 显示给用户。推荐使用 <code>.show()</code> 或 <code>.showModal()</code> 方法来渲染对话框，而不是使用 <code>open</code> 属性。</p>
+<h2 id="无障碍考虑">无障碍考虑</h2>
+<p><code>&lt;dialog&gt;</code> 元素的早期实现<a target="_blank" rel="noopener" href="https://www.scottohara.me/blog/2019/03/05/open-dialog.html">在某些形式的辅助技术上仍存在可用性问题</a>。为了保证 Safari 15.4 版本以下的无障碍性，推荐使用临时的解决方案（如：<a target="_blank" rel="noopener" href="https://a11y-dialog.netlify.app/">a11y-dialog</a>）以获得持续的可用性支持。</p>
+<p>在实现一个对话框时，考虑最合适的地方来设置用户焦点是很重要的。通过使用 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Global_attributes/autofocus">autofocus</a> 属性明确指出初始焦点的位置，将有助于确保初始焦点被设置到被认为是任何特定对话框的最佳初始焦点位置的元素。由于并不总是知道初始焦点可以设置在对话框中的什么地方，特别是对于对话框的内容在被调用时动态呈现的情况，如果有必要，作者可以决定聚焦于 <code>&lt;dialog&gt;</code> 元素本身，提供最佳的初始焦点位置。</p>
+<p>确保给予用户关闭对话框的机制。最有力的方法是给用户提供一个明确的按钮，如确认、取消或关闭按钮。此外，对于那些使用键盘设备的人来说，Escape 键通常也会用来关闭模态对话框。默认情况下，一个由 <code>showModal()</code> 方法调用的 <code>&lt;dialog&gt;</code> 将允许其被 Escape 关闭。非模态对话框默认不会通过 Escape 键来关闭，而且根据非模态对话框所代表的内容，它可能不希望有这种行为。如果打开了多个模态对话框，Escape 只应该关闭最后一个可见对话框。</p>
+<p>浏览器使用 ARIA <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/dialog_role" title="Currently only available in English (US)">role=“dialog” (en-US)</a> 属性对 <code>&lt;dialog&gt;</code> 元素进行了类似于自定义对话框的暴露。由 <code>showModal()</code> 方法调用的 <code>&lt;dialog&gt;</code> 元素将有一个隐含的 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-modal" title="Currently only available in English (US)">aria-modal=“true” (en-US)</a>。而由 <code>show()</code> 方法调用的 <code>&lt;dialog&gt;</code> 元素，或通过使用 <code>open</code> 属性，或改变 <code>&lt;dialog&gt;</code> 的默认 <code>display</code> 而呈现的，将被暴露为 <code>[aria-modal=&quot;false&quot;]</code>。建议使用适当的 <code>showModal()</code> 或 <code>show()</code> 方法来渲染对话框。</p>
+<p>确保你的对话框实现不会破坏预期的默认行为，并遵循正确的标签建议。</p>
+<h2 id="使用说明"><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/dialog#%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E">使用说明</a></h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/form"><code>&lt;form&gt;</code></a> 元素可关闭含有属性 <code>method=&quot;dialog&quot;</code> 的对话框。当提交表单时，对话框的 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLDialogElement/returnValue" title="Currently only available in English (US)"><code>returnValue</code> (en-US)</a> 属性将会等于表单中被使用的提交按钮的 <code>value</code>。</p>
+</li>
+<li class="lvl-2">
+<p>:: <code>backdrop</code> CSS 伪元素可用于给使用 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLDialogElement/showModal" title="Currently only available in English (US)"><code>HTMLDialogElement.showModal()</code> (en-US)</a> 显示的 <code>&lt;dialog&gt;</code> 元素背景添加样式，例如在对话框被打开激活时，调暗背景中不可访问的内容。</p>
+</li>
+</ul>
+<h2 id="示例"><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/dialog#%E7%A4%BA%E4%BE%8B">示例</a></h2>
+<h3 id="简单示例"><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/dialog#%E7%AE%80%E5%8D%95%E7%A4%BA%E4%BE%8B">简单示例</a></h3>
+<p>下面的示例会渲染一个非模态对话框。在对话框激活的状态下，点击“OK”按钮将会关闭对话框。提供一种机制来关闭 <code>dialog</code> 元素中的对话框是很重要的。例如，Esc 键在默认情况下不会关闭非模态对话框，同时也不能假设用户可以使用一个物理键盘（例如，使用不带物理键盘的触摸屏设备）。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dialog</span> <span class="attr">open</span>&gt;</span>   </span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span>Greetings, one and all!<span class="tag">&lt;/<span class="name">p</span>&gt;</span>   </span><br><span class="line">	<span class="tag">&lt;<span class="name">form</span> <span class="attr">method</span>=<span class="string">&quot;dialog&quot;</span>&gt;</span>     </span><br><span class="line">		<span class="tag">&lt;<span class="name">button</span>&gt;</span>OK<span class="tag">&lt;/<span class="name">button</span>&gt;</span>   </span><br><span class="line">	<span class="tag">&lt;/<span class="name">form</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;/<span class="name">dialog</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="高级示例"><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/dialog#%E9%AB%98%E7%BA%A7%E7%A4%BA%E4%BE%8B">高级示例</a></h3>
+<p>当单击“Update details”按钮时，此示例打开一个包含一个表单的弹出对话框。</p>
+<h4 id="HTML">HTML</h4>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- Simple modal dialog containing a form --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dialog</span> <span class="attr">id</span>=<span class="string">&quot;favDialog&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">form</span> <span class="attr">method</span>=<span class="string">&quot;dialog&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">label</span></span></span><br><span class="line"><span class="tag">        &gt;</span>Favorite animal:</span><br><span class="line">        <span class="tag">&lt;<span class="name">select</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;default&quot;</span>&gt;</span>Choose…<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">option</span>&gt;</span>Brine shrimp<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">option</span>&gt;</span>Red panda<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">option</span>&gt;</span>Spider monkey<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">button</span> <span class="attr">value</span>=<span class="string">&quot;cancel&quot;</span>&gt;</span>Cancel<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">&quot;confirmBtn&quot;</span> <span class="attr">value</span>=<span class="string">&quot;default&quot;</span>&gt;</span>Confirm<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dialog</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">&quot;updateDetails&quot;</span>&gt;</span>Update details<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">output</span>&gt;</span><span class="tag">&lt;/<span class="name">output</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h4 id="JavaScript">JavaScript</h4>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> updateButton = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;updateDetails&quot;</span>);</span><br><span class="line"><span class="keyword">const</span> favDialog = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;favDialog&quot;</span>);</span><br><span class="line"><span class="keyword">const</span> outputBox = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&quot;output&quot;</span>);</span><br><span class="line"><span class="keyword">const</span> selectEl = favDialog.<span class="title function_">querySelector</span>(<span class="string">&quot;select&quot;</span>);</span><br><span class="line"><span class="keyword">const</span> confirmBtn = favDialog.<span class="title function_">querySelector</span>(<span class="string">&quot;#confirmBtn&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// If a browser doesn&#x27;t support the dialog, then hide the</span></span><br><span class="line"><span class="comment">// dialog contents by default.</span></span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">typeof</span> favDialog.<span class="property">showModal</span> !== <span class="string">&quot;function&quot;</span>) &#123;</span><br><span class="line">  favDialog.<span class="property">hidden</span> = <span class="literal">true</span>;</span><br><span class="line">  <span class="comment">/* a fallback script to allow this dialog/form to function</span></span><br><span class="line"><span class="comment">     for legacy browsers that do not support &lt;dialog&gt;</span></span><br><span class="line"><span class="comment">     could be provided here.</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// &quot;Update details&quot; button opens the &lt;dialog&gt; modally</span></span><br><span class="line">updateButton.<span class="title function_">addEventListener</span>(<span class="string">&quot;click&quot;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> favDialog.<span class="property">showModal</span> === <span class="string">&quot;function&quot;</span>) &#123;</span><br><span class="line">    favDialog.<span class="title function_">showModal</span>();</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    outputBox.<span class="property">value</span> =</span><br><span class="line">      <span class="string">&quot;Sorry, the &lt;dialog&gt; API is not supported by this browser.&quot;</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// &quot;Favorite animal&quot; input sets the value of the submit button</span></span><br><span class="line">selectEl.<span class="title function_">addEventListener</span>(<span class="string">&quot;change&quot;</span>, <span class="function">(<span class="params">e</span>) =&gt;</span> &#123;</span><br><span class="line">  confirmBtn.<span class="property">value</span> = selectEl.<span class="property">value</span>;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// &quot;Confirm&quot; button of form triggers &quot;close&quot; on dialog because of [method=&quot;dialog&quot;]</span></span><br><span class="line">favDialog.<span class="title function_">addEventListener</span>(<span class="string">&quot;close&quot;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  outputBox.<span class="property">value</span> = <span class="string">`<span class="subst">$&#123;</span></span></span><br><span class="line"><span class="subst"><span class="string">    favDialog.returnValue</span></span></span><br><span class="line"><span class="subst"><span class="string">  &#125;</span> button clicked - <span class="subst">$&#123;<span class="keyword">new</span> <span class="built_in">Date</span>().toString()&#125;</span>`</span>;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="结果">结果</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202403191751233.png" alt="image.png"><br>
+<img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202403191752788.png" alt="image.png"></p>
+<h2 id="规范"><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/dialog#%E8%A7%84%E8%8C%83">规范</a></h2>
+<table>
+<thead>
+<tr>
+<th>Specification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://html.spec.whatwg.org/multipage/interactive-elements.html#the-dialog-element">HTML Standard  <br># the-dialog-element</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="浏览器兼容性"><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/dialog#%E6%B5%8F%E8%A7%88%E5%99%A8%E5%85%BC%E5%AE%B9%E6%80%A7">浏览器兼容性</a></h2>
+<p><a target="_blank" rel="noopener" href="https://github.com/mdn/browser-compat-data/issues/new?mdn-url=https%3A%2F%2Fdeveloper.mozilla.org%2Fzh-CN%2Fdocs%2FWeb%2FHTML%2FElement%2Fdialog&amp;metadata=%3C%21--+Do+not+make+changes+below+this+line+--%3E%0A%3Cdetails%3E%0A%3Csummary%3EMDN+page+report+details%3C%2Fsummary%3E%0A%0A*+Query%3A+%60html.elements.dialog%60%0A*+Report+started%3A+2024-03-19T09%3A23%3A25.587Z%0A%0A%3C%2Fdetails%3E&amp;title=html.elements.dialog+-+%3CSUMMARIZE+THE+PROBLEM%3E&amp;template=data-problem.yml" title="Report an issue with this compatibility data">Report problems with this compatibility data on GitHub</a><br>
+<img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202403191759043.png" alt="image.png"></p>
+<h2 id="参见">参见</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLDialogElement/close_event" title="close"><code>close</code></a> 事件</p>
+</li>
+<li class="lvl-2">
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/cancel_event" title="Currently only available in English (US)"><code>cancel</code> (en-US)</a> 事件</p>
+</li>
+<li class="lvl-2">
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Learn/Forms">HTML 表单指南</a></p>
+</li>
+<li class="lvl-2">
+<p>[[backdrop]] 伪元素</p>
+</li>
+<li class="lvl-2">
+<p><a target="_blank" rel="noopener" href="https://github.com/GoogleChrome/dialog-polyfill">dialog-polyfill</a></p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2024/12/08/CS-Learning/CSS%E5%AD%A6%E4%B9%A0/fullscreen/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1437,177 +1608,6 @@
 </li>
 <li class="lvl-2">
 <p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/iframe#allowfullscreen"><code>allowfullscreen</code></a> 属性</p>
-</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/12/08/CS-Learning/CSS%E5%AD%A6%E4%B9%A0/dialog/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="听">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="O3xiaoyuhe">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2024/12/08/CS-Learning/CSS%E5%AD%A6%E4%B9%A0/dialog/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2024-12-08 20:29:06" itemprop="dateCreated datePublished" datetime="2024-12-08T20:29:06+08:00">2024-12-08</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-11-13 22:53:00" itemprop="dateModified" datetime="2024-11-13T22:53:00+08:00">2024-11-13</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1>&lt; dialog &gt;：对话框元素</h1>
-<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTML">HTML</a> <strong><code>&lt;dialog&gt;</code></strong> 元素表示一个对话框或其他交互式组件，例如一个可关闭警告、检查器或者窗口。</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Content_categories">内容分类</a></td>
-<td><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Content_categories#%e6%b5%81%e5%bc%8f%e5%86%85%e5%ae%b9">流式元素</a>、<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Heading_Elements#sectioning_roots">分段内容</a></td>
-</tr>
-<tr>
-<td>允许的内容</td>
-<td><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Content_categories#%e6%b5%81%e5%bc%8f%e5%85%83%e7%b4%a0">流式元素</a></td>
-</tr>
-<tr>
-<td>标签是否可省略</td>
-<td>不允许，开始标签和结束标签都不能省略。</td>
-</tr>
-<tr>
-<td>允许的父元素</td>
-<td>任何接受<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Content_categories#%e6%b5%81%e5%bc%8f%e5%86%85%e5%ae%b9">流式元素</a>的元素</td>
-</tr>
-<tr>
-<td>隐式 ARIA 角色</td>
-<td><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/dialog_role" title="Currently only available in English (US)">dialog (en-US)</a></td>
-</tr>
-<tr>
-<td>允许的 ARIA 角色</td>
-<td><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/alertdialog_role" title="Currently only available in English (US)"><code>alertdialog</code> (en-US)</a></td>
-</tr>
-<tr>
-<td>DOM 接口</td>
-<td><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLDialogElement"><code>HTMLDialogElement</code></a></td>
-</tr>
-</tbody>
-</table>
-<h2 id="属性"><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/dialog#%E5%B1%9E%E6%80%A7">属性</a></h2>
-<p>这个元素包含了<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Global_attributes">全局属性</a>。</p>
-<p><strong>警告：</strong> <code>tabindex</code> 属性不能被使用在 <code>&lt;dialog&gt;</code> 元素上。</p>
-<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/dialog#open"><code>open</code></a></p>
-<p>指示这个对话框是激活的和能互动的。当没有设置 <code>open</code> 属性时，对话框 <em>不应该</em> 显示给用户。推荐使用 <code>.show()</code> 或 <code>.showModal()</code> 方法来渲染对话框，而不是使用 <code>open</code> 属性。</p>
-<h2 id="无障碍考虑">无障碍考虑</h2>
-<p><code>&lt;dialog&gt;</code> 元素的早期实现<a target="_blank" rel="noopener" href="https://www.scottohara.me/blog/2019/03/05/open-dialog.html">在某些形式的辅助技术上仍存在可用性问题</a>。为了保证 Safari 15.4 版本以下的无障碍性，推荐使用临时的解决方案（如：<a target="_blank" rel="noopener" href="https://a11y-dialog.netlify.app/">a11y-dialog</a>）以获得持续的可用性支持。</p>
-<p>在实现一个对话框时，考虑最合适的地方来设置用户焦点是很重要的。通过使用 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Global_attributes/autofocus">autofocus</a> 属性明确指出初始焦点的位置，将有助于确保初始焦点被设置到被认为是任何特定对话框的最佳初始焦点位置的元素。由于并不总是知道初始焦点可以设置在对话框中的什么地方，特别是对于对话框的内容在被调用时动态呈现的情况，如果有必要，作者可以决定聚焦于 <code>&lt;dialog&gt;</code> 元素本身，提供最佳的初始焦点位置。</p>
-<p>确保给予用户关闭对话框的机制。最有力的方法是给用户提供一个明确的按钮，如确认、取消或关闭按钮。此外，对于那些使用键盘设备的人来说，Escape 键通常也会用来关闭模态对话框。默认情况下，一个由 <code>showModal()</code> 方法调用的 <code>&lt;dialog&gt;</code> 将允许其被 Escape 关闭。非模态对话框默认不会通过 Escape 键来关闭，而且根据非模态对话框所代表的内容，它可能不希望有这种行为。如果打开了多个模态对话框，Escape 只应该关闭最后一个可见对话框。</p>
-<p>浏览器使用 ARIA <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/dialog_role" title="Currently only available in English (US)">role=“dialog” (en-US)</a> 属性对 <code>&lt;dialog&gt;</code> 元素进行了类似于自定义对话框的暴露。由 <code>showModal()</code> 方法调用的 <code>&lt;dialog&gt;</code> 元素将有一个隐含的 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-modal" title="Currently only available in English (US)">aria-modal=“true” (en-US)</a>。而由 <code>show()</code> 方法调用的 <code>&lt;dialog&gt;</code> 元素，或通过使用 <code>open</code> 属性，或改变 <code>&lt;dialog&gt;</code> 的默认 <code>display</code> 而呈现的，将被暴露为 <code>[aria-modal=&quot;false&quot;]</code>。建议使用适当的 <code>showModal()</code> 或 <code>show()</code> 方法来渲染对话框。</p>
-<p>确保你的对话框实现不会破坏预期的默认行为，并遵循正确的标签建议。</p>
-<h2 id="使用说明"><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/dialog#%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E">使用说明</a></h2>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/form"><code>&lt;form&gt;</code></a> 元素可关闭含有属性 <code>method=&quot;dialog&quot;</code> 的对话框。当提交表单时，对话框的 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLDialogElement/returnValue" title="Currently only available in English (US)"><code>returnValue</code> (en-US)</a> 属性将会等于表单中被使用的提交按钮的 <code>value</code>。</p>
-</li>
-<li class="lvl-2">
-<p>:: <code>backdrop</code> CSS 伪元素可用于给使用 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLDialogElement/showModal" title="Currently only available in English (US)"><code>HTMLDialogElement.showModal()</code> (en-US)</a> 显示的 <code>&lt;dialog&gt;</code> 元素背景添加样式，例如在对话框被打开激活时，调暗背景中不可访问的内容。</p>
-</li>
-</ul>
-<h2 id="示例"><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/dialog#%E7%A4%BA%E4%BE%8B">示例</a></h2>
-<h3 id="简单示例"><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/dialog#%E7%AE%80%E5%8D%95%E7%A4%BA%E4%BE%8B">简单示例</a></h3>
-<p>下面的示例会渲染一个非模态对话框。在对话框激活的状态下，点击“OK”按钮将会关闭对话框。提供一种机制来关闭 <code>dialog</code> 元素中的对话框是很重要的。例如，Esc 键在默认情况下不会关闭非模态对话框，同时也不能假设用户可以使用一个物理键盘（例如，使用不带物理键盘的触摸屏设备）。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dialog</span> <span class="attr">open</span>&gt;</span>   </span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span>Greetings, one and all!<span class="tag">&lt;/<span class="name">p</span>&gt;</span>   </span><br><span class="line">	<span class="tag">&lt;<span class="name">form</span> <span class="attr">method</span>=<span class="string">&quot;dialog&quot;</span>&gt;</span>     </span><br><span class="line">		<span class="tag">&lt;<span class="name">button</span>&gt;</span>OK<span class="tag">&lt;/<span class="name">button</span>&gt;</span>   </span><br><span class="line">	<span class="tag">&lt;/<span class="name">form</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;/<span class="name">dialog</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="高级示例"><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/dialog#%E9%AB%98%E7%BA%A7%E7%A4%BA%E4%BE%8B">高级示例</a></h3>
-<p>当单击“Update details”按钮时，此示例打开一个包含一个表单的弹出对话框。</p>
-<h4 id="HTML">HTML</h4>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- Simple modal dialog containing a form --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dialog</span> <span class="attr">id</span>=<span class="string">&quot;favDialog&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">form</span> <span class="attr">method</span>=<span class="string">&quot;dialog&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">label</span></span></span><br><span class="line"><span class="tag">        &gt;</span>Favorite animal:</span><br><span class="line">        <span class="tag">&lt;<span class="name">select</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;default&quot;</span>&gt;</span>Choose…<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">option</span>&gt;</span>Brine shrimp<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">option</span>&gt;</span>Red panda<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">option</span>&gt;</span>Spider monkey<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">button</span> <span class="attr">value</span>=<span class="string">&quot;cancel&quot;</span>&gt;</span>Cancel<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">&quot;confirmBtn&quot;</span> <span class="attr">value</span>=<span class="string">&quot;default&quot;</span>&gt;</span>Confirm<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dialog</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">&quot;updateDetails&quot;</span>&gt;</span>Update details<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">output</span>&gt;</span><span class="tag">&lt;/<span class="name">output</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h4 id="JavaScript">JavaScript</h4>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> updateButton = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;updateDetails&quot;</span>);</span><br><span class="line"><span class="keyword">const</span> favDialog = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;favDialog&quot;</span>);</span><br><span class="line"><span class="keyword">const</span> outputBox = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&quot;output&quot;</span>);</span><br><span class="line"><span class="keyword">const</span> selectEl = favDialog.<span class="title function_">querySelector</span>(<span class="string">&quot;select&quot;</span>);</span><br><span class="line"><span class="keyword">const</span> confirmBtn = favDialog.<span class="title function_">querySelector</span>(<span class="string">&quot;#confirmBtn&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// If a browser doesn&#x27;t support the dialog, then hide the</span></span><br><span class="line"><span class="comment">// dialog contents by default.</span></span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">typeof</span> favDialog.<span class="property">showModal</span> !== <span class="string">&quot;function&quot;</span>) &#123;</span><br><span class="line">  favDialog.<span class="property">hidden</span> = <span class="literal">true</span>;</span><br><span class="line">  <span class="comment">/* a fallback script to allow this dialog/form to function</span></span><br><span class="line"><span class="comment">     for legacy browsers that do not support &lt;dialog&gt;</span></span><br><span class="line"><span class="comment">     could be provided here.</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// &quot;Update details&quot; button opens the &lt;dialog&gt; modally</span></span><br><span class="line">updateButton.<span class="title function_">addEventListener</span>(<span class="string">&quot;click&quot;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> favDialog.<span class="property">showModal</span> === <span class="string">&quot;function&quot;</span>) &#123;</span><br><span class="line">    favDialog.<span class="title function_">showModal</span>();</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    outputBox.<span class="property">value</span> =</span><br><span class="line">      <span class="string">&quot;Sorry, the &lt;dialog&gt; API is not supported by this browser.&quot;</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// &quot;Favorite animal&quot; input sets the value of the submit button</span></span><br><span class="line">selectEl.<span class="title function_">addEventListener</span>(<span class="string">&quot;change&quot;</span>, <span class="function">(<span class="params">e</span>) =&gt;</span> &#123;</span><br><span class="line">  confirmBtn.<span class="property">value</span> = selectEl.<span class="property">value</span>;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// &quot;Confirm&quot; button of form triggers &quot;close&quot; on dialog because of [method=&quot;dialog&quot;]</span></span><br><span class="line">favDialog.<span class="title function_">addEventListener</span>(<span class="string">&quot;close&quot;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  outputBox.<span class="property">value</span> = <span class="string">`<span class="subst">$&#123;</span></span></span><br><span class="line"><span class="subst"><span class="string">    favDialog.returnValue</span></span></span><br><span class="line"><span class="subst"><span class="string">  &#125;</span> button clicked - <span class="subst">$&#123;<span class="keyword">new</span> <span class="built_in">Date</span>().toString()&#125;</span>`</span>;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h3 id="结果">结果</h3>
-<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202403191751233.png" alt="image.png"><br>
-<img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202403191752788.png" alt="image.png"></p>
-<h2 id="规范"><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/dialog#%E8%A7%84%E8%8C%83">规范</a></h2>
-<table>
-<thead>
-<tr>
-<th>Specification</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://html.spec.whatwg.org/multipage/interactive-elements.html#the-dialog-element">HTML Standard  <br># the-dialog-element</a></td>
-</tr>
-</tbody>
-</table>
-<h2 id="浏览器兼容性"><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/dialog#%E6%B5%8F%E8%A7%88%E5%99%A8%E5%85%BC%E5%AE%B9%E6%80%A7">浏览器兼容性</a></h2>
-<p><a target="_blank" rel="noopener" href="https://github.com/mdn/browser-compat-data/issues/new?mdn-url=https%3A%2F%2Fdeveloper.mozilla.org%2Fzh-CN%2Fdocs%2FWeb%2FHTML%2FElement%2Fdialog&amp;metadata=%3C%21--+Do+not+make+changes+below+this+line+--%3E%0A%3Cdetails%3E%0A%3Csummary%3EMDN+page+report+details%3C%2Fsummary%3E%0A%0A*+Query%3A+%60html.elements.dialog%60%0A*+Report+started%3A+2024-03-19T09%3A23%3A25.587Z%0A%0A%3C%2Fdetails%3E&amp;title=html.elements.dialog+-+%3CSUMMARIZE+THE+PROBLEM%3E&amp;template=data-problem.yml" title="Report an issue with this compatibility data">Report problems with this compatibility data on GitHub</a><br>
-<img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202403191759043.png" alt="image.png"></p>
-<h2 id="参见">参见</h2>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLDialogElement/close_event" title="close"><code>close</code></a> 事件</p>
-</li>
-<li class="lvl-2">
-<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/cancel_event" title="Currently only available in English (US)"><code>cancel</code> (en-US)</a> 事件</p>
-</li>
-<li class="lvl-2">
-<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Learn/Forms">HTML 表单指南</a></p>
-</li>
-<li class="lvl-2">
-<p>[[backdrop]] 伪元素</p>
-</li>
-<li class="lvl-2">
-<p><a target="_blank" rel="noopener" href="https://github.com/GoogleChrome/dialog-polyfill">dialog-polyfill</a></p>
 </li>
 </ul>
 
@@ -2078,7 +2078,7 @@ content: no-close-quote</p>
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/12/08/CS-Learning/CSS%E5%AD%A6%E4%B9%A0/after%E4%BC%AA%E5%85%83%E7%B4%A0/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/12/08/CS-Learning/CSS%E5%AD%A6%E4%B9%A0/backdrop/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -2092,7 +2092,7 @@ content: no-close-quote</p>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2024/12/08/CS-Learning/CSS%E5%AD%A6%E4%B9%A0/after%E4%BC%AA%E5%85%83%E7%B4%A0/" class="post-title-link" itemprop="url">未命名</a>
+            <a href="/2024/12/08/CS-Learning/CSS%E5%AD%A6%E4%B9%A0/backdrop/" class="post-title-link" itemprop="url">未命名</a>
         </h2>
 
         <div class="post-meta">
@@ -2109,7 +2109,7 @@ content: no-close-quote</p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-11-13 22:52:55" itemprop="dateModified" datetime="2024-11-13T22:52:55+08:00">2024-11-13</time>
+                <time title="修改时间：2024-11-13 22:52:56" itemprop="dateModified" datetime="2024-11-13T22:52:56+08:00">2024-11-13</time>
               </span>
 
           
@@ -2123,42 +2123,24 @@ content: no-close-quote</p>
     <div class="post-body" itemprop="articleBody">
 
       
-          <blockquote>
-<p>[!tip] 前端实验室 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/play">Playground | MDN (mozilla.org)</a></p>
-<iframe style="width:100%;height:600px;" src="https://developer.mozilla.org/zh-CN/play"></iframe>
-</blockquote>
-<h2 id="尝试一下">尝试一下</h2>
-<h1>::after (:after)</h1>
-<p>CSS<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/Pseudo-elements">伪元素</a><code>::after</code>用来创建一个伪元素，作为已选中元素的最后一个子元素。通常会配合<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/content"><code>content</code></a>属性来为该元素添加装饰内容。这个虚拟元素默认是行内元素。</p>
-<iframe style="width:100%;height:580px;" src="https://interactive-examples.mdn.mozilla.net/pages/tabbed/pseudo-element-after.html"></iframe>
-<h2 id="语法">语法</h2>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-pseudo">::after</span> &#123;</span><br><span class="line">  <span class="comment">/* ... */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <h1>::backdrop</h1>
 <blockquote>
-<p>[!info] <strong>备注：</strong> CSS 引入 <code>::after</code> 表示法（两个冒号）是用来区分<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/Pseudo-classes">伪类</a>和<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/Pseudo-elements">伪元素</a>的。同时为了向后兼容，浏览器也支持前文介绍的 <code>:after</code>。</p>
+<p>[!question] <strong>实验性:</strong> <strong>这是一项<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete#%E5%AE%9E%E9%AA%8C%E6%80%A7">实验性技术</a></strong><br>
+在将其用于生产之前，请仔细检查 [[backdrop#[浏览器兼容性](https <a target="_blank" rel="noopener" href="//developer.mozilla.org/zh-CN/docs/Web/CSS/">//developer.mozilla.org/zh-CN/docs/Web/CSS/</a> backdrop %E6%B5%8F%E8%A7%88%E5%99%A8%E5%85%BC%E5%AE%B9%E6%80%A7)|浏览器兼容性]]。</p>
 </blockquote>
+<p><strong><code>::backdrop</code></strong> <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS">CSS</a> <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/Pseudo-elements">伪元素</a> 是在任何处于<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Fullscreen_API">全屏模式</a>的元素下的即刻渲染的盒子（并且在所有其他在堆中的层级更低的元素之上）。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* Backdrop 只有通过 dialog.showModal() 打开对话框时会被显示 */</span> </span><br><span class="line">dialog<span class="selector-pseudo">::backdrop</span> &#123;   </span><br><span class="line">	<span class="attribute">background</span>: <span class="built_in">rgba</span>(<span class="number">255</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0.25</span>); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>所有处于全屏模式下的元素都被放在顶级渲染层中的一个后进先出（LIFO）栈里。在视区内容被绘制在屏幕上之前，这一特殊的渲染层总是最后被渲染（因此是最上层）。当一个元素在这个栈的栈顶时，<code>::backdrop</code> 伪元素允许我们遮盖，装饰或完全隐藏该元素的下层文档。</p>
+<p><code>::backdrop</code> 不继承任何元素，同时也不被任何元素继承。没有规定什么属性不能应用于该伪元素。</p>
+<h2 id="语法">语法</h2>
+<p>::backdrop</p>
 <h2 id="示例">示例</h2>
-<h3 id="简单用法">简单用法</h3>
-<p>让我们创建两个类：一个无趣的和一个有趣的。我们可以在每个段尾添加伪元素来标记他们。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">&quot;boring-text&quot;</span>&gt;</span>这是些无聊的文字<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>这是不无聊也不有趣的文字<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">&quot;exciting-text&quot;</span>&gt;</span>  </span><br><span class="line">	在 MDN 上做贡献简单又轻松。按右上角的编辑按钮添加新示例或改进旧示例！</span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.exciting-text</span><span class="selector-pseudo">::after</span> &#123;   </span><br><span class="line">	<span class="attribute">content</span>: <span class="string">&quot;&lt;- 让人兴兴兴奋！&quot;</span>;   </span><br><span class="line">	<span class="attribute">color</span>: green; </span><br><span class="line">&#125;  </span><br><span class="line"><span class="selector-class">.boring-text</span><span class="selector-pseudo">::after</span> &#123;   </span><br><span class="line">	<span class="attribute">content</span>: <span class="string">&quot;&lt;- 无聊！&quot;</span>;   </span><br><span class="line">	<span class="attribute">color</span>: red; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="结果">结果</h4>
-<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202403191633686.png" alt="image.png"></p>
-<h3 id="装饰用法">装饰用法</h3>
-<p>我们几乎可以用想要的任何方法给 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/content"><code>content</code></a> 属性里的文字和图片的加上样式。</p>
-<p>HTMLPlayCopy to Clipboard</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;ribbon&quot;</span>&gt;</span></span><br><span class="line">	Notice where the orange box is.</span><br><span class="line"><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>解释</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.ribbon</span> &#123;   </span><br><span class="line">	<span class="attribute">background-color</span>: <span class="number">#5bc8f7</span>; </span><br><span class="line">&#125;  </span><br><span class="line"><span class="selector-class">.ribbon</span><span class="selector-pseudo">::after</span> &#123;   </span><br><span class="line">	<span class="attribute">content</span>: <span class="string">&quot;Look at this orange box.&quot;</span>;   </span><br><span class="line">	<span class="attribute">background-color</span>: <span class="number">#ffba10</span>;   </span><br><span class="line">	<span class="attribute">border-color</span>: black;   </span><br><span class="line">	<span class="attribute">border-style</span>: dotted; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="结果-2">结果</h4>
-<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202403191639761.png" alt="image.png"></p>
-<h3 id="提示用法">提示用法</h3>
-<p>接下来的示例展示了用<code>::after</code><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/Pseudo-elements">伪元素</a>，<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/attr"><code>attr()</code></a>CSS 表达式和一个<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/HTML/Global_attributes#attr-data-*">自定义数据属性</a> <code>data-descr</code> 创建一个纯 CSS，词汇表提示工具。在<a target="_blank" rel="noopener" href="https://developer.mozilla.org/files/4591/css-only_tooltips.html" title="This is a link to an unwritten page">单独页面</a>看这个例子。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>   </span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">  这是上面代码的实现<span class="tag">&lt;<span class="name">br</span> /&gt;</span></span><br><span class="line">  我们有一些</span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span> <span class="attr">data-descr</span>=<span class="string">&quot;collection of words and punctuation&quot;</span>&gt;</span>文字<span class="tag">&lt;/<span class="name">span</span>&gt;</span> 有一些</span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span> <span class="attr">data-descr</span>=<span class="string">&quot;small popups which also hide again&quot;</span>&gt;</span>提示<span class="tag">&lt;/<span class="name">span</span>&gt;</span>。<span class="tag">&lt;<span class="name">br</span> /&gt;</span></span><br><span class="line">  把鼠标放上去<span class="tag">&lt;<span class="name">span</span> <span class="attr">data-descr</span>=<span class="string">&quot;not to be taken literally&quot;</span>&gt;</span>看看<span class="tag">&lt;/<span class="name">span</span>&gt;</span>。</span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>CSSPlayCopy to Clipboard</p>
-<p>解释</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">span</span><span class="selector-attr">[data-descr]</span> &#123;   </span><br><span class="line">	<span class="attribute">position</span>: relative;   </span><br><span class="line">	<span class="attribute">text-decoration</span>: underline;   </span><br><span class="line">	<span class="attribute">color</span>: <span class="number">#00f</span>;   </span><br><span class="line">	<span class="attribute">cursor</span>: help; </span><br><span class="line">&#125;  </span><br><span class="line"></span><br><span class="line"><span class="selector-tag">span</span><span class="selector-attr">[data-descr]</span><span class="selector-pseudo">:hover</span><span class="selector-pseudo">::after</span> &#123;</span><br><span class="line">	<span class="attribute">content</span>: <span class="built_in">attr</span>(data-descr);   </span><br><span class="line">	<span class="attribute">position</span>: absolute;   </span><br><span class="line">	<span class="attribute">left</span>: <span class="number">0</span>;   </span><br><span class="line">	<span class="attribute">top</span>: <span class="number">24px</span>;   </span><br><span class="line">	<span class="attribute">min-width</span>: <span class="number">200px</span>;   </span><br><span class="line">	<span class="attribute">border</span>: <span class="number">1px</span> <span class="number">#aaaaaa</span> solid;   </span><br><span class="line">	<span class="attribute">border-radius</span>: <span class="number">10px</span>;   </span><br><span class="line">	<span class="attribute">background-color</span>: <span class="number">#ffffcc</span>;   </span><br><span class="line">	<span class="attribute">padding</span>: <span class="number">12px</span>;   </span><br><span class="line">	<span class="attribute">color</span>: <span class="number">#000000</span>;   </span><br><span class="line">	<span class="attribute">font-size</span>: <span class="number">14px</span>;   </span><br><span class="line">	<span class="attribute">z-index</span>: <span class="number">1</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="结果-3">结果</h4>
-<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202403191648745.png" alt="image.png"></p>
+<p>在示例中，backdrop 样式用于将视频全屏显示时的背景颜色改为蓝灰色而不是大多数浏览器默认的黑色。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">video</span><span class="selector-pseudo">::backdrop</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#448</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>效果如下：</p>
+<p><img src="https://developer.mozilla.org/zh-CN/docs/Web/CSS/::backdrop/bbb-backdrop.png" alt=""></p>
+<p>注意当 backdrop 可见时，上下两部分的暗蓝灰色的信箱效果。这个区域一般是黑色的，但上面的 CSS 语句修改了它的外观。</p>
+<p>You can <a target="_blank" rel="noopener" href="https://fullscreen-requestfullscreen-demo.glitch.me/">see this example in action</a> or <a target="_blank" rel="noopener" href="https://glitch.com/edit/#!/fullscreen-requestfullscreen-demo">view or remix the code</a> on <a target="_blank" rel="noopener" href="https://glitch.com/">Glitch</a>.</p>
 <h2 id="规范">规范</h2>
 <table>
 <thead>
@@ -2168,12 +2150,12 @@ content: no-close-quote</p>
 </thead>
 <tbody>
 <tr>
-<td><a target="_blank" rel="noopener" href="https://drafts.csswg.org/css-pseudo/#generated-content">CSS Pseudo-Elements Module Level 4  <br># generated-content</a></td>
+<td><a target="_blank" rel="noopener" href="https://drafts.csswg.org/css-position-4/#backdrop">CSS Positioned Layout Module Level 4  <br># backdrop</a></td>
 </tr>
 </tbody>
 </table>
-<h2 id="浏览器兼容性"><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/::after#%E6%B5%8F%E8%A7%88%E5%99%A8%E5%85%BC%E5%AE%B9%E6%80%A7">浏览器兼容性</a></h2>
-<p><a target="_blank" rel="noopener" href="https://github.com/mdn/browser-compat-data/issues/new?mdn-url=https%3A%2F%2Fdeveloper.mozilla.org%2Fzh-CN%2Fdocs%2FWeb%2FCSS%2F%3A%3Aafter&amp;metadata=%3C%21--+Do+not+make+changes+below+this+line+--%3E%0A%3Cdetails%3E%0A%3Csummary%3EMDN+page+report+details%3C%2Fsummary%3E%0A%0A*+Query%3A+%60css.selectors.after%60%0A*+Report+started%3A+2024-03-19T08%3A09%3A18.649Z%0A%0A%3C%2Fdetails%3E&amp;title=css.selectors.after+-+%3CSUMMARIZE+THE+PROBLEM%3E&amp;template=data-problem.yml" title="Report an issue with this compatibility data">Report problems with this compatibility data on GitHub</a></p>
+<h2 id="浏览器兼容性">浏览器兼容性</h2>
+<p><a target="_blank" rel="noopener" href="https://github.com/mdn/browser-compat-data/issues/new?mdn-url=https%3A%2F%2Fdeveloper.mozilla.org%2Fzh-CN%2Fdocs%2FWeb%2FCSS%2F%3A%3Abackdrop&amp;metadata=%3C%21--+Do+not+make+changes+below+this+line+--%3E%0A%3Cdetails%3E%0A%3Csummary%3EMDN+page+report+details%3C%2Fsummary%3E%0A%0A*+Query%3A+%60css.selectors.backdrop%60%0A*+Report+started%3A+2024-03-19T09%3A10%3A25.393Z%0A%0A%3C%2Fdetails%3E&amp;title=css.selectors.backdrop+-+%3CSUMMARIZE+THE+PROBLEM%3E&amp;template=data-problem.yml" title="Report an issue with this compatibility data">Report problems with this compatibility data on GitHub</a></p>
 <table>
 <thead>
 <tr>
@@ -2207,50 +2189,103 @@ content: no-close-quote</p>
 <td>WebView Android</td>
 </tr>
 <tr>
-<td><code>::after</code></td>
-<td>1<br><br>more<br><br>Toggle history</td>
-<td>12<br><br>more<br><br>Toggle history</td>
-<td>1.5<br><br>footnotemore<br><br>Toggle history</td>
-<td>7<br><br>more<br><br>Toggle history</td>
-<td>4<br><br>more<br><br>Toggle history</td>
-<td>18<br><br>more<br><br>Toggle history</td>
-<td>4<br><br>footnotemore<br><br>Toggle history</td>
-<td>10.1<br><br>more<br><br>Toggle history</td>
-<td>3.2<br><br>more<br><br>Toggle history</td>
-<td>1.0<br><br>more<br><br>Toggle history</td>
+<td><code>::backdrop</code></td>
+<td>37<br><br>more<br><br>Toggle history</td>
+<td>79<br><br>more<br><br>Toggle history</td>
+<td>47<br><br>Toggle history</td>
+<td>24<br><br>more<br><br>Toggle history</td>
+<td>15.4<br><br>Toggle history</td>
+<td>37<br><br>more<br><br>Toggle history</td>
+<td>47<br><br>Toggle history</td>
+<td>24<br><br>more<br><br>Toggle history</td>
+<td>15.4<br><br>Toggle history</td>
+<td>3.0<br><br>more<br><br>Toggle history</td>
 <td>37<br><br>more<br><br>Toggle history</td>
 </tr>
 <tr>
-<td>Animation and transition support</td>
-<td>26<br><br>Toggle history</td>
+<td>Support on <code>dialog</code> elements</td>
+<td>32<br><br>Toggle history</td>
+<td>79<br><br>Toggle history</td>
+<td>98<br><br>Toggle history</td>
+<td>19<br><br>Toggle history</td>
+<td>15.4<br><br>Toggle history</td>
+<td>32<br><br>Toggle history</td>
+<td>98<br><br>Toggle history</td>
+<td>19<br><br>Toggle history</td>
+<td>15.4<br><br>Toggle history</td>
+<td>2.0<br><br>Toggle history</td>
+<td>4.4.3<br><br>Toggle history</td>
+</tr>
+<tr>
+<td>Fullscreen support</td>
+<td>69<br><br>Toggle history</td>
 <td>12<br><br>Toggle history</td>
-<td>4<br><br>Toggle history</td>
-<td>15<br><br>Toggle history</td>
+<td>47<br><br>Toggle history</td>
+<td>56<br><br>Toggle history</td>
+<td>16.4<br><br>Toggle history</td>
+<td>69<br><br>Toggle history</td>
+<td>47<br><br>Toggle history</td>
+<td>48<br><br>Toggle history</td>
+<td>16.4<br><br>Toggle history</td>
+<td>10.0<br><br>Toggle history</td>
+<td>69<br><br>Toggle history</td>
+</tr>
+<tr>
+<td>Backdrop elements inherit their values from its originating element</td>
+<td>122<br><br>footnote<br><br>Toggle history</td>
+<td>122<br><br>footnote<br><br>Toggle history</td>
+<td>120<br><br>footnote<br><br>Toggle history</td>
+<td>108<br><br>footnote<br><br>Toggle history</td>
+<td>17.4<br><br>footnote<br><br>Toggle history</td>
+<td>122<br><br>footnote<br><br>Toggle history</td>
+<td>120<br><br>footnote<br><br>Toggle history</td>
+<td>No<br><br>footnote<br><br>Toggle history</td>
+<td>17.4<br><br>footnote<br><br>Toggle history</td>
+<td>No<br><br>footnote<br><br>Toggle history</td>
+<td>122<br><br>footnote<br><br>Toggle history</td>
+</tr>
+<tr>
+<td>Support on popovers</td>
+<td>114<br><br>Toggle history</td>
+<td>114<br><br>Toggle history</td>
+<td>Nightly<br><br>more<br><br>Toggle history</td>
+<td>100<br><br>Toggle history</td>
+<td>17<br><br>Toggle history</td>
+<td>114<br><br>Toggle history</td>
 <td>No<br><br>Toggle history</td>
-<td>26<br><br>Toggle history</td>
-<td>4<br><br>Toggle history</td>
-<td>14<br><br>Toggle history</td>
-<td>No<br><br>Toggle history</td>
-<td>1.5<br><br>Toggle history</td>
-<td>4.4<br><br>Toggle history</td>
+<td>76<br><br>Toggle history</td>
+<td>17<br><br>Toggle history</td>
+<td>23.0<br><br>Toggle history</td>
+<td>114<br><br>Toggle history</td>
+</tr>
+<tr>
+<td><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202403191722754.png" alt="image.png"></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
 </tbody>
 </table>
-<h3 id="Legend">Legend</h3>
-<p>Tip: you can click/tap on a cell for more information.</p>
-<p>Full support</p>
-<p>Full support</p>
-<p>No support</p>
-<p>No support</p>
-<p>See implementation notes.</p>
-<p>Uses a non-standard name.</p>
-<p>Has more compatibility info.</p>
 <h2 id="参见">参见</h2>
-<p><code>::before</code>  [[Content属性|content]]</p>
-<h3 id="高级用法">高级用法</h3>
-<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/getComputedStyle">getComputedStyle</a></p>
-<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/CSSStyleDeclaration/getPropertyValue">getPropertyValue</a></p>
-<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/CSSStyleDeclaration/setProperty">setProperty</a></p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>[[fullscreen]] pseudo-class</p>
+</li>
+<li class="lvl-2">
+<p>&lt; [[dialog]] &gt; HTML element</p>
+</li>
+<li class="lvl-2">
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Fullscreen_API">Fullscreen API</a></p>
+</li>
+</ul>
 
       
     </div>
@@ -2333,7 +2368,7 @@ content: no-close-quote</p>
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-          <a href="/archives/">
+          <a href="/archives">
         
           <span class="site-state-item-count">653</span>
           <span class="site-state-item-name">日志</span>

@@ -116,22 +116,22 @@
   </li>
         <li class="menu-item menu-item-about">
 
-    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+    <a href="/about" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+    <a href="/tags" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+    <a href="/categories" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+    <a href="/archives" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
 
   </li>
   </ul>
@@ -325,79 +325,6 @@
 <p><a target="_blank" rel="noopener" href="https://github.com/jnurmine/Zenburn">zenburn</a></p>
 </li>
 </ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/12/08/%E5%AD%A6%E4%B9%A0/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/Vim%E5%AD%A6%E4%B9%A0/chapter/bracketed-paste/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="听">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="O3xiaoyuhe">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2024/12/08/%E5%AD%A6%E4%B9%A0/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/Vim%E5%AD%A6%E4%B9%A0/chapter/bracketed-paste/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2024-12-08 20:29:01" itemprop="dateCreated datePublished" datetime="2024-12-08T20:29:01+08:00">2024-12-08</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-11-13 22:55:49" itemprop="dateModified" datetime="2024-11-13T22:55:49+08:00">2024-11-13</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="粘贴归类-要不为什么我总要设置‘粘贴’？">粘贴归类 (要不为什么我总要设置‘粘贴’？)</h2>
-<p>粘贴归类模式使得终端虚拟器可以区分键入文本和粘贴文本。</p>
-<p>你是否曾经尝试过向 Vim 粘贴过代码，结果弄得一团糟？</p>
-<p>这只会在你通过 <code>cmd+v</code>， <code>shift-insert</code>， <code>middle-click</code> 等等命令进行粘贴时发生。因为那时你只是在向终端虚拟器里丢文本。Vim 并不知道你在粘贴文本，它天真地认为你是一个熟练的打字员。因此，它尝试排版，但是失败了。</p>
-<p>如果你使用 Vim 命令集里的粘贴，比如 <code>&quot;+p</code> ，那这就不会成为问题，因为 Vim 知道你做的是粘贴操作。</p>
-<p>为了解决这个，你需要设置粘贴 <code>:set paste</code> ，以便获取粘贴现状。 参考 <code>:h 'paste'</code> 和 <code>:h 'pastetoggle'</code>.</p>
-<p>如果你已经受够了不停地切换 <code>'paste'</code> ，看一看这个不错的插件能为你做什么：<a target="_blank" rel="noopener" href="https://github.com/ConradIrwin/vim-bracketed-paste">粘贴归类</a>。</p>
-<p>插件作者的拓展阅读：<a target="_blank" rel="noopener" href="http://cirw.in/blog/bracketed-paste">欢迎点击</a>.</p>
-<p><strong>Neovim</strong>: Neovim 努力无缝地完成这些工作，并在终端虚拟器支持时自动设定粘贴归类模式。</p>
 
       
     </div>
@@ -1149,6 +1076,150 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/12/08/%E5%AD%A6%E4%B9%A0/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/Vim%E5%AD%A6%E4%B9%A0/chapter/bracketed-paste/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="听">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="O3xiaoyuhe">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/12/08/%E5%AD%A6%E4%B9%A0/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/Vim%E5%AD%A6%E4%B9%A0/chapter/bracketed-paste/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-12-08 20:29:01" itemprop="dateCreated datePublished" datetime="2024-12-08T20:29:01+08:00">2024-12-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-11-13 22:55:49" itemprop="dateModified" datetime="2024-11-13T22:55:49+08:00">2024-11-13</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="粘贴归类-要不为什么我总要设置‘粘贴’？">粘贴归类 (要不为什么我总要设置‘粘贴’？)</h2>
+<p>粘贴归类模式使得终端虚拟器可以区分键入文本和粘贴文本。</p>
+<p>你是否曾经尝试过向 Vim 粘贴过代码，结果弄得一团糟？</p>
+<p>这只会在你通过 <code>cmd+v</code>， <code>shift-insert</code>， <code>middle-click</code> 等等命令进行粘贴时发生。因为那时你只是在向终端虚拟器里丢文本。Vim 并不知道你在粘贴文本，它天真地认为你是一个熟练的打字员。因此，它尝试排版，但是失败了。</p>
+<p>如果你使用 Vim 命令集里的粘贴，比如 <code>&quot;+p</code> ，那这就不会成为问题，因为 Vim 知道你做的是粘贴操作。</p>
+<p>为了解决这个，你需要设置粘贴 <code>:set paste</code> ，以便获取粘贴现状。 参考 <code>:h 'paste'</code> 和 <code>:h 'pastetoggle'</code>.</p>
+<p>如果你已经受够了不停地切换 <code>'paste'</code> ，看一看这个不错的插件能为你做什么：<a target="_blank" rel="noopener" href="https://github.com/ConradIrwin/vim-bracketed-paste">粘贴归类</a>。</p>
+<p>插件作者的拓展阅读：<a target="_blank" rel="noopener" href="http://cirw.in/blog/bracketed-paste">欢迎点击</a>.</p>
+<p><strong>Neovim</strong>: Neovim 努力无缝地完成这些工作，并在终端虚拟器支持时自动设定粘贴归类模式。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/12/08/%E5%AD%A6%E4%B9%A0/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/Vim%E5%AD%A6%E4%B9%A0/chapter/function-search-undo/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="听">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="O3xiaoyuhe">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/12/08/%E5%AD%A6%E4%B9%A0/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/Vim%E5%AD%A6%E4%B9%A0/chapter/function-search-undo/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-12-08 20:29:01" itemprop="dateCreated datePublished" datetime="2024-12-08T20:29:01+08:00">2024-12-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-11-13 22:55:54" itemprop="dateModified" datetime="2024-11-13T22:55:54+08:00">2024-11-13</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="无法重复函数中执行的搜索">无法重复函数中执行的搜索</h2>
+<ul class="lvl-0">
+<li class="lvl-2">一个命令的搜索关键词（<code>/</code>, <code>:代替</code>, …）改变了“上一次搜索所用的关键词”。（这个改变保存在 <code>/</code> 的注册表里；使用 <code>:echo @/</code> 可以打印出来）</li>
+<li class="lvl-2">一个简单的文本修改可以用 <code>.</code> 再次执行。（这个执行保存在 <code>.</code> 的注册表里；使用 <code>:echo @.</code> 可以打印出来）</li>
+</ul>
+<p>如果你在一个函数里做以上操作，两件都_not_会是那么回事儿。所以你不能简单地在一个函数里高亮词汇同时再用这个函数做文本修改。</p>
+<p>帮助： <code>:h function-search-undo</code></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2024/12/08/%E5%AD%A6%E4%B9%A0/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/Vim%E5%AD%A6%E4%B9%A0/chapter/editing-small-files-is-slow/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1265,7 +1336,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/12/08/%E5%AD%A6%E4%B9%A0/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/Vim%E5%AD%A6%E4%B9%A0/chapter/function-search-undo/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/12/08/%E5%AD%A6%E4%B9%A0/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/Vim%E5%AD%A6%E4%B9%A0/CONTRIBUTING/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -1279,7 +1350,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2024/12/08/%E5%AD%A6%E4%B9%A0/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/Vim%E5%AD%A6%E4%B9%A0/chapter/function-search-undo/" class="post-title-link" itemprop="url">未命名</a>
+            <a href="/2024/12/08/%E5%AD%A6%E4%B9%A0/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/Vim%E5%AD%A6%E4%B9%A0/CONTRIBUTING/" class="post-title-link" itemprop="url">未命名</a>
         </h2>
 
         <div class="post-meta">
@@ -1296,7 +1367,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-11-13 22:55:54" itemprop="dateModified" datetime="2024-11-13T22:55:54+08:00">2024-11-13</time>
+                <time title="修改时间：2024-11-13 22:55:41" itemprop="dateModified" datetime="2024-11-13T22:55:41+08:00">2024-11-13</time>
               </span>
 
           
@@ -1310,13 +1381,472 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="无法重复函数中执行的搜索">无法重复函数中执行的搜索</h2>
-<ul class="lvl-0">
-<li class="lvl-2">一个命令的搜索关键词（<code>/</code>, <code>:代替</code>, …）改变了“上一次搜索所用的关键词”。（这个改变保存在 <code>/</code> 的注册表里；使用 <code>:echo @/</code> 可以打印出来）</li>
-<li class="lvl-2">一个简单的文本修改可以用 <code>.</code> 再次执行。（这个执行保存在 <code>.</code> 的注册表里；使用 <code>:echo @.</code> 可以打印出来）</li>
-</ul>
-<p>如果你在一个函数里做以上操作，两件都_not_会是那么回事儿。所以你不能简单地在一个函数里高亮词汇同时再用这个函数做文本修改。</p>
-<p>帮助： <code>:h function-search-undo</code></p>
+          <p>有兴趣加入本项目的话，请关注下面的认领列表，选择相应的章节翻译，或者协助校验正在翻译的项目。如果有兴趣加入，可以fork本项目，开始翻译后提交PR，便于我们协助校验，不必翻译结束后才提交PR.</p>
+<h2 id="认领方式">认领方式</h2>
+<p><strong>开issue</strong></p>
+<figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">章节名称：<span class="strong">****</span>*</span><br><span class="line">译者：<span class="strong">****</span>**</span><br><span class="line">PR: PR的链接</span><br></pre></td></tr></table></figure>
+<h2 id="提交方式">提交方式</h2>
+<p>每个章节独立翻译，并提交至 <a href="chapter/">chapter/</a> 文件夹，文件名为英文标题小写，以<code>-</code>链接单词。例如翻译<code>What is Vim？</code>章节， 文件名即为<code>chapter/what-is-vim.md</code>. 合并到主仓库后，将定期将这些章节文件合并到<code>README.dm</code>。</p>
+<h2 id="章节列表">章节列表</h2>
+<p>基于<a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore/tree/d50d48bce40bbbd99a0528a2893b00cf54a6f4b9">mhinz/vim-galore@d50d48b</a>, 后期如果有改动，定期在更新。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">章节名称</th>
+<th style="text-align:left">认领状态</th>
+<th style="text-align:left">PR链接</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#intro">Intro</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg">wsdjeg</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/4">#4</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#what-is-vim">What is Vim?</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg">wsdjeg</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/4">#4</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#the-vim-philosophy">The Vim Philosophy</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg">wsdjeg</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/4">#4</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#first-steps">First steps</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg">wsdjeg</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/4">#4</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#minimal-vimrc">Minimal vimrc</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg">wsdjeg</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/4">#4</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#what-kind-of-vim-am-i-running">What kind of Vim am I running?</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg">wsdjeg</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/4">#4</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#cheatsheets">Cheatsheets</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg">wsdjeg</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/4">#4</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#basics-1">Basics</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg">wsdjeg</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/4">#4</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#buffers-windows-tabs">Buffers, windows, tabs</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg">wsdjeg</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/4">#4</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#active-loaded-listed-named-buffers">Active, loaded, listed, named buffers</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg">wsdjeg</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/4">#4</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#argument-list">Argument list</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg">wsdjeg</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/4">#4</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#mappings">Mappings</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg">wsdjeg</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/4">#4</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#mapleader">Mapleader</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/S1ngS1ng">星星丶S1nG</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/7">#7</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#registers">Registers</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/S1ngS1ng">星星丶S1nG</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/7">#7</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#ranges">Ranges</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/S1ngS1ng">星星丶S1nG</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/7">#7</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#marks">Marks</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/S1ngS1ng">星星丶S1nG</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/7">#7</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#completion">Completion</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/S1ngS1ng">星星丶S1nG</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/7">#7</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#motions-operators-text-objects">Motions, operators, text objects</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/S1ngS1ng">星星丶S1nG</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/7">#7</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#autocmds">Autocmds</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/S1ngS1ng">星星丶S1nG</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/7">#7</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#changelist-jumplist">Changelist, jumplist</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/S1ngS1ng">星星丶S1nG</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/7">#7</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#undo-tree">Undo tree</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/S1ngS1ng">星星丶S1nG</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/7">#7</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#quickfix-and-location-lists">Quickfix and location lists</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/S1ngS1ng">星星丶S1nG</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/7">#7</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#macros">Macros</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/S1ngS1ng">星星丶S1nG</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/7">#7</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#colorschemes">Colorschemes</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/S1ngS1ng">星星丶S1nG</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/7">#7</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#folding">Folding</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/S1ngS1ng">星星丶S1nG</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/7">#7</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#sessions">Sessions</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/S1ngS1ng">星星丶S1nG</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/7">#7</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#locality">Locality</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/S1ngS1ng">星星丶S1nG</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/7">#7</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#usage-1">Usage</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/hotleave">hotleave</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/13">#13</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#getting-help-offline">Getting help offline</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/hotleave">hotleave</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/13">#13</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#getting-help-offline-alternative">Getting help offline (alternative)</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/hotleave">hotleave</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/13">#13</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#getting-help-online">Getting help online</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/hotleave">hotleave</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/13">#13</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#autocmds-in-practice">Autocmds in practice</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/hotleave">hotleave</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/13">#13</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#user-events">User events</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/hotleave">hotleave</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/13">#13</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#nested-autocmds">Nested autocmds</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/hotleave">hotleave</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/13">#13</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#clipboard">Clipboard</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/hotleave">hotleave</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/13">#13</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#clipboard-usage-windows-osx">Clipboard usage (Windows, OSX)</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/hotleave">hotleave</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/13">#13</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#clipboard-usage-linux-bsd-">Clipboard usage (Linux, BSD, …)</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/hotleave">hotleave</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/13">#13</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#restore-cursor-position-when-opening-file">Restore cursor position when opening file</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/hotleave">hotleave</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/13">#13</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#handling-backup-swap-undo-and-viminfo-files">Handling backup, swap, undo, and viminfo files</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/hotleave">hotleave</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/13">#13</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#editing-remote-files">Editing remote files</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/hotleave">hotleave</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/13">#13</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#managing-plugins">Managing plugins</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/hotleave">hotleave</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/13">#13</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#block-insert">Block insert</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/hotleave">hotleave</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/13">#13</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#running-external-programs-and-using-filters">Running external programs and using filters</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/hotleave">hotleave</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/13">#13</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#cscope">Cscope</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/hotleave">hotleave</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/13">#13</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#matchit">MatchIt</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/hotleave">hotleave</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/13">#13</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#tips-1">Tips</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/S1ngS1ng">星星丶S1nG</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/15">#15</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#saner-behavior-of-n-and-n">Saner behavior of n and N</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/S1ngS1ng">星星丶S1nG</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/15">#15</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#saner-command-line-history">Saner command-line history</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/S1ngS1ng">星星丶S1nG</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/15">#15</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#saner-ctrl-l">Saner CTRL-L</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/S1ngS1ng">星星丶S1nG</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/15">#15</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#disable-audible-and-visual-bells">Disable audible and visual bells</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/S1ngS1ng">星星丶S1nG</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/15">#15</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#quickly-move-current-line">Quickly move current line</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/S1ngS1ng">星星丶S1nG</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/15">#15</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#quickly-add-empty-lines">Quickly add empty lines</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/S1ngS1ng">星星丶S1nG</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/15">#15</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#quickly-edit-your-macros">Quickly edit your macros</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/S1ngS1ng">星星丶S1nG</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/15">#15</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#quickly-jump-to-header-or-source-file">Quickly jump to header or source file</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/S1ngS1ng">星星丶S1nG</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/15">#15</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#quickly-change-font-size-in-gui">Quickly change font size in GUI</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/S1ngS1ng">星星丶S1nG</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/15">#15</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#change-cursor-style-dependent-on-mode">Change cursor style dependent on mode</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/S1ngS1ng">星星丶S1nG</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/15">#15</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#dont-lose-selection-when-shifting-sidewards">Don’t lose selection when shifting sidewards</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/S1ngS1ng">星星丶S1nG</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/15">#15</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#reload-a-file-on-saving">Reload a file on saving</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/S1ngS1ng">星星丶S1nG</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/15">#15</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#smarter-cursorline">Smarter cursorline</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/S1ngS1ng">星星丶S1nG</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/15">#15</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#faster-keyword-completion">Faster keyword completion</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/S1ngS1ng">星星丶S1nG</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/15">#15</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#cosmetic-changes-to-colorschemes">Cosmetic changes to colorschemes</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/S1ngS1ng">星星丶S1nG</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/15">#15</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#commands-1">Commands</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/hotleave">hotleave</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/18">#18</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#global-and-vglobal">:global and :vglobal</a> - Execute a command on all matching lines.</td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/hotleave">hotleave</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/18">#18</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#normal-and-execute">:normal and :execute</a> - The scripting dream team.</td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/hotleave">hotleave</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/18">#18</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#redir">:redir</a> - Redirect messages.</td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/hotleave">hotleave</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/18">#18</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#debugging-1">Debugging</a></td>
+<td style="text-align:left">YDWX</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#general-tips">General tips</a></td>
+<td style="text-align:left">YDWX</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#verbosity">Verbosity</a></td>
+<td style="text-align:left">YDWX</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#profiling-startup-time">Profiling startup time</a></td>
+<td style="text-align:left">YDWX</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#profiling-at-runtime">Profiling at runtime</a></td>
+<td style="text-align:left">YDWX</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#debugging-vim-scripts">Debugging Vim scripts</a></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#debugging-syntax-files">Debugging syntax files</a></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#miscellaneous-1">Miscellaneous</a></td>
+<td style="text-align:left">#11</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#additional-resources">Additional resources</a></td>
+<td style="text-align:left">#11</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#vim-distributions">Vim distributions</a></td>
+<td style="text-align:left">#11</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#standard-plugins">Standard plugins</a></td>
+<td style="text-align:left">#11</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#map-capslock-to-control">Map CapsLock to Control</a></td>
+<td style="text-align:left">#11</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#easter-eggs">Easter eggs</a></td>
+<td style="text-align:left">#11</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#why-hjkl-for-navigation">Why hjkl for navigation?</a></td>
+<td style="text-align:left">#11</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#common-problems-1">Common problems</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/hotleave">hotleave</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/18">#18</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#editing-small-files-is-slow">Editing small files is slow</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/hotleave">hotleave</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/18">#18</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#editing-huge-files-is-slow">Editing huge files is slow</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/hotleave">hotleave</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/18">#18</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#bracketed-paste-or-why-do-i-have-to-set-paste-all-the-time">Bracketed paste (or why do I have to set ‘paste’ all the time?)</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/hotleave">hotleave</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/18">#18</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#delays-when-using-escape-key-in-terminal">Delays when using escape key in terminal</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/hotleave">hotleave</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/18">#18</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#function-search-undo">Function search undo</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/hotleave">hotleave</a></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/18">#18</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#technical-quirks-1">Technical quirks</a></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/18">#18</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#newline-used-for-nul">Newline used for NUL</a></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#list-of-colorschemes-1">List of colorschemes</a></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galorecontents/plugins.md">List of plugins</a></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+</tbody>
+</table>
+<!-- plublic links for prs -->
+<!-- plublic links for users -->
 
       
     </div>
@@ -2160,7 +2690,7 @@ or <a target="_blank" rel="noopener" href="https://github.com/lifepillar/vim-col
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/12/08/%E5%AD%A6%E4%B9%A0/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/Vim%E5%AD%A6%E4%B9%A0/CONTRIBUTING/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/12/08/%E5%AD%A6%E4%B9%A0/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/Vim%E5%AD%A6%E4%B9%A0/Vim%20%E5%A4%87%E5%BF%98%E5%BD%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -2174,7 +2704,7 @@ or <a target="_blank" rel="noopener" href="https://github.com/lifepillar/vim-col
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2024/12/08/%E5%AD%A6%E4%B9%A0/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/Vim%E5%AD%A6%E4%B9%A0/CONTRIBUTING/" class="post-title-link" itemprop="url">未命名</a>
+            <a href="/2024/12/08/%E5%AD%A6%E4%B9%A0/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/Vim%E5%AD%A6%E4%B9%A0/Vim%20%E5%A4%87%E5%BF%98%E5%BD%95/" class="post-title-link" itemprop="url">未命名</a>
         </h2>
 
         <div class="post-meta">
@@ -2191,537 +2721,7 @@ or <a target="_blank" rel="noopener" href="https://github.com/lifepillar/vim-col
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-11-13 22:55:41" itemprop="dateModified" datetime="2024-11-13T22:55:41+08:00">2024-11-13</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>有兴趣加入本项目的话，请关注下面的认领列表，选择相应的章节翻译，或者协助校验正在翻译的项目。如果有兴趣加入，可以fork本项目，开始翻译后提交PR，便于我们协助校验，不必翻译结束后才提交PR.</p>
-<h2 id="认领方式">认领方式</h2>
-<p><strong>开issue</strong></p>
-<figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">章节名称：<span class="strong">****</span>*</span><br><span class="line">译者：<span class="strong">****</span>**</span><br><span class="line">PR: PR的链接</span><br></pre></td></tr></table></figure>
-<h2 id="提交方式">提交方式</h2>
-<p>每个章节独立翻译，并提交至 <a href="chapter/">chapter/</a> 文件夹，文件名为英文标题小写，以<code>-</code>链接单词。例如翻译<code>What is Vim？</code>章节， 文件名即为<code>chapter/what-is-vim.md</code>. 合并到主仓库后，将定期将这些章节文件合并到<code>README.dm</code>。</p>
-<h2 id="章节列表">章节列表</h2>
-<p>基于<a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore/tree/d50d48bce40bbbd99a0528a2893b00cf54a6f4b9">mhinz/vim-galore@d50d48b</a>, 后期如果有改动，定期在更新。</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">章节名称</th>
-<th style="text-align:left">认领状态</th>
-<th style="text-align:left">PR链接</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#intro">Intro</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg">wsdjeg</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/4">#4</a></td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#what-is-vim">What is Vim?</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg">wsdjeg</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/4">#4</a></td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#the-vim-philosophy">The Vim Philosophy</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg">wsdjeg</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/4">#4</a></td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#first-steps">First steps</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg">wsdjeg</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/4">#4</a></td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#minimal-vimrc">Minimal vimrc</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg">wsdjeg</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/4">#4</a></td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#what-kind-of-vim-am-i-running">What kind of Vim am I running?</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg">wsdjeg</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/4">#4</a></td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#cheatsheets">Cheatsheets</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg">wsdjeg</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/4">#4</a></td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#basics-1">Basics</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg">wsdjeg</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/4">#4</a></td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#buffers-windows-tabs">Buffers, windows, tabs</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg">wsdjeg</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/4">#4</a></td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#active-loaded-listed-named-buffers">Active, loaded, listed, named buffers</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg">wsdjeg</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/4">#4</a></td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#argument-list">Argument list</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg">wsdjeg</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/4">#4</a></td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#mappings">Mappings</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg">wsdjeg</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/4">#4</a></td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#mapleader">Mapleader</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/S1ngS1ng">星星丶S1nG</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/7">#7</a></td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#registers">Registers</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/S1ngS1ng">星星丶S1nG</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/7">#7</a></td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#ranges">Ranges</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/S1ngS1ng">星星丶S1nG</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/7">#7</a></td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#marks">Marks</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/S1ngS1ng">星星丶S1nG</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/7">#7</a></td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#completion">Completion</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/S1ngS1ng">星星丶S1nG</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/7">#7</a></td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#motions-operators-text-objects">Motions, operators, text objects</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/S1ngS1ng">星星丶S1nG</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/7">#7</a></td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#autocmds">Autocmds</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/S1ngS1ng">星星丶S1nG</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/7">#7</a></td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#changelist-jumplist">Changelist, jumplist</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/S1ngS1ng">星星丶S1nG</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/7">#7</a></td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#undo-tree">Undo tree</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/S1ngS1ng">星星丶S1nG</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/7">#7</a></td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#quickfix-and-location-lists">Quickfix and location lists</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/S1ngS1ng">星星丶S1nG</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/7">#7</a></td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#macros">Macros</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/S1ngS1ng">星星丶S1nG</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/7">#7</a></td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#colorschemes">Colorschemes</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/S1ngS1ng">星星丶S1nG</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/7">#7</a></td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#folding">Folding</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/S1ngS1ng">星星丶S1nG</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/7">#7</a></td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#sessions">Sessions</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/S1ngS1ng">星星丶S1nG</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/7">#7</a></td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#locality">Locality</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/S1ngS1ng">星星丶S1nG</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/7">#7</a></td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#usage-1">Usage</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/hotleave">hotleave</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/13">#13</a></td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#getting-help-offline">Getting help offline</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/hotleave">hotleave</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/13">#13</a></td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#getting-help-offline-alternative">Getting help offline (alternative)</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/hotleave">hotleave</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/13">#13</a></td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#getting-help-online">Getting help online</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/hotleave">hotleave</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/13">#13</a></td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#autocmds-in-practice">Autocmds in practice</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/hotleave">hotleave</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/13">#13</a></td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#user-events">User events</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/hotleave">hotleave</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/13">#13</a></td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#nested-autocmds">Nested autocmds</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/hotleave">hotleave</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/13">#13</a></td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#clipboard">Clipboard</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/hotleave">hotleave</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/13">#13</a></td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#clipboard-usage-windows-osx">Clipboard usage (Windows, OSX)</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/hotleave">hotleave</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/13">#13</a></td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#clipboard-usage-linux-bsd-">Clipboard usage (Linux, BSD, …)</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/hotleave">hotleave</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/13">#13</a></td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#restore-cursor-position-when-opening-file">Restore cursor position when opening file</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/hotleave">hotleave</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/13">#13</a></td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#handling-backup-swap-undo-and-viminfo-files">Handling backup, swap, undo, and viminfo files</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/hotleave">hotleave</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/13">#13</a></td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#editing-remote-files">Editing remote files</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/hotleave">hotleave</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/13">#13</a></td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#managing-plugins">Managing plugins</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/hotleave">hotleave</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/13">#13</a></td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#block-insert">Block insert</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/hotleave">hotleave</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/13">#13</a></td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#running-external-programs-and-using-filters">Running external programs and using filters</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/hotleave">hotleave</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/13">#13</a></td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#cscope">Cscope</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/hotleave">hotleave</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/13">#13</a></td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#matchit">MatchIt</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/hotleave">hotleave</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/13">#13</a></td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#tips-1">Tips</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/S1ngS1ng">星星丶S1nG</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/15">#15</a></td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#saner-behavior-of-n-and-n">Saner behavior of n and N</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/S1ngS1ng">星星丶S1nG</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/15">#15</a></td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#saner-command-line-history">Saner command-line history</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/S1ngS1ng">星星丶S1nG</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/15">#15</a></td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#saner-ctrl-l">Saner CTRL-L</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/S1ngS1ng">星星丶S1nG</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/15">#15</a></td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#disable-audible-and-visual-bells">Disable audible and visual bells</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/S1ngS1ng">星星丶S1nG</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/15">#15</a></td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#quickly-move-current-line">Quickly move current line</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/S1ngS1ng">星星丶S1nG</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/15">#15</a></td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#quickly-add-empty-lines">Quickly add empty lines</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/S1ngS1ng">星星丶S1nG</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/15">#15</a></td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#quickly-edit-your-macros">Quickly edit your macros</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/S1ngS1ng">星星丶S1nG</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/15">#15</a></td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#quickly-jump-to-header-or-source-file">Quickly jump to header or source file</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/S1ngS1ng">星星丶S1nG</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/15">#15</a></td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#quickly-change-font-size-in-gui">Quickly change font size in GUI</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/S1ngS1ng">星星丶S1nG</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/15">#15</a></td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#change-cursor-style-dependent-on-mode">Change cursor style dependent on mode</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/S1ngS1ng">星星丶S1nG</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/15">#15</a></td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#dont-lose-selection-when-shifting-sidewards">Don’t lose selection when shifting sidewards</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/S1ngS1ng">星星丶S1nG</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/15">#15</a></td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#reload-a-file-on-saving">Reload a file on saving</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/S1ngS1ng">星星丶S1nG</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/15">#15</a></td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#smarter-cursorline">Smarter cursorline</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/S1ngS1ng">星星丶S1nG</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/15">#15</a></td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#faster-keyword-completion">Faster keyword completion</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/S1ngS1ng">星星丶S1nG</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/15">#15</a></td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#cosmetic-changes-to-colorschemes">Cosmetic changes to colorschemes</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/S1ngS1ng">星星丶S1nG</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/15">#15</a></td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#commands-1">Commands</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/hotleave">hotleave</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/18">#18</a></td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#global-and-vglobal">:global and :vglobal</a> - Execute a command on all matching lines.</td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/hotleave">hotleave</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/18">#18</a></td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#normal-and-execute">:normal and :execute</a> - The scripting dream team.</td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/hotleave">hotleave</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/18">#18</a></td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#redir">:redir</a> - Redirect messages.</td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/hotleave">hotleave</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/18">#18</a></td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#debugging-1">Debugging</a></td>
-<td style="text-align:left">YDWX</td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#general-tips">General tips</a></td>
-<td style="text-align:left">YDWX</td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#verbosity">Verbosity</a></td>
-<td style="text-align:left">YDWX</td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#profiling-startup-time">Profiling startup time</a></td>
-<td style="text-align:left">YDWX</td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#profiling-at-runtime">Profiling at runtime</a></td>
-<td style="text-align:left">YDWX</td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#debugging-vim-scripts">Debugging Vim scripts</a></td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#debugging-syntax-files">Debugging syntax files</a></td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#miscellaneous-1">Miscellaneous</a></td>
-<td style="text-align:left">#11</td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#additional-resources">Additional resources</a></td>
-<td style="text-align:left">#11</td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#vim-distributions">Vim distributions</a></td>
-<td style="text-align:left">#11</td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#standard-plugins">Standard plugins</a></td>
-<td style="text-align:left">#11</td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#map-capslock-to-control">Map CapsLock to Control</a></td>
-<td style="text-align:left">#11</td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#easter-eggs">Easter eggs</a></td>
-<td style="text-align:left">#11</td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#why-hjkl-for-navigation">Why hjkl for navigation?</a></td>
-<td style="text-align:left">#11</td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#common-problems-1">Common problems</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/hotleave">hotleave</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/18">#18</a></td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#editing-small-files-is-slow">Editing small files is slow</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/hotleave">hotleave</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/18">#18</a></td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#editing-huge-files-is-slow">Editing huge files is slow</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/hotleave">hotleave</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/18">#18</a></td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#bracketed-paste-or-why-do-i-have-to-set-paste-all-the-time">Bracketed paste (or why do I have to set ‘paste’ all the time?)</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/hotleave">hotleave</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/18">#18</a></td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#delays-when-using-escape-key-in-terminal">Delays when using escape key in terminal</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/hotleave">hotleave</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/18">#18</a></td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#function-search-undo">Function search undo</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/hotleave">hotleave</a></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/18">#18</a></td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#technical-quirks-1">Technical quirks</a></td>
-<td style="text-align:left"></td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/wsdjeg/vim-galore-zh_cn/pull/18">#18</a></td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#newline-used-for-nul">Newline used for NUL</a></td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galore#list-of-colorschemes-1">List of colorschemes</a></td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-galorecontents/plugins.md">List of plugins</a></td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-</tr>
-</tbody>
-</table>
-<!-- plublic links for prs -->
-<!-- plublic links for users -->
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/12/08/%E5%AD%A6%E4%B9%A0/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/Vim%E5%AD%A6%E4%B9%A0/Vim%E5%AD%A6%E4%B9%A0%E6%8C%87%E5%8D%97/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="听">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="O3xiaoyuhe">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2024/12/08/%E5%AD%A6%E4%B9%A0/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/Vim%E5%AD%A6%E4%B9%A0/Vim%E5%AD%A6%E4%B9%A0%E6%8C%87%E5%8D%97/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2024-12-08 20:29:01" itemprop="dateCreated datePublished" datetime="2024-12-08T20:29:01+08:00">2024-12-08</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-11-13 22:55:47" itemprop="dateModified" datetime="2024-11-13T22:55:47+08:00">2024-11-13</time>
+                <time title="修改时间：2024-11-13 22:55:44" itemprop="dateModified" datetime="2024-11-13T22:55:44+08:00">2024-11-13</time>
               </span>
 
           
@@ -2736,10 +2736,20 @@ or <a target="_blank" rel="noopener" href="https://github.com/lifepillar/vim-col
 
       
           <ul class="lvl-0">
-<li class="lvl-3">
-<p><a target="_blank" rel="noopener" href="https://github.com/iggredible/Learn-Vim">https://github.com/iggredible/Learn-Vim</a> $\rightarrow$ vim 学习</p>
+<li class="lvl-2">
+<p><img src="http://people.csail.mit.edu/vgod/vim/vim-cheat-sheet-en.png" alt="http://people.csail.mit.edu/vgod/vim/vim-cheat-sheet-en.png"></p>
 </li>
-<li class="lvl-3">
+<li class="lvl-2">
+<p><img src="https://cdn.shopify.com/s/files/1/0165/4168/files/preview.png" alt="https://cdn.shopify.com/s/files/1/0165/4168/files/preview.png"></p>
+</li>
+<li class="lvl-2">
+<p><img src="http://www.nathael.org/Data/vi-vim-cheat-sheet.svg" alt="http://www.nathael.org/Data/vi-vim-cheat-sheet.svg"></p>
+</li>
+<li class="lvl-2">
+<p><img src="http://michael.peopleofhonoronly.com/vim/vim_cheat_sheet_for_programmers_screen.png" alt="http://michael.peopleofhonoronly.com/vim/vim_cheat_sheet_for_programmers_screen.png"></p>
+</li>
+<li class="lvl-2">
+<p><img src="http://www.rosipov.com/images/posts/vim-movement-commands-cheatsheet.png" alt="http://www.rosipov.com/images/posts/vim-movement-commands-cheatsheet.png"></p>
 </li>
 </ul>
 
@@ -2824,7 +2834,7 @@ or <a target="_blank" rel="noopener" href="https://github.com/lifepillar/vim-col
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-          <a href="/archives/">
+          <a href="/archives">
         
           <span class="site-state-item-count">653</span>
           <span class="site-state-item-name">日志</span>
