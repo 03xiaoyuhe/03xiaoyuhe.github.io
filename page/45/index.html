@@ -124,6 +124,11 @@
     <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
 
   </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
         <li class="menu-item menu-item-archives">
 
     <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
@@ -152,6 +157,146 @@
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/12/08/CS-Learning/cs-self-learning/docs/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F/Database%20System%20Implementation(Caltech%20CS%20122)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="听">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="O3xiaoyuhe">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/12/08/CS-Learning/cs-self-learning/docs/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F/Database%20System%20Implementation(Caltech%20CS%20122)/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-12-08 20:29:05" itemprop="dateCreated datePublished" datetime="2024-12-08T20:29:05+08:00">2024-12-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-11-13 22:50:24" itemprop="dateModified" datetime="2024-11-13T22:50:24+08:00">2024-11-13</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1>Caltech CS 122: Database System Implementation</h1>
+<h2 id="课程简介">课程简介</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>所属大学：Caltech</p>
+</li>
+<li class="lvl-2">
+<p>先修要求：无</p>
+</li>
+<li class="lvl-2">
+<p>编程语言：Java</p>
+</li>
+<li class="lvl-2">
+<p>课程难度：🌟🌟🌟🌟🌟</p>
+</li>
+<li class="lvl-2">
+<p>预计学时：150 小时</p>
+</li>
+</ul>
+<p>加州理工的这门课，不同于没有提供 SQL 层功能的 CMU15-445 课程。CS122 课程 Lab 的侧重点在于 SQL 层的相关实现，涉及查询优化器的各个模块，比如SQL的解析，Translate，如何实现 Join，统计信息以及代价估计，子查询实现，Agg，Group By 的实现等。除此之外，还有 B+树，WAL 相关实验。本门课程适合在学完 CMU15-445 课程之后，对查询优化相关内容有兴趣的同学。</p>
+<p>下面介绍一下这门课的前 3 个 Assignment 也就是实验 Lab 所要实现的功能：</p>
+<h3 id="Assignment1">Assignment1</h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>为 NanoDB 提供 delete，update 语句的支持。</p>
+</li>
+<li class="lvl-2">
+<p>为 Buffer Pool Manager 添加合适的 pin/unpin 代码。</p>
+</li>
+<li class="lvl-2">
+<p>提升 insert 语句的性能， 同时不使数据库文件大小过分膨胀。</p>
+</li>
+</ul>
+<h3 id="Assignment2">Assignment2</h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>实现一个简单的计划生成器，将各种已经 Parser 过的 SQL 语句转化为可执行的执行计划。</p>
+</li>
+<li class="lvl-2">
+<p>使用 nested-loop join 算法，实现支持 inner- and outer-join 的 Join 计划节点。</p>
+</li>
+<li class="lvl-2">
+<p>添加一些单元测试， 保证 inner- and outer-join 功能实现正确。</p>
+</li>
+</ul>
+<h3 id="Assignment3">Assignment3</h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>完成收集表的统计信息。</p>
+</li>
+<li class="lvl-2">
+<p>完成各种计划节点的计划成本计算。</p>
+</li>
+<li class="lvl-2">
+<p>计算可出现在执行计划中的各种谓词的选择性。</p>
+</li>
+<li class="lvl-2">
+<p>根据谓词更新计划节点输出的元组统计信息。</p>
+</li>
+</ul>
+<p>剩余 Assignment 和 Challenges 可以查看课程介绍，推荐使用 IDEA 打开工程，Maven 构建，注意日志相关配置。</p>
+<h2 id="课程资源">课程资源</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>课程网站：<a target="_blank" rel="noopener" href="http://courses.cms.caltech.edu/cs122/">http://courses.cms.caltech.edu/cs122/</a></p>
+</li>
+<li class="lvl-2">
+<p>课程代码：<a target="_blank" rel="noopener" href="https://gitlab.caltech.edu/cs122-19wi">https://gitlab.caltech.edu/cs122-19wi</a></p>
+</li>
+<li class="lvl-2">
+<p>课程教材：无</p>
+</li>
+<li class="lvl-2">
+<p>课程作业：7 Assignments + 2 Challenges</p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -493,146 +638,6 @@
 <p>另外在课程结束后，推荐阅读一篇论文 <a target="_blank" rel="noopener" href="https://github.com/ysj1173886760/paper_notes/tree/master/db">Architecture Of a Database System</a>，对应的中文版也在上述仓库中。论文里综述了数据库系统的整体架构，让大家可以对数据库有一个更加全面的视野。</p>
 <h2 id="后续课程">后续课程</h2>
 <p><a target="_blank" rel="noopener" href="https://15721.courses.cs.cmu.edu/spring2020/">CMU15-721</a> 主要讲主存数据库有关的内容，每节课都有对应的 paper 要读，推荐给希望进阶数据库的小伙伴。@ysj1173886760 目前也在跟进这门课，完成后会在这里提 PR 以提供进阶的指导。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/12/08/CS-Learning/cs-self-learning/docs/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F/Database%20System%20Implementation(Caltech%20CS%20122)/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="听">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="O3xiaoyuhe">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2024/12/08/CS-Learning/cs-self-learning/docs/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F/Database%20System%20Implementation(Caltech%20CS%20122)/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2024-12-08 20:29:05" itemprop="dateCreated datePublished" datetime="2024-12-08T20:29:05+08:00">2024-12-08</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-11-13 22:50:24" itemprop="dateModified" datetime="2024-11-13T22:50:24+08:00">2024-11-13</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1>Caltech CS 122: Database System Implementation</h1>
-<h2 id="课程简介">课程简介</h2>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>所属大学：Caltech</p>
-</li>
-<li class="lvl-2">
-<p>先修要求：无</p>
-</li>
-<li class="lvl-2">
-<p>编程语言：Java</p>
-</li>
-<li class="lvl-2">
-<p>课程难度：🌟🌟🌟🌟🌟</p>
-</li>
-<li class="lvl-2">
-<p>预计学时：150 小时</p>
-</li>
-</ul>
-<p>加州理工的这门课，不同于没有提供 SQL 层功能的 CMU15-445 课程。CS122 课程 Lab 的侧重点在于 SQL 层的相关实现，涉及查询优化器的各个模块，比如SQL的解析，Translate，如何实现 Join，统计信息以及代价估计，子查询实现，Agg，Group By 的实现等。除此之外，还有 B+树，WAL 相关实验。本门课程适合在学完 CMU15-445 课程之后，对查询优化相关内容有兴趣的同学。</p>
-<p>下面介绍一下这门课的前 3 个 Assignment 也就是实验 Lab 所要实现的功能：</p>
-<h3 id="Assignment1">Assignment1</h3>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>为 NanoDB 提供 delete，update 语句的支持。</p>
-</li>
-<li class="lvl-2">
-<p>为 Buffer Pool Manager 添加合适的 pin/unpin 代码。</p>
-</li>
-<li class="lvl-2">
-<p>提升 insert 语句的性能， 同时不使数据库文件大小过分膨胀。</p>
-</li>
-</ul>
-<h3 id="Assignment2">Assignment2</h3>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>实现一个简单的计划生成器，将各种已经 Parser 过的 SQL 语句转化为可执行的执行计划。</p>
-</li>
-<li class="lvl-2">
-<p>使用 nested-loop join 算法，实现支持 inner- and outer-join 的 Join 计划节点。</p>
-</li>
-<li class="lvl-2">
-<p>添加一些单元测试， 保证 inner- and outer-join 功能实现正确。</p>
-</li>
-</ul>
-<h3 id="Assignment3">Assignment3</h3>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>完成收集表的统计信息。</p>
-</li>
-<li class="lvl-2">
-<p>完成各种计划节点的计划成本计算。</p>
-</li>
-<li class="lvl-2">
-<p>计算可出现在执行计划中的各种谓词的选择性。</p>
-</li>
-<li class="lvl-2">
-<p>根据谓词更新计划节点输出的元组统计信息。</p>
-</li>
-</ul>
-<p>剩余 Assignment 和 Challenges 可以查看课程介绍，推荐使用 IDEA 打开工程，Maven 构建，注意日志相关配置。</p>
-<h2 id="课程资源">课程资源</h2>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>课程网站：<a target="_blank" rel="noopener" href="http://courses.cms.caltech.edu/cs122/">http://courses.cms.caltech.edu/cs122/</a></p>
-</li>
-<li class="lvl-2">
-<p>课程代码：<a target="_blank" rel="noopener" href="https://gitlab.caltech.edu/cs122-19wi">https://gitlab.caltech.edu/cs122-19wi</a></p>
-</li>
-<li class="lvl-2">
-<p>课程教材：无</p>
-</li>
-<li class="lvl-2">
-<p>课程作业：7 Assignments + 2 Challenges</p>
-</li>
-</ul>
 
       
     </div>

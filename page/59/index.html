@@ -124,6 +124,11 @@
     <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
 
   </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
         <li class="menu-item menu-item-archives">
 
     <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
@@ -527,88 +532,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/12/08/%E5%AD%A6%E4%B9%A0/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%A4%87%E8%80%83/%E9%A2%98%E9%9B%86/%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86/%E4%B8%80%E7%BB%B4%E5%B7%AE%E5%88%86/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="听">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="O3xiaoyuhe">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2024/12/08/%E5%AD%A6%E4%B9%A0/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%A4%87%E8%80%83/%E9%A2%98%E9%9B%86/%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86/%E4%B8%80%E7%BB%B4%E5%B7%AE%E5%88%86/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2024-12-08 20:29:01" itemprop="dateCreated datePublished" datetime="2024-12-08T20:29:01+08:00">2024-12-08</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-11-13 22:55:16" itemprop="dateModified" datetime="2024-11-13T22:55:16+08:00">2024-11-13</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="题目描述">题目描述</h2>
-<p>输入一个长度为 n 的整数序列。接下来输入 m 个操作，每个操作包含三个整数 l , r , c，表示将序列中 [l,r] 之间的每个数加上 c。请你输出进行完所有操作后的序列。</p>
-<h2 id="输入格式">输入格式</h2>
-<p>第一行包含两个整数 n 和 m。第二行包含 n 个整数，表示整数序列。接下来 m 行，每行包含三个整数 l，r，c，表示一个操作。</p>
-<h2 id="输出格式">输出格式</h2>
-<p>共一行，包含 n 个整数，表示最终序列。</p>
-<h2 id="数据范围">数据范围</h2>
-<p>1≤ n , m ≤ 100000<br>
-1 ≤ l ≤ r ≤ n<br>
-−1000 ≤ c ≤ 1000<br>
-−1000 ≤ 整数序列中元素的值 ≤ 1000</p>
-<h2 id="输入样例：">输入样例：</h2>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">6 3</span><br><span class="line">1 2 2 1 2 1</span><br><span class="line">1 3 1</span><br><span class="line">3 5 1</span><br><span class="line">1 6 1</span><br></pre></td></tr></table></figure>
-<h2 id="输出样例：">输出样例：</h2>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3 4 5 3 4 2</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>[!tip]- 题解</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line"> </span><br><span class="line">using namespace std;</span><br><span class="line">const int N=100010;</span><br><span class="line">int presum[N], nums[N], n, m, l, r, c;</span><br><span class="line">int main()&#123;</span><br><span class="line">    scanf(&quot;%d%d&quot;, &amp;n, &amp;m);</span><br><span class="line">    for (int i = 1 ; i &lt;= n ; i++)&#123;</span><br><span class="line">        scanf(&quot;%d&quot;, &amp;presum[i]);</span><br><span class="line">        nums[i] = presum[i] - presum[i-1]; //构造一维差分</span><br><span class="line">    &#125;</span><br><span class="line">    while (m--)</span><br><span class="line">    &#123;</span><br><span class="line">        scanf(&quot;%d%d%d&quot;, &amp;l, &amp;r, &amp;c);</span><br><span class="line">        nums[l] += c; </span><br><span class="line">        nums[r+1] -= c; //我们只想对[l , r]区间元素产生影响，需要对r ~ n 元素的影响消除掉。 </span><br><span class="line">    &#125;</span><br><span class="line">    for (int i = 1 ; i &lt;= n ; i++)&#123;</span><br><span class="line">        presum[i] = presum[i-1] + nums[i];  //我们改变的是nums[i],还要采用一维前缀和求回presum[i]。</span><br><span class="line">        printf(&quot;%d &quot;, presum[i]); </span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></blockquote>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2024/12/08/%E5%AD%A6%E4%B9%A0/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%A4%87%E8%80%83/%E9%A2%98%E9%9B%86/%E6%B4%9B%E8%B0%B7/P1123%20%E5%8F%96%E6%95%B0%E6%B8%B8%E6%88%8F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -694,6 +617,88 @@
 </ul>
 <h2 id="我的题解">我的题解</h2>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> nearX[] = &#123;<span class="number">-1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">-1</span>,<span class="number">1</span>,<span class="number">-1</span>,<span class="number">0</span>,<span class="number">1</span>,&#125;;</span><br><span class="line"><span class="type">int</span> nearY[] = &#123;<span class="number">-1</span>,<span class="number">-1</span>,<span class="number">-1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,&#125;;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> NearCount[<span class="number">10</span>][<span class="number">10</span>];</span><br><span class="line"><span class="type">int</span> Nums[<span class="number">10</span>][<span class="number">10</span>];</span><br><span class="line"><span class="type">int</span> sizeX = <span class="number">0</span>;</span><br><span class="line"><span class="type">int</span> sizeY = <span class="number">0</span>;</span><br><span class="line"><span class="type">int</span> ans = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">DFS</span><span class="params">(<span class="type">int</span> x, <span class="type">int</span> y, <span class="type">int</span> Ans)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// 边界检查</span></span><br><span class="line">    <span class="keyword">if</span> (y &gt;= sizeY)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">DFS</span>(x + <span class="number">1</span>, <span class="number">0</span>, Ans);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (x &gt;= sizeX)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (Ans &gt; ans)</span><br><span class="line">            ans = Ans;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 选择当前点</span></span><br><span class="line">    <span class="keyword">if</span> (NearCount[x][y] == <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">8</span>; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="type">int</span> nx = x + nearX[i];</span><br><span class="line">            <span class="type">int</span> ny = y + nearY[i];</span><br><span class="line">            <span class="keyword">if</span> (nx &lt; <span class="number">0</span> || nx &gt;= sizeX || ny &lt; <span class="number">0</span> || ny &gt;= sizeY)</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            NearCount[nx][ny]++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">DFS</span>(x, y + <span class="number">1</span>, Ans + Nums[x][y]);</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">8</span>; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="type">int</span> nx = x + nearX[i];</span><br><span class="line">            <span class="type">int</span> ny = y + nearY[i];</span><br><span class="line">            <span class="keyword">if</span> (nx &lt; <span class="number">0</span> || nx &gt;= sizeX || ny &lt; <span class="number">0</span> || ny &gt;= sizeY)</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            NearCount[nx][ny]--;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 不选该点</span></span><br><span class="line">    <span class="built_in">DFS</span>(x, y + <span class="number">1</span>, Ans);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> T;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;T);</span><br><span class="line">    <span class="keyword">while</span> (T--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d %d&quot;</span>, &amp;sizeX, &amp;sizeY);</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; sizeX; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; sizeY; j++)</span><br><span class="line">            &#123;</span><br><span class="line">                cin &gt;&gt; Nums[i][j];</span><br><span class="line">                NearCount[i][j] = <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        ans = <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">DFS</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, ans);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;](&lt;<span class="meta">#<span class="keyword">include</span> %3Cbits/stdc++.h%3E</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 近邻操作集</span></span><br><span class="line"><span class="type">int</span> nearX[] = &#123;<span class="number">-1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">-1</span>,<span class="number">1</span>,<span class="number">-1</span>,<span class="number">0</span>,<span class="number">1</span>,&#125;;</span><br><span class="line"><span class="type">int</span> nearY[] = &#123;<span class="number">-1</span>,<span class="number">-1</span>,<span class="number">-1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,&#125;;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> NearCount[<span class="number">10</span>][<span class="number">10</span>];<span class="comment">// 近邻矩阵，表示第 &#123;x,y&#125; 个数周围有 NearCount[x][y] 个已被选择的数</span></span><br><span class="line"><span class="type">int</span> Nums[<span class="number">10</span>][<span class="number">10</span>];<span class="comment">// 数值矩阵</span></span><br><span class="line"><span class="type">int</span> sizeX = <span class="number">0</span>;<span class="comment">// 标识矩阵行数 </span></span><br><span class="line"><span class="type">int</span> sizeY = <span class="number">0</span>;<span class="comment">// 标识矩阵列数</span></span><br><span class="line"><span class="type">int</span> ans = <span class="number">0</span>;<span class="comment">// 存放答案</span></span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="built_in">DFS</span>(<span class="type">int</span> x, <span class="type">int</span> y, <span class="type">int</span> Ans)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 边界检查</span></span><br><span class="line">    <span class="keyword">if</span> (y &gt;= sizeY) <span class="comment">// 到达右边界，跳到下一行起点开始遍历</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">DFS</span>(x + <span class="number">1</span>, <span class="number">0</span>, Ans);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (x &gt;= sizeX) <span class="comment">// 到达最后一行的下一行，数字矩阵被遍历完，输出结果</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (Ans &gt; ans)</span><br><span class="line">            ans = Ans;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 选择当前点</span></span><br><span class="line">    <span class="keyword">if</span> (NearCount[x][y] == <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">8</span>; i++)<span class="comment">// 维护近邻数组</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="type">int</span> nx = x + nearX[i];</span><br><span class="line">            <span class="type">int</span> ny = y + nearY[i];</span><br><span class="line">            <span class="keyword">if</span> (nx &lt; <span class="number">0</span> || nx &gt;= sizeX || ny &lt; <span class="number">0</span> || ny &gt;= sizeY)</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            NearCount[nx][ny]++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">DFS</span>(x, y + <span class="number">1</span>, Ans + Nums[x][y]);<span class="comment">// 接着访问其后元素</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">8</span>; i++)<span class="comment">// 还原近邻数组，因为下面是不选择该点</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="type">int</span> nx = x + nearX[i];</span><br><span class="line">            <span class="type">int</span> ny = y + nearY[i];</span><br><span class="line">            <span class="keyword">if</span> (nx &lt; <span class="number">0</span> || nx &gt;= sizeX || ny &lt; <span class="number">0</span> || ny &gt;= sizeY)</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            NearCount[nx][ny]--;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 不选该点</span></span><br><span class="line">    <span class="built_in">DFS</span>(x, y + <span class="number">1</span>, Ans);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="built_in">main</span>()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> T;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;T);</span><br><span class="line">    <span class="keyword">while</span> (T--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d %d&quot;</span>, &amp;sizeX, &amp;sizeY);</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; sizeX; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; sizeY; j++)</span><br><span class="line">            &#123;</span><br><span class="line">                cin &gt;&gt; Nums[i][j];</span><br><span class="line">                NearCount[i][j] = <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        ans = <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">DFS</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, ans);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/12/08/%E5%AD%A6%E4%B9%A0/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%A4%87%E8%80%83/%E9%A2%98%E9%9B%86/%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86/%E4%B8%80%E7%BB%B4%E5%B7%AE%E5%88%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="听">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="O3xiaoyuhe">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/12/08/%E5%AD%A6%E4%B9%A0/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%A4%87%E8%80%83/%E9%A2%98%E9%9B%86/%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86/%E4%B8%80%E7%BB%B4%E5%B7%AE%E5%88%86/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-12-08 20:29:01" itemprop="dateCreated datePublished" datetime="2024-12-08T20:29:01+08:00">2024-12-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-11-13 22:55:16" itemprop="dateModified" datetime="2024-11-13T22:55:16+08:00">2024-11-13</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="题目描述">题目描述</h2>
+<p>输入一个长度为 n 的整数序列。接下来输入 m 个操作，每个操作包含三个整数 l , r , c，表示将序列中 [l,r] 之间的每个数加上 c。请你输出进行完所有操作后的序列。</p>
+<h2 id="输入格式">输入格式</h2>
+<p>第一行包含两个整数 n 和 m。第二行包含 n 个整数，表示整数序列。接下来 m 行，每行包含三个整数 l，r，c，表示一个操作。</p>
+<h2 id="输出格式">输出格式</h2>
+<p>共一行，包含 n 个整数，表示最终序列。</p>
+<h2 id="数据范围">数据范围</h2>
+<p>1≤ n , m ≤ 100000<br>
+1 ≤ l ≤ r ≤ n<br>
+−1000 ≤ c ≤ 1000<br>
+−1000 ≤ 整数序列中元素的值 ≤ 1000</p>
+<h2 id="输入样例：">输入样例：</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">6 3</span><br><span class="line">1 2 2 1 2 1</span><br><span class="line">1 3 1</span><br><span class="line">3 5 1</span><br><span class="line">1 6 1</span><br></pre></td></tr></table></figure>
+<h2 id="输出样例：">输出样例：</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3 4 5 3 4 2</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>[!tip]- 题解</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line"> </span><br><span class="line">using namespace std;</span><br><span class="line">const int N=100010;</span><br><span class="line">int presum[N], nums[N], n, m, l, r, c;</span><br><span class="line">int main()&#123;</span><br><span class="line">    scanf(&quot;%d%d&quot;, &amp;n, &amp;m);</span><br><span class="line">    for (int i = 1 ; i &lt;= n ; i++)&#123;</span><br><span class="line">        scanf(&quot;%d&quot;, &amp;presum[i]);</span><br><span class="line">        nums[i] = presum[i] - presum[i-1]; //构造一维差分</span><br><span class="line">    &#125;</span><br><span class="line">    while (m--)</span><br><span class="line">    &#123;</span><br><span class="line">        scanf(&quot;%d%d%d&quot;, &amp;l, &amp;r, &amp;c);</span><br><span class="line">        nums[l] += c; </span><br><span class="line">        nums[r+1] -= c; //我们只想对[l , r]区间元素产生影响，需要对r ~ n 元素的影响消除掉。 </span><br><span class="line">    &#125;</span><br><span class="line">    for (int i = 1 ; i &lt;= n ; i++)&#123;</span><br><span class="line">        presum[i] = presum[i-1] + nums[i];  //我们改变的是nums[i],还要采用一维前缀和求回presum[i]。</span><br><span class="line">        printf(&quot;%d &quot;, presum[i]); </span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></blockquote>
+
       
     </div>
 
@@ -960,7 +965,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/12/08/%E5%AD%A6%E4%B9%A0/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%A4%87%E8%80%83/%E9%A2%98%E9%9B%86/CSDN/%E6%9C%80%E9%95%BF%E6%8B%AC%E5%8F%B7%E5%8C%B9%E9%85%8D/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/12/08/%E5%AD%A6%E4%B9%A0/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%A4%87%E8%80%83/%E7%AE%97%E6%B3%95%E8%AE%B2%E8%A7%A3/%E9%AB%98%E7%B2%BE%E5%BA%A6/%E9%AB%98%E7%B2%BE%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%9B%AE%E5%BD%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -974,7 +979,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2024/12/08/%E5%AD%A6%E4%B9%A0/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%A4%87%E8%80%83/%E9%A2%98%E9%9B%86/CSDN/%E6%9C%80%E9%95%BF%E6%8B%AC%E5%8F%B7%E5%8C%B9%E9%85%8D/" class="post-title-link" itemprop="url">未命名</a>
+            <a href="/2024/12/08/%E5%AD%A6%E4%B9%A0/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%A4%87%E8%80%83/%E7%AE%97%E6%B3%95%E8%AE%B2%E8%A7%A3/%E9%AB%98%E7%B2%BE%E5%BA%A6/%E9%AB%98%E7%B2%BE%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%9B%AE%E5%BD%95/" class="post-title-link" itemprop="url">未命名</a>
         </h2>
 
         <div class="post-meta">
@@ -991,7 +996,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-11-13 22:55:11" itemprop="dateModified" datetime="2024-11-13T22:55:11+08:00">2024-11-13</time>
+                <time title="修改时间：2024-11-13 22:55:08" itemprop="dateModified" datetime="2024-11-13T22:55:08+08:00">2024-11-13</time>
               </span>
 
           
@@ -1005,48 +1010,19 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1>最长括号匹配</h1>
-<blockquote>
-<p>[!tip]- 同题题集<br>
-<a target="_blank" rel="noopener" href="https://leetcode.cn/problems/longest-valid-parentheses/">32. 最长有效括号 - 力扣（LeetCode）</a></p>
-</blockquote>
-<h2 id="题目描述">题目描述</h2>
-<p>对一个由(,),[,]括号组成的字符串，求出其中最长的括号匹配子串。具体来说，满足如下条件的字符串成为括号匹配的字符串：</p>
-<ol>
-<li class="lvl-3">
-<p>(),[]是括号匹配的字符串。</p>
+          <ul class="lvl-0">
+<li class="lvl-2">
+<p>CSDN - 高精度算法讲解 [[高精度（加、减、乘、除）算法详解_高精度阶乘为何求余 - CSDN 博客]]</p>
 </li>
-<li class="lvl-3">
-<p>若 A 是括号匹配的串，则(A),[A]是括号匹配的字符串。</p>
+<li class="lvl-2">
+<p>AcWin - 高精度乘法题解 [[AcWing 793_ 高精度乘法 A x b 和 A x B 的模版（大数相加、大数相乘通用模板） - AcWing]]</p>
 </li>
-<li class="lvl-3">
-<p>若 A,B 是括号匹配的字符串，则 AB 也是括号匹配的字符串。</p>
+<li class="lvl-2">
+<p>AcWin - 高精度减法题解 [[AcWing 792_ 高精度减法 - AcWing]]</p>
 </li>
-</ol>
-<p>例如：(),[],([]),()()都是括号匹配的字符串，而][,[(])则不是。</p>
-<p>字符串A的子串是指由A中连续若干个字符组成的字符串。</p>
-<p>例如，A,B,C,ABC,CAB,ABCABCd都是ABCABC的子串。空串是任何字符串的子串。</p>
-<h2 id="输入格式">输入格式</h2>
-<p>输入一行，为一个仅由()[]组成的非空字符串。</p>
-<h2 id="输出格式">输出格式</h2>
-<p>输出也仅有一行，为最长的括号匹配子串。若有相同长度的子串，输出位置靠前的子串。</p>
-<h2 id="样例-1">样例 #1</h2>
-<h3 id="样例输入-1">样例输入 #1</h3>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">([(][()]]()</span><br></pre></td></tr></table></figure>
-<h3 id="样例输出-1">样例输出 #1</h3>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[()]</span><br></pre></td></tr></table></figure>
-<h2 id="样例-2">样例 #2</h2>
-<h3 id="样例输入-2">样例输入 #2</h3>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">())[]</span><br></pre></td></tr></table></figure>
-<h3 id="样例输出-2">样例输出 #2</h3>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">()</span><br></pre></td></tr></table></figure>
-<h2 id="提示">提示</h2>
-<p>【数据范围】</p>
-<p>对20%的数据，字符串长度&lt;=100.</p>
-<p>对50%的数据，字符串长度&lt;=10000.</p>
-<p>对100%的数据，字符串长度&lt;=1000000.</p>
-<h2 id="我的题解">我的题解</h2>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">cmp</span><span class="params">(pair&lt;<span class="type">long</span> <span class="type">long</span>, <span class="type">long</span> <span class="type">long</span>&gt; a, pair&lt;<span class="type">long</span> <span class="type">long</span>, <span class="type">long</span> <span class="type">long</span>&gt; b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (a.second == b.second) <span class="keyword">return</span> a.second &lt; b.second;</span><br><span class="line">    <span class="keyword">return</span> a.first &gt; b.first;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">string <span class="title">longestValidParentheses</span><span class="params">(string s)</span> </span>&#123;</span><br><span class="line">        vector&lt;pair&lt;<span class="type">long</span> <span class="type">long</span>,<span class="type">char</span>&gt;&gt; left; <span class="comment">// 使用栈存放历史的 &#x27;(&#x27; 与 &#x27;[&#x27;</span></span><br><span class="line">        <span class="type">long</span> <span class="type">long</span> len = s.<span class="built_in">length</span>();</span><br><span class="line">        <span class="type">long</span> <span class="type">long</span> count;</span><br><span class="line">        vector&lt;pair&lt;<span class="type">long</span> <span class="type">long</span>,<span class="type">long</span> <span class="type">long</span>&gt;&gt; <span class="built_in">ans</span>(len,&#123;<span class="number">0</span>,<span class="number">0</span>&#125;); <span class="comment">// first is ans second is endindex;</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">long</span> <span class="type">long</span> i = <span class="number">0</span>; i &lt; len; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(s[i] == <span class="string">&#x27;(&#x27;</span>) left.<span class="built_in">push_back</span>(&#123;i,<span class="string">&#x27;(&#x27;</span>&#125;);</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(s[i] == <span class="string">&#x27;[&#x27;</span>) left.<span class="built_in">push_back</span>(&#123;i,<span class="string">&#x27;[&#x27;</span>&#125;);</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(s[i] == <span class="string">&#x27;)&#x27;</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(left.<span class="built_in">size</span>()&gt;<span class="number">0</span>&amp;&amp;left[left.<span class="built_in">size</span>()<span class="number">-1</span>].second==<span class="string">&#x27;(&#x27;</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="type">long</span> <span class="type">long</span> now = i - left[left.<span class="built_in">size</span>() - <span class="number">1</span>].first <span class="number">+1</span>;</span><br><span class="line">                    <span class="type">long</span> <span class="type">long</span> lens = now + ans[i-now&gt;<span class="number">0</span>?i-now:<span class="number">0</span>].first;</span><br><span class="line">                    <span class="keyword">if</span>(ans[i].first &lt; lens)</span><br><span class="line">                    &#123;</span><br><span class="line">                        ans[i].first = lens;</span><br><span class="line">                        ans[i].second = i;</span><br><span class="line">                    &#125;</span><br><span class="line">                    left.<span class="built_in">pop_back</span>();</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> left.<span class="built_in">clear</span>(); <span class="comment">// 最后存入的符号不匹配，说明连续的匹配字符串在此处被截断，重新开始压入左括号</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(s[i] == <span class="string">&#x27;]&#x27;</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(left.<span class="built_in">size</span>()&gt;<span class="number">0</span>&amp;&amp;left[left.<span class="built_in">size</span>()<span class="number">-1</span>].second == <span class="string">&#x27;[&#x27;</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="type">long</span> <span class="type">long</span> now  = i - left[left.<span class="built_in">size</span>()<span class="number">-1</span>].first + <span class="number">1</span>;</span><br><span class="line">                    <span class="type">long</span> <span class="type">long</span> lens = now + ans[i-now&gt;<span class="number">0</span>?i-now:<span class="number">0</span>].first;</span><br><span class="line">                    <span class="keyword">if</span>(ans[i].first &lt; lens)</span><br><span class="line">                    &#123;</span><br><span class="line">                        ans[i].first = lens;</span><br><span class="line">                        ans[i].second = i;</span><br><span class="line">                    &#125;</span><br><span class="line">                    left.<span class="built_in">pop_back</span>();</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> left.<span class="built_in">clear</span>(); <span class="comment">// 最后存入的符号不匹配，同上</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="built_in">sort</span>(ans.<span class="built_in">begin</span>(), ans.<span class="built_in">end</span>(),cmp); <span class="comment">// 依题意，排序，输出第一个</span></span><br><span class="line">    <span class="keyword">return</span> s.<span class="built_in">substr</span>(ans[<span class="number">0</span>].second-ans[<span class="number">0</span>].first<span class="number">+1</span>,ans[<span class="number">0</span>].first);</span><br><span class="line">&#125;</span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    string s;</span><br><span class="line">    cin&gt;&gt;s;</span><br><span class="line">    cout&lt;&lt;<span class="built_in">longestValidParentheses</span>(s)&lt;&lt;endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li class="lvl-2">
+</li>
+</ul>
 
       
     </div>

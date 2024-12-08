@@ -124,6 +124,11 @@
     <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
 
   </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
         <li class="menu-item menu-item-archives">
 
     <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
@@ -1420,90 +1425,6 @@ On macOS, you can remap keys in system settings, see this <a target="_blank" rel
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/12/08/CS-Learning/cs-self-learning/docs/%E5%BF%85%E5%AD%A6%E5%B7%A5%E5%85%B7/Scoop.en/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="听">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="O3xiaoyuhe">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2024/12/08/CS-Learning/cs-self-learning/docs/%E5%BF%85%E5%AD%A6%E5%B7%A5%E5%85%B7/Scoop.en/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2024-12-08 20:29:05" itemprop="dateCreated datePublished" datetime="2024-12-08T20:29:05+08:00">2024-12-08</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-11-13 22:45:04" itemprop="dateModified" datetime="2024-11-13T22:45:04+08:00">2024-11-13</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1>Scoop</h1>
-<h2 id="Why-Use-Scoop">Why Use Scoop</h2>
-<p>Setting up a development environment in Windows has always been a complex and challenging task. The lack of a unified standard means that the installation methods for different development environments vary greatly, resulting in unnecessary time costs. Scoop helps you uniformly install and manage common development software, eliminating the need for manual downloads, installations, and environment variable configurations.</p>
-<p>For example, to install Python and Node.js, you just need to execute:</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">scoop install python</span><br><span class="line">scoop install nodejs</span><br></pre></td></tr></table></figure>
-<h2 id="Installing-Scoop">Installing Scoop</h2>
-<p>Scoop requires <a target="_blank" rel="noopener" href="https://aka.ms/wmf5download">Windows PowerShell 5.1</a> or <a target="_blank" rel="noopener" href="https://aka.ms/powershell">PowerShell</a> as its runtime environment. If you are using Windows 10 or later, Windows PowerShell is built into the system. However, the version of Windows PowerShell built into Windows 7 is outdated, and you will need to manually install a newer version of PowerShell.</p>
-<blockquote>
-<p>Many students have encountered issues due to setting up Windows user accounts with Chinese usernames, leading to user directories also being named in Chinese. Installing software via Scoop into user directories in such cases may cause some software to execute incorrectly. Therefore, it is recommended to install in a custom directory. For other installation methods, please refer to: <a target="_blank" rel="noopener" href="https://github.com/ScoopInstaller/Install">ScoopInstaller/Install</a></p>
-</blockquote>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Set PowerShell execution policy</span></span><br><span class="line"><span class="built_in">Set-ExecutionPolicy</span> <span class="literal">-ExecutionPolicy</span> RemoteSigned <span class="literal">-Scope</span> CurrentUser</span><br><span class="line"><span class="comment"># Download the installation script</span></span><br><span class="line"><span class="built_in">irm</span> get.scoop.sh <span class="literal">-outfile</span> <span class="string">&#x27;install.ps1&#x27;</span></span><br><span class="line"><span class="comment"># Run the installation, use --ScoopDir parameter to specify Scoop installation path</span></span><br><span class="line">.\install.ps1 <span class="literal">-ScoopDir</span> <span class="string">&#x27;C:\Scoop&#x27;</span></span><br></pre></td></tr></table></figure>
-<h2 id="Using-Scoop">Using Scoop</h2>
-<p>Scoop’s official documentation is very user-friendly for beginners. Instead of elaborating here, it is recommended to read the <a target="_blank" rel="noopener" href="https://github.com/ScoopInstaller/Scoop">official documentation</a> or the <a target="_blank" rel="noopener" href="https://github.com/ScoopInstaller/Scoop/wiki/Quick-Start">Quick Start guide</a>.</p>
-<h2 id="Q-A">Q&amp;A</h2>
-<h3 id="Can-Scoop-Configure-Mirror-Sources">Can Scoop Configure Mirror Sources?</h3>
-<p>The Scoop community only maintains installation configurations, and all software is downloaded from the official download links provided by the software’s creators. Therefore, mirror sources are not provided. If your network environment causes repeated download failures, you may need a bit of <a href="%E7%BF%BB%E5%A2%99.md">magic</a>.</p>
-<h3 id="Why-Can’t-I-Find-Java-8">Why Can’t I Find Java 8?</h3>
-<p>For the same reasons mentioned above, the official download links for Java 8 are no longer provided. It is recommended to use <a target="_blank" rel="noopener" href="https://github.com/ScoopInstaller/Java/blob/master/bucket/ojdkbuild8.json">ojdkbuild8</a> as a substitute.</p>
-<h3 id="How-Do-I-Install-Python-2">How Do I Install Python 2?</h3>
-<p>For software that is outdated and no longer in use, the Scoop community removes it from <a target="_blank" rel="noopener" href="https://github.com/ScoopInstaller/Main">ScoopInstaller/Main</a> and adds it to <a target="_blank" rel="noopener" href="https://github.com/ScoopInstaller/Versions">ScoopInstaller/Versions</a>. If you need such software, you need to manually add the bucket:</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">scoop bucket add versions</span><br><span class="line">scoop install python27</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2024/12/08/CS-Learning/cs-self-learning/docs/%E5%BF%85%E5%AD%A6%E5%B7%A5%E5%85%B7/Scoop/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1570,6 +1491,90 @@ On macOS, you can remap keys in system settings, see this <a target="_blank" rel
 <p>对于已经过时弃用的软件，Scoop 社区会将其从 <a target="_blank" rel="noopener" href="https://github.com/ScoopInstaller/Main">ScoopInstaller/Main</a> 中移除并将其添加到 <a target="_blank" rel="noopener" href="https://github.com/ScoopInstaller/Versions">ScoopInstaller/Versions</a> 中。如果你需要这些软件的话需要手动添加 bucket：</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">scoop bucket add versions</span><br><span class="line">scoop install python27</span><br></pre></td></tr></table></figure>
 
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/12/08/CS-Learning/cs-self-learning/docs/%E5%BF%85%E5%AD%A6%E5%B7%A5%E5%85%B7/Scoop.en/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="听">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="O3xiaoyuhe">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/12/08/CS-Learning/cs-self-learning/docs/%E5%BF%85%E5%AD%A6%E5%B7%A5%E5%85%B7/Scoop.en/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-12-08 20:29:05" itemprop="dateCreated datePublished" datetime="2024-12-08T20:29:05+08:00">2024-12-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-11-13 22:45:04" itemprop="dateModified" datetime="2024-11-13T22:45:04+08:00">2024-11-13</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1>Scoop</h1>
+<h2 id="Why-Use-Scoop">Why Use Scoop</h2>
+<p>Setting up a development environment in Windows has always been a complex and challenging task. The lack of a unified standard means that the installation methods for different development environments vary greatly, resulting in unnecessary time costs. Scoop helps you uniformly install and manage common development software, eliminating the need for manual downloads, installations, and environment variable configurations.</p>
+<p>For example, to install Python and Node.js, you just need to execute:</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">scoop install python</span><br><span class="line">scoop install nodejs</span><br></pre></td></tr></table></figure>
+<h2 id="Installing-Scoop">Installing Scoop</h2>
+<p>Scoop requires <a target="_blank" rel="noopener" href="https://aka.ms/wmf5download">Windows PowerShell 5.1</a> or <a target="_blank" rel="noopener" href="https://aka.ms/powershell">PowerShell</a> as its runtime environment. If you are using Windows 10 or later, Windows PowerShell is built into the system. However, the version of Windows PowerShell built into Windows 7 is outdated, and you will need to manually install a newer version of PowerShell.</p>
+<blockquote>
+<p>Many students have encountered issues due to setting up Windows user accounts with Chinese usernames, leading to user directories also being named in Chinese. Installing software via Scoop into user directories in such cases may cause some software to execute incorrectly. Therefore, it is recommended to install in a custom directory. For other installation methods, please refer to: <a target="_blank" rel="noopener" href="https://github.com/ScoopInstaller/Install">ScoopInstaller/Install</a></p>
+</blockquote>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Set PowerShell execution policy</span></span><br><span class="line"><span class="built_in">Set-ExecutionPolicy</span> <span class="literal">-ExecutionPolicy</span> RemoteSigned <span class="literal">-Scope</span> CurrentUser</span><br><span class="line"><span class="comment"># Download the installation script</span></span><br><span class="line"><span class="built_in">irm</span> get.scoop.sh <span class="literal">-outfile</span> <span class="string">&#x27;install.ps1&#x27;</span></span><br><span class="line"><span class="comment"># Run the installation, use --ScoopDir parameter to specify Scoop installation path</span></span><br><span class="line">.\install.ps1 <span class="literal">-ScoopDir</span> <span class="string">&#x27;C:\Scoop&#x27;</span></span><br></pre></td></tr></table></figure>
+<h2 id="Using-Scoop">Using Scoop</h2>
+<p>Scoop’s official documentation is very user-friendly for beginners. Instead of elaborating here, it is recommended to read the <a target="_blank" rel="noopener" href="https://github.com/ScoopInstaller/Scoop">official documentation</a> or the <a target="_blank" rel="noopener" href="https://github.com/ScoopInstaller/Scoop/wiki/Quick-Start">Quick Start guide</a>.</p>
+<h2 id="Q-A">Q&amp;A</h2>
+<h3 id="Can-Scoop-Configure-Mirror-Sources">Can Scoop Configure Mirror Sources?</h3>
+<p>The Scoop community only maintains installation configurations, and all software is downloaded from the official download links provided by the software’s creators. Therefore, mirror sources are not provided. If your network environment causes repeated download failures, you may need a bit of <a href="%E7%BF%BB%E5%A2%99.md">magic</a>.</p>
+<h3 id="Why-Can’t-I-Find-Java-8">Why Can’t I Find Java 8?</h3>
+<p>For the same reasons mentioned above, the official download links for Java 8 are no longer provided. It is recommended to use <a target="_blank" rel="noopener" href="https://github.com/ScoopInstaller/Java/blob/master/bucket/ojdkbuild8.json">ojdkbuild8</a> as a substitute.</p>
+<h3 id="How-Do-I-Install-Python-2">How Do I Install Python 2?</h3>
+<p>For software that is outdated and no longer in use, the Scoop community removes it from <a target="_blank" rel="noopener" href="https://github.com/ScoopInstaller/Main">ScoopInstaller/Main</a> and adds it to <a target="_blank" rel="noopener" href="https://github.com/ScoopInstaller/Versions">ScoopInstaller/Versions</a>. If you need such software, you need to manually add the bucket:</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">scoop bucket add versions</span><br><span class="line">scoop install python27</span><br></pre></td></tr></table></figure>
       
     </div>
 

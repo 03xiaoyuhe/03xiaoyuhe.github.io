@@ -124,6 +124,11 @@
     <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
 
   </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
         <li class="menu-item menu-item-archives">
 
     <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
@@ -152,74 +157,6 @@
 
           <div class="content index posts-expand">
             
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/12/08/%E5%AD%A6%E4%B9%A0/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%A4%87%E8%80%83/%E7%AE%97%E6%B3%95%E8%AE%B2%E8%A7%A3/DP/DP%E4%B9%A6%E5%86%99%E6%80%9D%E8%B7%AF%E8%AE%A8%E8%AE%BA/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="听">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="O3xiaoyuhe">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2024/12/08/%E5%AD%A6%E4%B9%A0/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%A4%87%E8%80%83/%E7%AE%97%E6%B3%95%E8%AE%B2%E8%A7%A3/DP/DP%E4%B9%A6%E5%86%99%E6%80%9D%E8%B7%AF%E8%AE%A8%E8%AE%BA/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2024-12-08 20:29:01" itemprop="dateCreated datePublished" datetime="2024-12-08T20:29:01+08:00">2024-12-08</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-11-14 00:57:43" itemprop="dateModified" datetime="2024-11-14T00:57:43+08:00">2024-11-14</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1>DP 解题思路及书写讨论</h1>
-<p>DP 即动态规划问题，其核心在于<mark>状态的维护</mark>及<mark>状态的转换</mark></p>
-<p>在 [[洛谷 P1044 【NOIP2003 普及组】 栈 - CSDN 博客|洛谷 P1044]] 一题中，想到使用二维 DP 解题实属不易。</p>
-<p>故，在这里提供一个</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
       
   
   
@@ -284,6 +221,74 @@
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">   <span class="comment">// 不选该点</span></span><br><span class="line">   <span class="built_in">Doing2</span>();</span><br><span class="line"></span><br><span class="line">   <span class="built_in">Doing</span>();<span class="comment">// 选择当前点</span></span><br><span class="line">   <span class="built_in">DFS</span>(x, y<span class="number">+1</span>);</span><br><span class="line">   <span class="built_in">UnDo</span>(); <span class="comment">// 复原状态，即复原回未选该点的状态</span></span><br></pre></td></tr></table></figure>
 <p>后可以把最后的 <code>Undo()</code> 去掉吗？答案是不行，因为当当前节点遍历完后会回退到上一节点，此时本节点对于上一个节点的下一个操作来说，应该处于未选择状态，所以还是需要状态还原。</p>
 </blockquote>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/12/08/%E5%AD%A6%E4%B9%A0/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%A4%87%E8%80%83/%E7%AE%97%E6%B3%95%E8%AE%B2%E8%A7%A3/DP/DP%E4%B9%A6%E5%86%99%E6%80%9D%E8%B7%AF%E8%AE%A8%E8%AE%BA/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="听">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="O3xiaoyuhe">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/12/08/%E5%AD%A6%E4%B9%A0/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%A4%87%E8%80%83/%E7%AE%97%E6%B3%95%E8%AE%B2%E8%A7%A3/DP/DP%E4%B9%A6%E5%86%99%E6%80%9D%E8%B7%AF%E8%AE%A8%E8%AE%BA/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-12-08 20:29:01" itemprop="dateCreated datePublished" datetime="2024-12-08T20:29:01+08:00">2024-12-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-11-14 00:57:43" itemprop="dateModified" datetime="2024-11-14T00:57:43+08:00">2024-11-14</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1>DP 解题思路及书写讨论</h1>
+<p>DP 即动态规划问题，其核心在于<mark>状态的维护</mark>及<mark>状态的转换</mark></p>
+<p>在 [[洛谷 P1044 【NOIP2003 普及组】 栈 - CSDN 博客|洛谷 P1044]] 一题中，想到使用二维 DP 解题实属不易。</p>
+<p>故，在这里提供一个</p>
 
       
     </div>
@@ -1113,7 +1118,7 @@ $$</p>
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/12/08/%E5%AD%A6%E4%B9%A0/%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/%E5%8D%95%E8%AF%8D%E8%AF%AD%E6%96%99%E6%9D%82%E8%AE%B0/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/12/08/%E5%AD%A6%E4%B9%A0/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%A4%87%E8%80%83/%E7%BC%96%E7%A8%8B%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -1127,7 +1132,7 @@ $$</p>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2024/12/08/%E5%AD%A6%E4%B9%A0/%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/%E5%8D%95%E8%AF%8D%E8%AF%AD%E6%96%99%E6%9D%82%E8%AE%B0/" class="post-title-link" itemprop="url">未命名</a>
+            <a href="/2024/12/08/%E5%AD%A6%E4%B9%A0/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%A4%87%E8%80%83/%E7%BC%96%E7%A8%8B%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/" class="post-title-link" itemprop="url">未命名</a>
         </h2>
 
         <div class="post-meta">
@@ -1144,7 +1149,7 @@ $$</p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-11-13 22:54:24" itemprop="dateModified" datetime="2024-11-13T22:54:24+08:00">2024-11-13</time>
+                <time title="修改时间：2024-11-13 22:54:25" itemprop="dateModified" datetime="2024-11-13T22:54:25+08:00">2024-11-13</time>
               </span>
 
           
@@ -1158,7 +1163,20 @@ $$</p>
     <div class="post-body" itemprop="articleBody">
 
       
-          
+          <h2 id="数组的最后一个元素">数组的最后一个元素</h2>
+<ul class="lvl-0">
+<li class="lvl-2">数组最后一个元素是 <code>a[a.size()-1]</code></li>
+<li class="lvl-2">在使用题目传入的数组时，一定要考虑传入长度为零的情况，因为此时没有最后一个元素，<code>a[a.size()-1]</code> 会报溢出。</li>
+</ul>
+<h2 id="关于循环数组的移动指针">关于循环数组的移动指针</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>如果当前指针要向循环数组的反方向移动</p>
+<p>为保持指针的循环性，我们通常会使用取余，以达到循环的目的</p>
+<p><mark>但是，在反向移动时，直接取余(<code>where % List.Len</code>)会导致取余异常(如果 <code>where</code> 为负数，取余为其相反数) 此时我们会用 <code>(where + List.Len) % List.Len</code> 先将负数化为整数再进行取余</mark></p>
+</li>
+</ul>
+
       
     </div>
 
