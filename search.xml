@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>hellow</title>
-    <url>/2024/12/08/hello/</url>
-    <content><![CDATA[<p>$\rightarrow$</p>
-]]></content>
-  </entry>
-  <entry>
     <title></title>
     <url>/2024/12/08/%E7%AC%AC1%E8%AE%B2-%E8%AF%BE%E7%A8%8B%E6%A6%82%E8%A7%88%E4%B8%8E%20shell%20%C2%B7%20the%20missing%20semester%20of%20your%20cs%20education/</url>
     <content><![CDATA[<blockquote>
@@ -153,5 +147,11 @@
       <tags>
         <tag>学习/计算机/shell</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>hellow</title>
+    <url>/2024/12/08/hello/</url>
+    <content><![CDATA[<p>$\rightarrow$</p>
+]]></content>
   </entry>
 </search>
