@@ -8,52 +8,34 @@
 <p>另外，由于本人还并没有完全掌握<code>hexo</code>的各种用法，这个博客同时也会记录一些在使用<code>hexo</code>时的个人心得。</p>
 <h2 id="博客支持的callout块">博客支持的callout块</h2>
 <figure class="highlight css"><table><tr><td class="code"><pre><span class="line">&quot;info&quot;: &#123; &quot;<span class="attribute">color</span>&quot;: <span class="string">&quot;#3178c6&quot;</span>, <span class="string">&quot;icon&quot;</span>: <span class="string">&quot;ℹ️&quot;</span> &#125;,</span><br><span class="line">&quot;warning&quot;: &#123; &quot;<span class="attribute">color</span>&quot;: <span class="string">&quot;#e5a700&quot;</span>, <span class="string">&quot;icon&quot;</span>: <span class="string">&quot;⚠️&quot;</span> &#125;,</span><br><span class="line">&quot;error&quot;: &#123; &quot;<span class="attribute">color</span>&quot;: <span class="string">&quot;#d32f2f&quot;</span>, <span class="string">&quot;icon&quot;</span>: <span class="string">&quot;❌&quot;</span> &#125;,</span><br><span class="line">&quot;success&quot;: &#123; &quot;<span class="attribute">color</span>&quot;: <span class="string">&quot;#2e7d32&quot;</span>, <span class="string">&quot;icon&quot;</span>: <span class="string">&quot;✔️&quot;</span> &#125;,</span><br><span class="line">&quot;note&quot;: &#123; &quot;<span class="attribute">color</span>&quot;: <span class="string">&quot;#673ab7&quot;</span>, <span class="string">&quot;icon&quot;</span>: <span class="string">&quot;📝&quot;</span> &#125;,</span><br><span class="line">&quot;tip&quot;: &#123; &quot;<span class="attribute">color</span>&quot;: <span class="string">&quot;#009688&quot;</span>, <span class="string">&quot;icon&quot;</span>: <span class="string">&quot;💡&quot;</span> &#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>
 
 <div class="callout callout-tip">
     <div class="callout-head">
-        <span class="callout-head-icon" style="color:#009688">💡</span>
+        <span class="callout-head-icon">💡</span>
         <span class="callout-head-text">TIP</span>
     </div>
     <div class="callout-contents">
-        
+        <p>测试callout</p>
     </div>
-</div></p>
-<p>测试callout</p>
-</blockquote>
-<blockquote>
-<p>
-
+</div>
 <div class="callout callout-warning">
     <div class="callout-head">
-        <span class="callout-head-icon" style="color:#e5a700">⚠️</span>
+        <span class="callout-head-icon">💡</span>
         <span class="callout-head-text">WARNING</span>
     </div>
     <div class="callout-contents">
         
     </div>
-</div></p>
-</blockquote>
-<blockquote>
-<p>
-
+</div>
 <div class="callout callout-tip">
     <div class="callout-head">
-        <span class="callout-head-icon" style="color:#009688">💡</span>
+        <span class="callout-head-icon">💡</span>
         <span class="callout-head-text">TIP</span>
     </div>
     <div class="callout-contents">
-        
+        <p>`d` `rwx` `rwx` `rwx`</p><p>&nbsp;&nbsp;&nbsp;&nbsp; $\uparrow$ &nbsp;&nbsp;&nbsp;&nbsp;  $\uparrow$ &nbsp;&nbsp;&nbsp;&nbsp;  $\uparrow$ 其他所有人</p><p>&nbsp;&nbsp;&nbsp;&nbsp; $\uparrow$ &nbsp;&nbsp;&nbsp;&nbsp; $\uparrow$ 用户组</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $\uparrow$ 文件所有者</p><p>普通文本内容，其他段落不受影响。</p>
     </div>
-</div></p>
-<p><code>d</code> <code>rwx</code> <code>rwx</code> <code>rwx</code></p>
-<p>     $\uparrow$       $\uparrow$       $\uparrow$ 其他所有人</p>
-<p>     $\uparrow$      $\uparrow$ 用户组</p>
-<p>      $\uparrow$ 文件所有者</p>
-<p>普通文本内容，其他段落不受影响。</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[!info] 信息头</span><br><span class="line">这是第一行内容。</span><br><span class="line">这是第二行内容。</span><br></pre></td></tr></table></figure>
+</div><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[!info] 信息头</span><br><span class="line">这是第一行内容。</span><br><span class="line">这是第二行内容。</span><br></pre></td></tr></table></figure>
 ]]></content>
   </entry>
 </search>
