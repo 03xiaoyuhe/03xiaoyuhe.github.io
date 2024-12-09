@@ -133,6 +133,31 @@
 ]]></content>
   </entry>
   <entry>
+    <title>计网复习  //文章标题</title>
+    <url>///%E6%96%87%E7%AB%A0%E6%98%BE%E7%A4%BA%E8%BF%9E%E6%8E%A5</url>
+    <content><![CDATA[<img src="https://" alt="" style="width:100%" />  
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p></p>
+<p>用来记一些计网复习笔记</p>
+
+    </div>
+</div><span id="more"></span>
+<hr />
+]]></content>
+      <categories>
+        <category>//文章匪类目录</category>
+      </categories>
+      <tags>
+        <tag>//文章标签，可多个，用，隔开</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>关于 callout 块渲染</title>
     <url>/posts/4179.html</url>
     <content><![CDATA[
