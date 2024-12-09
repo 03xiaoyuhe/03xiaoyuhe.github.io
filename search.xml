@@ -15,7 +15,9 @@
         <span class="callout-head-text" style="color:#3178c6">INFO</span>
     </div>
     <div class="callout-contents">
-        <p>嘿，typora不支持这个</p>
+        <p></p>
+<p>嘿，typora不支持这个</p>
+
     </div>
 </div>
 <div class="callout callout-error">
@@ -24,7 +26,9 @@
         <span class="callout-head-text" style="color:#d32f2f">ERROR</span>
     </div>
     <div class="callout-contents">
-        <p>嘿！typora也不支持这个</p>
+        <p></p>
+<p>嘿！typora也不支持这个</p>
+
     </div>
 </div>
 <div class="callout callout-success">
@@ -33,7 +37,9 @@
         <span class="callout-head-text" style="color:#2e7d32">SUCCESS</span>
     </div>
     <div class="callout-contents">
-        <p>好吧，typora支持的内容有点少了</p>
+        <p></p>
+<p>好吧，typora支持的内容有点少了</p>
+
     </div>
 </div>
 <div class="callout callout-note">
@@ -42,7 +48,9 @@
         <span class="callout-head-text" style="color:#673ab7">NOTE</span>
     </div>
     <div class="callout-contents">
-        <p>太好了，typora支持`note`</p>
+        <p></p>
+<p>太好了，typora支持<code>note</code></p>
+
     </div>
 </div>
 <div class="callout callout-tip">
@@ -51,7 +59,9 @@
         <span class="callout-head-text" style="color:#009688">TIP</span>
     </div>
     <div class="callout-contents">
-        <p>测试callout</p>
+        <p></p>
+<p>测试callout</p>
+
     </div>
 </div>
 <div class="callout callout-warning">
@@ -60,7 +70,10 @@
         <span class="callout-head-text" style="color:#e5a700">WARNING</span>
     </div>
     <div class="callout-contents">
-        <p>警告！</p>
+        <p></p>
+<h2 id="测试一下是否支持应该支持的-md-语法">测试一下是否支持应该支持的 md 语法</h2>
+<p>警告！</p>
+
     </div>
 </div>
 <div class="callout callout-tip">
@@ -69,12 +82,18 @@
         <span class="callout-head-text" style="color:#009688">TIP</span>
     </div>
     <div class="callout-contents">
-        <p>`d` `rwx` `rwx` `rwx`</p><p>&nbsp;&nbsp;&nbsp;&nbsp; $\uparrow  \ \ \ \      \uparrow  \ \ \ \     \uparrow$ 其他所有人</p><p>&nbsp;&nbsp;&nbsp;&nbsp; $\uparrow  \ \ \ \      \uparrow$ 用户组</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $\uparrow$ 文件所有者</p><p>普通文本内容，其他段落不受影响。</p>
+        <p></p>
+<p><code>d</code> <code>rwx</code> <code>rwx</code> <code>rwx</code></p>
+<p>     $\uparrow  \ \ \ \      \uparrow  \ \ \ \     \uparrow$ 其他所有人</p>
+<p>     $\uparrow  \ \ \ \      \uparrow$ 用户组</p>
+<p>      $\uparrow$ 文件所有者</p>
+<p>普通文本内容，其他段落不受影响。</p>
+
     </div>
 </div><h2 id="关于博客中自定义渲染callout块的部分">关于博客中自定义渲染<code>callout</code>块的部分</h2>
 <h3 id="首先是callout语法">首先是<code>callout</code>语法</h3>
 <figure class="highlight md"><table><tr><td class="code"><pre><span class="line"><span class="quote">&gt; [!tag]</span></span><br><span class="line"><span class="quote">&gt;</span></span><br><span class="line"><span class="quote">&gt; content1</span></span><br><span class="line"><span class="quote">&gt;</span></span><br><span class="line"><span class="quote">&gt; content2</span></span><br></pre></td></tr></table></figure>
-<p>由于笔者在编写此博客时使用的编写工具是<code>typora</code>，故将原来<code>obsidian</code>的语法做了一些改动，因为<code>typora</code>的引用块，行与行之间也会自动添加空行。</p>
+<p>由于笔者在编写此博客时使用的编写工具是<code>typora</code>，故将原来<code>obsidian</code>的语法做了一些改动，因为<code>typora</code>的引用块，行与行之间也会自动添加空行。[[<a href="http://xn--callout-lr4k88sdpqky6bg8p.md">关于callout块渲染.md</a>]]</p>
 
 <div class="callout callout-tip">
     <div class="callout-head">
@@ -82,7 +101,9 @@
         <span class="callout-head-text" style="color:#009688">TIP</span>
     </div>
     <div class="callout-contents">
-        <p>渲染器部分，详见[关于`callout`块渲染](关于callout块渲染.md)</p>
+        <p></p>
+<p>渲染器部分，详见[[<a href="http://xn--callout-lr4k88sdpqky6bg8p.md">关于callout块渲染.md</a>]]</p>
+
     </div>
 </div><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[!info] 信息头</span><br><span class="line">这是第一行内容。</span><br><span class="line">这是第二行内容。</span><br></pre></td></tr></table></figure>
 ]]></content>
