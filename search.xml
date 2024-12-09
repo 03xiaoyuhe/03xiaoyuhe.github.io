@@ -1,14 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>关于 callout 块渲染</title>
-    <url>/2024/12/09/%E5%85%B3%E4%BA%8Ecallout%E5%9D%97%E6%B8%B2%E6%9F%93/</url>
-    <content><![CDATA[]]></content>
-      <tags>
-        <tag>hexo 建设</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>写在前面</title>
     <url>/2024/12/08/hello/</url>
     <content><![CDATA[<h1>写在前面</h1>
@@ -139,5 +131,13 @@
     </div>
 </div><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[!info] 信息头</span><br><span class="line">这是第一行内容。</span><br><span class="line">这是第二行内容。</span><br></pre></td></tr></table></figure>
 ]]></content>
+  </entry>
+  <entry>
+    <title>关于 callout 块渲染</title>
+    <url>/2024/12/09/%E5%85%B3%E4%BA%8Ecallout%E5%9D%97%E6%B8%B2%E6%9F%93/</url>
+    <content><![CDATA[]]></content>
+      <tags>
+        <tag>hexo 建设</tag>
+      </tags>
   </entry>
 </search>
