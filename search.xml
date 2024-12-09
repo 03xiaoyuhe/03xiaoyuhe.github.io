@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>写在前面</title>
-    <url>/2024/12/08/hello/</url>
+    <url>/posts/55009.html</url>
     <content><![CDATA[<h1>写在前面</h1>
 <p>这个博客用于发布一些笔者认为需要多端查看的各种笔记，或者用于记录想要分享的各种知识</p>
 <p>另外，由于笔者还并没有完全掌握<code>hexo</code>的各种用法，这个博客同时也会记录一些在使用<code>hexo</code>时的个人心得。</p>
@@ -117,7 +117,7 @@
 <h2 id="关于博客中自定义渲染callout块的部分"><a class="header-anchor" href="#关于博客中自定义渲染callout块的部分">¶</a>关于博客中自定义渲染<code>callout</code>块的部分</h2>
 <h3 id="首先是callout语法"><a class="header-anchor" href="#首先是callout语法">¶</a>首先是<code>callout</code>语法</h3>
 <figure class="highlight md"><table><tr><td class="code"><pre><span class="line"><span class="quote">&gt; [!tag]</span></span><br><span class="line"><span class="quote">&gt;</span></span><br><span class="line"><span class="quote">&gt; content1</span></span><br><span class="line"><span class="quote">&gt;</span></span><br><span class="line"><span class="quote">&gt; content2</span></span><br></pre></td></tr></table></figure>
-<p>由于笔者在编写此博客时使用的编写工具是<code>typora</code>，故将原来<code>obsidian</code>的语法做了一些改动，因为<code>typora</code>的引用块，行与行之间也会自动添加空行。<a href="4179">[关于callout块渲染]</a></p>
+<p>由于笔者在编写此博客时使用的编写工具是<code>typora</code>，故将原来<code>obsidian</code>的语法做了一些改动，因为<code>typora</code>的引用块，行与行之间也会自动添加空行。<a href="posts/4179">[关于callout块渲染]</a></p>
 
 <div class="callout callout-tip">
     <div class="callout-head">
@@ -134,7 +134,7 @@
   </entry>
   <entry>
     <title>关于 callout 块渲染</title>
-    <url>/2024/12/09/%E5%85%B3%E4%BA%8Ecallout%E5%9D%97%E6%B8%B2%E6%9F%93/</url>
+    <url>/posts/4179.html</url>
     <content><![CDATA[]]></content>
       <tags>
         <tag>hexo 建设</tag>
