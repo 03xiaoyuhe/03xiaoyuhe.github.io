@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>关于 callout 块渲染</title>
+    <url>/2024/12/09/%E5%85%B3%E4%BA%8Ecallout%E5%9D%97%E6%B8%B2%E6%9F%93/</url>
+    <content><![CDATA[]]></content>
+      <tags>
+        <tag>hexo 建设</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>写在前面</title>
     <url>/2024/12/08/hello/</url>
     <content><![CDATA[<h1>写在前面</h1>
@@ -117,7 +125,7 @@
 <h2 id="关于博客中自定义渲染callout块的部分"><a class="header-anchor" href="#关于博客中自定义渲染callout块的部分">¶</a>关于博客中自定义渲染<code>callout</code>块的部分</h2>
 <h3 id="首先是callout语法"><a class="header-anchor" href="#首先是callout语法">¶</a>首先是<code>callout</code>语法</h3>
 <figure class="highlight md"><table><tr><td class="code"><pre><span class="line"><span class="quote">&gt; [!tag]</span></span><br><span class="line"><span class="quote">&gt;</span></span><br><span class="line"><span class="quote">&gt; content1</span></span><br><span class="line"><span class="quote">&gt;</span></span><br><span class="line"><span class="quote">&gt; content2</span></span><br></pre></td></tr></table></figure>
-<p>由于笔者在编写此博客时使用的编写工具是<code>typora</code>，故将原来<code>obsidian</code>的语法做了一些改动，因为<code>typora</code>的引用块，行与行之间也会自动添加空行。<a href="%E5%85%B3%E4%BA%8Ecallout%E5%9D%97%E6%B8%B2%E6%9F%93.md">[关于callout块渲染]</a></p>
+<p>由于笔者在编写此博客时使用的编写工具是<code>typora</code>，故将原来<code>obsidian</code>的语法做了一些改动，因为<code>typora</code>的引用块，行与行之间也会自动添加空行。<a href="4179">[关于callout块渲染]</a></p>
 
 <div class="callout callout-tip">
     <div class="callout-head">
@@ -131,13 +139,5 @@
     </div>
 </div><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[!info] 信息头</span><br><span class="line">这是第一行内容。</span><br><span class="line">这是第二行内容。</span><br></pre></td></tr></table></figure>
 ]]></content>
-  </entry>
-  <entry>
-    <title>关于 callout 块渲染</title>
-    <url>/2024/12/09/%E5%85%B3%E4%BA%8Ecallout%E5%9D%97%E6%B8%B2%E6%9F%93/</url>
-    <content><![CDATA[]]></content>
-      <tags>
-        <tag>hexo 建设</tag>
-      </tags>
   </entry>
 </search>
