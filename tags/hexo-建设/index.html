@@ -207,7 +207,7 @@
 
       <div class="post-meta">
         <time itemprop="dateCreated"
-              datetime="2024-12-09T08:14:46+08:00"
+              datetime="2024-12-09T17:43:29+08:00"
               content="2024-12-09">
           12-09
         </time>
@@ -300,7 +300,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags">
           
-        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-count">2</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -409,7 +409,7 @@
                     },
                     visualMap: {
                         min: 0,
-                        max: Math.max(...[["2024-12-08",1],["2024-12-09",2]].map(item => item[1])),
+                        max: Math.max(...[["2024-12-09",3]].map(item => item[1])),
                         calculable: false,
                         orient: 'horizontal', // 横向布局
                         right: '5%',
@@ -429,7 +429,7 @@
                     series: [{
                         type: 'heatmap',
                         coordinateSystem: 'calendar',
-                        data: [["2024-12-08",1],["2024-12-09",2]]
+                        data: [["2024-12-09",3]]
                     }]
                 });
             }
@@ -472,7 +472,7 @@
                     series: [{
                         type: 'pie',
                         radius: '60%',
-                        data: [{"name":"hexo 建设","value":1}],
+                        data: [{"name":"大学","value":1},{"name":"hexo 建设","value":1}],
                         label: {
                             position: 'outside',
                             formatter: '{b} {c} ({d}%)',
@@ -484,7 +484,7 @@
                     legend: {
                         bottom: '0',
                         left: 'center',
-                        data: [{"name":"hexo 建设","value":1}].map(tag => tag.name),
+                        data: [{"name":"大学","value":1},{"name":"hexo 建设","value":1}].map(tag => tag.name),
                         textStyle: { fontSize: 12 }
                     }
                 });
