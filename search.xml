@@ -133,29 +133,11 @@
 ]]></content>
   </entry>
   <entry>
-    <title>计网复习  //文章标题</title>
-    <url>///%E6%96%87%E7%AB%A0%E6%98%BE%E7%A4%BA%E8%BF%9E%E6%8E%A5</url>
-    <content><![CDATA[<img src="https://" alt="" style="width:100%" />  
-
-<div class="callout callout-tip">
-    <div class="callout-head">
-        <span class="callout-head-icon">💡</span>
-        <span class="callout-head-text" style="color:#009688">TIP</span>
-    </div>
-    <div class="callout-contents">
-        <p></p>
-<p>用来记一些计网复习笔记</p>
-
-    </div>
-</div><span id="more"></span>
-<hr />
-]]></content>
-      <categories>
-        <category>//文章匪类目录</category>
-      </categories>
-      <tags>
-        <tag>//文章标签，可多个，用，隔开</tag>
-      </tags>
+    <title>软件工程导论任务</title>
+    <url>/posts/5fdb4d5f.html</url>
+    <content><![CDATA[<img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412091604127.png" alt="" style="width:100%" />  
+<span id="more"></span>
+<hr />]]></content>
   </entry>
   <entry>
     <title>关于 callout 块渲染</title>
@@ -171,7 +153,8 @@
 <p>记录一下<code>callout</code>支持过程。</p>
 
     </div>
-</div><h2 id="初期想法"><a class="header-anchor" href="#初期想法">¶</a>初期想法</h2>
+</div><span id="more"></span>
+<h2 id="初期想法"><a class="header-anchor" href="#初期想法">¶</a>初期想法</h2>
 <p>因为<code>hexo</code>支持<code>markdown</code>基础语法，而笔者在使用<code>hexo</code>之前，恰好使用过<code>Obsidian</code>笔记软件，非常喜欢使用<code>Obsidian</code>中的<code>Callout</code>块。</p>
 <p>但发现网上并没有相关解决方案，虽然可以使用自定义代码块的方式书写类似<code>callout</code>块的效果，但是这样就和当前使用的<code>markdown</code>编辑器不兼容，而且自定义代码块的样式并不好看。<small><del>笔者还是比较喜欢即写即渲染的编辑模式</del></small></p>
 <p>所以，笔者就想提供一个专门用于渲染<code>callout</code>块的自定义渲染器，<small>笔者曾经写过一个<code>python</code>的<code>md</code>渲染器，就在书写本文章不久前，也是为了解决<code>callout</code>块问题</small></p>
