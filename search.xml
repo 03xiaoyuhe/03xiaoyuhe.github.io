@@ -1,69 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>关于本博客的客制化css</title>
-    <url>/posts/d9cd1415.html</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />
-
-<div class="callout callout-tip">
-    <div class="callout-head">
-        <span class="callout-head-icon">💡</span>
-        <span class="callout-head-text" style="color:#009688">TIP</span>
-    </div>
-    <div class="callout-contents">
-        <p></p>
-<p>当然是记一些关于本博客客制化<code>css</code>相关的内容啦</p>
-
-    </div>
-</div><span id="more"></span>
-<p><strong>由于之前说到<a href="/posts/4179">用自定义渲染器渲染<code>callout</code></a></strong></p>
-<p>但是其中其实还有一个问题有待解决：</p>
-<p><big>如何将自定义的<code>callout</code>样式块渲染出来</big></p>
-<p><small>这里指的是，<code>Markdown</code>已经成功的转换成显示在网站中的<code>html</code>代码块了</small></p>
-<p>但是实际上我们发现，解析的<code>html</code>我们确实有了，但是<code>callout</code>并非是我们想要的样式，而是一个并没有进行任何着色的状态。</p>
-<h2 id="自定义css样式"><a class="header-anchor" href="#自定义css样式">¶</a>自定义<code>css</code>样式</h2>
-
-<div class="callout callout-tip">
-    <div class="callout-head">
-        <span class="callout-head-icon">💡</span>
-        <span class="callout-head-text" style="color:#009688">TIP</span>
-    </div>
-    <div class="callout-contents">
-        <p></p>
-<h3 id="2-1-添加客制化css"><a class="header-anchor" href="#2-1-添加客制化css">¶</a>2.1 添加客制化css</h3>
-<p>虽然在<code>css</code>目录下任意<code>.styl</code>下添加<code>css</code>样式代码可以生效，但是为了方便以后修改，最好创建一个新的<code>.styl</code>文件记录自己的修改。</p>
-<ol>
-<li class="lvl-3">
-<p>在<code>themes/next/source/css/main.styl</code>最后加上：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">@import &quot;_custom/custom&quot;</span><br></pre></td></tr></table></figure>
-</li>
-<li class="lvl-3">
-<p>在<code>themes/next/source/css</code>目录下创建<code>_custom</code>文件夹；</p>
-</li>
-<li class="lvl-3">
-<p>在目录<code>themes/next/source/css/_custom</code>下新建文件<code>custom.styl</code>。</p>
-</li>
-<li class="lvl-3">
-<p>在<code>custom.styl</code>中添加<code>css</code>样式修改博客的<code>css</code>。</p>
-</li>
-</ol>
-<p>—— 摘自 <a href="https://zachary116699.github.io/2024/05/09/hexo-next-css/">hexo-next主题配置css | 大水笔✰档案室</a></p>
-
-    </div>
-</div><p>然后就是将自己自定义的<code>css</code>样式放在里面</p>
-<p>这里贴一下<code>callout</code>样式部分：</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/* 基础样式 */</span></span><br><span class="line"><span class="selector-class">.callout</span> &#123;</span><br><span class="line">    <span class="attribute">border-left</span>: <span class="number">4px</span> solid;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#f0f0f0</span>;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">10px</span> <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">14px</span>;</span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="number">4px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Info 样式 */</span></span><br><span class="line"><span class="selector-class">.callout-info</span> &#123;</span><br><span class="line">    <span class="attribute">border-left-color</span>: <span class="number">#3178c6</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#e3f2fd</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Warning 样式 */</span></span><br><span class="line"><span class="selector-class">.callout-warning</span> &#123;</span><br><span class="line">    <span class="attribute">border-left-color</span>: <span class="number">#e5a700</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#fff3e0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Error 样式 */</span></span><br><span class="line"><span class="selector-class">.callout-error</span> &#123;</span><br><span class="line">    <span class="attribute">border-left-color</span>: <span class="number">#d32f2f</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#ffebee</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Success 样式 */</span></span><br><span class="line"><span class="selector-class">.callout-success</span> &#123;</span><br><span class="line">    <span class="attribute">border-left-color</span>: <span class="number">#2e7d32</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#e8f5e9</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Note 样式 */</span></span><br><span class="line"><span class="selector-class">.callout-note</span> &#123;</span><br><span class="line">    <span class="attribute">border-left-color</span>: <span class="number">#673ab7</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#ede7f6</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Tip 样式 */</span></span><br><span class="line"><span class="selector-class">.callout-tip</span> &#123;</span><br><span class="line">    <span class="attribute">border-left-color</span>: <span class="number">#009688</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#e0f2f1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>然后，就好了，现在整个<code>callout</code>块的部分就完整了🙌</p>
-<hr />
-<div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
-      <categories>
-        <category>hexo</category>
-      </categories>
-      <tags>
-        <tag>hexo 建设</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>写在前面</title>
     <url>/posts/55009.html</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1>写在前面</h1>
@@ -268,6 +205,83 @@
 <div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
   </entry>
   <entry>
+    <title>关于本博客的客制化css</title>
+    <url>/posts/d9cd1415.html</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p></p>
+<p>当然是记一些关于本博客客制化<code>css</code>相关的内容啦</p>
+
+    </div>
+</div><span id="more"></span>
+<p><strong>由于之前说到<a href="/posts/4179">用自定义渲染器渲染<code>callout</code></a></strong></p>
+<p>但是其中其实还有一个问题有待解决：</p>
+<p><big>如何将自定义的<code>callout</code>样式块渲染出来</big></p>
+<p><small>这里指的是，<code>Markdown</code>已经成功的转换成显示在网站中的<code>html</code>代码块了</small></p>
+<p>但是实际上我们发现，解析的<code>html</code>我们确实有了，但是<code>callout</code>并非是我们想要的样式，而是一个并没有进行任何着色的状态。</p>
+<h2 id="自定义css样式"><a class="header-anchor" href="#自定义css样式">¶</a>自定义<code>css</code>样式</h2>
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p></p>
+<h3 id="2-1-添加客制化css"><a class="header-anchor" href="#2-1-添加客制化css">¶</a>2.1 添加客制化css</h3>
+<p>虽然在<code>css</code>目录下任意<code>.styl</code>下添加<code>css</code>样式代码可以生效，但是为了方便以后修改，最好创建一个新的<code>.styl</code>文件记录自己的修改。</p>
+<ol>
+<li class="lvl-3">
+<p>在<code>themes/next/source/css/main.styl</code>最后加上：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">@import &quot;_custom/custom&quot;</span><br></pre></td></tr></table></figure>
+</li>
+<li class="lvl-3">
+<p>在<code>themes/next/source/css</code>目录下创建<code>_custom</code>文件夹；</p>
+</li>
+<li class="lvl-3">
+<p>在目录<code>themes/next/source/css/_custom</code>下新建文件<code>custom.styl</code>。</p>
+</li>
+<li class="lvl-3">
+<p>在<code>custom.styl</code>中添加<code>css</code>样式修改博客的<code>css</code>。</p>
+</li>
+</ol>
+<p>—— 摘自 <a href="https://zachary116699.github.io/2024/05/09/hexo-next-css/">hexo-next主题配置css | 大水笔✰档案室</a></p>
+
+    </div>
+</div><p>然后就是将自己自定义的<code>css</code>样式放在里面</p>
+<p>这里贴一下<code>callout</code>样式部分：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/* 基础样式 */</span></span><br><span class="line"><span class="selector-class">.callout</span> &#123;</span><br><span class="line">    <span class="attribute">border-left</span>: <span class="number">4px</span> solid;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#f0f0f0</span>;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">10px</span> <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">14px</span>;</span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="number">4px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Info 样式 */</span></span><br><span class="line"><span class="selector-class">.callout-info</span> &#123;</span><br><span class="line">    <span class="attribute">border-left-color</span>: <span class="number">#3178c6</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#e3f2fd</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Warning 样式 */</span></span><br><span class="line"><span class="selector-class">.callout-warning</span> &#123;</span><br><span class="line">    <span class="attribute">border-left-color</span>: <span class="number">#e5a700</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#fff3e0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Error 样式 */</span></span><br><span class="line"><span class="selector-class">.callout-error</span> &#123;</span><br><span class="line">    <span class="attribute">border-left-color</span>: <span class="number">#d32f2f</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#ffebee</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Success 样式 */</span></span><br><span class="line"><span class="selector-class">.callout-success</span> &#123;</span><br><span class="line">    <span class="attribute">border-left-color</span>: <span class="number">#2e7d32</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#e8f5e9</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Note 样式 */</span></span><br><span class="line"><span class="selector-class">.callout-note</span> &#123;</span><br><span class="line">    <span class="attribute">border-left-color</span>: <span class="number">#673ab7</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#ede7f6</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Tip 样式 */</span></span><br><span class="line"><span class="selector-class">.callout-tip</span> &#123;</span><br><span class="line">    <span class="attribute">border-left-color</span>: <span class="number">#009688</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#e0f2f1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>然后，就好了，现在整个<code>callout</code>块的部分就完整了🙌</p>
+<hr />
+<div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>hexo 建设</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>考试时间统计</title>
+    <url>/posts/28f58f35.html</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />
+<ul class="lvl-0">
+<li class="lvl-2">计组：25号</li>
+</ul>
+<span id="more"></span>
+<hr />
+<div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
+      <tags>
+        <tag>大学</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>关于 callout 块渲染</title>
     <url>/posts/4179.html</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />
@@ -329,20 +343,6 @@
 ]]></content>
       <tags>
         <tag>hexo 建设</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>考试时间统计</title>
-    <url>/posts/28f58f35.html</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />
-<ul class="lvl-0">
-<li class="lvl-2">计组：25号</li>
-</ul>
-<span id="more"></span>
-<hr />
-<div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
-      <tags>
-        <tag>大学</tag>
       </tags>
   </entry>
 </search>
