@@ -1220,7 +1220,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #f9ffff;
+  background: #6e73b9;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2811,40 +2811,4 @@ mjx-container + br {
 .callout-tip {
   border-left-color: #009688;
   background-color: #e0f2f1;
-}
-p {
-  margin-top: 15px;
-  margin-bottom: 15px;
-  text-indent: 4ex;
-  line-height: 1.6;
-}
-@media (min-width: 1200px) {
-  .post-body {
-    font-size: 1em;
-  }
-}
-.site-title {
-  text-indent: 0;
-}
-.site-author-name {
-  text-indent: 0;
-}
-.post-button {
-  margin-top: 10px;
-}
-.posts-expand .post-header {
-  margin-bottom: 10px;
-}
-:root {
-  --theme-color: #6495ed;
-  --btn-default-color: #87cefa;
-  --btn-default-border-color: #87cefa;
-  --btn-default-hover-bg: #87cefa;
-  --btn-default-hover-border-color: #87cefa;
-}
-blockquote > p {
-  text-indent: 0;
-}
-ol > li > p {
-  text-indent: 0;
 }
