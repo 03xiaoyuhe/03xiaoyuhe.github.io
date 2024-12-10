@@ -475,7 +475,16 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2024-12-10 13:54:40 / 修改时间：14:19:03" itemprop="dateCreated datePublished" datetime="2024-12-10T13:54:40+08:00">2024-12-10</time>
+              <time title="创建时间：2024-12-10 13:54:40 / 修改时间：15:06:15" itemprop="dateCreated datePublished" datetime="2024-12-10T13:54:40+08:00">2024-12-10</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/hexo/" itemprop="url" rel="index"><span itemprop="name">hexo</span></a>
+                </span>
             </span>
 
           
@@ -490,6 +499,18 @@
 
       
           <img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p></p>
+<p>当然是记一些关于本博客客制化<code>css</code>相关的内容啦</p>
+
+    </div>
+</div>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/posts/d9cd1415.html#more" rel="contents">
@@ -745,6 +766,12 @@
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories">
+          
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags">
           
@@ -977,7 +1004,7 @@
                     series: [{
                         type: 'pie',
                         radius: '60%',
-                        data: [{"name":"大学","value":1},{"name":"hexo 建设","value":1}],
+                        data: [{"name":"hexo 建设","value":2},{"name":"大学","value":1}],
                         label: {
                             position: 'outside',
                             formatter: '{b} {c} ({d}%)',
@@ -989,7 +1016,7 @@
                     legend: {
                         bottom: '0',
                         left: 'center',
-                        data: [{"name":"大学","value":1},{"name":"hexo 建设","value":1}].map(tag => tag.name),
+                        data: [{"name":"hexo 建设","value":2},{"name":"大学","value":1}].map(tag => tag.name),
                         textStyle: { fontSize: 12 }
                     }
                 });
@@ -1007,13 +1034,13 @@
                     },
                     yAxis: {
                         type: 'category',
-                        data: [].map(category => category.name).reverse(),
+                        data: [{"name":"hexo","value":1}].map(category => category.name).reverse(),
                         axisLabel: { fontSize: 12 }
                     },
                     series: [{
                         name: 'Category Count',
                         type: 'bar',
-                        data: [].map(category => category.value).reverse(),
+                        data: [{"name":"hexo","value":1}].map(category => category.value).reverse(),
                         label: {
                             show: true,
                             position: 'right',
