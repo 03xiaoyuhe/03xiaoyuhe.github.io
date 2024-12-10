@@ -133,78 +133,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>footnote使用</title>
-    <url>/posts/64648fb9.html</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
-<span id="more"></span>
-<hr />
-<div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
-  </entry>
-  <entry>
-    <title>关于 callout 块渲染</title>
-    <url>/posts/4179.html</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />
-
-<div class="callout callout-tip">
-    <div class="callout-head">
-        <span class="callout-head-icon">💡</span>
-        <span class="callout-head-text" style="color:#009688">TIP</span>
-    </div>
-    <div class="callout-contents">
-        <p></p>
-<p>记录一下<code>callout</code>支持过程。</p>
-
-    </div>
-</div><span id="more"></span>
-<h2 id="初期想法"><a class="header-anchor" href="#初期想法">¶</a>初期想法</h2>
-<p>因为<code>hexo</code>支持<code>markdown</code>基础语法，而笔者在使用<code>hexo</code>之前，恰好使用过<code>Obsidian</code>笔记软件，非常喜欢使用<code>Obsidian</code>中的<code>Callout</code>块。</p>
-<p>但发现网上并没有相关解决方案，虽然可以使用自定义代码块的方式书写类似<code>callout</code>块的效果，但是这样就和当前使用的<code>markdown</code>编辑器不兼容，而且自定义代码块的样式并不好看。<small><del>笔者还是比较喜欢即写即渲染的编辑模式</del></small></p>
-<p>所以，笔者就想提供一个专门用于渲染<code>callout</code>块的自定义渲染器，<small>笔者曾经写过一个<code>python</code>的<code>md</code>渲染器，就在书写本文章不久前，也是为了解决<code>callout</code>块问题</small></p>
-<p><small><del>笔者对<code>callout</code>还是非常喜爱的</del></small></p>
-<h2 id="实际实现"><a class="header-anchor" href="#实际实现">¶</a>实际实现</h2>
-<p>首先，安装<code>hexo-renderer-markdown-it</code> 以及 <code>markdown-it-container</code> 插件来扩展 <code>Markdown</code> 功能：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-renderer-markdown-it --save</span><br><span class="line">npm install markdown-it-container --save</span><br></pre></td></tr></table></figure>
-<p>在 <code>hexo-renderer-markdown-it</code> 配置中启用容器解析： 修改 <code>Hexo</code> 的 <code>_config.yml</code> 文件：</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">markdown:</span></span><br><span class="line">  <span class="attr">render:</span></span><br><span class="line">    <span class="attr">html:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">xhtmlOut:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">breaks:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">linkify:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">typographer:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">plugins:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">markdown-it-container</span></span><br><span class="line">  <span class="attr">anchors:</span></span><br><span class="line">    <span class="attr">level:</span> <span class="number">2</span></span><br><span class="line">    <span class="attr">collisionSuffix:</span> <span class="string">&#x27;&#x27;</span></span><br><span class="line">    <span class="attr">permalink:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">permalinkClass:</span> <span class="string">header-anchor</span></span><br><span class="line">    <span class="attr">permalinkSymbol:</span> <span class="string">&#x27;¶&#x27;</span></span><br></pre></td></tr></table></figure>
-<p>此时，<code>hexo</code>已经支持运行自定义的<code>markdown</code>了。</p>
-<p>接下来，我们书写<code>callout</code>渲染器。</p>
-<p><small><del>其实笔者在该部分废了老大的劲</del></small></p>
-<p>我先贴下代码</p>
-<h3 id="自定义渲染器代码"><a class="header-anchor" href="#自定义渲染器代码">¶</a>自定义渲染器代码</h3>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> iconConfig = &#123;</span><br><span class="line">    <span class="string">&quot;info&quot;</span>: &#123; <span class="string">&quot;color&quot;</span>: <span class="string">&quot;#3178c6&quot;</span>, <span class="string">&quot;icon&quot;</span>: <span class="string">&quot;ℹ️&quot;</span> &#125;,</span><br><span class="line">    <span class="string">&quot;warning&quot;</span>: &#123; <span class="string">&quot;color&quot;</span>: <span class="string">&quot;#e5a700&quot;</span>, <span class="string">&quot;icon&quot;</span>: <span class="string">&quot;⚠️&quot;</span> &#125;,</span><br><span class="line">    <span class="string">&quot;error&quot;</span>: &#123; <span class="string">&quot;color&quot;</span>: <span class="string">&quot;#d32f2f&quot;</span>, <span class="string">&quot;icon&quot;</span>: <span class="string">&quot;❌&quot;</span> &#125;,</span><br><span class="line">    <span class="string">&quot;success&quot;</span>: &#123; <span class="string">&quot;color&quot;</span>: <span class="string">&quot;#2e7d32&quot;</span>, <span class="string">&quot;icon&quot;</span>: <span class="string">&quot;✔️&quot;</span> &#125;,</span><br><span class="line">    <span class="string">&quot;note&quot;</span>: &#123; <span class="string">&quot;color&quot;</span>: <span class="string">&quot;#673ab7&quot;</span>, <span class="string">&quot;icon&quot;</span>: <span class="string">&quot;📝&quot;</span> &#125;,</span><br><span class="line">    <span class="string">&quot;tip&quot;</span>: &#123; <span class="string">&quot;color&quot;</span>: <span class="string">&quot;#009688&quot;</span>, <span class="string">&quot;icon&quot;</span>: <span class="string">&quot;💡&quot;</span> &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">loadIcon</span>(<span class="params">iconName</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> iconInfo = iconConfig[iconName] || iconConfig[<span class="string">&quot;info&quot;</span>];</span><br><span class="line">    <span class="keyword">return</span> <span class="string">`&lt;span class=&quot;callout-head-icon&quot;&gt;<span class="subst">$&#123;iconInfo.icon&#125;</span>&lt;/span&gt;`</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">hexo.<span class="property">extend</span>.<span class="property">filter</span>.<span class="title function_">register</span>(<span class="string">&#x27;markdown-it:renderer&#x27;</span>, <span class="keyword">function</span> (<span class="params">md</span>) &#123;</span><br><span class="line">    md.<span class="property">core</span>.<span class="property">ruler</span>.<span class="title function_">push</span>(<span class="string">&#x27;render_callout&#x27;</span>, <span class="keyword">function</span> (<span class="params">state</span>) &#123;</span><br><span class="line">        <span class="keyword">const</span> tokens = state.<span class="property">tokens</span>;</span><br><span class="line"></span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;Starting token processing...&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; tokens.<span class="property">length</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">const</span> token = tokens[i];</span><br><span class="line"></span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`Processing token <span class="subst">$&#123;i&#125;</span>:`</span>, token);</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 检查是否为 blockquote_open</span></span><br><span class="line">            <span class="keyword">if</span> (token.<span class="property">type</span> === <span class="string">&#x27;blockquote_open&#x27;</span>) &#123;</span><br><span class="line">                <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;Found blockquote_open&quot;</span>);</span><br><span class="line"></span><br><span class="line">                <span class="keyword">const</span> blockquoteTokens = [];</span><br><span class="line">                <span class="keyword">let</span> j = i + <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">                <span class="comment">// 收集整个 blockquote 区块内容</span></span><br><span class="line">                <span class="keyword">while</span> (tokens[j] &amp;&amp; tokens[j].<span class="property">type</span> !== <span class="string">&#x27;blockquote_close&#x27;</span>) &#123;</span><br><span class="line">                    blockquoteTokens.<span class="title function_">push</span>(tokens[j]);</span><br><span class="line">                    j++;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> (tokens[j]?.<span class="property">type</span> === <span class="string">&#x27;blockquote_close&#x27;</span>) &#123;</span><br><span class="line">                    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;Found blockquote_close&quot;</span>);</span><br><span class="line">                    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;Collected tokens:&quot;</span>, blockquoteTokens);</span><br><span class="line"></span><br><span class="line">                    <span class="comment">// 提取 blockquote 内文本内容</span></span><br><span class="line">                    <span class="keyword">let</span> calloutType = <span class="literal">null</span>;</span><br><span class="line">                    <span class="keyword">const</span> calloutBodyTokens = [];</span><br><span class="line"></span><br><span class="line">                    blockquoteTokens.<span class="title function_">forEach</span>(<span class="function"><span class="params">token</span> =&gt;</span> &#123;</span><br><span class="line">                        <span class="keyword">if</span> (token.<span class="property">type</span> === <span class="string">&#x27;inline&#x27;</span> &amp;&amp; !calloutType) &#123;</span><br><span class="line">                            <span class="comment">// 提取 Callout 类型</span></span><br><span class="line">                            <span class="keyword">const</span> match = token.<span class="property">content</span>.<span class="title function_">match</span>(<span class="regexp">/\[!(\w+)]/</span>);</span><br><span class="line">                            <span class="keyword">if</span> (match) &#123;</span><br><span class="line">                                calloutType = match[<span class="number">1</span>].<span class="title function_">toLowerCase</span>();</span><br><span class="line">                            &#125;</span><br><span class="line">                        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                            calloutBodyTokens.<span class="title function_">push</span>(token);</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;);</span><br><span class="line"></span><br><span class="line">                    <span class="keyword">if</span> (calloutType) &#123;</span><br><span class="line">                        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;Matched callout type:&quot;</span>, calloutType);</span><br><span class="line"></span><br><span class="line">                        <span class="comment">// 递归渲染 Markdown 内容</span></span><br><span class="line">                        <span class="keyword">const</span> calloutBody = md.<span class="property">renderer</span>.<span class="title function_">render</span>(calloutBodyTokens, state.<span class="property">options</span>, state.<span class="property">env</span>);</span><br><span class="line"></span><br><span class="line">                        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;Callout body (rendered):&quot;</span>, calloutBody);</span><br><span class="line"></span><br><span class="line">                        <span class="keyword">const</span> iconInfo = iconConfig[calloutType] || iconConfig[<span class="string">&quot;info&quot;</span>];</span><br><span class="line"></span><br><span class="line">                        <span class="keyword">const</span> calloutHtml = <span class="string">`</span></span><br><span class="line"><span class="string">&lt;div class=&quot;callout callout-<span class="subst">$&#123;calloutType&#125;</span>&quot;&gt;</span></span><br><span class="line"><span class="string">    &lt;div class=&quot;callout-head&quot;&gt;</span></span><br><span class="line"><span class="string">        <span class="subst">$&#123;loadIcon(calloutType)&#125;</span></span></span><br><span class="line"><span class="string">        &lt;span class=&quot;callout-head-text&quot; style=&quot;color:<span class="subst">$&#123;iconInfo.color&#125;</span>&quot;&gt;<span class="subst">$&#123;calloutType.toUpperCase()&#125;</span>&lt;/span&gt;</span></span><br><span class="line"><span class="string">    &lt;/div&gt;</span></span><br><span class="line"><span class="string">    &lt;div class=&quot;callout-contents&quot;&gt;</span></span><br><span class="line"><span class="string">        <span class="subst">$&#123;calloutBody&#125;</span></span></span><br><span class="line"><span class="string">    &lt;/div&gt;</span></span><br><span class="line"><span class="string">&lt;/div&gt;`</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">                        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;Generated HTML:&quot;</span>, calloutHtml);</span><br><span class="line"></span><br><span class="line">                        <span class="comment">// 替换原引用块内容</span></span><br><span class="line">                        token.<span class="property">type</span> = <span class="string">&#x27;html_block&#x27;</span>;</span><br><span class="line">                        token.<span class="property">content</span> = calloutHtml;</span><br><span class="line"></span><br><span class="line">                        <span class="comment">// 移除 blockquote 区块内处理的内容</span></span><br><span class="line">                        tokens.<span class="title function_">splice</span>(i + <span class="number">1</span>, j - i);</span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;No callout type found in blockquote.&quot;</span>);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;No matching blockquote_close found.&quot;</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;Finished processing tokens.&quot;</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p><small>其实在阅读这段代码我们能够发现，这段脚本支持用户自定义自己喜欢的callout块，这是后话</small></p>
-<h3 id="代码放在位置"><a class="header-anchor" href="#代码放在位置">¶</a>代码放在位置</h3>
-<p><strong>然后就是代码的放置位置</strong>，虽然笔者并不了解<code>hexo</code></p>
-<ol>
-<li class="lvl-3">
-<p>总之，在你的<em>博客根目录</em><br>
-<small>(虽然不知道博客根目录是否难懂，但如果跟着教程配好了博客的人一定都很聪明)</small></p>
-</li>
-<li class="lvl-3">
-<p>新建一个<code>scripts</code>文件夹<small>当然，也可能有的大佬已经有了，<del>萌新瑟瑟发抖</del></small></p>
-</li>
-<li class="lvl-3">
-<p>然后在该文件夹下新建文件<code>markdown-it-callout.js</code><small>当然，笔者的文件名取的是这个，但并不清楚其他名字是否可用</small></p>
-</li>
-<li class="lvl-3">
-<p>然后把上面那段<code>callout</code>渲染代码贴进去</p>
-</li>
-</ol>
-<h3 id="自定义css样式"><a class="header-anchor" href="#自定义css样式">¶</a>自定义css样式</h3>
-<p>然后由于笔者使用的callout块是自己渲染的，需要<strong>自定义css样式</strong></p>
-<p>这个部分在<a href="/posts/d9cd1415">客制化css</a>有详细介绍</p>
-<hr>
-<p>然后！<big>然后！<big>然后！</big></big>你就获得了一个可以渲染<code>callout</code>的<code>hexo</code></p>
-<h2 id="然后就是效果展示了"><a class="header-anchor" href="#然后就是效果展示了">¶</a>然后就是效果展示了</h2>
-<p>其实看<a href="/posts/55009">写在前面</a>就可以了</p>
-<hr>
-<div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>
-]]></content>
-      <tags>
-        <tag>hexo 建设</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>typora破解</title>
     <url>/posts/8fcf3ec6.html</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
@@ -229,14 +157,6 @@
     </div>
     <div class="callout-contents">
         <p></p>
-<blockquote>
-<p>本文由 <a href="https://blog.captainz.cc/go/#aHR0cDovL2tzcmlhLmNvbS9zaW1wcmVhZC8=">简悦 SimpRead</a> 转码， 原文地址 <a href="https://blog.captainz.cc/go/#aHR0cHM6Ly81MS5ydXlvLm5ldC8xODU4My5odG1s">51.ruyo.net</a></p>
-
-    </div>
-</div><blockquote>
-<p>Typora 是一款由 Abner Lee 开发的轻量级 Markdown 编辑器，适用于 OS X、Windows 和 Linux 三种操作系统。</p>
-</blockquote>
-<p><a href="https://img-cft.captainz.cc/hexo/2023/12/666abb780b9f159005f65446a9fce706.jpg"><img src="https://img-cft.captainz.cc/hexo/2023/12/666abb780b9f159005f65446a9fce706.jpg" alt="img"></a></p>
 <p>Typora 是一款由 Abner Lee 开发的轻量级 Markdown 编辑器，适用于 OS X、Windows 和 Linux 三种操作系统。</p>
 <p>与其他 Markdown 编辑器不同的是，Typora 没有采用源代码和预览双栏显示的方式，而是采用所见即所得的编辑方式，实现了即时预览的功能，但也可切换至源代码编辑模式。</p>
 <p>该软件目前只有 15 天免费试用，后续使用续费付费才行！这里分享一个自己破解的方法！不再从网上下载破解版或者补丁了！</p>
@@ -250,7 +170,8 @@
 <p>修改 Typora 安装目录 <code>\ resources\page-dist\static\js\LicenseIndex.xxxxxxxxx.xxxxxxx.chunk.js</code>，激活主程序</p>
 </li>
 </ol>
-<p>查找：<code>e.hasActivated=&quot;true&quot;==e.hasActivated,</code>替换：<code>e.hasActivated=&quot;true&quot;==&quot;true&quot;,</code></p>
+<p>查找：<code>e.hasActivated=&quot;true&quot;==e.hasActivated,</code></p>
+<p>替换：<code>e.hasActivated=&quot;true&quot;==&quot;true&quot;,</code></p>
 <ol>
 <li class="lvl-3">
 <p>修改 Typora 安装目录 \ resources\page-dist\license.html，关闭每次启动时的已激活弹窗</p>
@@ -262,24 +183,8 @@
 <p>修改 Typora 安装目录 \ resources\locales\zh-Hans.lproj\Panel.json，去除左下角 “未激活” 提示（不完美方案，仅去除文字，小框框还在）</p>
 </li>
 </ol>
-<p>查找：<code>&quot;UNREGISTERED&quot;:&quot;未激活&quot;</code>替换：<code>&quot;UNREGISTERED&quot;:&quot; &quot;</code></p>
-<h2 id="详细步骤"><a class="header-anchor" href="#详细步骤">¶</a>详细步骤</h2>
-<p>1，官网下载安装最新版的软件。</p>
-<p><a href="https://img-cft.captainz.cc/hexo/2023/12/e9224c5267aca93454581e6aad2fb449.jpg"><img src="https://img-cft.captainz.cc/hexo/2023/12/e9224c5267aca93454581e6aad2fb449.jpg" alt="img"></a></p>
-<p><a href="https://img-cft.captainz.cc/hexo/2023/12/dd232bec7aa6093a5bf0bdffedd69ee4.jpg"><img src="https://img-cft.captainz.cc/hexo/2023/12/dd232bec7aa6093a5bf0bdffedd69ee4.jpg" alt="img"></a></p>
-<p>2，Typora 安装目录寻找如图文件，打开编辑替换指定内容</p>
-<p><strong>推荐使用 VSCODE 等编辑器操作，谨慎操作避免替换错误导致程序崩溃。</strong></p>
-<p>\resources\page-dist\static\js\LicenseIndex.xxxxxxxxx.xxxxxxx.chunk.js</p>
-<p>查找：<code>e.hasActivated=&quot;true&quot;==e.hasActivated,</code>替换：<code>e.hasActivated=&quot;true&quot;==&quot;true&quot;,</code></p>
-<p><a href="https://img-cft.captainz.cc/hexo/2023/12/232d57c827fe7481fc6315e63c47cafa.jpg"><img src="https://img-cft.captainz.cc/hexo/2023/12/232d57c827fe7481fc6315e63c47cafa.jpg" alt="img"></a></p>
-<p><a href="https://img-cft.captainz.cc/hexo/2023/12/756e15f42fcfebb5abe8f386d5dfac85.jpg"><img src="https://img-cft.captainz.cc/hexo/2023/12/756e15f42fcfebb5abe8f386d5dfac85.jpg" alt="img"></a></p>
-<p>3，同样的操作替换下面内容</p>
-<p><code>\resources\page-dist\license.html</code></p>
-<p>查找：<code>&lt;/body&gt;&lt;/html&gt;</code>替换：<code>&lt;/body&gt;&lt;script&gt;window.onload=function()&#123;setTimeout(()=&gt;&#123;window.close();&#125;,5);&#125;&lt;/script&gt;&lt;/html&gt;</code></p>
-<p><code>\resources\locales\zh-Hans.lproj\Panel.json</code></p>
-<p>查找：<code>&quot;UNREGISTERED&quot;:&quot;未激活&quot;</code>替换：<code>&quot;UNREGISTERED&quot;:&quot; &quot;</code></p>
-<p>4，一顿操作后，启动软件就可以正常使用了！</p>
-<p><a href="https://img-cft.captainz.cc/hexo/2023/12/d766aa20c2d0f10059d5529daa5aff19.jpg"><img src="https://img-cft.captainz.cc/hexo/2023/12/d766aa20c2d0f10059d5529daa5aff19.jpg" alt="img"></a></p>
+<p>查找：<code>&quot;UNREGISTERED&quot;:&quot;未激活&quot;</code></p>
+<p>替换：<code>&quot;UNREGISTERED&quot;:&quot; &quot;</code></p>
 <h2 id="最后总结"><a class="header-anchor" href="#最后总结">¶</a>最后总结</h2>
 <ul class="lvl-1">
 <li class="lvl-2">
@@ -298,74 +203,26 @@
 <p>随着新版本更新，可能该方法会失效，亲测 1.7.6 没有问题</p>
 </li>
 </ul>
-<p><strong>核心内容来源：<a href="https://blog.captainz.cc/go/#aHR0cHM6Ly93d3cuNTJwb2ppZS5jbi90aHJlYWQtMTg2ODIxOS0xLTEuaHRtbA==">https://www.52pojie.cn/thread-1868219-1-1.html</a></strong></p>
 <p>—— <a href="https://blog.captainz.cc/posts/typora_crack.html">自己动手破解 Markdown 软件 Typora，支持官网最新版 | Hyper Tech</a></p>
-</blockquote>
-<hr />
-<div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
-  </entry>
-  <entry>
-    <title>关于本博客的客制化css</title>
-    <url>/posts/d9cd1415.html</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />
-
-<div class="callout callout-tip">
-    <div class="callout-head">
-        <span class="callout-head-icon">💡</span>
-        <span class="callout-head-text" style="color:#009688">TIP</span>
-    </div>
-    <div class="callout-contents">
-        <p></p>
-<p>当然是记一些关于本博客客制化<code>css</code>相关的内容啦</p>
 
     </div>
-</div><span id="more"></span>
-<p><strong>由于之前说到<a href="/posts/4179">用自定义渲染器渲染<code>callout</code></a></strong></p>
-<p>但是其中其实还有一个问题有待解决：</p>
-<p><big>如何将自定义的<code>callout</code>样式块渲染出来</big></p>
-<p><small>这里指的是，<code>Markdown</code>已经成功的转换成显示在网站中的<code>html</code>代码块了</small></p>
-<p>但是实际上我们发现，解析的<code>html</code>我们确实有了，但是<code>callout</code>并非是我们想要的样式，而是一个并没有进行任何着色的状态。</p>
-<h2 id="自定义css样式"><a class="header-anchor" href="#自定义css样式">¶</a>自定义<code>css</code>样式</h2>
-
-<div class="callout callout-tip">
-    <div class="callout-head">
-        <span class="callout-head-icon">💡</span>
-        <span class="callout-head-text" style="color:#009688">TIP</span>
-    </div>
-    <div class="callout-contents">
-        <p></p>
-<h3 id="2-1-添加客制化css"><a class="header-anchor" href="#2-1-添加客制化css">¶</a>2.1 添加客制化css</h3>
-<p>虽然在<code>css</code>目录下任意<code>.styl</code>下添加<code>css</code>样式代码可以生效，但是为了方便以后修改，最好创建一个新的<code>.styl</code>文件记录自己的修改。</p>
-<ol>
-<li class="lvl-3">
-<p>在<code>themes/next/source/css/main.styl</code>最后加上：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">@import &quot;_custom/custom&quot;</span><br></pre></td></tr></table></figure>
-</li>
-<li class="lvl-3">
-<p>在<code>themes/next/source/css</code>目录下创建<code>_custom</code>文件夹；</p>
-</li>
-<li class="lvl-3">
-<p>在目录<code>themes/next/source/css/_custom</code>下新建文件<code>custom.styl</code>。</p>
-</li>
-<li class="lvl-3">
-<p>在<code>custom.styl</code>中添加<code>css</code>样式修改博客的<code>css</code>。</p>
-</li>
-</ol>
-<p>—— 摘自 <a href="https://zachary116699.github.io/2024/05/09/hexo-next-css/">hexo-next主题配置css | 大水笔✰档案室</a></p>
-
-    </div>
-</div><p>然后就是将自己自定义的<code>css</code>样式放在里面</p>
-<p>这里贴一下<code>callout</code>样式部分：</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/* 基础样式 */</span></span><br><span class="line"><span class="selector-class">.callout</span> &#123;</span><br><span class="line">    <span class="attribute">border-left</span>: <span class="number">4px</span> solid;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#f0f0f0</span>;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">10px</span> <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">14px</span>;</span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="number">4px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Info 样式 */</span></span><br><span class="line"><span class="selector-class">.callout-info</span> &#123;</span><br><span class="line">    <span class="attribute">border-left-color</span>: <span class="number">#3178c6</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#e3f2fd</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Warning 样式 */</span></span><br><span class="line"><span class="selector-class">.callout-warning</span> &#123;</span><br><span class="line">    <span class="attribute">border-left-color</span>: <span class="number">#e5a700</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#fff3e0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Error 样式 */</span></span><br><span class="line"><span class="selector-class">.callout-error</span> &#123;</span><br><span class="line">    <span class="attribute">border-left-color</span>: <span class="number">#d32f2f</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#ffebee</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Success 样式 */</span></span><br><span class="line"><span class="selector-class">.callout-success</span> &#123;</span><br><span class="line">    <span class="attribute">border-left-color</span>: <span class="number">#2e7d32</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#e8f5e9</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Note 样式 */</span></span><br><span class="line"><span class="selector-class">.callout-note</span> &#123;</span><br><span class="line">    <span class="attribute">border-left-color</span>: <span class="number">#673ab7</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#ede7f6</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Tip 样式 */</span></span><br><span class="line"><span class="selector-class">.callout-tip</span> &#123;</span><br><span class="line">    <span class="attribute">border-left-color</span>: <span class="number">#009688</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#e0f2f1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>然后，就好了，现在整个<code>callout</code>块的部分就完整了🙌</p>
-<hr />
+</div><hr />
 <div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
       <categories>
-        <category>hexo</category>
+        <category>Typora</category>
       </categories>
       <tags>
-        <tag>hexo 建设</tag>
+        <tag>typora</tag>
+        <tag>软件破解</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>footnote使用</title>
+    <url>/posts/64648fb9.html</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
+<span id="more"></span>
+<hr />
+<div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
   </entry>
   <entry>
     <title>关于博客中使用的脚注功能</title>
@@ -437,28 +294,6 @@
       </tags>
   </entry>
   <entry>
-    <title>考试时间统计</title>
-    <url>/posts/28f58f35.html</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />
-<ul class="lvl-0">
-<li class="lvl-2">计组：25号</li>
-</ul>
-<span id="more"></span>
-<hr />
-<div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
-      <tags>
-        <tag>大学</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>折腾hexo</title>
-    <url>/posts/8dc8b2ab.html</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />
-<span id="more"></span>
-<hr />
-<div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
-  </entry>
-  <entry>
     <title>操作系统第六章复习</title>
     <url>/posts/b90b7ae5.html</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
@@ -516,9 +351,158 @@
         <category>408</category>
       </categories>
       <tags>
-        <tag>大学</tag>
         <tag>408</tag>
         <tag>OS</tag>
+        <tag>大学</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>折腾hexo</title>
+    <url>/posts/8dc8b2ab.html</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />
+<span id="more"></span>
+<hr />
+<div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
+  </entry>
+  <entry>
+    <title>关于本博客的客制化css</title>
+    <url>/posts/d9cd1415.html</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p></p>
+<p>当然是记一些关于本博客客制化<code>css</code>相关的内容啦</p>
+
+    </div>
+</div><span id="more"></span>
+<p><strong>由于之前说到<a href="/posts/4179">用自定义渲染器渲染<code>callout</code></a></strong></p>
+<p>但是其中其实还有一个问题有待解决：</p>
+<p><big>如何将自定义的<code>callout</code>样式块渲染出来</big></p>
+<p><small>这里指的是，<code>Markdown</code>已经成功的转换成显示在网站中的<code>html</code>代码块了</small></p>
+<p>但是实际上我们发现，解析的<code>html</code>我们确实有了，但是<code>callout</code>并非是我们想要的样式，而是一个并没有进行任何着色的状态。</p>
+<h2 id="自定义css样式"><a class="header-anchor" href="#自定义css样式">¶</a>自定义<code>css</code>样式</h2>
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p></p>
+<h3 id="2-1-添加客制化css"><a class="header-anchor" href="#2-1-添加客制化css">¶</a>2.1 添加客制化css</h3>
+<p>虽然在<code>css</code>目录下任意<code>.styl</code>下添加<code>css</code>样式代码可以生效，但是为了方便以后修改，最好创建一个新的<code>.styl</code>文件记录自己的修改。</p>
+<ol>
+<li class="lvl-3">
+<p>在<code>themes/next/source/css/main.styl</code>最后加上：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">@import &quot;_custom/custom&quot;</span><br></pre></td></tr></table></figure>
+</li>
+<li class="lvl-3">
+<p>在<code>themes/next/source/css</code>目录下创建<code>_custom</code>文件夹；</p>
+</li>
+<li class="lvl-3">
+<p>在目录<code>themes/next/source/css/_custom</code>下新建文件<code>custom.styl</code>。</p>
+</li>
+<li class="lvl-3">
+<p>在<code>custom.styl</code>中添加<code>css</code>样式修改博客的<code>css</code>。</p>
+</li>
+</ol>
+<p>—— 摘自 <a href="https://zachary116699.github.io/2024/05/09/hexo-next-css/">hexo-next主题配置css | 大水笔✰档案室</a></p>
+
+    </div>
+</div><p>然后就是将自己自定义的<code>css</code>样式放在里面</p>
+<p>这里贴一下<code>callout</code>样式部分：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/* 基础样式 */</span></span><br><span class="line"><span class="selector-class">.callout</span> &#123;</span><br><span class="line">    <span class="attribute">border-left</span>: <span class="number">4px</span> solid;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#f0f0f0</span>;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">10px</span> <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">14px</span>;</span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="number">4px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Info 样式 */</span></span><br><span class="line"><span class="selector-class">.callout-info</span> &#123;</span><br><span class="line">    <span class="attribute">border-left-color</span>: <span class="number">#3178c6</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#e3f2fd</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Warning 样式 */</span></span><br><span class="line"><span class="selector-class">.callout-warning</span> &#123;</span><br><span class="line">    <span class="attribute">border-left-color</span>: <span class="number">#e5a700</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#fff3e0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Error 样式 */</span></span><br><span class="line"><span class="selector-class">.callout-error</span> &#123;</span><br><span class="line">    <span class="attribute">border-left-color</span>: <span class="number">#d32f2f</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#ffebee</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Success 样式 */</span></span><br><span class="line"><span class="selector-class">.callout-success</span> &#123;</span><br><span class="line">    <span class="attribute">border-left-color</span>: <span class="number">#2e7d32</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#e8f5e9</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Note 样式 */</span></span><br><span class="line"><span class="selector-class">.callout-note</span> &#123;</span><br><span class="line">    <span class="attribute">border-left-color</span>: <span class="number">#673ab7</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#ede7f6</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Tip 样式 */</span></span><br><span class="line"><span class="selector-class">.callout-tip</span> &#123;</span><br><span class="line">    <span class="attribute">border-left-color</span>: <span class="number">#009688</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#e0f2f1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>然后，就好了，现在整个<code>callout</code>块的部分就完整了🙌</p>
+<hr />
+<div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>hexo 建设</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>考试时间统计</title>
+    <url>/posts/28f58f35.html</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />
+<ul class="lvl-0">
+<li class="lvl-2">计组：25号</li>
+</ul>
+<span id="more"></span>
+<hr />
+<div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
+      <tags>
+        <tag>大学</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>关于 callout 块渲染</title>
+    <url>/posts/4179.html</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p></p>
+<p>记录一下<code>callout</code>支持过程。</p>
+
+    </div>
+</div><span id="more"></span>
+<h2 id="初期想法"><a class="header-anchor" href="#初期想法">¶</a>初期想法</h2>
+<p>因为<code>hexo</code>支持<code>markdown</code>基础语法，而笔者在使用<code>hexo</code>之前，恰好使用过<code>Obsidian</code>笔记软件，非常喜欢使用<code>Obsidian</code>中的<code>Callout</code>块。</p>
+<p>但发现网上并没有相关解决方案，虽然可以使用自定义代码块的方式书写类似<code>callout</code>块的效果，但是这样就和当前使用的<code>markdown</code>编辑器不兼容，而且自定义代码块的样式并不好看。<small><del>笔者还是比较喜欢即写即渲染的编辑模式</del></small></p>
+<p>所以，笔者就想提供一个专门用于渲染<code>callout</code>块的自定义渲染器，<small>笔者曾经写过一个<code>python</code>的<code>md</code>渲染器，就在书写本文章不久前，也是为了解决<code>callout</code>块问题</small></p>
+<p><small><del>笔者对<code>callout</code>还是非常喜爱的</del></small></p>
+<h2 id="实际实现"><a class="header-anchor" href="#实际实现">¶</a>实际实现</h2>
+<p>首先，安装<code>hexo-renderer-markdown-it</code> 以及 <code>markdown-it-container</code> 插件来扩展 <code>Markdown</code> 功能：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-renderer-markdown-it --save</span><br><span class="line">npm install markdown-it-container --save</span><br></pre></td></tr></table></figure>
+<p>在 <code>hexo-renderer-markdown-it</code> 配置中启用容器解析： 修改 <code>Hexo</code> 的 <code>_config.yml</code> 文件：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">markdown:</span></span><br><span class="line">  <span class="attr">render:</span></span><br><span class="line">    <span class="attr">html:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">xhtmlOut:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">breaks:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">linkify:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">typographer:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">plugins:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">markdown-it-container</span></span><br><span class="line">  <span class="attr">anchors:</span></span><br><span class="line">    <span class="attr">level:</span> <span class="number">2</span></span><br><span class="line">    <span class="attr">collisionSuffix:</span> <span class="string">&#x27;&#x27;</span></span><br><span class="line">    <span class="attr">permalink:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">permalinkClass:</span> <span class="string">header-anchor</span></span><br><span class="line">    <span class="attr">permalinkSymbol:</span> <span class="string">&#x27;¶&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>此时，<code>hexo</code>已经支持运行自定义的<code>markdown</code>了。</p>
+<p>接下来，我们书写<code>callout</code>渲染器。</p>
+<p><small><del>其实笔者在该部分废了老大的劲</del></small></p>
+<p>我先贴下代码</p>
+<h3 id="自定义渲染器代码"><a class="header-anchor" href="#自定义渲染器代码">¶</a>自定义渲染器代码</h3>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> iconConfig = &#123;</span><br><span class="line">    <span class="string">&quot;info&quot;</span>: &#123; <span class="string">&quot;color&quot;</span>: <span class="string">&quot;#3178c6&quot;</span>, <span class="string">&quot;icon&quot;</span>: <span class="string">&quot;ℹ️&quot;</span> &#125;,</span><br><span class="line">    <span class="string">&quot;warning&quot;</span>: &#123; <span class="string">&quot;color&quot;</span>: <span class="string">&quot;#e5a700&quot;</span>, <span class="string">&quot;icon&quot;</span>: <span class="string">&quot;⚠️&quot;</span> &#125;,</span><br><span class="line">    <span class="string">&quot;error&quot;</span>: &#123; <span class="string">&quot;color&quot;</span>: <span class="string">&quot;#d32f2f&quot;</span>, <span class="string">&quot;icon&quot;</span>: <span class="string">&quot;❌&quot;</span> &#125;,</span><br><span class="line">    <span class="string">&quot;success&quot;</span>: &#123; <span class="string">&quot;color&quot;</span>: <span class="string">&quot;#2e7d32&quot;</span>, <span class="string">&quot;icon&quot;</span>: <span class="string">&quot;✔️&quot;</span> &#125;,</span><br><span class="line">    <span class="string">&quot;note&quot;</span>: &#123; <span class="string">&quot;color&quot;</span>: <span class="string">&quot;#673ab7&quot;</span>, <span class="string">&quot;icon&quot;</span>: <span class="string">&quot;📝&quot;</span> &#125;,</span><br><span class="line">    <span class="string">&quot;tip&quot;</span>: &#123; <span class="string">&quot;color&quot;</span>: <span class="string">&quot;#009688&quot;</span>, <span class="string">&quot;icon&quot;</span>: <span class="string">&quot;💡&quot;</span> &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">loadIcon</span>(<span class="params">iconName</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> iconInfo = iconConfig[iconName] || iconConfig[<span class="string">&quot;info&quot;</span>];</span><br><span class="line">    <span class="keyword">return</span> <span class="string">`&lt;span class=&quot;callout-head-icon&quot;&gt;<span class="subst">$&#123;iconInfo.icon&#125;</span>&lt;/span&gt;`</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">hexo.<span class="property">extend</span>.<span class="property">filter</span>.<span class="title function_">register</span>(<span class="string">&#x27;markdown-it:renderer&#x27;</span>, <span class="keyword">function</span> (<span class="params">md</span>) &#123;</span><br><span class="line">    md.<span class="property">core</span>.<span class="property">ruler</span>.<span class="title function_">push</span>(<span class="string">&#x27;render_callout&#x27;</span>, <span class="keyword">function</span> (<span class="params">state</span>) &#123;</span><br><span class="line">        <span class="keyword">const</span> tokens = state.<span class="property">tokens</span>;</span><br><span class="line"></span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;Starting token processing...&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; tokens.<span class="property">length</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">const</span> token = tokens[i];</span><br><span class="line"></span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`Processing token <span class="subst">$&#123;i&#125;</span>:`</span>, token);</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 检查是否为 blockquote_open</span></span><br><span class="line">            <span class="keyword">if</span> (token.<span class="property">type</span> === <span class="string">&#x27;blockquote_open&#x27;</span>) &#123;</span><br><span class="line">                <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;Found blockquote_open&quot;</span>);</span><br><span class="line"></span><br><span class="line">                <span class="keyword">const</span> blockquoteTokens = [];</span><br><span class="line">                <span class="keyword">let</span> j = i + <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">                <span class="comment">// 收集整个 blockquote 区块内容</span></span><br><span class="line">                <span class="keyword">while</span> (tokens[j] &amp;&amp; tokens[j].<span class="property">type</span> !== <span class="string">&#x27;blockquote_close&#x27;</span>) &#123;</span><br><span class="line">                    blockquoteTokens.<span class="title function_">push</span>(tokens[j]);</span><br><span class="line">                    j++;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> (tokens[j]?.<span class="property">type</span> === <span class="string">&#x27;blockquote_close&#x27;</span>) &#123;</span><br><span class="line">                    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;Found blockquote_close&quot;</span>);</span><br><span class="line">                    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;Collected tokens:&quot;</span>, blockquoteTokens);</span><br><span class="line"></span><br><span class="line">                    <span class="comment">// 提取 blockquote 内文本内容</span></span><br><span class="line">                    <span class="keyword">let</span> calloutType = <span class="literal">null</span>;</span><br><span class="line">                    <span class="keyword">const</span> calloutBodyTokens = [];</span><br><span class="line"></span><br><span class="line">                    blockquoteTokens.<span class="title function_">forEach</span>(<span class="function"><span class="params">token</span> =&gt;</span> &#123;</span><br><span class="line">                        <span class="keyword">if</span> (token.<span class="property">type</span> === <span class="string">&#x27;inline&#x27;</span> &amp;&amp; !calloutType) &#123;</span><br><span class="line">                            <span class="comment">// 提取 Callout 类型</span></span><br><span class="line">                            <span class="keyword">const</span> match = token.<span class="property">content</span>.<span class="title function_">match</span>(<span class="regexp">/\[!(\w+)]/</span>);</span><br><span class="line">                            <span class="keyword">if</span> (match) &#123;</span><br><span class="line">                                calloutType = match[<span class="number">1</span>].<span class="title function_">toLowerCase</span>();</span><br><span class="line">                            &#125;</span><br><span class="line">                        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                            calloutBodyTokens.<span class="title function_">push</span>(token);</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;);</span><br><span class="line"></span><br><span class="line">                    <span class="keyword">if</span> (calloutType) &#123;</span><br><span class="line">                        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;Matched callout type:&quot;</span>, calloutType);</span><br><span class="line"></span><br><span class="line">                        <span class="comment">// 递归渲染 Markdown 内容</span></span><br><span class="line">                        <span class="keyword">const</span> calloutBody = md.<span class="property">renderer</span>.<span class="title function_">render</span>(calloutBodyTokens, state.<span class="property">options</span>, state.<span class="property">env</span>);</span><br><span class="line"></span><br><span class="line">                        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;Callout body (rendered):&quot;</span>, calloutBody);</span><br><span class="line"></span><br><span class="line">                        <span class="keyword">const</span> iconInfo = iconConfig[calloutType] || iconConfig[<span class="string">&quot;info&quot;</span>];</span><br><span class="line"></span><br><span class="line">                        <span class="keyword">const</span> calloutHtml = <span class="string">`</span></span><br><span class="line"><span class="string">&lt;div class=&quot;callout callout-<span class="subst">$&#123;calloutType&#125;</span>&quot;&gt;</span></span><br><span class="line"><span class="string">    &lt;div class=&quot;callout-head&quot;&gt;</span></span><br><span class="line"><span class="string">        <span class="subst">$&#123;loadIcon(calloutType)&#125;</span></span></span><br><span class="line"><span class="string">        &lt;span class=&quot;callout-head-text&quot; style=&quot;color:<span class="subst">$&#123;iconInfo.color&#125;</span>&quot;&gt;<span class="subst">$&#123;calloutType.toUpperCase()&#125;</span>&lt;/span&gt;</span></span><br><span class="line"><span class="string">    &lt;/div&gt;</span></span><br><span class="line"><span class="string">    &lt;div class=&quot;callout-contents&quot;&gt;</span></span><br><span class="line"><span class="string">        <span class="subst">$&#123;calloutBody&#125;</span></span></span><br><span class="line"><span class="string">    &lt;/div&gt;</span></span><br><span class="line"><span class="string">&lt;/div&gt;`</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">                        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;Generated HTML:&quot;</span>, calloutHtml);</span><br><span class="line"></span><br><span class="line">                        <span class="comment">// 替换原引用块内容</span></span><br><span class="line">                        token.<span class="property">type</span> = <span class="string">&#x27;html_block&#x27;</span>;</span><br><span class="line">                        token.<span class="property">content</span> = calloutHtml;</span><br><span class="line"></span><br><span class="line">                        <span class="comment">// 移除 blockquote 区块内处理的内容</span></span><br><span class="line">                        tokens.<span class="title function_">splice</span>(i + <span class="number">1</span>, j - i);</span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;No callout type found in blockquote.&quot;</span>);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;No matching blockquote_close found.&quot;</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;Finished processing tokens.&quot;</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><small>其实在阅读这段代码我们能够发现，这段脚本支持用户自定义自己喜欢的callout块，这是后话</small></p>
+<h3 id="代码放在位置"><a class="header-anchor" href="#代码放在位置">¶</a>代码放在位置</h3>
+<p><strong>然后就是代码的放置位置</strong>，虽然笔者并不了解<code>hexo</code></p>
+<ol>
+<li class="lvl-3">
+<p>总之，在你的<em>博客根目录</em>
+<small>(虽然不知道博客根目录是否难懂，但如果跟着教程配好了博客的人一定都很聪明)</small></p>
+</li>
+<li class="lvl-3">
+<p>新建一个<code>scripts</code>文件夹<small>当然，也可能有的大佬已经有了，<del>萌新瑟瑟发抖</del></small></p>
+</li>
+<li class="lvl-3">
+<p>然后在该文件夹下新建文件<code>markdown-it-callout.js</code><small>当然，笔者的文件名取的是这个，但并不清楚其他名字是否可用</small></p>
+</li>
+<li class="lvl-3">
+<p>然后把上面那段<code>callout</code>渲染代码贴进去</p>
+</li>
+</ol>
+<h3 id="自定义css样式"><a class="header-anchor" href="#自定义css样式">¶</a>自定义css样式</h3>
+<p>然后由于笔者使用的callout块是自己渲染的，需要<strong>自定义css样式</strong></p>
+<p>这个部分在<a href="/posts/d9cd1415">客制化css</a>有详细介绍</p>
+<hr>
+<p>然后！<big>然后！<big>然后！</big></big>你就获得了一个可以渲染<code>callout</code>的<code>hexo</code></p>
+<h2 id="然后就是效果展示了"><a class="header-anchor" href="#然后就是效果展示了">¶</a>然后就是效果展示了</h2>
+<p>其实看<a href="/posts/55009">写在前面</a>就可以了</p>
+<hr>
+<div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>
+]]></content>
+      <tags>
+        <tag>hexo 建设</tag>
       </tags>
   </entry>
 </search>
