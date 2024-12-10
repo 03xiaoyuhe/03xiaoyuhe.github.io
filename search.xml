@@ -137,7 +137,8 @@
     <url>/posts/8dc8b2ab.html</url>
     <content><![CDATA[<img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />
 <span id="more"></span>
-<hr />]]></content>
+<hr />
+<div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
   </entry>
   <entry>
     <title>关于本博客的客制化css</title>
@@ -193,7 +194,8 @@
 <p>这里贴一下<code>callout</code>样式部分：</p>
 <figure class="highlight css"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/* 基础样式 */</span></span><br><span class="line"><span class="selector-class">.callout</span> &#123;</span><br><span class="line">    <span class="attribute">border-left</span>: <span class="number">4px</span> solid;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#f0f0f0</span>;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">10px</span> <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">14px</span>;</span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="number">4px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Info 样式 */</span></span><br><span class="line"><span class="selector-class">.callout-info</span> &#123;</span><br><span class="line">    <span class="attribute">border-left-color</span>: <span class="number">#3178c6</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#e3f2fd</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Warning 样式 */</span></span><br><span class="line"><span class="selector-class">.callout-warning</span> &#123;</span><br><span class="line">    <span class="attribute">border-left-color</span>: <span class="number">#e5a700</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#fff3e0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Error 样式 */</span></span><br><span class="line"><span class="selector-class">.callout-error</span> &#123;</span><br><span class="line">    <span class="attribute">border-left-color</span>: <span class="number">#d32f2f</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#ffebee</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Success 样式 */</span></span><br><span class="line"><span class="selector-class">.callout-success</span> &#123;</span><br><span class="line">    <span class="attribute">border-left-color</span>: <span class="number">#2e7d32</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#e8f5e9</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Note 样式 */</span></span><br><span class="line"><span class="selector-class">.callout-note</span> &#123;</span><br><span class="line">    <span class="attribute">border-left-color</span>: <span class="number">#673ab7</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#ede7f6</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Tip 样式 */</span></span><br><span class="line"><span class="selector-class">.callout-tip</span> &#123;</span><br><span class="line">    <span class="attribute">border-left-color</span>: <span class="number">#009688</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#e0f2f1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <p>然后，就好了，现在整个<code>callout</code>块的部分就完整了🙌</p>
-<hr />]]></content>
+<hr />
+<div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
       <categories>
         <category>hexo</category>
       </categories>
@@ -209,7 +211,8 @@
 <li class="lvl-2">计组：25号</li>
 </ul>
 <span id="more"></span>
-<hr />]]></content>
+<hr />
+<div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
       <tags>
         <tag>大学</tag>
       </tags>
@@ -271,6 +274,8 @@
 <p>然后！<big>然后！<big>然后！</big></big>你就获得了一个可以渲染<code>callout</code>的<code>hexo</code></p>
 <h2 id="然后就是效果展示了"><a class="header-anchor" href="#然后就是效果展示了">¶</a>然后就是效果展示了</h2>
 <p>其实看<a href="/posts/55009">写在前面</a>就可以了</p>
+<hr>
+<div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>
 ]]></content>
       <tags>
         <tag>hexo 建设</tag>
