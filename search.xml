@@ -15,9 +15,9 @@
         <span class="callout-head-text" style="color:#3178c6">INFO</span>
     </div>
     <div class="callout-contents">
-        <p></p>
+        <p><p></p>
 <p>嘿，typora不支持这个</p>
-
+</p>
     </div>
 </div>
 <div class="callout callout-error">
@@ -26,9 +26,9 @@
         <span class="callout-head-text" style="color:#d32f2f">ERROR</span>
     </div>
     <div class="callout-contents">
-        <p></p>
+        <p><p></p>
 <p>嘿！typora也不支持这个</p>
-
+</p>
     </div>
 </div>
 <div class="callout callout-success">
@@ -37,9 +37,9 @@
         <span class="callout-head-text" style="color:#2e7d32">SUCCESS</span>
     </div>
     <div class="callout-contents">
-        <p></p>
+        <p><p></p>
 <p>好吧，typora支持的内容有点少了</p>
-
+</p>
     </div>
 </div>
 <div class="callout callout-note">
@@ -48,9 +48,9 @@
         <span class="callout-head-text" style="color:#673ab7">NOTE</span>
     </div>
     <div class="callout-contents">
-        <p></p>
+        <p><p></p>
 <p>太好了，typora支持<code>note</code></p>
-
+</p>
     </div>
 </div>
 <div class="callout callout-tip">
@@ -59,9 +59,9 @@
         <span class="callout-head-text" style="color:#009688">TIP</span>
     </div>
     <div class="callout-contents">
-        <p></p>
+        <p><p></p>
 <p>测试callout</p>
-
+</p>
     </div>
 </div>
 <div class="callout callout-warning">
@@ -70,10 +70,10 @@
         <span class="callout-head-text" style="color:#e5a700">WARNING</span>
     </div>
     <div class="callout-contents">
-        <p></p>
-<h2 id="测试一下是否支持应该支持的-md-语法"><a class="header-anchor" href="#测试一下是否支持应该支持的-md-语法">¶</a>测试一下是否支持应该支持的 md 语法</h2>
+        <p><p></p>
+<h2>测试一下是否支持应该支持的 md 语法</h2>
 <p>警告！</p>
-
+</p>
     </div>
 </div>
 <div class="callout callout-tip">
@@ -82,13 +82,13 @@
         <span class="callout-head-text" style="color:#009688">TIP</span>
     </div>
     <div class="callout-contents">
-        <p></p>
+        <p><p></p>
 <p><code>d</code> <code>rwx</code> <code>rwx</code> <code>rwx</code></p>
 <p>     $\uparrow  \ \ \ \      \uparrow  \ \ \ \     \uparrow$ 其他所有人</p>
 <p>     $\uparrow  \ \ \ \      \uparrow$ 用户组</p>
 <p>      $\uparrow$ 文件所有者</p>
 <p>普通文本内容，其他段落不受影响。</p>
-
+</p>
     </div>
 </div>
 <div class="callout callout-tip">
@@ -97,7 +97,7 @@
         <span class="callout-head-text" style="color:#009688">TIP</span>
     </div>
     <div class="callout-contents">
-        <p></p>
+        <p><p></p>
 <p><code>d</code> <code>rwx</code> <code>rwx</code> <code>rwx</code></p>
 <p><strong>Markdown 语法支持</strong>：</p>
 <ul class="lvl-1">
@@ -110,7 +110,7 @@
 </ul>
 <blockquote>
 <p>嵌套引用块</p>
-
+</p>
     </div>
 </div><p>普通文本内容，其他段落不受影响。</p>
 </blockquote>
@@ -125,12 +125,372 @@
         <span class="callout-head-text" style="color:#009688">TIP</span>
     </div>
     <div class="callout-contents">
-        <p></p>
+        <p><p></p>
 <p>渲染器部分，详见[[关于callout块渲染]]</p>
-
+</p>
     </div>
 </div><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[!info] 信息头</span><br><span class="line">这是第一行内容。</span><br><span class="line">这是第二行内容。</span><br></pre></td></tr></table></figure>
 ]]></content>
+  </entry>
+  <entry>
+    <title>一条指令在执行期间，可能产生多次缺页中断</title>
+    <url>/posts/52e033e8.html</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
+
+<div class="callout callout-note">
+    <div class="callout-head">
+        <span class="callout-head-icon">📝</span>
+        <span class="callout-head-text" style="color:#673ab7">NOTE</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p>一条指令在执行期间，可能产生多次缺页中断 的详细解析</p>
+</p>
+    </div>
+</div><span id="more"></span>
+<p>是的，一条指令在执行期间<strong>可能产生多次缺页中断</strong>。这是因为指令的执行可能涉及到多个内存地址的访问，而每个地址的访问都有可能导致缺页中断。以下是几种可能导致这种情况的场景：</p>
+<hr>
+<h3 id="1-指令本身产生的缺页中断"><a class="header-anchor" href="#1-指令本身产生的缺页中断">¶</a><strong>1. 指令本身产生的缺页中断</strong></h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>指令取指</strong><br>
+CPU在执行一条指令时，需要从内存取出指令。如果指令所在的虚拟页面尚未加载到主存，就会触发缺页中断。</p>
+</li>
+</ul>
+<hr>
+<h3 id="2-操作数访问导致的缺页中断"><a class="header-anchor" href="#2-操作数访问导致的缺页中断">¶</a><strong>2. 操作数访问导致的缺页中断</strong></h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>直接操作数</strong><br>
+如果指令使用了内存中的数据作为操作数，操作数对应的页面可能尚未加载，触发缺页中断。</p>
+</li>
+<li class="lvl-2">
+<p><strong>间接访问（如指针或数组访问）</strong><br>
+指令可能需要通过指针或索引来访问内存中的数据。如果这些地址指向的页面不在主存，也会触发缺页中断。</p>
+</li>
+</ul>
+<hr>
+<h3 id="3-指令操作多次访问内存"><a class="header-anchor" href="#3-指令操作多次访问内存">¶</a><strong>3. 指令操作多次访问内存</strong></h3>
+<p>一些复杂指令（尤其在CISC架构中）可能在执行期间涉及多个内存访问，每次访问都可能触发缺页中断。例如：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>字符串处理指令</strong><br>
+一条指令可能遍历一个数组或字符串，多次访问内存中的页面。</p>
+</li>
+<li class="lvl-2">
+<p><strong>多维数组操作</strong><br>
+在访问二维或三维数组时，可能涉及多个页面。</p>
+</li>
+</ul>
+<hr>
+<h3 id="4-页表访问产生的缺页中断"><a class="header-anchor" href="#4-页表访问产生的缺页中断">¶</a><strong>4. 页表访问产生的缺页中断</strong></h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>多级页表</strong><br>
+虚拟地址到物理地址的转换需要访问页表。如果页表本身存储在磁盘中，访问页表时可能触发缺页中断。</p>
+</li>
+<li class="lvl-2">
+<p><strong>页目录和页表分级加载</strong><br>
+如果多级页表结构中的多个级别对应的页面都不在主存，每一级别都会触发一次缺页中断。</p>
+</li>
+</ul>
+<hr>
+<h3 id="5-内存管理器的间接操作"><a class="header-anchor" href="#5-内存管理器的间接操作">¶</a><strong>5. 内存管理器的间接操作</strong></h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>堆栈操作</strong><br>
+某些指令（如函数调用或返回）会隐式修改堆栈指针。如果堆栈页面未加载，也会触发缺页中断。</p>
+</li>
+<li class="lvl-2">
+<p><strong>动态内存分配</strong><br>
+指令可能涉及动态分配的内存区域（如<code>malloc</code>或<code>new</code>），而这些区域的页面可能尚未加载到主存。</p>
+</li>
+</ul>
+<hr>
+<h3 id="示例"><a class="header-anchor" href="#示例">¶</a><strong>示例</strong></h3>
+<p>假设有一条指令：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">a[i] = b[j] + c[k];</span><br></pre></td></tr></table></figure>
+<p>执行这条指令可能涉及以下几个内存访问：</p>
+<ol>
+<li class="lvl-3">
+<p>取出指令本身（指令所在页面可能触发缺页中断）。</p>
+</li>
+<li class="lvl-3">
+<p>读取数组<code>a</code>的地址。</p>
+</li>
+<li class="lvl-3">
+<p>读取数组<code>b</code>的地址。</p>
+</li>
+<li class="lvl-3">
+<p>读取数组<code>c</code>的地址。</p>
+</li>
+<li class="lvl-3">
+<p>访问<code>b[j]</code>的值。</p>
+</li>
+<li class="lvl-3">
+<p>访问<code>c[k]</code>的值。</p>
+</li>
+<li class="lvl-3">
+<p>写入<code>a[i]</code>。</p>
+</li>
+</ol>
+<p>如果这些访问的页面都未加载到主存，则可能触发<strong>多次缺页中断</strong>。</p>
+<hr>
+<h3 id="如何缓解缺页中断带来的开销"><a class="header-anchor" href="#如何缓解缺页中断带来的开销">¶</a><strong>如何缓解缺页中断带来的开销</strong></h3>
+<ol>
+<li class="lvl-3">
+<p><strong>预取机制</strong><br>
+操作系统可预测程序的访问模式，提前将相关页面加载到主存，减少缺页中断。</p>
+</li>
+<li class="lvl-3">
+<p><strong>使用更大的页面（大页）</strong><br>
+使用大页面（如2MB或1GB）可以减少页表项数量，降低缺页中断概率。</p>
+</li>
+<li class="lvl-3">
+<p><strong>优化程序内存访问模式</strong><br>
+开发者可以优化数据结构和算法，尽量减少跨页面访问。</p>
+</li>
+<li class="lvl-3">
+<p><strong>TLB优化</strong><br>
+提高页表缓存（TLB）的命中率，加快地址转换速度。</p>
+</li>
+</ol>
+<hr>
+<p>综上，虽然一条指令可能导致多次缺页中断，但通过合理的内存管理策略和优化，可以有效降低缺页中断的频率，提高系统性能。</p>
+<hr />
+<div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
+      <categories>
+        <category>408</category>
+      </categories>
+      <tags>
+        <tag>408</tag>
+        <tag>大学</tag>
+        <tag>OS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CISC架构</title>
+    <url>/posts/7436c65f.html</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p><strong>CISC（Complex Instruction Set Computer）<strong>架构是一种处理器设计理念，其特点是提供</strong>复杂且多样化的指令集</strong></p>
+</p>
+    </div>
+</div><span id="more"></span>
+<h3 id="CISC架构的定义"><a class="header-anchor" href="#CISC架构的定义">¶</a><strong>CISC架构的定义</strong></h3>
+<p>**CISC（Complex Instruction Set Computer）*<em>架构是一种处理器设计理念，其特点是提供*<em>复杂且多样化的指令集</em></em>，每条指令可以完成多种复杂操作。这种设计理念的目标是通过简化程序的指令数目，减少程序代码量，提高开发效率。</p>
+<p>CISC是传统计算机架构的典型代表，如<strong>x86架构</strong>和早期的<strong>VAX</strong>、<strong>IBM System/360</strong>等处理器。</p>
+<hr>
+<h3 id="CISC架构的特点"><a class="header-anchor" href="#CISC架构的特点">¶</a><strong>CISC架构的特点</strong></h3>
+<ol>
+<li class="lvl-3">
+<p><strong>复杂指令集</strong></p>
+<ul class="lvl-2">
+<li class="lvl-5">每条指令的功能非常强大，可能同时执行多个步骤（如取数、运算、存储）。</li>
+<li class="lvl-5">如<code>MOV</code>, <code>ADD</code>, <code>MULT</code>等指令，不仅支持寄存器操作，还支持直接对内存操作。</li>
+</ul>
+</li>
+<li class="lvl-3">
+<p><strong>指令长度不固定</strong></p>
+<ul class="lvl-2">
+<li class="lvl-5">指令可以是不同长度的字节组合，使得编码更加灵活，但解码复杂。</li>
+</ul>
+</li>
+<li class="lvl-3">
+<p><strong>丰富的寻址模式</strong></p>
+<ul class="lvl-2">
+<li class="lvl-5">提供多种内存寻址模式，如立即寻址、直接寻址、间接寻址、基址寻址等，支持对复杂数据结构的直接操作。</li>
+</ul>
+</li>
+<li class="lvl-3">
+<p><strong>微码实现</strong></p>
+<ul class="lvl-2">
+<li class="lvl-5">通常使用**微程序控制器（Microcode Control Unit）**来解码复杂指令，这种方式简化了硬件设计。</li>
+</ul>
+</li>
+<li class="lvl-3">
+<p><strong>指令执行时间较长</strong></p>
+<ul class="lvl-2">
+<li class="lvl-5">单条指令可能需要多个时钟周期完成，因为其内部可能包含多个微操作。</li>
+</ul>
+</li>
+<li class="lvl-3">
+<p><strong>高度依赖内存</strong></p>
+<ul class="lvl-2">
+<li class="lvl-5">CISC架构允许指令直接操作内存，而不是先将数据加载到寄存器，这增加了对内存访问的频率。</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h3 id="CISC架构的优点"><a class="header-anchor" href="#CISC架构的优点">¶</a><strong>CISC架构的优点</strong></h3>
+<ol>
+<li class="lvl-3">
+<p><strong>程序代码紧凑</strong></p>
+<ul class="lvl-2">
+<li class="lvl-5">强大的指令集可以用更少的指令实现复杂功能，减少程序代码量。</li>
+</ul>
+</li>
+<li class="lvl-3">
+<p><strong>易于编写高层语言编译器</strong></p>
+<ul class="lvl-2">
+<li class="lvl-5">高级语言中复杂的语句可以直接映射为CISC指令，简化了编译器的设计。</li>
+</ul>
+</li>
+<li class="lvl-3">
+<p><strong>向后兼容性强</strong></p>
+<ul class="lvl-2">
+<li class="lvl-5">CISC架构通过扩展指令集可以保持对旧程序的兼容性。</li>
+</ul>
+</li>
+<li class="lvl-3">
+<p><strong>适合复杂的计算任务</strong></p>
+<ul class="lvl-2">
+<li class="lvl-5">复杂指令和多样化的寻址模式使其适合复杂的数据处理任务。</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h3 id="CISC架构的缺点"><a class="header-anchor" href="#CISC架构的缺点">¶</a><strong>CISC架构的缺点</strong></h3>
+<ol>
+<li class="lvl-3">
+<p><strong>指令解码复杂</strong></p>
+<ul class="lvl-2">
+<li class="lvl-5">不固定的指令长度和复杂的指令集增加了CPU解码指令的难度，降低了效率。</li>
+</ul>
+</li>
+<li class="lvl-3">
+<p><strong>执行速度较慢</strong></p>
+<ul class="lvl-2">
+<li class="lvl-5">一条CISC指令可能需要多个时钟周期完成，无法充分发挥现代高速硬件的性能。</li>
+</ul>
+</li>
+<li class="lvl-3">
+<p><strong>硬件设计复杂</strong></p>
+<ul class="lvl-2">
+<li class="lvl-5">支持多样化指令和寻址模式需要更复杂的硬件设计。</li>
+</ul>
+</li>
+<li class="lvl-3">
+<p><strong>能耗较高</strong></p>
+<ul class="lvl-2">
+<li class="lvl-5">复杂指令的实现通常需要更多的电力支持。</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h3 id="CISC与RISC的对比"><a class="header-anchor" href="#CISC与RISC的对比">¶</a><strong>CISC与RISC的对比</strong></h3>
+<table>
+<thead>
+<tr>
+<th><strong>特性</strong></th>
+<th><strong>CISC</strong></th>
+<th><strong>RISC（Reduced Instruction Set Computer）</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>指令集</strong></td>
+<td>复杂、多样化</td>
+<td>简单、固定长度</td>
+</tr>
+<tr>
+<td><strong>指令执行时间</strong></td>
+<td>单条指令执行时间长，可能需要多个时钟周期</td>
+<td>单条指令执行时间短，通常一个时钟周期完成</td>
+</tr>
+<tr>
+<td><strong>硬件设计</strong></td>
+<td>复杂的硬件支持复杂指令集</td>
+<td>简化的硬件设计，执行更高效</td>
+</tr>
+<tr>
+<td><strong>代码密度</strong></td>
+<td>高，程序代码量少</td>
+<td>低，通常需要更多指令完成相同的功能</td>
+</tr>
+<tr>
+<td><strong>能耗</strong></td>
+<td>较高</td>
+<td>较低</td>
+</tr>
+<tr>
+<td><strong>典型代表</strong></td>
+<td>x86, VAX</td>
+<td>ARM, MIPS, RISC-V</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="CISC架构的实际应用"><a class="header-anchor" href="#CISC架构的实际应用">¶</a><strong>CISC架构的实际应用</strong></h3>
+<ol>
+<li class="lvl-3">
+<p><strong>x86处理器</strong></p>
+<ul class="lvl-2">
+<li class="lvl-5">现代的PC和服务器大多基于x86架构，该架构是CISC的典型代表。</li>
+<li class="lvl-5">如Intel和AMD的处理器均采用该架构。</li>
+</ul>
+</li>
+<li class="lvl-3">
+<p><strong>嵌入式系统中的老一代处理器</strong></p>
+<ul class="lvl-2">
+<li class="lvl-5">如8086、80286处理器，广泛应用于工业控制和嵌入式系统中。</li>
+</ul>
+</li>
+<li class="lvl-3">
+<p><strong>专用硬件系统</strong></p>
+<ul class="lvl-2">
+<li class="lvl-5">需要复杂数据处理的场景，如传统银行机房的大型机。</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h3 id="现代CISC的改进"><a class="header-anchor" href="#现代CISC的改进">¶</a><strong>现代CISC的改进</strong></h3>
+<p>尽管CISC架构在指令执行效率上不如RISC，但现代CISC处理器通过以下方式提升性能：</p>
+<ol>
+<li class="lvl-3">
+<p><strong>指令解码优化</strong></p>
+<ul class="lvl-2">
+<li class="lvl-5">使用硬件将CISC复杂指令拆解为更简单的微操作（micro-operations）。</li>
+</ul>
+</li>
+<li class="lvl-3">
+<p><strong>流水线设计</strong></p>
+<ul class="lvl-2">
+<li class="lvl-5">CISC架构中引入RISC的流水线思想，提高指令执行效率。</li>
+</ul>
+</li>
+<li class="lvl-3">
+<p><strong>多核技术</strong></p>
+<ul class="lvl-2">
+<li class="lvl-5">增加多核处理能力，弥补单核执行速度的不足。</li>
+</ul>
+</li>
+<li class="lvl-3">
+<p><strong>缓存优化</strong></p>
+<ul class="lvl-2">
+<li class="lvl-5">提高指令和数据缓存的命中率，减少内存访问延迟。</li>
+</ul>
+</li>
+</ol>
+<hr>
+<p>总结来说，CISC架构通过强大的指令集提供了高度灵活性，特别适合某些需要复杂指令处理的应用场景。尽管其在效率和硬件设计方面有一定劣势，但通过现代优化技术，CISC架构依然在许多领域保持了强大的竞争力。</p>
+<hr />
+<div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
+      <categories>
+        <category>408</category>
+      </categories>
+      <tags>
+        <tag>408</tag>
+        <tag>大学</tag>
+        <tag>OS</tag>
+      </tags>
   </entry>
   <entry>
     <title>typora破解</title>
@@ -143,9 +503,9 @@
         <span class="callout-head-text" style="color:#673ab7">NOTE</span>
     </div>
     <div class="callout-contents">
-        <p></p>
-<p>太逆天了，笔者是在花<big><big>89</big></big>米😕 之后，偶然搜到了这个，虽然已经没用了，但还是摘一下</p>
-
+        <p><p></p>
+<p>太逆天了，笔者是在花<big><big>89</big></big>米<> 之后，偶然搜到了这个，虽然已经没用了，但还是摘一下</p>
+</p>
     </div>
 </div><span id="more"></span>
 <p><small>放个error以表愤怒！</small>😠</p>
@@ -156,15 +516,15 @@
         <span class="callout-head-text" style="color:#d32f2f">ERROR</span>
     </div>
     <div class="callout-contents">
-        <p></p>
+        <p><p></p>
 <p>Typora 是一款由 Abner Lee 开发的轻量级 Markdown 编辑器，适用于 OS X、Windows 和 Linux 三种操作系统。</p>
 <p>与其他 Markdown 编辑器不同的是，Typora 没有采用源代码和预览双栏显示的方式，而是采用所见即所得的编辑方式，实现了即时预览的功能，但也可切换至源代码编辑模式。</p>
 <p>该软件目前只有 15 天免费试用，后续使用续费付费才行！这里分享一个自己破解的方法！不再从网上下载破解版或者补丁了！</p>
 <p>免责声明：本文内容仅为技术分享、交流、探讨，推荐大家支持官方正版软件！</p>
-<h2 id="官网地址"><a class="header-anchor" href="#官网地址">¶</a>官网地址</h2>
+<h2>官网地址</h2>
 <p>国外：<a href="https://blog.captainz.cc/go/#aHR0cHM6Ly90eXBvcmEuaW8v">https://typora.io/</a></p>
 <p>国内：<a href="https://blog.captainz.cc/go/#aHR0cHM6Ly90eXBvcmFpby5jbi8=">https://typoraio.cn/</a></p>
-<h2 id="省流步骤"><a class="header-anchor" href="#省流步骤">¶</a>省流步骤</h2>
+<h2>省流步骤</h2>
 <ol>
 <li class="lvl-3">
 <p>修改 Typora 安装目录 <code>\ resources\page-dist\static\js\LicenseIndex.xxxxxxxxx.xxxxxxx.chunk.js</code>，激活主程序</p>
@@ -185,7 +545,7 @@
 </ol>
 <p>查找：<code>&quot;UNREGISTERED&quot;:&quot;未激活&quot;</code></p>
 <p>替换：<code>&quot;UNREGISTERED&quot;:&quot; &quot;</code></p>
-<h2 id="最后总结"><a class="header-anchor" href="#最后总结">¶</a>最后总结</h2>
+<h2>最后总结</h2>
 <ul class="lvl-1">
 <li class="lvl-2">
 <p>我的许可证页面无法查看</p>
@@ -204,7 +564,7 @@
 </li>
 </ul>
 <p>—— <a href="https://blog.captainz.cc/posts/typora_crack.html">自己动手破解 Markdown 软件 Typora，支持官网最新版 | Hyper Tech</a></p>
-
+</p>
     </div>
 </div><hr />
 <div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
@@ -235,9 +595,9 @@
         <span class="callout-head-text" style="color:#009688">TIP</span>
     </div>
     <div class="callout-contents">
-        <p></p>
+        <p><p></p>
 <p>记录一下博客中脚注配置的相关内容</p>
-
+</p>
     </div>
 </div><span id="more"></span>
 
@@ -247,7 +607,7 @@
         <span class="callout-head-text" style="color:#673ab7">NOTE</span>
     </div>
     <div class="callout-contents">
-        <p></p>
+        <p><p></p>
 <ol>
 <li class="lvl-3">打开 hexo 官方插件页面 <a href="https://hexo.io/plugins/">Plugins</a></li>
 <li class="lvl-3">搜索 <code>footnotes</code> 并安装 <a href="https://github.com/kchen0x/hexo-reference">hexo-reference</a></li>
@@ -255,10 +615,10 @@
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-reference --save</span><br></pre></td></tr></table></figure>
 <p>配置根目录 <code>_config.yml</code> 文件，新增一下内容：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">plugins:</span><br><span class="line">  - hexo-reference</span><br></pre></td></tr></table></figure>
-<h4 id="参考文档"><a class="header-anchor" href="#参考文档">¶</a>参考文档</h4>
+<h4>参考文档</h4>
 <p><a href="https://kchen.cc/2016/11/10/footnotes-in-hexo/#fnref:4">Hexo 里的脚注插件</a></p>
 <p>—— 摘自 <a href="https://toypipi.github.io/2024/05/10/hexo-%E5%A2%9E%E5%8A%A0%E8%84%9A%E6%B3%A8%E5%8A%9F%E8%83%BD/">hexo 增加脚注功能 | Toypipi’s blog</a></p>
-
+</p>
     </div>
 </div><h2 id="修改footnote脚注样式"><a class="header-anchor" href="#修改footnote脚注样式">¶</a>修改footnote脚注样式</h2>
 <p>由于笔者实在是不太喜欢<code>hexo-reference</code>提供的红色的<code>footnote</code>然后鉴于笔者是使用插件渲染<code>footnote</code>的，所以笔者就准备对插件的代码做一下改造：</p>
@@ -304,9 +664,9 @@
         <span class="callout-head-text" style="color:#673ab7">NOTE</span>
     </div>
     <div class="callout-contents">
-        <p></p>
+        <p><p></p>
 <p>放一下操作系统第六章复习笔记吧</p>
-
+</p>
     </div>
 </div><span id="more"></span>
 <h2 id="虚拟存储器的概念"><a class="header-anchor" href="#虚拟存储器的概念">¶</a>虚拟存储器的概念</h2>
@@ -329,6 +689,12 @@
 <p>虚拟存储器的容量</p>
 </li>
 </ol>
+<h3 id="虚拟存储器的任务"><a class="header-anchor" href="#虚拟存储器的任务">¶</a>虚拟存储器的任务</h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>逻辑上扩充内存容量</p>
+</li>
+</ul>
 <h3 id="局部性原理"><a class="header-anchor" href="#局部性原理">¶</a>局部性原理</h3>
 <ul class="lvl-0">
 <li class="lvl-2">
@@ -344,16 +710,169 @@
 <p>只需要让程序当前需要运行的内容存在于内存中，程序就能跑</p>
 </blockquote>
 <h3 id="虚拟存储器的定义"><a class="header-anchor" href="#虚拟存储器的定义">¶</a>虚拟存储器的定义</h3>
-<p>具有请求调入功能<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--medium hint--rounded hint--bounce" aria-label="是指将进程所需">[1]</span></a></sup>和置换功能，能从逻辑上对内存容量加以扩充的一种存储器系统。</p>
+<p>具有请求调入功能<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--medium hint--info hint--rounded hint--bounce" aria-label="调入功能 是 指将进程所需的数据或指令从磁盘调入主存<br>
+">[1]</span></a></sup>和置换功能，能从逻辑上对内存容量加以扩充的一种存储器系统。</p>
+<p><big>虚拟存储器的容量 = $min($ 内存 $+$ 外存 $,$ <code>cpu</code>寻址空间 $)$ </big></p>
+<h3 id="虚拟存储器的特征"><a class="header-anchor" href="#虚拟存储器的特征">¶</a>虚拟存储器的特征</h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>多次性</p>
+</li>
+<li class="lvl-2">
+<p>对换性</p>
+</li>
+<li class="lvl-2">
+<p>虚拟性</p>
+</li>
+</ul>
+<h3 id="虚拟存储器的实现"><a class="header-anchor" href="#虚拟存储器的实现">¶</a>虚拟存储器的实现</h3>
+<h4 id="请求分页系统"><a class="header-anchor" href="#请求分页系统">¶</a>请求分页系统</h4>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>硬件支持：页表、缺页中断、地址变换机构</p>
+</li>
+<li class="lvl-2">
+<p>软件支持：请求调页软件、页面置换软件</p>
+</li>
+</ul>
+<h4 id="请求分段系统"><a class="header-anchor" href="#请求分段系统">¶</a>请求分段系统</h4>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>硬件支持：段表、缺段中断、地址变换机构。</p>
+</li>
+<li class="lvl-2">
+<p>软件支持：请求调段软件、段置换软件。</p>
+</li>
+</ul>
+<h4 id="段页式虚拟存储器"><a class="header-anchor" href="#段页式虚拟存储器">¶</a>段页式虚拟存储器</h4>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>增加请求调页和页面置换。</p>
+</li>
+</ul>
+<h2 id="请求分页存储管理"><a class="header-anchor" href="#请求分页存储管理">¶</a>请求分页存储管理</h2>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101903431.png" alt="image-20241210190318202"></p>
+<h3 id="目标评价"><a class="header-anchor" href="#目标评价">¶</a>目标评价</h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><input type="checkbox" id="checkbox0"><label for="checkbox0">请求分页中的页表需要如何修改？</label></p>
+</li>
+<li class="lvl-2">
+<p><input type="checkbox" id="checkbox1"><label for="checkbox1">缺页中断有何特点？缺页中断如何处理？</label></p>
+</li>
+<li class="lvl-2">
+<p><input type="checkbox" id="checkbox2"><label for="checkbox2">请求分页管理中地址转换如何完成？</label></p>
+</li>
+<li class="lvl-2">
+<p><input type="checkbox" id="checkbox3"><label for="checkbox3">页面置换算法有哪些？如何完成页面置换？有何特点？缺页率如何计算？</label></p>
+</li>
+</ul>
+<h3 id="硬件支持"><a class="header-anchor" href="#硬件支持">¶</a>硬件支持</h3>
+<h4 id="页表机制"><a class="header-anchor" href="#页表机制">¶</a>页表机制</h4>
+<p>需要在进程页表<sup id="fnref:2"><a href="#fn:2" rel="footnote"><span class="hint--top hint--medium hint--info hint--rounded hint--bounce" aria-label="进程页表 是操作系统管理虚拟存储器时，用于映射进程的 <strong>虚拟地址</strong>和 <strong>物理地址</strong> 的一个重要数据结构。<br>每个进程都有自己的 <strong>页表</strong> ，它记录了该进程所有虚拟页的相关信息，<br>包括虚拟页是否已被加载到主存以及其对应的物理页框地址。<br>
+">[2]</span></a></sup>中添加若干项</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>状态位P：指示该页是否在内存</p>
+</li>
+<li class="lvl-2">
+<p>访问字段A：记录该页在一段时间内被访问的次数</p>
+</li>
+<li class="lvl-2">
+<p>修改位M：也称脏位，标志该页是否被修改过</p>
+</li>
+<li class="lvl-2">
+<p>外存地址：指示该页在外存中的地址（物理块号）</p>
+</li>
+</ul>
+<h4 id="缺页中断机构"><a class="header-anchor" href="#缺页中断机构">¶</a>缺页中断机构</h4>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>在指令执行期间产生和处理中断信号</p>
+</li>
+<li class="lvl-2">
+<p>一条指令在执行期间，可能产生多次缺页中断</p>
+</li>
+</ul>
+
+<div class="callout callout-note">
+    <div class="callout-head">
+        <span class="callout-head-icon">📝</span>
+        <span class="callout-head-text" style="color:#673ab7">NOTE</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<h4>关于 <em><a href="/posts/52e033e8"><code>一条指令在执行期间，可能产生多次缺页中断</code></a></em></h4>
+<h4>指令本身产生的缺页中断</h4>
+<ul class="lvl-1">
+<li class="lvl-2">
+<p><strong>指令取指</strong></p>
+<p><code>cpu</code>在只从一条指令时，需要从主存取出指令。如果指令所在的虚拟页面尚未加载到主存，就会触发缺页中断。</p>
+</li>
+</ul>
+<h4>操作数访问导致的缺页中断</h4>
+<ul class="lvl-1">
+<li class="lvl-2">
+<p><strong>直接操作数</strong></p>
+<p>如果指令是使用了内存中的数据作为操作数，操作数对应的页面可能尚未加载，触发缺页中断</p>
+</li>
+<li class="lvl-2">
+<p><strong>间接访问</strong></p>
+<p>指令可能需要通过指针或索引来访问内存中的数据。如果这些地址指向的页面不在主存，也会触发缺页中断</p>
+</li>
+</ul>
+<h4>指令操作多次访问内存</h4>
+<p>一些复杂的指令（尤其在<a href="/posts/7436c65f">CISC架构</a><sup id="fnref:3"><a href="#fn:3" rel="footnote"><span class="hint--top hint--medium hint--info hint--rounded hint--bounce" aria-label="<strong>CISC（Complex Instruction Set Computer）</strong> 架构是一种处理器设计理念，其特点是提供 <strong>复杂且多样化的指令集</strong>">[3]</span></a></sup>中）可能在执行期间涉及多个内存访问，每次访问可能触发缺页中断。例如：</p>
+<ul class="lvl-1">
+<li class="lvl-2">
+<p><strong>字符串处理指令</strong><br>
+一条指令可能遍历一个数组或字符串，多次访问内存中的页面。</p>
+</li>
+<li class="lvl-2">
+<p><strong>多维数组操作</strong><br>
+在访问二维或三维数组时，可能涉及多个页面。</p>
+</li>
+</ul>
+<h4>页表访问产生的缺页中断</h4>
+<ul class="lvl-1">
+<li class="lvl-2">
+<p><strong>多级页表</strong><br>
+虚拟地址到物理地址的转换需要访问页表。如果页表本身存储在磁盘中，访问页表时可能触发缺页中断。</p>
+</li>
+<li class="lvl-2">
+<p><strong>页目录和页表分级加载</strong><br>
+如果多级页表结构中的多个级别对应的页面都不在主存，每一级别都会触发一次缺页中断。</p>
+</li>
+</ul>
+<h4>内存管理器的间接操作</h4>
+<ul class="lvl-1">
+<li class="lvl-2">
+<p><strong>堆栈操作</strong><br>
+某些指令（如函数调用或返回）会隐式修改堆栈指针。如果堆栈页面未加载，也会触发缺页中断。</p>
+</li>
+<li class="lvl-2">
+<p><strong>动态内存分配</strong><br>
+指令可能涉及动态分配的内存区域（如<code>malloc</code>或<code>new</code>），而这些区域的页面可能尚未加载到主存。</p>
+</li>
+</ul>
+</p>
+    </div>
+</div><h4 id="缺页中断的特殊性"><a class="header-anchor" href="#缺页中断的特殊性">¶</a>缺页中断的特殊性</h4>
+<p>缺页中断在指令执行期间产生和进行处理，而不是在一条指令执行完毕之后。所缺的页面调入之后，重新执行被中断的指令</p>
+<h4 id="地址变换机构"><a class="header-anchor" href="#地址变换机构">¶</a>地址变换机构</h4>
+<p>与分页内存管理方式类似</p>
+<p>由逻辑地址检索页表，根据对应页表项的标志位判断，若在内存中，则直接形成物理地址。</p>
+<p>如不在内存中，产生缺页中断，从对应页表项的外存地址，从外存找到该页，内存满，则选择页面换出，否则从外存直接调入内存。完成地址转换。<img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412102029580.png" alt="image-20241210202946621"></p>
+<h4 id="内存分配"><a class="header-anchor" href="#内存分配">¶</a>内存分配</h4>
 <hr />
-<div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div><div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">是指将进程所需<a href="#fnref:1" rev="footnote"> ↩</a></span></li></ol></div></div>]]></content>
+<div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div><div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">调入功能 是 指将进程所需的数据或指令从磁盘调入主存<a href="#fnref:1" rev="footnote"> ↩</a></span></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">2.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">进程页表 是操作系统管理虚拟存储器时，用于映射进程的 <strong>虚拟地址</strong>和 <strong>物理地址</strong> 的一个重要数据结构。<br>每个进程都有自己的 <strong>页表</strong> ，它记录了该进程所有虚拟页的相关信息，<br>包括虚拟页是否已被加载到主存以及其对应的物理页框地址。<a href="#fnref:2" rev="footnote"> ↩</a></span></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">3.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><strong>CISC（Complex Instruction Set Computer）</strong> 架构是一种处理器设计理念，其特点是提供 <strong>复杂且多样化的指令集</strong><a href="#fnref:3" rev="footnote"> ↩</a></span></li></ol></div></div>]]></content>
       <categories>
         <category>408</category>
       </categories>
       <tags>
         <tag>408</tag>
-        <tag>OS</tag>
         <tag>大学</tag>
+        <tag>OS</tag>
       </tags>
   </entry>
   <entry>
@@ -375,9 +894,9 @@
         <span class="callout-head-text" style="color:#009688">TIP</span>
     </div>
     <div class="callout-contents">
-        <p></p>
+        <p><p></p>
 <p>当然是记一些关于本博客客制化<code>css</code>相关的内容啦</p>
-
+</p>
     </div>
 </div><span id="more"></span>
 <p><strong>由于之前说到<a href="/posts/4179">用自定义渲染器渲染<code>callout</code></a></strong></p>
@@ -393,8 +912,8 @@
         <span class="callout-head-text" style="color:#009688">TIP</span>
     </div>
     <div class="callout-contents">
-        <p></p>
-<h3 id="2-1-添加客制化css"><a class="header-anchor" href="#2-1-添加客制化css">¶</a>2.1 添加客制化css</h3>
+        <p><p></p>
+<h3>2.1 添加客制化css</h3>
 <p>虽然在<code>css</code>目录下任意<code>.styl</code>下添加<code>css</code>样式代码可以生效，但是为了方便以后修改，最好创建一个新的<code>.styl</code>文件记录自己的修改。</p>
 <ol>
 <li class="lvl-3">
@@ -412,7 +931,7 @@
 </li>
 </ol>
 <p>—— 摘自 <a href="https://zachary116699.github.io/2024/05/09/hexo-next-css/">hexo-next主题配置css | 大水笔✰档案室</a></p>
-
+</p>
     </div>
 </div><p>然后就是将自己自定义的<code>css</code>样式放在里面</p>
 <p>这里贴一下<code>callout</code>样式部分：</p>
@@ -452,9 +971,9 @@
         <span class="callout-head-text" style="color:#009688">TIP</span>
     </div>
     <div class="callout-contents">
-        <p></p>
+        <p><p></p>
 <p>记录一下<code>callout</code>支持过程。</p>
-
+</p>
     </div>
 </div><span id="more"></span>
 <h2 id="初期想法"><a class="header-anchor" href="#初期想法">¶</a>初期想法</h2>
@@ -471,14 +990,15 @@
 <p>接下来，我们书写<code>callout</code>渲染器。</p>
 <p><small><del>其实笔者在该部分废了老大的劲</del></small></p>
 <p>我先贴下代码</p>
-<h3 id="自定义渲染器代码"><a class="header-anchor" href="#自定义渲染器代码">¶</a>自定义渲染器代码</h3>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> iconConfig = &#123;</span><br><span class="line">    <span class="string">&quot;info&quot;</span>: &#123; <span class="string">&quot;color&quot;</span>: <span class="string">&quot;#3178c6&quot;</span>, <span class="string">&quot;icon&quot;</span>: <span class="string">&quot;ℹ️&quot;</span> &#125;,</span><br><span class="line">    <span class="string">&quot;warning&quot;</span>: &#123; <span class="string">&quot;color&quot;</span>: <span class="string">&quot;#e5a700&quot;</span>, <span class="string">&quot;icon&quot;</span>: <span class="string">&quot;⚠️&quot;</span> &#125;,</span><br><span class="line">    <span class="string">&quot;error&quot;</span>: &#123; <span class="string">&quot;color&quot;</span>: <span class="string">&quot;#d32f2f&quot;</span>, <span class="string">&quot;icon&quot;</span>: <span class="string">&quot;❌&quot;</span> &#125;,</span><br><span class="line">    <span class="string">&quot;success&quot;</span>: &#123; <span class="string">&quot;color&quot;</span>: <span class="string">&quot;#2e7d32&quot;</span>, <span class="string">&quot;icon&quot;</span>: <span class="string">&quot;✔️&quot;</span> &#125;,</span><br><span class="line">    <span class="string">&quot;note&quot;</span>: &#123; <span class="string">&quot;color&quot;</span>: <span class="string">&quot;#673ab7&quot;</span>, <span class="string">&quot;icon&quot;</span>: <span class="string">&quot;📝&quot;</span> &#125;,</span><br><span class="line">    <span class="string">&quot;tip&quot;</span>: &#123; <span class="string">&quot;color&quot;</span>: <span class="string">&quot;#009688&quot;</span>, <span class="string">&quot;icon&quot;</span>: <span class="string">&quot;💡&quot;</span> &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">loadIcon</span>(<span class="params">iconName</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> iconInfo = iconConfig[iconName] || iconConfig[<span class="string">&quot;info&quot;</span>];</span><br><span class="line">    <span class="keyword">return</span> <span class="string">`&lt;span class=&quot;callout-head-icon&quot;&gt;<span class="subst">$&#123;iconInfo.icon&#125;</span>&lt;/span&gt;`</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">hexo.<span class="property">extend</span>.<span class="property">filter</span>.<span class="title function_">register</span>(<span class="string">&#x27;markdown-it:renderer&#x27;</span>, <span class="keyword">function</span> (<span class="params">md</span>) &#123;</span><br><span class="line">    md.<span class="property">core</span>.<span class="property">ruler</span>.<span class="title function_">push</span>(<span class="string">&#x27;render_callout&#x27;</span>, <span class="keyword">function</span> (<span class="params">state</span>) &#123;</span><br><span class="line">        <span class="keyword">const</span> tokens = state.<span class="property">tokens</span>;</span><br><span class="line"></span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;Starting token processing...&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; tokens.<span class="property">length</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">const</span> token = tokens[i];</span><br><span class="line"></span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`Processing token <span class="subst">$&#123;i&#125;</span>:`</span>, token);</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 检查是否为 blockquote_open</span></span><br><span class="line">            <span class="keyword">if</span> (token.<span class="property">type</span> === <span class="string">&#x27;blockquote_open&#x27;</span>) &#123;</span><br><span class="line">                <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;Found blockquote_open&quot;</span>);</span><br><span class="line"></span><br><span class="line">                <span class="keyword">const</span> blockquoteTokens = [];</span><br><span class="line">                <span class="keyword">let</span> j = i + <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">                <span class="comment">// 收集整个 blockquote 区块内容</span></span><br><span class="line">                <span class="keyword">while</span> (tokens[j] &amp;&amp; tokens[j].<span class="property">type</span> !== <span class="string">&#x27;blockquote_close&#x27;</span>) &#123;</span><br><span class="line">                    blockquoteTokens.<span class="title function_">push</span>(tokens[j]);</span><br><span class="line">                    j++;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> (tokens[j]?.<span class="property">type</span> === <span class="string">&#x27;blockquote_close&#x27;</span>) &#123;</span><br><span class="line">                    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;Found blockquote_close&quot;</span>);</span><br><span class="line">                    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;Collected tokens:&quot;</span>, blockquoteTokens);</span><br><span class="line"></span><br><span class="line">                    <span class="comment">// 提取 blockquote 内文本内容</span></span><br><span class="line">                    <span class="keyword">let</span> calloutType = <span class="literal">null</span>;</span><br><span class="line">                    <span class="keyword">const</span> calloutBodyTokens = [];</span><br><span class="line"></span><br><span class="line">                    blockquoteTokens.<span class="title function_">forEach</span>(<span class="function"><span class="params">token</span> =&gt;</span> &#123;</span><br><span class="line">                        <span class="keyword">if</span> (token.<span class="property">type</span> === <span class="string">&#x27;inline&#x27;</span> &amp;&amp; !calloutType) &#123;</span><br><span class="line">                            <span class="comment">// 提取 Callout 类型</span></span><br><span class="line">                            <span class="keyword">const</span> match = token.<span class="property">content</span>.<span class="title function_">match</span>(<span class="regexp">/\[!(\w+)]/</span>);</span><br><span class="line">                            <span class="keyword">if</span> (match) &#123;</span><br><span class="line">                                calloutType = match[<span class="number">1</span>].<span class="title function_">toLowerCase</span>();</span><br><span class="line">                            &#125;</span><br><span class="line">                        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                            calloutBodyTokens.<span class="title function_">push</span>(token);</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;);</span><br><span class="line"></span><br><span class="line">                    <span class="keyword">if</span> (calloutType) &#123;</span><br><span class="line">                        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;Matched callout type:&quot;</span>, calloutType);</span><br><span class="line"></span><br><span class="line">                        <span class="comment">// 递归渲染 Markdown 内容</span></span><br><span class="line">                        <span class="keyword">const</span> calloutBody = md.<span class="property">renderer</span>.<span class="title function_">render</span>(calloutBodyTokens, state.<span class="property">options</span>, state.<span class="property">env</span>);</span><br><span class="line"></span><br><span class="line">                        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;Callout body (rendered):&quot;</span>, calloutBody);</span><br><span class="line"></span><br><span class="line">                        <span class="keyword">const</span> iconInfo = iconConfig[calloutType] || iconConfig[<span class="string">&quot;info&quot;</span>];</span><br><span class="line"></span><br><span class="line">                        <span class="keyword">const</span> calloutHtml = <span class="string">`</span></span><br><span class="line"><span class="string">&lt;div class=&quot;callout callout-<span class="subst">$&#123;calloutType&#125;</span>&quot;&gt;</span></span><br><span class="line"><span class="string">    &lt;div class=&quot;callout-head&quot;&gt;</span></span><br><span class="line"><span class="string">        <span class="subst">$&#123;loadIcon(calloutType)&#125;</span></span></span><br><span class="line"><span class="string">        &lt;span class=&quot;callout-head-text&quot; style=&quot;color:<span class="subst">$&#123;iconInfo.color&#125;</span>&quot;&gt;<span class="subst">$&#123;calloutType.toUpperCase()&#125;</span>&lt;/span&gt;</span></span><br><span class="line"><span class="string">    &lt;/div&gt;</span></span><br><span class="line"><span class="string">    &lt;div class=&quot;callout-contents&quot;&gt;</span></span><br><span class="line"><span class="string">        <span class="subst">$&#123;calloutBody&#125;</span></span></span><br><span class="line"><span class="string">    &lt;/div&gt;</span></span><br><span class="line"><span class="string">&lt;/div&gt;`</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">                        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;Generated HTML:&quot;</span>, calloutHtml);</span><br><span class="line"></span><br><span class="line">                        <span class="comment">// 替换原引用块内容</span></span><br><span class="line">                        token.<span class="property">type</span> = <span class="string">&#x27;html_block&#x27;</span>;</span><br><span class="line">                        token.<span class="property">content</span> = calloutHtml;</span><br><span class="line"></span><br><span class="line">                        <span class="comment">// 移除 blockquote 区块内处理的内容</span></span><br><span class="line">                        tokens.<span class="title function_">splice</span>(i + <span class="number">1</span>, j - i);</span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;No callout type found in blockquote.&quot;</span>);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;No matching blockquote_close found.&quot;</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;Finished processing tokens.&quot;</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="自定义渲染器代码-small-small-二编了🤡代码最终还是没躲过bug-small-small"><a class="header-anchor" href="#自定义渲染器代码-small-small-二编了🤡代码最终还是没躲过bug-small-small">¶</a>自定义渲染器代码<small><small>二编了🤡代码最终还是没躲过bug</small></small></h3>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> iconConfig = &#123;</span><br><span class="line">    <span class="string">&quot;info&quot;</span>: &#123; <span class="string">&quot;color&quot;</span>: <span class="string">&quot;#3178c6&quot;</span>, <span class="string">&quot;icon&quot;</span>: <span class="string">&quot;ℹ️&quot;</span> &#125;,</span><br><span class="line">    <span class="string">&quot;warning&quot;</span>: &#123; <span class="string">&quot;color&quot;</span>: <span class="string">&quot;#e5a700&quot;</span>, <span class="string">&quot;icon&quot;</span>: <span class="string">&quot;⚠️&quot;</span> &#125;,</span><br><span class="line">    <span class="string">&quot;error&quot;</span>: &#123; <span class="string">&quot;color&quot;</span>: <span class="string">&quot;#d32f2f&quot;</span>, <span class="string">&quot;icon&quot;</span>: <span class="string">&quot;❌&quot;</span> &#125;,</span><br><span class="line">    <span class="string">&quot;success&quot;</span>: &#123; <span class="string">&quot;color&quot;</span>: <span class="string">&quot;#2e7d32&quot;</span>, <span class="string">&quot;icon&quot;</span>: <span class="string">&quot;✔️&quot;</span> &#125;,</span><br><span class="line">    <span class="string">&quot;note&quot;</span>: &#123; <span class="string">&quot;color&quot;</span>: <span class="string">&quot;#673ab7&quot;</span>, <span class="string">&quot;icon&quot;</span>: <span class="string">&quot;📝&quot;</span> &#125;,</span><br><span class="line">    <span class="string">&quot;tip&quot;</span>: &#123; <span class="string">&quot;color&quot;</span>: <span class="string">&quot;#009688&quot;</span>, <span class="string">&quot;icon&quot;</span>: <span class="string">&quot;💡&quot;</span> &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">loadIcon</span>(<span class="params">iconName</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> iconInfo = iconConfig[iconName] || iconConfig[<span class="string">&quot;info&quot;</span>];</span><br><span class="line">    <span class="keyword">return</span> <span class="string">`&lt;span class=&quot;callout-head-icon&quot;&gt;<span class="subst">$&#123;iconInfo.icon&#125;</span>&lt;/span&gt;`</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">generateCalloutHTML</span>(<span class="params">type, tokens, state</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> md = <span class="built_in">require</span>(<span class="string">&#x27;markdown-it&#x27;</span>)(&#123;</span><br><span class="line">        <span class="attr">html</span>: <span class="literal">true</span>,</span><br><span class="line">        <span class="attr">linkify</span>: <span class="literal">true</span>,</span><br><span class="line">        <span class="attr">typographer</span>: <span class="literal">true</span>,</span><br><span class="line">        <span class="attr">breaks</span>: <span class="literal">true</span>,</span><br><span class="line">        <span class="attr">xhtmlOut</span>: <span class="literal">false</span></span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">const</span> options = &#123; ...state.<span class="property">options</span>, <span class="attr">breaks</span>: <span class="literal">true</span>, <span class="attr">xhtmlOut</span>: <span class="literal">false</span> &#125;;</span><br><span class="line">    <span class="keyword">const</span> wrappedTokens = [</span><br><span class="line">        &#123; <span class="attr">type</span>: <span class="string">&#x27;paragraph_open&#x27;</span>, <span class="attr">tag</span>: <span class="string">&#x27;p&#x27;</span>, <span class="attr">attrs</span>: <span class="literal">null</span>, <span class="attr">map</span>: <span class="literal">null</span>, <span class="attr">nesting</span>: <span class="number">1</span>, <span class="attr">level</span>: <span class="number">0</span> &#125;,</span><br><span class="line">        ...tokens,</span><br><span class="line">        &#123; <span class="attr">type</span>: <span class="string">&#x27;paragraph_close&#x27;</span>, <span class="attr">tag</span>: <span class="string">&#x27;p&#x27;</span>, <span class="attr">attrs</span>: <span class="literal">null</span>, <span class="attr">map</span>: <span class="literal">null</span>, <span class="attr">nesting</span>: -<span class="number">1</span>, <span class="attr">level</span>: <span class="number">0</span> &#125;</span><br><span class="line">    ];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> calloutBody = <span class="string">&quot;&quot;</span>;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        calloutBody = md.<span class="property">renderer</span>.<span class="title function_">render</span>(wrappedTokens, options, state.<span class="property">env</span>);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&quot;Callout rendering error:&quot;</span>, error);</span><br><span class="line">        calloutBody = <span class="string">&quot;&lt;!-- Render Error --&gt;&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> iconInfo = iconConfig[type] || iconConfig[<span class="string">&quot;info&quot;</span>];</span><br><span class="line">    <span class="keyword">return</span> <span class="string">`</span></span><br><span class="line"><span class="string">&lt;div class=&quot;callout callout-<span class="subst">$&#123;type&#125;</span>&quot;&gt;</span></span><br><span class="line"><span class="string">    &lt;div class=&quot;callout-head&quot;&gt;</span></span><br><span class="line"><span class="string">        <span class="subst">$&#123;loadIcon(type)&#125;</span></span></span><br><span class="line"><span class="string">        &lt;span class=&quot;callout-head-text&quot; style=&quot;color:<span class="subst">$&#123;iconInfo.color&#125;</span>&quot;&gt;<span class="subst">$&#123;type.toUpperCase()&#125;</span>&lt;/span&gt;</span></span><br><span class="line"><span class="string">    &lt;/div&gt;</span></span><br><span class="line"><span class="string">    &lt;div class=&quot;callout-contents&quot;&gt;</span></span><br><span class="line"><span class="string">        <span class="subst">$&#123;calloutBody&#125;</span></span></span><br><span class="line"><span class="string">    &lt;/div&gt;</span></span><br><span class="line"><span class="string">&lt;/div&gt;`</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">hexo.<span class="property">extend</span>.<span class="property">filter</span>.<span class="title function_">register</span>(<span class="string">&#x27;markdown-it:renderer&#x27;</span>, <span class="keyword">function</span> (<span class="params">md</span>) &#123;</span><br><span class="line">    md.<span class="property">core</span>.<span class="property">ruler</span>.<span class="title function_">push</span>(<span class="string">&#x27;render_callout&#x27;</span>, <span class="keyword">function</span> (<span class="params">state</span>) &#123;</span><br><span class="line">        <span class="keyword">const</span> tokens = state.<span class="property">tokens</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> i = tokens.<span class="property">length</span> - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">            <span class="keyword">const</span> token = tokens[i];</span><br><span class="line">            <span class="keyword">if</span> (token.<span class="property">type</span> === <span class="string">&#x27;blockquote_open&#x27;</span>) &#123;</span><br><span class="line">                <span class="keyword">let</span> j = i + <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">const</span> blockquoteTokens = [];</span><br><span class="line">                <span class="keyword">while</span> (tokens[j] &amp;&amp; tokens[j].<span class="property">type</span> !== <span class="string">&#x27;blockquote_close&#x27;</span>) &#123;</span><br><span class="line">                    blockquoteTokens.<span class="title function_">push</span>(tokens[j]);</span><br><span class="line">                    j++;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (tokens[j]?.<span class="property">type</span> === <span class="string">&#x27;blockquote_close&#x27;</span>) &#123;</span><br><span class="line">                    <span class="keyword">let</span> calloutType = <span class="literal">null</span>;</span><br><span class="line">                    <span class="keyword">const</span> calloutBodyTokens = [];</span><br><span class="line">                    blockquoteTokens.<span class="title function_">forEach</span>(<span class="function"><span class="params">token</span> =&gt;</span> &#123;</span><br><span class="line">                        <span class="keyword">if</span> (token.<span class="property">type</span> === <span class="string">&#x27;inline&#x27;</span> &amp;&amp; !calloutType) &#123;</span><br><span class="line">                            <span class="keyword">const</span> match = token.<span class="property">content</span>.<span class="title function_">match</span>(<span class="regexp">/\[!(\w+)]/</span>);</span><br><span class="line">                            <span class="keyword">if</span> (match) calloutType = match[<span class="number">1</span>].<span class="title function_">toLowerCase</span>();</span><br><span class="line">                        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                            calloutBodyTokens.<span class="title function_">push</span>(token);</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;);</span><br><span class="line">                    <span class="keyword">if</span> (calloutType) &#123;</span><br><span class="line">                        <span class="keyword">const</span> calloutHtml = <span class="title function_">generateCalloutHTML</span>(calloutType, calloutBodyTokens, state);</span><br><span class="line">                        token.<span class="property">type</span> = <span class="string">&#x27;html_block&#x27;</span>;</span><br><span class="line">                        token.<span class="property">content</span> = calloutHtml;</span><br><span class="line">                        tokens.<span class="title function_">splice</span>(i + <span class="number">1</span>, j - i);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <p><small>其实在阅读这段代码我们能够发现，这段脚本支持用户自定义自己喜欢的callout块，这是后话</small></p>
+<p><small>二编：发现有<code>hexo</code>有时候会报<code>breaks</code>和<code>xhtmlOut</code>的错，最后看了一下详细的报错信息发现和这个<code>callout</code>脱不了干系，果不其然要改了😰</small></p>
 <h3 id="代码放在位置"><a class="header-anchor" href="#代码放在位置">¶</a>代码放在位置</h3>
 <p><strong>然后就是代码的放置位置</strong>，虽然笔者并不了解<code>hexo</code></p>
 <ol>
 <li class="lvl-3">
-<p>总之，在你的<em>博客根目录</em>
+<p>总之，在你的<em>博客根目录</em><br>
 <small>(虽然不知道博客根目录是否难懂，但如果跟着教程配好了博客的人一定都很聪明)</small></p>
 </li>
 <li class="lvl-3">
