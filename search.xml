@@ -133,6 +133,82 @@
 ]]></content>
   </entry>
   <entry>
+    <title>footnote使用</title>
+    <url>/posts/64648fb9.html</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
+<span id="more"></span>
+<hr />
+<div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
+  </entry>
+  <entry>
+    <title>关于博客中使用的脚注功能</title>
+    <url>/posts/c6910d47.html</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p></p>
+<p>记录一下博客中脚注配置的相关内容</p>
+
+    </div>
+</div><span id="more"></span>
+
+<div class="callout callout-note">
+    <div class="callout-head">
+        <span class="callout-head-icon">📝</span>
+        <span class="callout-head-text" style="color:#673ab7">NOTE</span>
+    </div>
+    <div class="callout-contents">
+        <p></p>
+<ol>
+<li class="lvl-3">打开 hexo 官方插件页面 <a href="https://hexo.io/plugins/">Plugins</a></li>
+<li class="lvl-3">搜索 <code>footnotes</code> 并安装 <a href="https://github.com/kchen0x/hexo-reference">hexo-reference</a></li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-reference --save</span><br></pre></td></tr></table></figure>
+<p>配置根目录 <code>_config.yml</code> 文件，新增一下内容：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">plugins:</span><br><span class="line">  - hexo-reference</span><br></pre></td></tr></table></figure>
+<h4 id="参考文档"><a class="header-anchor" href="#参考文档">¶</a>参考文档</h4>
+<p><a href="https://kchen.cc/2016/11/10/footnotes-in-hexo/#fnref:4">Hexo 里的脚注插件</a></p>
+<p>—— 摘自 <a href="https://toypipi.github.io/2024/05/10/hexo-%E5%A2%9E%E5%8A%A0%E8%84%9A%E6%B3%A8%E5%8A%9F%E8%83%BD/">hexo 增加脚注功能 | Toypipi’s blog</a></p>
+
+    </div>
+</div><h2 id="修改footnote脚注样式"><a class="header-anchor" href="#修改footnote脚注样式">¶</a>修改footnote脚注样式</h2>
+<p>由于笔者实在是不太喜欢<code>hexo-reference</code>提供的红色的<code>footnote</code>然后鉴于笔者是使用插件渲染<code>footnote</code>的，所以笔者就准备对插件的代码做一下改造：</p>
+<ol>
+<li class="lvl-3">
+<p>我们先进入博客根目录下的<code>/node_modules/hexo-reference</code></p>
+<p><small>没错，笔者准备对这个插件进行修改</small></p>
+</li>
+<li class="lvl-3">
+<p>然后查看文件<code>index.js</code></p>
+<p><small>不出意外的话这个一般是插件的入口文件</small></p>
+<p>我们看到这个文件前有一段<code>js</code>引用：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> renderFootnotes = <span class="built_in">require</span>(<span class="string">&#x27;./src/footnotes&#x27;</span>);</span><br></pre></td></tr></table></figure>
+<p>没错，笔者在看完其后代码之后认为核心渲染程序应该在</p>
+<p><code>./src/footnotes</code></p>
+</li>
+<li class="lvl-3">
+<p>然后我们找到这个文件，即插件根目录下的<code>/src/footnotes.js</code>文件，笔者打开了它并把<code>hint--error</code>给删了</p>
+</li>
+<li class="lvl-3">
+<p>然后就好了</p>
+</li>
+</ol>
+<p><small>Oops! 笔者在阅读代码的时候发现这个插件好像依赖插件<code>markdown-it</code></small></p>
+<hr />
+<div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
+      <categories>
+        <category>折腾hexo</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>操作系统第六章复习</title>
     <url>/posts/b90b7ae5.html</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
@@ -183,10 +259,9 @@
 <p>只需要让程序当前需要运行的内容存在于内存中，程序就能跑</p>
 </blockquote>
 <h3 id="虚拟存储器的定义"><a class="header-anchor" href="#虚拟存储器的定义">¶</a>虚拟存储器的定义</h3>
-<p>具有请求调入功能<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="是指">[1]</span></a></sup>和置换功能，能从逻辑上对内存容量加以扩充的一种存储器系统。</p>
-<hr>
+<p>具有请求调入功能<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--medium hint--rounded hint--bounce" aria-label="是指将进程所需">[1]</span></a></sup>和置换功能，能从逻辑上对内存容量加以扩充的一种存储器系统。</p>
 <hr />
-<div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div><div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">是指<a href="#fnref:1" rev="footnote"> ↩</a></span></li></ol></div></div>]]></content>
+<div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div><div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">是指将进程所需<a href="#fnref:1" rev="footnote"> ↩</a></span></li></ol></div></div>]]></content>
       <categories>
         <category>408</category>
       </categories>
