@@ -133,512 +133,12 @@
 ]]></content>
   </entry>
   <entry>
-    <title>关于hexo插件hexo-graph的使用</title>
-    <url>/posts/1bd5413e.html</url>
+    <title>footnote使用</title>
+    <url>/posts/64648fb9.html</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
-
-<div class="callout callout-tip">
-    <div class="callout-head">
-        <span class="callout-head-icon">💡</span>
-        <span class="callout-head-text" style="color:#009688">TIP</span>
-    </div>
-    <div class="callout-contents">
-        <p><p></p>
-<p>记一下文章&quot;关于&quot;页的书写</p>
-<p>插件地址<a href="https://github.com/codepzj/hexo-graph">codepzj/hexo-graph: hexo-graph，一个基于echarts，集成博客热力图，博客月份统计图，分类统计图，标签统计图的多元化插件。</a></p>
-</p>
-    </div>
-</div><span id="more"></span>
-<p>略</p>
+<span id="more"></span>
 <hr />
 <div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
-      <categories>
-        <category>hexo</category>
-      </categories>
-      <tags>
-        <tag>折腾 hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>请求分页-页面框</title>
-    <url>/posts/6dc856e2.html</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
-
-<div class="callout callout-tip">
-    <div class="callout-head">
-        <span class="callout-head-icon">💡</span>
-        <span class="callout-head-text" style="color:#009688">TIP</span>
-    </div>
-    <div class="callout-contents">
-        <p><p></p>
-<h3><strong>总结</strong></h3>
-<ul class="lvl-1">
-<li class="lvl-2">
-<p>页面框是<strong>物理内存中的固定大小块</strong>，用于存储虚拟内存的页。</p>
-</li>
-<li class="lvl-2">
-<p>通过分页机制，操作系统可以高效管理内存，提高内存利用率，并支持更大的虚拟地址空间。</p>
-</li>
-</ul>
-</p>
-    </div>
-</div><span id="more"></span>
-<p><strong>页面框</strong>（Page Frame）是操作系统中物理内存管理的一个重要概念。</p>
-<hr>
-<h3 id="页面框的定义"><a class="header-anchor" href="#页面框的定义">¶</a><strong>页面框的定义</strong></h3>
-<p>页面框是指<strong>物理内存中的固定大小的块</strong>，它是虚拟内存管理中用于存放<strong>页</strong>（Page）的单位。</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p><strong>页</strong>：虚拟内存被划分为大小固定的块，每块称为一个页（Page）。</p>
-</li>
-<li class="lvl-2">
-<p><strong>页面框</strong>：物理内存也被划分为同样大小的固定块，这些块称为页面框（Page Frame）。</p>
-</li>
-</ul>
-<p>页面框和页的大小相同（通常为 4KB 或 8KB，具体取决于操作系统和硬件架构），这样可以方便地实现虚拟内存和物理内存之间的映射。</p>
-<hr>
-<h3 id="页面框的作用"><a class="header-anchor" href="#页面框的作用">¶</a><strong>页面框的作用</strong></h3>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p><strong>存储页</strong>：页面框用于存储从虚拟内存中调入的页。</p>
-</li>
-<li class="lvl-2">
-<p><strong>虚拟内存与物理内存的映射</strong>：操作系统通过页表（Page Table）将虚拟内存的页与物理内存的页面框一一对应，从而实现虚拟内存管理。</p>
-</li>
-<li class="lvl-2">
-<p><strong>提升内存利用率</strong>：通过分页机制，进程无需全部加载到内存中，只需将常用的页装入页面框即可，减少内存的浪费。</p>
-</li>
-</ul>
-<hr>
-<h3 id="页面框的分配过程"><a class="header-anchor" href="#页面框的分配过程">¶</a><strong>页面框的分配过程</strong></h3>
-<ol>
-<li class="lvl-3">
-<p>虚拟地址空间划分：进程的虚拟地址被划分为多个页。</p>
-<ul class="lvl-2">
-<li class="lvl-5">假设某进程需要 16KB 的虚拟内存，且每页大小为 4KB，则虚拟内存被划分为 4 个页。</li>
-</ul>
-</li>
-<li class="lvl-3">
-<p>物理内存划分：操作系统将物理内存划分为等大小的页面框。</p>
-<ul class="lvl-2">
-<li class="lvl-5">假设有 1GB 的物理内存，页面框大小为 4KB，则物理内存被划分为 262,144 个页面框。</li>
-</ul>
-</li>
-<li class="lvl-3">
-<p>页面调度：当进程运行时，操作系统将虚拟内存中的页映射到物理内存中的页面框。</p>
-<ul class="lvl-2">
-<li class="lvl-5">若某页需要访问但不在内存（缺页中断），操作系统从磁盘将该页加载到某个空闲页面框中，或通过页面置换算法腾出一个页面框。</li>
-</ul>
-</li>
-</ol>
-<hr>
-<h3 id="页面框相关机制"><a class="header-anchor" href="#页面框相关机制">¶</a><strong>页面框相关机制</strong></h3>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p><strong>页表（Page Table）</strong>：存储每个页与页面框的映射关系。</p>
-</li>
-<li class="lvl-2">
-<p><strong>页面置换</strong>：当页面框不足时，操作系统通过页面置换算法（如 LRU、FIFO）将某些不常用的页移出页面框，以腾出空间给新的页。</p>
-</li>
-</ul>
-<hr>
-<h3 id="总结"><a class="header-anchor" href="#总结">¶</a><strong>总结</strong></h3>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>页面框是<strong>物理内存中的固定大小块</strong>，用于存储虚拟内存的页。</p>
-</li>
-<li class="lvl-2">
-<p>通过分页机制，操作系统可以高效管理内存，提高内存利用率，并支持更大的虚拟地址空间。</p>
-</li>
-</ul>
-<hr />
-<div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
-  </entry>
-  <entry>
-    <title>请求分页-物理块分配算法</title>
-    <url>/posts/8ba68849.html</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
-
-<div class="callout callout-tip">
-    <div class="callout-head">
-        <span class="callout-head-icon">💡</span>
-        <span class="callout-head-text" style="color:#009688">TIP</span>
-    </div>
-    <div class="callout-contents">
-        <p><p></p>
-<h3>请求分页-物理块分配算法<strong>对比总结</strong></h3>
-<table>
-<thead>
-<tr>
-<th><strong>算法类型</strong></th>
-<th><strong>分配依据</strong></th>
-<th><strong>适用场景</strong></th>
-<th><strong>优点</strong></th>
-<th><strong>缺点</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>平均分配算法</td>
-<td>平均分配</td>
-<td>进程需求量相近的场景</td>
-<td>简单、公平</td>
-<td>无法动态适应需求，可能浪费资源</td>
-</tr>
-<tr>
-<td>按比例分配算法</td>
-<td>内存需求比例</td>
-<td>进程需求量差异大的场景</td>
-<td>资源利用率高，满足需求较大的进程</td>
-<td>计算复杂度较高</td>
-</tr>
-<tr>
-<td>考虑优先权的分配算法</td>
-<td>需求量和优先级</td>
-<td>多任务场景，优先保证关键任务</td>
-<td>确保关键任务优先，灵活调整分配策略</td>
-<td>可能导致低优先级任务资源匮乏</td>
-</tr>
-</tbody>
-</table>
-<p>在实际系统中，按比例分配算法和考虑优先权的分配算法更常见，因为它们能够更好地适应动态环境的需求。</p>
-</p>
-    </div>
-</div><span id="more"></span>
-<p>在物理块分配中，操作系统通过不同的分配算法将内存中的页面框分配给各个进程，以提高内存利用率和系统性能。以下是这些算法的详细解释：</p>
-<hr>
-<h3 id="1-平均分配算法"><a class="header-anchor" href="#1-平均分配算法">¶</a><strong>1. 平均分配算法</strong></h3>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>分配方法：</p>
-<ul class="lvl-2">
-<li class="lvl-4">系统将所有的物理块平均分配给当前运行的进程。</li>
-<li class="lvl-4">假设系统有 <code>N</code> 个页面框和 <code>M</code> 个进程，则每个进程分配到的页面框数量为 <code>N / M</code>，如果有余数，可以通过某种方式分配剩余的页面框。</li>
-</ul>
-</li>
-<li class="lvl-2">
-<p>特点：</p>
-<ul class="lvl-2">
-<li class="lvl-4">简单易实现，适用于所有进程的内存需求大致相同的场景。</li>
-<li class="lvl-4">对于需求量大的进程可能导致页面置换频繁（抖动问题），而需求量小的进程可能浪费内存。</li>
-</ul>
-</li>
-</ul>
-<p><strong>优点</strong>：公平、实现简单。</p>
-<p><strong>缺点</strong>：无法动态适应进程的实际需求，可能导致资源分配不合理。</p>
-<hr>
-<h3 id="2-按比例分配算法"><a class="header-anchor" href="#2-按比例分配算法">¶</a><strong>2. 按比例分配算法</strong></h3>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>分配方法：</p>
-<ul class="lvl-2">
-<li class="lvl-4">根据每个进程所需的页面数占比，按比例分配物理块。</li>
-<li class="lvl-4">假设系统有 <code>N</code> 个物理块，<code>M</code> 个进程，进程 <code>i</code> 所需页面数为 <code>Si</code>，则分配给进程 <code>i</code> 的页面框数为：<br>
-$$<br>
-\text{分配的页面框数} = N \times \frac{S_i}{\sum_{j=1}^{M} S_j}<br>
-$$</li>
-</ul>
-</li>
-<li class="lvl-2">
-<p>特点：</p>
-<ul class="lvl-2">
-<li class="lvl-4">进程内存需求较大时分配更多页面框，内存需求较小时分配更少。</li>
-<li class="lvl-4">适用于进程内存需求差异较大的场景，能较好地满足高需求进程的性能。</li>
-</ul>
-</li>
-</ul>
-<p><strong>优点</strong>：充分利用资源，能够根据需求动态调整分配。</p>
-<p><strong>缺点</strong>：计算复杂度较高，对需求量估计不准确时可能影响性能。</p>
-<hr>
-<h3 id="3-考虑优先权的分配算法"><a class="header-anchor" href="#3-考虑优先权的分配算法">¶</a><strong>3. 考虑优先权的分配算法</strong></h3>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>分配方法：</p>
-<ul class="lvl-2">
-<li class="lvl-4">在按比例分配的基础上，结合进程的优先级分配物理块。</li>
-<li class="lvl-4">系统会为高优先级进程分配更多的页面框，而低优先级进程分配较少。</li>
-<li class="lvl-4">假设优先级为 <code>Pi</code>，则分配公式可以扩展为：<br>
-$$<br>
-\text{分配的页面框数} = N \times \frac{P_i \cdot S_i}{\sum_{j=1}^{M} (P_j \cdot S_j)}<br>
-$$</li>
-</ul>
-</li>
-<li class="lvl-2">
-<p>特点：</p>
-<ul class="lvl-2">
-<li class="lvl-4">确保高优先级进程在资源分配上得到保障。</li>
-</ul>
-</li>
-<li class="lvl-2">
-<p>适用于多任务操作系统，优先保证关键任务或重要用户的性能。</p>
-</li>
-</ul>
-<p><strong>优点</strong>：保障高优先级任务的运行性能。</p>
-<p><strong>缺点</strong>：可能导致低优先级进程长时间无法获得足够的资源，影响其运行。</p>
-<hr />
-<div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
-      <categories>
-        <category>408</category>
-      </categories>
-      <tags>
-        <tag>408</tag>
-        <tag>大学</tag>
-        <tag>OS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>请求分页-物理块分配策略</title>
-    <url>/posts/907f4c43.html</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
-
-<div class="callout callout-tip">
-    <div class="callout-head">
-        <span class="callout-head-icon">💡</span>
-        <span class="callout-head-text" style="color:#009688">TIP</span>
-    </div>
-    <div class="callout-contents">
-        <p><p></p>
-<h3>请求分页-物理块分配策略</h3>
-<h5>固定与可变</h5>
-<p><strong>固定</strong>与<strong>可变</strong>的区别在于给进程分配的物理块数</p>
-<p>即<strong>固定</strong>是指在给<strong>每个进程</strong>均分配<strong>固定数量</strong>的物理块</p>
-<p>可变即根据进程的不同，分配<strong>不同数量</strong>的物理块</p>
-<h5>全局与局部</h5>
-<p>即，当进程执行是发生缺页后，换入换出操作执行的范围</p>
-<p><strong>局部</strong> 即，当进程要执行换入换出操作时，仅在操作系统为<strong>该进程分配的物理空间</strong>之内发生替换，而不会影响其他进程块</p>
-<p><strong>全局</strong> 即，当前进程需要换入缺页的部分时，不仅仅会挑选当前进程拥有的物理块，还可能会换出其他进程的物理块。</p>
-</p>
-    </div>
-</div><span id="more"></span>
-<p>在操作系统中，<strong>物理块分配策略</strong>主要决定了内存如何分配给进程以及页面置换的策略。以下是这些策略的详细解释：</p>
-<hr>
-<h3 id="1-固定分配，局部置换"><a class="header-anchor" href="#1-固定分配，局部置换">¶</a><strong>1. 固定分配，局部置换</strong></h3>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>固定分配：每个进程在创建时，分配固定数量的物理块（即页面框）。这些物理块数量在整个运行过程中不再改变。</p>
-<ul class="lvl-2">
-<li class="lvl-4">例如，一个进程可能被分配 5 个页面框，另一个进程被分配 10 个页面框。</li>
-</ul>
-</li>
-<li class="lvl-2">
-<p>局部置换：当一个进程需要置换页面时，只能在它自己的物理块中进行替换，而不会占用或影响其他进程的物理块。</p>
-<ul class="lvl-2">
-<li class="lvl-4">换句话说，每个进程有自己的物理块范围，页面置换仅限于该范围内。</li>
-</ul>
-</li>
-</ul>
-<p><strong>优点</strong>：避免了进程之间的干扰，保证了各自的内存独立性。</p>
-<p><strong>缺点</strong>：如果某个进程的需求量超过了固定分配的物理块数，可能会出现高频率的页面置换（抖动问题）。</p>
-<hr>
-<h3 id="2-可变分配，全局置换"><a class="header-anchor" href="#2-可变分配，全局置换">¶</a><strong>2. 可变分配，全局置换</strong></h3>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p><strong>可变分配</strong>：系统可以根据进程的运行情况动态调整分配给每个进程的物理块数量。例如，一个进程内存需求增加时，可以从其他进程的分配中借用页面框。</p>
-</li>
-<li class="lvl-2">
-<p>全局置换：当某个进程需要置换页面时，可以在整个系统的所有物理块中选择受影响的页面，不局限于自身的物理块范围。</p>
-<ul class="lvl-2">
-<li class="lvl-4">例如，某个进程的页面置换可能会影响到其他进程正在使用的页面。</li>
-</ul>
-</li>
-</ul>
-<p><strong>优点</strong>：提高了系统内存的利用率，允许内存资源在进程之间灵活分配。</p>
-<p><strong>缺点</strong>：进程之间可能会互相干扰，导致某些进程因内存不足而性能下降。</p>
-<hr>
-<h3 id="3-可变分配，局部置换"><a class="header-anchor" href="#3-可变分配，局部置换">¶</a><strong>3. 可变分配，局部置换</strong></h3>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p><strong>可变分配</strong>：系统可以动态调整每个进程的物理块数量，具体分配数量由操作系统根据进程的需求决定。</p>
-</li>
-<li class="lvl-2">
-<p><strong>局部置换</strong>：尽管分配数量可变，但每个进程仍只能在自己当前拥有的物理块中进行页面置换，而不能影响其他进程的页面。</p>
-</li>
-</ul>
-<p><strong>优点</strong>：结合了固定分配和可变分配的优点，既能根据需求调整资源，又避免了进程之间的直接干扰。</p>
-<p><strong>缺点</strong>：动态分配增加了操作系统的复杂性。</p>
-<hr>
-<h3 id="总结对比"><a class="header-anchor" href="#总结对比">¶</a><strong>总结对比</strong></h3>
-<table>
-<thead>
-<tr>
-<th>策略类型</th>
-<th>物理块分配</th>
-<th>页面置换范围</th>
-<th>优点</th>
-<th>缺点</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>固定分配，局部置换</td>
-<td>固定数量</td>
-<td>自己的物理块</td>
-<td>简单、稳定，避免进程干扰</td>
-<td>缺乏灵活性，可能导致个别进程性能下降</td>
-</tr>
-<tr>
-<td>可变分配，全局置换</td>
-<td>动态调整</td>
-<td>全局</td>
-<td>高效利用内存资源，支持动态调整</td>
-<td>进程间干扰可能导致系统不稳定</td>
-</tr>
-<tr>
-<td>可变分配，局部置换</td>
-<td>动态调整</td>
-<td>自己的物理块</td>
-<td>兼顾灵活性和稳定性</td>
-<td>系统复杂度较高</td>
-</tr>
-</tbody>
-</table>
-<p>这三种策略在实际中会根据操作系统的设计目标与应用场景选择适用的方案。</p>
-<hr />
-<div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
-      <categories>
-        <category>408</category>
-      </categories>
-      <tags>
-        <tag>408</tag>
-        <tag>大学</tag>
-        <tag>OS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>一条指令在执行期间，可能产生多次缺页中断</title>
-    <url>/posts/52e033e8.html</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
-
-<div class="callout callout-note">
-    <div class="callout-head">
-        <span class="callout-head-icon">📝</span>
-        <span class="callout-head-text" style="color:#673ab7">NOTE</span>
-    </div>
-    <div class="callout-contents">
-        <p><p></p>
-<p>一条指令在执行期间，可能产生多次缺页中断 的详细解析</p>
-</p>
-    </div>
-</div><span id="more"></span>
-<p>是的，一条指令在执行期间<strong>可能产生多次缺页中断</strong>。这是因为指令的执行可能涉及到多个内存地址的访问，而每个地址的访问都有可能导致缺页中断。以下是几种可能导致这种情况的场景：</p>
-<hr>
-<h3 id="1-指令本身产生的缺页中断"><a class="header-anchor" href="#1-指令本身产生的缺页中断">¶</a><strong>1. 指令本身产生的缺页中断</strong></h3>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p><strong>指令取指</strong><br>
-CPU在执行一条指令时，需要从内存取出指令。如果指令所在的虚拟页面尚未加载到主存，就会触发缺页中断。</p>
-</li>
-</ul>
-<hr>
-<h3 id="2-操作数访问导致的缺页中断"><a class="header-anchor" href="#2-操作数访问导致的缺页中断">¶</a><strong>2. 操作数访问导致的缺页中断</strong></h3>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p><strong>直接操作数</strong><br>
-如果指令使用了内存中的数据作为操作数，操作数对应的页面可能尚未加载，触发缺页中断。</p>
-</li>
-<li class="lvl-2">
-<p><strong>间接访问（如指针或数组访问）</strong><br>
-指令可能需要通过指针或索引来访问内存中的数据。如果这些地址指向的页面不在主存，也会触发缺页中断。</p>
-</li>
-</ul>
-<hr>
-<h3 id="3-指令操作多次访问内存"><a class="header-anchor" href="#3-指令操作多次访问内存">¶</a><strong>3. 指令操作多次访问内存</strong></h3>
-<p>一些复杂指令（尤其在CISC架构中）可能在执行期间涉及多个内存访问，每次访问都可能触发缺页中断。例如：</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p><strong>字符串处理指令</strong><br>
-一条指令可能遍历一个数组或字符串，多次访问内存中的页面。</p>
-</li>
-<li class="lvl-2">
-<p><strong>多维数组操作</strong><br>
-在访问二维或三维数组时，可能涉及多个页面。</p>
-</li>
-</ul>
-<hr>
-<h3 id="4-页表访问产生的缺页中断"><a class="header-anchor" href="#4-页表访问产生的缺页中断">¶</a><strong>4. 页表访问产生的缺页中断</strong></h3>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p><strong>多级页表</strong><br>
-虚拟地址到物理地址的转换需要访问页表。如果页表本身存储在磁盘中，访问页表时可能触发缺页中断。</p>
-</li>
-<li class="lvl-2">
-<p><strong>页目录和页表分级加载</strong><br>
-如果多级页表结构中的多个级别对应的页面都不在主存，每一级别都会触发一次缺页中断。</p>
-</li>
-</ul>
-<hr>
-<h3 id="5-内存管理器的间接操作"><a class="header-anchor" href="#5-内存管理器的间接操作">¶</a><strong>5. 内存管理器的间接操作</strong></h3>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p><strong>堆栈操作</strong><br>
-某些指令（如函数调用或返回）会隐式修改堆栈指针。如果堆栈页面未加载，也会触发缺页中断。</p>
-</li>
-<li class="lvl-2">
-<p><strong>动态内存分配</strong><br>
-指令可能涉及动态分配的内存区域（如<code>malloc</code>或<code>new</code>），而这些区域的页面可能尚未加载到主存。</p>
-</li>
-</ul>
-<hr>
-<h3 id="示例"><a class="header-anchor" href="#示例">¶</a><strong>示例</strong></h3>
-<p>假设有一条指令：</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">a[i] = b[j] + c[k];</span><br></pre></td></tr></table></figure>
-<p>执行这条指令可能涉及以下几个内存访问：</p>
-<ol>
-<li class="lvl-3">
-<p>取出指令本身（指令所在页面可能触发缺页中断）。</p>
-</li>
-<li class="lvl-3">
-<p>读取数组<code>a</code>的地址。</p>
-</li>
-<li class="lvl-3">
-<p>读取数组<code>b</code>的地址。</p>
-</li>
-<li class="lvl-3">
-<p>读取数组<code>c</code>的地址。</p>
-</li>
-<li class="lvl-3">
-<p>访问<code>b[j]</code>的值。</p>
-</li>
-<li class="lvl-3">
-<p>访问<code>c[k]</code>的值。</p>
-</li>
-<li class="lvl-3">
-<p>写入<code>a[i]</code>。</p>
-</li>
-</ol>
-<p>如果这些访问的页面都未加载到主存，则可能触发<strong>多次缺页中断</strong>。</p>
-<hr>
-<h3 id="如何缓解缺页中断带来的开销"><a class="header-anchor" href="#如何缓解缺页中断带来的开销">¶</a><strong>如何缓解缺页中断带来的开销</strong></h3>
-<ol>
-<li class="lvl-3">
-<p><strong>预取机制</strong><br>
-操作系统可预测程序的访问模式，提前将相关页面加载到主存，减少缺页中断。</p>
-</li>
-<li class="lvl-3">
-<p><strong>使用更大的页面（大页）</strong><br>
-使用大页面（如2MB或1GB）可以减少页表项数量，降低缺页中断概率。</p>
-</li>
-<li class="lvl-3">
-<p><strong>优化程序内存访问模式</strong><br>
-开发者可以优化数据结构和算法，尽量减少跨页面访问。</p>
-</li>
-<li class="lvl-3">
-<p><strong>TLB优化</strong><br>
-提高页表缓存（TLB）的命中率，加快地址转换速度。</p>
-</li>
-</ol>
-<hr>
-<p>综上，虽然一条指令可能导致多次缺页中断，但通过合理的内存管理策略和优化，可以有效降低缺页中断的频率，提高系统性能。</p>
-<hr />
-<div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
-      <categories>
-        <category>408</category>
-      </categories>
-      <tags>
-        <tag>408</tag>
-        <tag>大学</tag>
-        <tag>OS</tag>
-      </tags>
   </entry>
   <entry>
     <title>CISC架构</title>
@@ -949,9 +449,280 @@ CPU在执行一条指令时，需要从内存取出指令。如果指令所在�
       </tags>
   </entry>
   <entry>
-    <title>footnote使用</title>
-    <url>/posts/64648fb9.html</url>
+    <title>一条指令在执行期间，可能产生多次缺页中断</title>
+    <url>/posts/52e033e8.html</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
+
+<div class="callout callout-note">
+    <div class="callout-head">
+        <span class="callout-head-icon">📝</span>
+        <span class="callout-head-text" style="color:#673ab7">NOTE</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p>一条指令在执行期间，可能产生多次缺页中断 的详细解析</p>
+</p>
+    </div>
+</div><span id="more"></span>
+<p>是的，一条指令在执行期间<strong>可能产生多次缺页中断</strong>。这是因为指令的执行可能涉及到多个内存地址的访问，而每个地址的访问都有可能导致缺页中断。以下是几种可能导致这种情况的场景：</p>
+<hr>
+<h3 id="1-指令本身产生的缺页中断"><a class="header-anchor" href="#1-指令本身产生的缺页中断">¶</a><strong>1. 指令本身产生的缺页中断</strong></h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>指令取指</strong><br>
+CPU在执行一条指令时，需要从内存取出指令。如果指令所在的虚拟页面尚未加载到主存，就会触发缺页中断。</p>
+</li>
+</ul>
+<hr>
+<h3 id="2-操作数访问导致的缺页中断"><a class="header-anchor" href="#2-操作数访问导致的缺页中断">¶</a><strong>2. 操作数访问导致的缺页中断</strong></h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>直接操作数</strong><br>
+如果指令使用了内存中的数据作为操作数，操作数对应的页面可能尚未加载，触发缺页中断。</p>
+</li>
+<li class="lvl-2">
+<p><strong>间接访问（如指针或数组访问）</strong><br>
+指令可能需要通过指针或索引来访问内存中的数据。如果这些地址指向的页面不在主存，也会触发缺页中断。</p>
+</li>
+</ul>
+<hr>
+<h3 id="3-指令操作多次访问内存"><a class="header-anchor" href="#3-指令操作多次访问内存">¶</a><strong>3. 指令操作多次访问内存</strong></h3>
+<p>一些复杂指令（尤其在CISC架构中）可能在执行期间涉及多个内存访问，每次访问都可能触发缺页中断。例如：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>字符串处理指令</strong><br>
+一条指令可能遍历一个数组或字符串，多次访问内存中的页面。</p>
+</li>
+<li class="lvl-2">
+<p><strong>多维数组操作</strong><br>
+在访问二维或三维数组时，可能涉及多个页面。</p>
+</li>
+</ul>
+<hr>
+<h3 id="4-页表访问产生的缺页中断"><a class="header-anchor" href="#4-页表访问产生的缺页中断">¶</a><strong>4. 页表访问产生的缺页中断</strong></h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>多级页表</strong><br>
+虚拟地址到物理地址的转换需要访问页表。如果页表本身存储在磁盘中，访问页表时可能触发缺页中断。</p>
+</li>
+<li class="lvl-2">
+<p><strong>页目录和页表分级加载</strong><br>
+如果多级页表结构中的多个级别对应的页面都不在主存，每一级别都会触发一次缺页中断。</p>
+</li>
+</ul>
+<hr>
+<h3 id="5-内存管理器的间接操作"><a class="header-anchor" href="#5-内存管理器的间接操作">¶</a><strong>5. 内存管理器的间接操作</strong></h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>堆栈操作</strong><br>
+某些指令（如函数调用或返回）会隐式修改堆栈指针。如果堆栈页面未加载，也会触发缺页中断。</p>
+</li>
+<li class="lvl-2">
+<p><strong>动态内存分配</strong><br>
+指令可能涉及动态分配的内存区域（如<code>malloc</code>或<code>new</code>），而这些区域的页面可能尚未加载到主存。</p>
+</li>
+</ul>
+<hr>
+<h3 id="示例"><a class="header-anchor" href="#示例">¶</a><strong>示例</strong></h3>
+<p>假设有一条指令：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">a[i] = b[j] + c[k];</span><br></pre></td></tr></table></figure>
+<p>执行这条指令可能涉及以下几个内存访问：</p>
+<ol>
+<li class="lvl-3">
+<p>取出指令本身（指令所在页面可能触发缺页中断）。</p>
+</li>
+<li class="lvl-3">
+<p>读取数组<code>a</code>的地址。</p>
+</li>
+<li class="lvl-3">
+<p>读取数组<code>b</code>的地址。</p>
+</li>
+<li class="lvl-3">
+<p>读取数组<code>c</code>的地址。</p>
+</li>
+<li class="lvl-3">
+<p>访问<code>b[j]</code>的值。</p>
+</li>
+<li class="lvl-3">
+<p>访问<code>c[k]</code>的值。</p>
+</li>
+<li class="lvl-3">
+<p>写入<code>a[i]</code>。</p>
+</li>
+</ol>
+<p>如果这些访问的页面都未加载到主存，则可能触发<strong>多次缺页中断</strong>。</p>
+<hr>
+<h3 id="如何缓解缺页中断带来的开销"><a class="header-anchor" href="#如何缓解缺页中断带来的开销">¶</a><strong>如何缓解缺页中断带来的开销</strong></h3>
+<ol>
+<li class="lvl-3">
+<p><strong>预取机制</strong><br>
+操作系统可预测程序的访问模式，提前将相关页面加载到主存，减少缺页中断。</p>
+</li>
+<li class="lvl-3">
+<p><strong>使用更大的页面（大页）</strong><br>
+使用大页面（如2MB或1GB）可以减少页表项数量，降低缺页中断概率。</p>
+</li>
+<li class="lvl-3">
+<p><strong>优化程序内存访问模式</strong><br>
+开发者可以优化数据结构和算法，尽量减少跨页面访问。</p>
+</li>
+<li class="lvl-3">
+<p><strong>TLB优化</strong><br>
+提高页表缓存（TLB）的命中率，加快地址转换速度。</p>
+</li>
+</ol>
+<hr>
+<p>综上，虽然一条指令可能导致多次缺页中断，但通过合理的内存管理策略和优化，可以有效降低缺页中断的频率，提高系统性能。</p>
+<hr />
+<div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
+      <categories>
+        <category>408</category>
+      </categories>
+      <tags>
+        <tag>408</tag>
+        <tag>大学</tag>
+        <tag>OS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>关于 callout 块渲染</title>
+    <url>/posts/4179.html</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p>记录一下<code>callout</code>支持过程。</p>
+</p>
+    </div>
+</div><span id="more"></span>
+<h2 id="初期想法"><a class="header-anchor" href="#初期想法">¶</a>初期想法</h2>
+<p>因为<code>hexo</code>支持<code>markdown</code>基础语法，而笔者在使用<code>hexo</code>之前，恰好使用过<code>Obsidian</code>笔记软件，非常喜欢使用<code>Obsidian</code>中的<code>Callout</code>块。</p>
+<p>但发现网上并没有相关解决方案，虽然可以使用自定义代码块的方式书写类似<code>callout</code>块的效果，但是这样就和当前使用的<code>markdown</code>编辑器不兼容，而且自定义代码块的样式并不好看。<small><del>笔者还是比较喜欢即写即渲染的编辑模式</del></small></p>
+<p>所以，笔者就想提供一个专门用于渲染<code>callout</code>块的自定义渲染器，<small>笔者曾经写过一个<code>python</code>的<code>md</code>渲染器，就在书写本文章不久前，也是为了解决<code>callout</code>块问题</small></p>
+<p><small><del>笔者对<code>callout</code>还是非常喜爱的</del></small></p>
+<h2 id="实际实现"><a class="header-anchor" href="#实际实现">¶</a>实际实现</h2>
+<p>首先，安装<code>hexo-renderer-markdown-it</code> 以及 <code>markdown-it-container</code> 插件来扩展 <code>Markdown</code> 功能：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-renderer-markdown-it --save</span><br><span class="line">npm install markdown-it-container --save</span><br></pre></td></tr></table></figure>
+<p>在 <code>hexo-renderer-markdown-it</code> 配置中启用容器解析： 修改 <code>Hexo</code> 的 <code>_config.yml</code> 文件：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">markdown:</span></span><br><span class="line">  <span class="attr">render:</span></span><br><span class="line">    <span class="attr">html:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">xhtmlOut:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">breaks:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">linkify:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">typographer:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">plugins:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">markdown-it-container</span></span><br><span class="line">  <span class="attr">anchors:</span></span><br><span class="line">    <span class="attr">level:</span> <span class="number">2</span></span><br><span class="line">    <span class="attr">collisionSuffix:</span> <span class="string">&#x27;&#x27;</span></span><br><span class="line">    <span class="attr">permalink:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">permalinkClass:</span> <span class="string">header-anchor</span></span><br><span class="line">    <span class="attr">permalinkSymbol:</span> <span class="string">&#x27;¶&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>此时，<code>hexo</code>已经支持运行自定义的<code>markdown</code>了。</p>
+<p>接下来，我们书写<code>callout</code>渲染器。</p>
+<p><small><del>其实笔者在该部分废了老大的劲</del></small></p>
+<p>我先贴下代码</p>
+<h3 id="自定义渲染器代码"><a class="header-anchor" href="#自定义渲染器代码">¶</a>自定义渲染器代码</h3>
+<p><small>二编了🤡代码最终还是没躲过bug，当然鲁棒性肯定更高了</small></p>
+<p><small>三编了，这次是加了支持表情符的功能，这个也是typora支持的😴</small></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> iconConfig = &#123;</span><br><span class="line">    <span class="string">&quot;info&quot;</span>: &#123; <span class="string">&quot;color&quot;</span>: <span class="string">&quot;#3178c6&quot;</span>, <span class="string">&quot;icon&quot;</span>: <span class="string">&quot;ℹ️&quot;</span> &#125;,</span><br><span class="line">    <span class="string">&quot;warning&quot;</span>: &#123; <span class="string">&quot;color&quot;</span>: <span class="string">&quot;#e5a700&quot;</span>, <span class="string">&quot;icon&quot;</span>: <span class="string">&quot;⚠️&quot;</span> &#125;,</span><br><span class="line">    <span class="string">&quot;error&quot;</span>: &#123; <span class="string">&quot;color&quot;</span>: <span class="string">&quot;#d32f2f&quot;</span>, <span class="string">&quot;icon&quot;</span>: <span class="string">&quot;❌&quot;</span> &#125;,</span><br><span class="line">    <span class="string">&quot;success&quot;</span>: &#123; <span class="string">&quot;color&quot;</span>: <span class="string">&quot;#2e7d32&quot;</span>, <span class="string">&quot;icon&quot;</span>: <span class="string">&quot;✔️&quot;</span> &#125;,</span><br><span class="line">    <span class="string">&quot;note&quot;</span>: &#123; <span class="string">&quot;color&quot;</span>: <span class="string">&quot;#673ab7&quot;</span>, <span class="string">&quot;icon&quot;</span>: <span class="string">&quot;📝&quot;</span> &#125;,</span><br><span class="line">    <span class="string">&quot;tip&quot;</span>: &#123; <span class="string">&quot;color&quot;</span>: <span class="string">&quot;#009688&quot;</span>, <span class="string">&quot;icon&quot;</span>: <span class="string">&quot;💡&quot;</span> &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">loadIcon</span>(<span class="params">iconName</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> iconInfo = iconConfig[iconName] || iconConfig[<span class="string">&quot;info&quot;</span>];</span><br><span class="line">    <span class="keyword">return</span> <span class="string">`&lt;span class=&quot;callout-head-icon&quot;&gt;<span class="subst">$&#123;iconInfo.icon&#125;</span>&lt;/span&gt;`</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">generateCalloutHTML</span>(<span class="params">type, tokens, state</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> md = <span class="built_in">require</span>(<span class="string">&#x27;markdown-it&#x27;</span>)(&#123;</span><br><span class="line">        <span class="attr">html</span>: <span class="literal">true</span>,</span><br><span class="line">        <span class="attr">linkify</span>: <span class="literal">true</span>,</span><br><span class="line">        <span class="attr">typographer</span>: <span class="literal">true</span>,</span><br><span class="line">        <span class="attr">breaks</span>: <span class="literal">true</span>,</span><br><span class="line">        <span class="attr">xhtmlOut</span>: <span class="literal">false</span></span><br><span class="line">    &#125;).<span class="title function_">use</span>(<span class="built_in">require</span>(<span class="string">&#x27;markdown-it-emoji&#x27;</span>)); <span class="comment">// 添加 Emoji 插件</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> options = &#123; ...state.<span class="property">options</span>, <span class="attr">breaks</span>: <span class="literal">true</span>, <span class="attr">xhtmlOut</span>: <span class="literal">false</span> &#125;;</span><br><span class="line">    <span class="keyword">const</span> wrappedTokens = [</span><br><span class="line">        &#123; <span class="attr">type</span>: <span class="string">&#x27;paragraph_open&#x27;</span>, <span class="attr">tag</span>: <span class="string">&#x27;p&#x27;</span>, <span class="attr">attrs</span>: <span class="literal">null</span>, <span class="attr">map</span>: <span class="literal">null</span>, <span class="attr">nesting</span>: <span class="number">1</span>, <span class="attr">level</span>: <span class="number">0</span> &#125;,</span><br><span class="line">        ...tokens,</span><br><span class="line">        &#123; <span class="attr">type</span>: <span class="string">&#x27;paragraph_close&#x27;</span>, <span class="attr">tag</span>: <span class="string">&#x27;p&#x27;</span>, <span class="attr">attrs</span>: <span class="literal">null</span>, <span class="attr">map</span>: <span class="literal">null</span>, <span class="attr">nesting</span>: -<span class="number">1</span>, <span class="attr">level</span>: <span class="number">0</span> &#125;</span><br><span class="line">    ];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> calloutBody = <span class="string">&quot;&quot;</span>;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        calloutBody = md.<span class="property">renderer</span>.<span class="title function_">render</span>(wrappedTokens, options, state.<span class="property">env</span>);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&quot;Callout rendering error:&quot;</span>, error);</span><br><span class="line">        calloutBody = <span class="string">&quot;&lt;!-- Render Error --&gt;&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> iconInfo = iconConfig[type] || iconConfig[<span class="string">&quot;info&quot;</span>];</span><br><span class="line">    <span class="keyword">return</span> <span class="string">`</span></span><br><span class="line"><span class="string">&lt;div class=&quot;callout callout-<span class="subst">$&#123;type&#125;</span>&quot;&gt;</span></span><br><span class="line"><span class="string">    &lt;div class=&quot;callout-head&quot;&gt;</span></span><br><span class="line"><span class="string">        <span class="subst">$&#123;loadIcon(type)&#125;</span></span></span><br><span class="line"><span class="string">        &lt;span class=&quot;callout-head-text&quot; style=&quot;color:<span class="subst">$&#123;iconInfo.color&#125;</span>&quot;&gt;<span class="subst">$&#123;type.toUpperCase()&#125;</span>&lt;/span&gt;</span></span><br><span class="line"><span class="string">    &lt;/div&gt;</span></span><br><span class="line"><span class="string">    &lt;div class=&quot;callout-contents&quot;&gt;</span></span><br><span class="line"><span class="string">        <span class="subst">$&#123;calloutBody&#125;</span></span></span><br><span class="line"><span class="string">    &lt;/div&gt;</span></span><br><span class="line"><span class="string">&lt;/div&gt;`</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">hexo.<span class="property">extend</span>.<span class="property">filter</span>.<span class="title function_">register</span>(<span class="string">&#x27;markdown-it:renderer&#x27;</span>, <span class="keyword">function</span> (<span class="params">md</span>) &#123;</span><br><span class="line">    md.<span class="property">core</span>.<span class="property">ruler</span>.<span class="title function_">push</span>(<span class="string">&#x27;render_callout&#x27;</span>, <span class="keyword">function</span> (<span class="params">state</span>) &#123;</span><br><span class="line">        <span class="keyword">const</span> tokens = state.<span class="property">tokens</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> i = tokens.<span class="property">length</span> - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">            <span class="keyword">const</span> token = tokens[i];</span><br><span class="line">            <span class="keyword">if</span> (token.<span class="property">type</span> === <span class="string">&#x27;blockquote_open&#x27;</span>) &#123;</span><br><span class="line">                <span class="keyword">let</span> j = i + <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">const</span> blockquoteTokens = [];</span><br><span class="line">                <span class="keyword">while</span> (tokens[j] &amp;&amp; tokens[j].<span class="property">type</span> !== <span class="string">&#x27;blockquote_close&#x27;</span>) &#123;</span><br><span class="line">                    blockquoteTokens.<span class="title function_">push</span>(tokens[j]);</span><br><span class="line">                    j++;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (tokens[j]?.<span class="property">type</span> === <span class="string">&#x27;blockquote_close&#x27;</span>) &#123;</span><br><span class="line">                    <span class="keyword">let</span> calloutType = <span class="literal">null</span>;</span><br><span class="line">                    <span class="keyword">const</span> calloutBodyTokens = [];</span><br><span class="line">                    blockquoteTokens.<span class="title function_">forEach</span>(<span class="function"><span class="params">token</span> =&gt;</span> &#123;</span><br><span class="line">                        <span class="keyword">if</span> (token.<span class="property">type</span> === <span class="string">&#x27;inline&#x27;</span> &amp;&amp; !calloutType) &#123;</span><br><span class="line">                            <span class="keyword">const</span> match = token.<span class="property">content</span>.<span class="title function_">match</span>(<span class="regexp">/\[!(\w+)]/</span>);</span><br><span class="line">                            <span class="keyword">if</span> (match) calloutType = match[<span class="number">1</span>].<span class="title function_">toLowerCase</span>();</span><br><span class="line">                        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                            calloutBodyTokens.<span class="title function_">push</span>(token);</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;);</span><br><span class="line">                    <span class="keyword">if</span> (calloutType) &#123;</span><br><span class="line">                        <span class="keyword">const</span> calloutHtml = <span class="title function_">generateCalloutHTML</span>(calloutType, calloutBodyTokens, state);</span><br><span class="line">                        token.<span class="property">type</span> = <span class="string">&#x27;html_block&#x27;</span>;</span><br><span class="line">                        token.<span class="property">content</span> = calloutHtml;</span><br><span class="line">                        tokens.<span class="title function_">splice</span>(i + <span class="number">1</span>, j - i);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><small>其实在阅读这段代码我们能够发现，这段脚本支持用户自定义自己喜欢的callout块，这是后话</small></p>
+<p><small>二编：发现有<code>hexo</code>有时候会报<code>breaks</code>和<code>xhtmlOut</code>的错，最后看了一下详细的报错信息发现和这个<code>callout</code>脱不了干系，果不其然要改了😰</small></p>
+<h3 id="代码放置位置"><a class="header-anchor" href="#代码放置位置">¶</a>代码放置位置</h3>
+<p><strong>然后就是代码的放置位置</strong>，虽然笔者并不了解<code>hexo</code></p>
+<ol>
+<li class="lvl-3">
+<p>总之，在你的<em>博客根目录</em><br>
+<small>(虽然不知道博客根目录是否难懂，但如果跟着教程配好了博客的人一定都很聪明)</small></p>
+</li>
+<li class="lvl-3">
+<p>新建一个<code>scripts</code>文件夹<small>当然，也可能有的大佬已经有了，<del>萌新瑟瑟发抖</del></small></p>
+</li>
+<li class="lvl-3">
+<p>然后在该文件夹下新建文件<code>markdown-it-callout.js</code><small>当然，笔者的文件名取的是这个，但并不清楚其他名字是否可用</small></p>
+</li>
+<li class="lvl-3">
+<p>然后把上面那段<code>callout</code>渲染代码贴进去</p>
+</li>
+</ol>
+<h3 id="自定义css样式"><a class="header-anchor" href="#自定义css样式">¶</a>自定义css样式</h3>
+<p>然后由于笔者使用的callout块是自己渲染的，需要<strong>自定义css样式</strong></p>
+<p>这个部分在<a href="/posts/d9cd1415">客制化css</a>有详细介绍</p>
+<h3 id="支持表情符部分"><a class="header-anchor" href="#支持表情符部分">¶</a>支持表情符部分</h3>
+<h4 id="安装-markdown-it-emoji-插件"><a class="header-anchor" href="#安装-markdown-it-emoji-插件">¶</a>安装 <code>markdown-it-emoji</code> 插件</h4>
+<p>使用 npm 安装 <code>markdown-it-emoji</code>：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install markdown-it-emoji</span><br></pre></td></tr></table></figure>
+<p>当然，如果不喜欢表情符的话，可以把<code>.use(require('markdown-it-emoji')</code>删除。</p>
+<hr>
+<p>然后！<big>然后！<big>然后！</big></big>你就获得了一个可以渲染<code>callout</code>的<code>hexo</code></p>
+<h2 id="然后就是效果展示了"><a class="header-anchor" href="#然后就是效果展示了">¶</a>然后就是效果展示了</h2>
+<p>其实看<a href="/posts/55009">写在前面</a>就可以了</p>
+<hr>
+<div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>
+]]></content>
+      <tags>
+        <tag>hexo 建设</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>关于本博客的客制化css</title>
+    <url>/posts/d9cd1415.html</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p>当然是记一些关于本博客客制化<code>css</code>相关的内容啦</p>
+</p>
+    </div>
+</div><span id="more"></span>
+<p><strong>由于之前说到<a href="/posts/4179">用自定义渲染器渲染<code>callout</code></a></strong></p>
+<p>但是其中其实还有一个问题有待解决：</p>
+<p><big>如何将自定义的<code>callout</code>样式块渲染出来</big></p>
+<p><small>这里指的是，<code>Markdown</code>已经成功的转换成显示在网站中的<code>html</code>代码块了</small></p>
+<p>但是实际上我们发现，解析的<code>html</code>我们确实有了，但是<code>callout</code>并非是我们想要的样式，而是一个并没有进行任何着色的状态。</p>
+<h2 id="自定义css样式"><a class="header-anchor" href="#自定义css样式">¶</a>自定义<code>css</code>样式</h2>
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<h3>2.1 添加客制化css</h3>
+<p>虽然在<code>css</code>目录下任意<code>.styl</code>下添加<code>css</code>样式代码可以生效，但是为了方便以后修改，最好创建一个新的<code>.styl</code>文件记录自己的修改。</p>
+<ol>
+<li class="lvl-3">
+<p>在<code>themes/next/source/css/main.styl</code>最后加上：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">@import &quot;_custom/custom&quot;</span><br></pre></td></tr></table></figure>
+</li>
+<li class="lvl-3">
+<p>在<code>themes/next/source/css</code>目录下创建<code>_custom</code>文件夹；</p>
+</li>
+<li class="lvl-3">
+<p>在目录<code>themes/next/source/css/_custom</code>下新建文件<code>custom.styl</code>。</p>
+</li>
+<li class="lvl-3">
+<p>在<code>custom.styl</code>中添加<code>css</code>样式修改博客的<code>css</code>。</p>
+</li>
+</ol>
+<p>—— 摘自 <a href="https://zachary116699.github.io/2024/05/09/hexo-next-css/">hexo-next主题配置css | 大水笔✰档案室</a></p>
+</p>
+    </div>
+</div><p>然后就是将自己自定义的<code>css</code>样式放在里面</p>
+<p>这里贴一下<code>callout</code>样式部分：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/* 基础样式 */</span></span><br><span class="line"><span class="selector-class">.callout</span> &#123;</span><br><span class="line">    <span class="attribute">border-left</span>: <span class="number">4px</span> solid;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#f0f0f0</span>;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">10px</span> <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">14px</span>;</span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="number">4px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Info 样式 */</span></span><br><span class="line"><span class="selector-class">.callout-info</span> &#123;</span><br><span class="line">    <span class="attribute">border-left-color</span>: <span class="number">#3178c6</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#e3f2fd</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Warning 样式 */</span></span><br><span class="line"><span class="selector-class">.callout-warning</span> &#123;</span><br><span class="line">    <span class="attribute">border-left-color</span>: <span class="number">#e5a700</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#fff3e0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Error 样式 */</span></span><br><span class="line"><span class="selector-class">.callout-error</span> &#123;</span><br><span class="line">    <span class="attribute">border-left-color</span>: <span class="number">#d32f2f</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#ffebee</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Success 样式 */</span></span><br><span class="line"><span class="selector-class">.callout-success</span> &#123;</span><br><span class="line">    <span class="attribute">border-left-color</span>: <span class="number">#2e7d32</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#e8f5e9</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Note 样式 */</span></span><br><span class="line"><span class="selector-class">.callout-note</span> &#123;</span><br><span class="line">    <span class="attribute">border-left-color</span>: <span class="number">#673ab7</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#ede7f6</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Tip 样式 */</span></span><br><span class="line"><span class="selector-class">.callout-tip</span> &#123;</span><br><span class="line">    <span class="attribute">border-left-color</span>: <span class="number">#009688</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#e0f2f1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>然后，就好了，现在整个<code>callout</code>块的部分就完整了🙌</p>
+<hr />
+<div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>hexo 建设</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>折腾hexo</title>
+    <url>/posts/8dc8b2ab.html</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />
 <span id="more"></span>
 <hr />
 <div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
@@ -1023,6 +794,165 @@ CPU在执行一条指令时，需要从内存取出指令。如果指令所在�
       </categories>
       <tags>
         <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>关于hexo插件hexo-graph的使用</title>
+    <url>/posts/1bd5413e.html</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p>记一下文章&quot;关于&quot;页的书写</p>
+<p>插件地址<a href="https://github.com/codepzj/hexo-graph">codepzj/hexo-graph: hexo-graph，一个基于echarts，集成博客热力图，博客月份统计图，分类统计图，标签统计图的多元化插件。</a></p>
+</p>
+    </div>
+</div><span id="more"></span>
+<p>略</p>
+<hr />
+<div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>折腾 hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>考试时间统计</title>
+    <url>/posts/28f58f35.html</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />
+<ul class="lvl-0">
+<li class="lvl-2">计组：25号</li>
+</ul>
+<span id="more"></span>
+<hr />
+<div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
+      <tags>
+        <tag>大学</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>请求分页-物理块分配策略</title>
+    <url>/posts/907f4c43.html</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<h3>请求分页-物理块分配策略</h3>
+<h5>固定与可变</h5>
+<p><strong>固定</strong>与<strong>可变</strong>的区别在于给进程分配的物理块数</p>
+<p>即<strong>固定</strong>是指在给<strong>每个进程</strong>均分配<strong>固定数量</strong>的物理块</p>
+<p>可变即根据进程的不同，分配<strong>不同数量</strong>的物理块</p>
+<h5>全局与局部</h5>
+<p>即，当进程执行是发生缺页后，换入换出操作执行的范围</p>
+<p><strong>局部</strong> 即，当进程要执行换入换出操作时，仅在操作系统为<strong>该进程分配的物理空间</strong>之内发生替换，而不会影响其他进程块</p>
+<p><strong>全局</strong> 即，当前进程需要换入缺页的部分时，不仅仅会挑选当前进程拥有的物理块，还可能会换出其他进程的物理块。</p>
+</p>
+    </div>
+</div><span id="more"></span>
+<p>在操作系统中，<strong>物理块分配策略</strong>主要决定了内存如何分配给进程以及页面置换的策略。以下是这些策略的详细解释：</p>
+<hr>
+<h3 id="1-固定分配，局部置换"><a class="header-anchor" href="#1-固定分配，局部置换">¶</a><strong>1. 固定分配，局部置换</strong></h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>固定分配：每个进程在创建时，分配固定数量的物理块（即页面框）。这些物理块数量在整个运行过程中不再改变。</p>
+<ul class="lvl-2">
+<li class="lvl-4">例如，一个进程可能被分配 5 个页面框，另一个进程被分配 10 个页面框。</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>局部置换：当一个进程需要置换页面时，只能在它自己的物理块中进行替换，而不会占用或影响其他进程的物理块。</p>
+<ul class="lvl-2">
+<li class="lvl-4">换句话说，每个进程有自己的物理块范围，页面置换仅限于该范围内。</li>
+</ul>
+</li>
+</ul>
+<p><strong>优点</strong>：避免了进程之间的干扰，保证了各自的内存独立性。</p>
+<p><strong>缺点</strong>：如果某个进程的需求量超过了固定分配的物理块数，可能会出现高频率的页面置换（抖动问题）。</p>
+<hr>
+<h3 id="2-可变分配，全局置换"><a class="header-anchor" href="#2-可变分配，全局置换">¶</a><strong>2. 可变分配，全局置换</strong></h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>可变分配</strong>：系统可以根据进程的运行情况动态调整分配给每个进程的物理块数量。例如，一个进程内存需求增加时，可以从其他进程的分配中借用页面框。</p>
+</li>
+<li class="lvl-2">
+<p>全局置换：当某个进程需要置换页面时，可以在整个系统的所有物理块中选择受影响的页面，不局限于自身的物理块范围。</p>
+<ul class="lvl-2">
+<li class="lvl-4">例如，某个进程的页面置换可能会影响到其他进程正在使用的页面。</li>
+</ul>
+</li>
+</ul>
+<p><strong>优点</strong>：提高了系统内存的利用率，允许内存资源在进程之间灵活分配。</p>
+<p><strong>缺点</strong>：进程之间可能会互相干扰，导致某些进程因内存不足而性能下降。</p>
+<hr>
+<h3 id="3-可变分配，局部置换"><a class="header-anchor" href="#3-可变分配，局部置换">¶</a><strong>3. 可变分配，局部置换</strong></h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>可变分配</strong>：系统可以动态调整每个进程的物理块数量，具体分配数量由操作系统根据进程的需求决定。</p>
+</li>
+<li class="lvl-2">
+<p><strong>局部置换</strong>：尽管分配数量可变，但每个进程仍只能在自己当前拥有的物理块中进行页面置换，而不能影响其他进程的页面。</p>
+</li>
+</ul>
+<p><strong>优点</strong>：结合了固定分配和可变分配的优点，既能根据需求调整资源，又避免了进程之间的直接干扰。</p>
+<p><strong>缺点</strong>：动态分配增加了操作系统的复杂性。</p>
+<hr>
+<h3 id="总结对比"><a class="header-anchor" href="#总结对比">¶</a><strong>总结对比</strong></h3>
+<table>
+<thead>
+<tr>
+<th>策略类型</th>
+<th>物理块分配</th>
+<th>页面置换范围</th>
+<th>优点</th>
+<th>缺点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>固定分配，局部置换</td>
+<td>固定数量</td>
+<td>自己的物理块</td>
+<td>简单、稳定，避免进程干扰</td>
+<td>缺乏灵活性，可能导致个别进程性能下降</td>
+</tr>
+<tr>
+<td>可变分配，全局置换</td>
+<td>动态调整</td>
+<td>全局</td>
+<td>高效利用内存资源，支持动态调整</td>
+<td>进程间干扰可能导致系统不稳定</td>
+</tr>
+<tr>
+<td>可变分配，局部置换</td>
+<td>动态调整</td>
+<td>自己的物理块</td>
+<td>兼顾灵活性和稳定性</td>
+<td>系统复杂度较高</td>
+</tr>
+</tbody>
+</table>
+<p>这三种策略在实际中会根据操作系统的设计目标与应用场景选择适用的方案。</p>
+<hr />
+<div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
+      <categories>
+        <category>408</category>
+      </categories>
+      <tags>
+        <tag>408</tag>
+        <tag>大学</tag>
+        <tag>OS</tag>
       </tags>
   </entry>
   <entry>
@@ -1413,7 +1343,8 @@ $$</p>
 </p>
     </div>
 </div><h4 id="页面置换算法"><a class="header-anchor" href="#页面置换算法">¶</a>页面置换算法</h4>
-<p><strong>功能</strong>：需要调入页面时，选择内存中年哪个物理页面被置换。称为replacement policy<sup id="fnref:4"><a href="#fn:4" rel="footnote"><span class="hint--top hint--medium hint--info hint--rounded hint--bounce" aria-label="policy：/ˈpɒləsi/ n.  策略；方针；">[4]</span></a></sup></p>
+<p><strong>功能</strong>：需要调入页面时，选择内存中年哪个物理页面被置换。称为replacement policy<sup id="fnref:4"><a href="#fn:4" rel="footnote"><span class="hint--top hint--medium hint--info hint--rounded hint--bounce" aria-label="policy：/ˈpɒləsi/ n.  策略；方针；<br>
+">[4]</span></a></sup></p>
 <p><small><strong>目标</strong>：把未来不再使用的或短期内较少使用的页面调出，通常只能在局部性原理指导下依据过去的统计数据进行预测；</small></p>
 
 <div class="callout callout-note">
@@ -1462,19 +1393,46 @@ $$</p>
     </div>
     <div class="callout-contents">
         <p><p></p>
-<h4>Belady现象</h4>
+<h4>Belady<sup id="fnref:5"><a href="#fn:5" rel="footnote"><span class="hint--top hint--medium hint--info hint--rounded hint--bounce" aria-label="贝拉迪：贝拉迪异常（Belady’s anomaly）是一种计算机科学中的现象，指的是在某些页面置换算法中，增加可用的物理内存可能导致更多的页面错误">[5]</span></a></sup>现象</h4>
 <p>采用FIFO算法时，如果对一个进程未分配它所要求的全部页面，有时就会出现分配的页面数增多，缺页率反而提高的异常现象。</p>
-<h4>Belady现象的描述</h4>
+<h4>Belady<sup id="fnref:5"><a href="#fn:5" rel="footnote"><span class="hint--top hint--medium hint--info hint--rounded hint--bounce" aria-label="贝拉迪：贝拉迪异常（Belady’s anomaly）是一种计算机科学中的现象，指的是在某些页面置换算法中，增加可用的物理内存可能导致更多的页面错误">[5]</span></a></sup>现象的描述</h4>
 <p>一个进程P要访问M个页，OS分配N个内存页面给进程P；对一个访问序列S，发生缺页次数为PE（S,N）。当N增大时，PE(S, N)时而增大，时而减小。</p>
-<h4>Belady现象的原因</h4>
+<h4>Belady<sup id="fnref:5"><a href="#fn:5" rel="footnote"><span class="hint--top hint--medium hint--info hint--rounded hint--bounce" aria-label="贝拉迪：贝拉迪异常（Belady’s anomaly）是一种计算机科学中的现象，指的是在某些页面置换算法中，增加可用的物理内存可能导致更多的页面错误">[5]</span></a></sup>现象的原因</h4>
 <p>FIFO算法的置换特征与进程访问内存的动态特征是矛盾的，即被置换的页面并不是进程不会访问的。</p>
 <blockquote>
 <p>反而，先加载进去的页面可能是访问次数最多的，如c语言中，定义的函数往往放在<code>main</code>函数<small>程序入口之前</small>，而且当函数调用另一个函数时，被调用的函数必须放在当前函数之前。</p>
 </p>
     </div>
 </div></blockquote>
+
+<div class="callout callout-info">
+    <div class="callout-head">
+        <span class="callout-head-icon">ℹ️</span>
+        <span class="callout-head-text" style="color:#3178c6">INFO</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<h4>Belady现象的例子</h4>
+<ul class="lvl-1">
+<li class="lvl-2">
+<p>进程P有5页程序访问页的顺序为：1, 2, 3, 4, 1, 2, 5, 1, 2, 3, 4, 5；</p>
+</li>
+<li class="lvl-2">
+<p>如果在内存中分配3个页面，则缺页情况如下：12次访问中有缺页9次；</p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412111539081.png" alt="image-20241211153920646"></p>
+</li>
+<li class="lvl-2">
+<p>如果在内存中分配4个页面，则缺页情况如下：12次访问中有缺页10次</p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412111540590.png" alt="image-20241211154006562"></p>
+</li>
+</ul>
+</p>
+    </div>
+</div><h5 id="最近最久未使用-LRU"><a class="header-anchor" href="#最近最久未使用-LRU">¶</a>最近最久未使用 LRU</h5>
+<p>选择内存中<span style="color:blue;">最久未使用的页面</span>被置换。这是局部性原理的合理近似，性能接近最佳算法。但由于需要记录页面使用时间的先后关系，硬件开销太大。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412111631081.png" alt="image-20241211163148299"></p>
 <hr />
-<div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div><div id="footnotes"><hr><div id="footnotelist"><h5>相关脚注</h5><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">调入功能 是 指将进程所需的数据或指令从磁盘调入主存<a href="#fnref:1" rev="footnote"> ↩</a></span></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">2.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">进程页表 是操作系统管理虚拟存储器时，用于映射进程的 <strong>虚拟地址</strong>和 <strong>物理地址</strong> 的一个重要数据结构。<br>每个进程都有自己的 <strong>页表</strong> ，它记录了该进程所有虚拟页的相关信息，<br>包括虚拟页是否已被加载到主存以及其对应的物理页框地址。<a href="#fnref:2" rev="footnote"> ↩</a></span></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">3.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><strong>CISC（Complex Instruction Set Computer）</strong> 架构是一种处理器设计理念，其特点是提供 <strong>复杂且多样化的指令集</strong><a href="#fnref:3" rev="footnote"> ↩</a></span></li><li id="fn:4"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">4.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">policy：/ˈpɒləsi/ n.  策略；方针；<a href="#fnref:4" rev="footnote"> ↩</a></span></li></ol></div></div>]]></content>
+<div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div><div id="footnotes"><hr><div id="footnotelist"><h5>相关脚注</h5><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">调入功能 是 指将进程所需的数据或指令从磁盘调入主存<a href="#fnref:1" rev="footnote"> ↩</a></span></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">2.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">进程页表 是操作系统管理虚拟存储器时，用于映射进程的 <strong>虚拟地址</strong>和 <strong>物理地址</strong> 的一个重要数据结构。<br>每个进程都有自己的 <strong>页表</strong> ，它记录了该进程所有虚拟页的相关信息，<br>包括虚拟页是否已被加载到主存以及其对应的物理页框地址。<a href="#fnref:2" rev="footnote"> ↩</a></span></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">3.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><strong>CISC（Complex Instruction Set Computer）</strong> 架构是一种处理器设计理念，其特点是提供 <strong>复杂且多样化的指令集</strong><a href="#fnref:3" rev="footnote"> ↩</a></span></li><li id="fn:4"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">4.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">policy：/ˈpɒləsi/ n.  策略；方针；<a href="#fnref:4" rev="footnote"> ↩</a></span></li><li id="fn:5"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">5.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">贝拉迪：贝拉迪异常（Belady’s anomaly）是一种计算机科学中的现象，指的是在某些页面置换算法中，增加可用的物理内存可能导致更多的页面错误<a href="#fnref:5" rev="footnote"> ↩</a></span></li></ol></div></div>]]></content>
       <categories>
         <category>408</category>
       </categories>
@@ -1485,17 +1443,9 @@ $$</p>
       </tags>
   </entry>
   <entry>
-    <title>折腾hexo</title>
-    <url>/posts/8dc8b2ab.html</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />
-<span id="more"></span>
-<hr />
-<div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
-  </entry>
-  <entry>
-    <title>关于本博客的客制化css</title>
-    <url>/posts/d9cd1415.html</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />
+    <title>请求分页-物理块分配算法</title>
+    <url>/posts/8ba68849.html</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
 
 <div class="callout callout-tip">
     <div class="callout-head">
@@ -1504,75 +1454,130 @@ $$</p>
     </div>
     <div class="callout-contents">
         <p><p></p>
-<p>当然是记一些关于本博客客制化<code>css</code>相关的内容啦</p>
+<h3>请求分页-物理块分配算法<strong>对比总结</strong></h3>
+<table>
+<thead>
+<tr>
+<th><strong>算法类型</strong></th>
+<th><strong>分配依据</strong></th>
+<th><strong>适用场景</strong></th>
+<th><strong>优点</strong></th>
+<th><strong>缺点</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>平均分配算法</td>
+<td>平均分配</td>
+<td>进程需求量相近的场景</td>
+<td>简单、公平</td>
+<td>无法动态适应需求，可能浪费资源</td>
+</tr>
+<tr>
+<td>按比例分配算法</td>
+<td>内存需求比例</td>
+<td>进程需求量差异大的场景</td>
+<td>资源利用率高，满足需求较大的进程</td>
+<td>计算复杂度较高</td>
+</tr>
+<tr>
+<td>考虑优先权的分配算法</td>
+<td>需求量和优先级</td>
+<td>多任务场景，优先保证关键任务</td>
+<td>确保关键任务优先，灵活调整分配策略</td>
+<td>可能导致低优先级任务资源匮乏</td>
+</tr>
+</tbody>
+</table>
+<p>在实际系统中，按比例分配算法和考虑优先权的分配算法更常见，因为它们能够更好地适应动态环境的需求。</p>
 </p>
     </div>
 </div><span id="more"></span>
-<p><strong>由于之前说到<a href="/posts/4179">用自定义渲染器渲染<code>callout</code></a></strong></p>
-<p>但是其中其实还有一个问题有待解决：</p>
-<p><big>如何将自定义的<code>callout</code>样式块渲染出来</big></p>
-<p><small>这里指的是，<code>Markdown</code>已经成功的转换成显示在网站中的<code>html</code>代码块了</small></p>
-<p>但是实际上我们发现，解析的<code>html</code>我们确实有了，但是<code>callout</code>并非是我们想要的样式，而是一个并没有进行任何着色的状态。</p>
-<h2 id="自定义css样式"><a class="header-anchor" href="#自定义css样式">¶</a>自定义<code>css</code>样式</h2>
-
-<div class="callout callout-tip">
-    <div class="callout-head">
-        <span class="callout-head-icon">💡</span>
-        <span class="callout-head-text" style="color:#009688">TIP</span>
-    </div>
-    <div class="callout-contents">
-        <p><p></p>
-<h3>2.1 添加客制化css</h3>
-<p>虽然在<code>css</code>目录下任意<code>.styl</code>下添加<code>css</code>样式代码可以生效，但是为了方便以后修改，最好创建一个新的<code>.styl</code>文件记录自己的修改。</p>
-<ol>
-<li class="lvl-3">
-<p>在<code>themes/next/source/css/main.styl</code>最后加上：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">@import &quot;_custom/custom&quot;</span><br></pre></td></tr></table></figure>
+<p>在物理块分配中，操作系统通过不同的分配算法将内存中的页面框分配给各个进程，以提高内存利用率和系统性能。以下是这些算法的详细解释：</p>
+<hr>
+<h3 id="1-平均分配算法"><a class="header-anchor" href="#1-平均分配算法">¶</a><strong>1. 平均分配算法</strong></h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>分配方法：</p>
+<ul class="lvl-2">
+<li class="lvl-4">系统将所有的物理块平均分配给当前运行的进程。</li>
+<li class="lvl-4">假设系统有 <code>N</code> 个页面框和 <code>M</code> 个进程，则每个进程分配到的页面框数量为 <code>N / M</code>，如果有余数，可以通过某种方式分配剩余的页面框。</li>
+</ul>
 </li>
-<li class="lvl-3">
-<p>在<code>themes/next/source/css</code>目录下创建<code>_custom</code>文件夹；</p>
+<li class="lvl-2">
+<p>特点：</p>
+<ul class="lvl-2">
+<li class="lvl-4">简单易实现，适用于所有进程的内存需求大致相同的场景。</li>
+<li class="lvl-4">对于需求量大的进程可能导致页面置换频繁（抖动问题），而需求量小的进程可能浪费内存。</li>
+</ul>
 </li>
-<li class="lvl-3">
-<p>在目录<code>themes/next/source/css/_custom</code>下新建文件<code>custom.styl</code>。</p>
+</ul>
+<p><strong>优点</strong>：公平、实现简单。</p>
+<p><strong>缺点</strong>：无法动态适应进程的实际需求，可能导致资源分配不合理。</p>
+<hr>
+<h3 id="2-按比例分配算法"><a class="header-anchor" href="#2-按比例分配算法">¶</a><strong>2. 按比例分配算法</strong></h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>分配方法：</p>
+<ul class="lvl-2">
+<li class="lvl-4">根据每个进程所需的页面数占比，按比例分配物理块。</li>
+<li class="lvl-4">假设系统有 <code>N</code> 个物理块，<code>M</code> 个进程，进程 <code>i</code> 所需页面数为 <code>Si</code>，则分配给进程 <code>i</code> 的页面框数为：<br>
+$$<br>
+\text{分配的页面框数} = N \times \frac{S_i}{\sum_{j=1}^{M} S_j}<br>
+$$</li>
+</ul>
 </li>
-<li class="lvl-3">
-<p>在<code>custom.styl</code>中添加<code>css</code>样式修改博客的<code>css</code>。</p>
+<li class="lvl-2">
+<p>特点：</p>
+<ul class="lvl-2">
+<li class="lvl-4">进程内存需求较大时分配更多页面框，内存需求较小时分配更少。</li>
+<li class="lvl-4">适用于进程内存需求差异较大的场景，能较好地满足高需求进程的性能。</li>
+</ul>
 </li>
-</ol>
-<p>—— 摘自 <a href="https://zachary116699.github.io/2024/05/09/hexo-next-css/">hexo-next主题配置css | 大水笔✰档案室</a></p>
-</p>
-    </div>
-</div><p>然后就是将自己自定义的<code>css</code>样式放在里面</p>
-<p>这里贴一下<code>callout</code>样式部分：</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/* 基础样式 */</span></span><br><span class="line"><span class="selector-class">.callout</span> &#123;</span><br><span class="line">    <span class="attribute">border-left</span>: <span class="number">4px</span> solid;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#f0f0f0</span>;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">10px</span> <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">14px</span>;</span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="number">4px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Info 样式 */</span></span><br><span class="line"><span class="selector-class">.callout-info</span> &#123;</span><br><span class="line">    <span class="attribute">border-left-color</span>: <span class="number">#3178c6</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#e3f2fd</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Warning 样式 */</span></span><br><span class="line"><span class="selector-class">.callout-warning</span> &#123;</span><br><span class="line">    <span class="attribute">border-left-color</span>: <span class="number">#e5a700</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#fff3e0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Error 样式 */</span></span><br><span class="line"><span class="selector-class">.callout-error</span> &#123;</span><br><span class="line">    <span class="attribute">border-left-color</span>: <span class="number">#d32f2f</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#ffebee</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Success 样式 */</span></span><br><span class="line"><span class="selector-class">.callout-success</span> &#123;</span><br><span class="line">    <span class="attribute">border-left-color</span>: <span class="number">#2e7d32</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#e8f5e9</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Note 样式 */</span></span><br><span class="line"><span class="selector-class">.callout-note</span> &#123;</span><br><span class="line">    <span class="attribute">border-left-color</span>: <span class="number">#673ab7</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#ede7f6</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Tip 样式 */</span></span><br><span class="line"><span class="selector-class">.callout-tip</span> &#123;</span><br><span class="line">    <span class="attribute">border-left-color</span>: <span class="number">#009688</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#e0f2f1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>然后，就好了，现在整个<code>callout</code>块的部分就完整了🙌</p>
+</ul>
+<p><strong>优点</strong>：充分利用资源，能够根据需求动态调整分配。</p>
+<p><strong>缺点</strong>：计算复杂度较高，对需求量估计不准确时可能影响性能。</p>
+<hr>
+<h3 id="3-考虑优先权的分配算法"><a class="header-anchor" href="#3-考虑优先权的分配算法">¶</a><strong>3. 考虑优先权的分配算法</strong></h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>分配方法：</p>
+<ul class="lvl-2">
+<li class="lvl-4">在按比例分配的基础上，结合进程的优先级分配物理块。</li>
+<li class="lvl-4">系统会为高优先级进程分配更多的页面框，而低优先级进程分配较少。</li>
+<li class="lvl-4">假设优先级为 <code>Pi</code>，则分配公式可以扩展为：<br>
+$$<br>
+\text{分配的页面框数} = N \times \frac{P_i \cdot S_i}{\sum_{j=1}^{M} (P_j \cdot S_j)}<br>
+$$</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>特点：</p>
+<ul class="lvl-2">
+<li class="lvl-4">确保高优先级进程在资源分配上得到保障。</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>适用于多任务操作系统，优先保证关键任务或重要用户的性能。</p>
+</li>
+</ul>
+<p><strong>优点</strong>：保障高优先级任务的运行性能。</p>
+<p><strong>缺点</strong>：可能导致低优先级进程长时间无法获得足够的资源，影响其运行。</p>
 <hr />
 <div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
       <categories>
-        <category>hexo</category>
+        <category>408</category>
       </categories>
       <tags>
-        <tag>hexo 建设</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>考试时间统计</title>
-    <url>/posts/28f58f35.html</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />
-<ul class="lvl-0">
-<li class="lvl-2">计组：25号</li>
-</ul>
-<span id="more"></span>
-<hr />
-<div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
-      <tags>
+        <tag>408</tag>
         <tag>大学</tag>
+        <tag>OS</tag>
       </tags>
   </entry>
   <entry>
-    <title>关于 callout 块渲染</title>
-    <url>/posts/4179.html</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />
+    <title>请求分页-页面框</title>
+    <url>/posts/6dc856e2.html</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
 
 <div class="callout callout-tip">
     <div class="callout-head">
@@ -1581,64 +1586,87 @@ $$</p>
     </div>
     <div class="callout-contents">
         <p><p></p>
-<p>记录一下<code>callout</code>支持过程。</p>
+<h3><strong>总结</strong></h3>
+<ul class="lvl-1">
+<li class="lvl-2">
+<p>页面框是<strong>物理内存中的固定大小块</strong>，用于存储虚拟内存的页。</p>
+</li>
+<li class="lvl-2">
+<p>通过分页机制，操作系统可以高效管理内存，提高内存利用率，并支持更大的虚拟地址空间。</p>
+</li>
+</ul>
 </p>
     </div>
 </div><span id="more"></span>
-<h2 id="初期想法"><a class="header-anchor" href="#初期想法">¶</a>初期想法</h2>
-<p>因为<code>hexo</code>支持<code>markdown</code>基础语法，而笔者在使用<code>hexo</code>之前，恰好使用过<code>Obsidian</code>笔记软件，非常喜欢使用<code>Obsidian</code>中的<code>Callout</code>块。</p>
-<p>但发现网上并没有相关解决方案，虽然可以使用自定义代码块的方式书写类似<code>callout</code>块的效果，但是这样就和当前使用的<code>markdown</code>编辑器不兼容，而且自定义代码块的样式并不好看。<small><del>笔者还是比较喜欢即写即渲染的编辑模式</del></small></p>
-<p>所以，笔者就想提供一个专门用于渲染<code>callout</code>块的自定义渲染器，<small>笔者曾经写过一个<code>python</code>的<code>md</code>渲染器，就在书写本文章不久前，也是为了解决<code>callout</code>块问题</small></p>
-<p><small><del>笔者对<code>callout</code>还是非常喜爱的</del></small></p>
-<h2 id="实际实现"><a class="header-anchor" href="#实际实现">¶</a>实际实现</h2>
-<p>首先，安装<code>hexo-renderer-markdown-it</code> 以及 <code>markdown-it-container</code> 插件来扩展 <code>Markdown</code> 功能：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-renderer-markdown-it --save</span><br><span class="line">npm install markdown-it-container --save</span><br></pre></td></tr></table></figure>
-<p>在 <code>hexo-renderer-markdown-it</code> 配置中启用容器解析： 修改 <code>Hexo</code> 的 <code>_config.yml</code> 文件：</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">markdown:</span></span><br><span class="line">  <span class="attr">render:</span></span><br><span class="line">    <span class="attr">html:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">xhtmlOut:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">breaks:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">linkify:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">typographer:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">plugins:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">markdown-it-container</span></span><br><span class="line">  <span class="attr">anchors:</span></span><br><span class="line">    <span class="attr">level:</span> <span class="number">2</span></span><br><span class="line">    <span class="attr">collisionSuffix:</span> <span class="string">&#x27;&#x27;</span></span><br><span class="line">    <span class="attr">permalink:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">permalinkClass:</span> <span class="string">header-anchor</span></span><br><span class="line">    <span class="attr">permalinkSymbol:</span> <span class="string">&#x27;¶&#x27;</span></span><br></pre></td></tr></table></figure>
-<p>此时，<code>hexo</code>已经支持运行自定义的<code>markdown</code>了。</p>
-<p>接下来，我们书写<code>callout</code>渲染器。</p>
-<p><small><del>其实笔者在该部分废了老大的劲</del></small></p>
-<p>我先贴下代码</p>
-<h3 id="自定义渲染器代码"><a class="header-anchor" href="#自定义渲染器代码">¶</a>自定义渲染器代码</h3>
-<p><small>二编了🤡代码最终还是没躲过bug，当然鲁棒性肯定更高了</small></p>
-<p><small>三编了，这次是加了支持表情符的功能，这个也是typora支持的😴</small></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> iconConfig = &#123;</span><br><span class="line">    <span class="string">&quot;info&quot;</span>: &#123; <span class="string">&quot;color&quot;</span>: <span class="string">&quot;#3178c6&quot;</span>, <span class="string">&quot;icon&quot;</span>: <span class="string">&quot;ℹ️&quot;</span> &#125;,</span><br><span class="line">    <span class="string">&quot;warning&quot;</span>: &#123; <span class="string">&quot;color&quot;</span>: <span class="string">&quot;#e5a700&quot;</span>, <span class="string">&quot;icon&quot;</span>: <span class="string">&quot;⚠️&quot;</span> &#125;,</span><br><span class="line">    <span class="string">&quot;error&quot;</span>: &#123; <span class="string">&quot;color&quot;</span>: <span class="string">&quot;#d32f2f&quot;</span>, <span class="string">&quot;icon&quot;</span>: <span class="string">&quot;❌&quot;</span> &#125;,</span><br><span class="line">    <span class="string">&quot;success&quot;</span>: &#123; <span class="string">&quot;color&quot;</span>: <span class="string">&quot;#2e7d32&quot;</span>, <span class="string">&quot;icon&quot;</span>: <span class="string">&quot;✔️&quot;</span> &#125;,</span><br><span class="line">    <span class="string">&quot;note&quot;</span>: &#123; <span class="string">&quot;color&quot;</span>: <span class="string">&quot;#673ab7&quot;</span>, <span class="string">&quot;icon&quot;</span>: <span class="string">&quot;📝&quot;</span> &#125;,</span><br><span class="line">    <span class="string">&quot;tip&quot;</span>: &#123; <span class="string">&quot;color&quot;</span>: <span class="string">&quot;#009688&quot;</span>, <span class="string">&quot;icon&quot;</span>: <span class="string">&quot;💡&quot;</span> &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">loadIcon</span>(<span class="params">iconName</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> iconInfo = iconConfig[iconName] || iconConfig[<span class="string">&quot;info&quot;</span>];</span><br><span class="line">    <span class="keyword">return</span> <span class="string">`&lt;span class=&quot;callout-head-icon&quot;&gt;<span class="subst">$&#123;iconInfo.icon&#125;</span>&lt;/span&gt;`</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">generateCalloutHTML</span>(<span class="params">type, tokens, state</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> md = <span class="built_in">require</span>(<span class="string">&#x27;markdown-it&#x27;</span>)(&#123;</span><br><span class="line">        <span class="attr">html</span>: <span class="literal">true</span>,</span><br><span class="line">        <span class="attr">linkify</span>: <span class="literal">true</span>,</span><br><span class="line">        <span class="attr">typographer</span>: <span class="literal">true</span>,</span><br><span class="line">        <span class="attr">breaks</span>: <span class="literal">true</span>,</span><br><span class="line">        <span class="attr">xhtmlOut</span>: <span class="literal">false</span></span><br><span class="line">    &#125;).<span class="title function_">use</span>(<span class="built_in">require</span>(<span class="string">&#x27;markdown-it-emoji&#x27;</span>)); <span class="comment">// 添加 Emoji 插件</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> options = &#123; ...state.<span class="property">options</span>, <span class="attr">breaks</span>: <span class="literal">true</span>, <span class="attr">xhtmlOut</span>: <span class="literal">false</span> &#125;;</span><br><span class="line">    <span class="keyword">const</span> wrappedTokens = [</span><br><span class="line">        &#123; <span class="attr">type</span>: <span class="string">&#x27;paragraph_open&#x27;</span>, <span class="attr">tag</span>: <span class="string">&#x27;p&#x27;</span>, <span class="attr">attrs</span>: <span class="literal">null</span>, <span class="attr">map</span>: <span class="literal">null</span>, <span class="attr">nesting</span>: <span class="number">1</span>, <span class="attr">level</span>: <span class="number">0</span> &#125;,</span><br><span class="line">        ...tokens,</span><br><span class="line">        &#123; <span class="attr">type</span>: <span class="string">&#x27;paragraph_close&#x27;</span>, <span class="attr">tag</span>: <span class="string">&#x27;p&#x27;</span>, <span class="attr">attrs</span>: <span class="literal">null</span>, <span class="attr">map</span>: <span class="literal">null</span>, <span class="attr">nesting</span>: -<span class="number">1</span>, <span class="attr">level</span>: <span class="number">0</span> &#125;</span><br><span class="line">    ];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> calloutBody = <span class="string">&quot;&quot;</span>;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        calloutBody = md.<span class="property">renderer</span>.<span class="title function_">render</span>(wrappedTokens, options, state.<span class="property">env</span>);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&quot;Callout rendering error:&quot;</span>, error);</span><br><span class="line">        calloutBody = <span class="string">&quot;&lt;!-- Render Error --&gt;&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> iconInfo = iconConfig[type] || iconConfig[<span class="string">&quot;info&quot;</span>];</span><br><span class="line">    <span class="keyword">return</span> <span class="string">`</span></span><br><span class="line"><span class="string">&lt;div class=&quot;callout callout-<span class="subst">$&#123;type&#125;</span>&quot;&gt;</span></span><br><span class="line"><span class="string">    &lt;div class=&quot;callout-head&quot;&gt;</span></span><br><span class="line"><span class="string">        <span class="subst">$&#123;loadIcon(type)&#125;</span></span></span><br><span class="line"><span class="string">        &lt;span class=&quot;callout-head-text&quot; style=&quot;color:<span class="subst">$&#123;iconInfo.color&#125;</span>&quot;&gt;<span class="subst">$&#123;type.toUpperCase()&#125;</span>&lt;/span&gt;</span></span><br><span class="line"><span class="string">    &lt;/div&gt;</span></span><br><span class="line"><span class="string">    &lt;div class=&quot;callout-contents&quot;&gt;</span></span><br><span class="line"><span class="string">        <span class="subst">$&#123;calloutBody&#125;</span></span></span><br><span class="line"><span class="string">    &lt;/div&gt;</span></span><br><span class="line"><span class="string">&lt;/div&gt;`</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">hexo.<span class="property">extend</span>.<span class="property">filter</span>.<span class="title function_">register</span>(<span class="string">&#x27;markdown-it:renderer&#x27;</span>, <span class="keyword">function</span> (<span class="params">md</span>) &#123;</span><br><span class="line">    md.<span class="property">core</span>.<span class="property">ruler</span>.<span class="title function_">push</span>(<span class="string">&#x27;render_callout&#x27;</span>, <span class="keyword">function</span> (<span class="params">state</span>) &#123;</span><br><span class="line">        <span class="keyword">const</span> tokens = state.<span class="property">tokens</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> i = tokens.<span class="property">length</span> - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">            <span class="keyword">const</span> token = tokens[i];</span><br><span class="line">            <span class="keyword">if</span> (token.<span class="property">type</span> === <span class="string">&#x27;blockquote_open&#x27;</span>) &#123;</span><br><span class="line">                <span class="keyword">let</span> j = i + <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">const</span> blockquoteTokens = [];</span><br><span class="line">                <span class="keyword">while</span> (tokens[j] &amp;&amp; tokens[j].<span class="property">type</span> !== <span class="string">&#x27;blockquote_close&#x27;</span>) &#123;</span><br><span class="line">                    blockquoteTokens.<span class="title function_">push</span>(tokens[j]);</span><br><span class="line">                    j++;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (tokens[j]?.<span class="property">type</span> === <span class="string">&#x27;blockquote_close&#x27;</span>) &#123;</span><br><span class="line">                    <span class="keyword">let</span> calloutType = <span class="literal">null</span>;</span><br><span class="line">                    <span class="keyword">const</span> calloutBodyTokens = [];</span><br><span class="line">                    blockquoteTokens.<span class="title function_">forEach</span>(<span class="function"><span class="params">token</span> =&gt;</span> &#123;</span><br><span class="line">                        <span class="keyword">if</span> (token.<span class="property">type</span> === <span class="string">&#x27;inline&#x27;</span> &amp;&amp; !calloutType) &#123;</span><br><span class="line">                            <span class="keyword">const</span> match = token.<span class="property">content</span>.<span class="title function_">match</span>(<span class="regexp">/\[!(\w+)]/</span>);</span><br><span class="line">                            <span class="keyword">if</span> (match) calloutType = match[<span class="number">1</span>].<span class="title function_">toLowerCase</span>();</span><br><span class="line">                        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                            calloutBodyTokens.<span class="title function_">push</span>(token);</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;);</span><br><span class="line">                    <span class="keyword">if</span> (calloutType) &#123;</span><br><span class="line">                        <span class="keyword">const</span> calloutHtml = <span class="title function_">generateCalloutHTML</span>(calloutType, calloutBodyTokens, state);</span><br><span class="line">                        token.<span class="property">type</span> = <span class="string">&#x27;html_block&#x27;</span>;</span><br><span class="line">                        token.<span class="property">content</span> = calloutHtml;</span><br><span class="line">                        tokens.<span class="title function_">splice</span>(i + <span class="number">1</span>, j - i);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p><small>其实在阅读这段代码我们能够发现，这段脚本支持用户自定义自己喜欢的callout块，这是后话</small></p>
-<p><small>二编：发现有<code>hexo</code>有时候会报<code>breaks</code>和<code>xhtmlOut</code>的错，最后看了一下详细的报错信息发现和这个<code>callout</code>脱不了干系，果不其然要改了😰</small></p>
-<h3 id="代码放置位置"><a class="header-anchor" href="#代码放置位置">¶</a>代码放置位置</h3>
-<p><strong>然后就是代码的放置位置</strong>，虽然笔者并不了解<code>hexo</code></p>
+<p><strong>页面框</strong>（Page Frame）是操作系统中物理内存管理的一个重要概念。</p>
+<hr>
+<h3 id="页面框的定义"><a class="header-anchor" href="#页面框的定义">¶</a><strong>页面框的定义</strong></h3>
+<p>页面框是指<strong>物理内存中的固定大小的块</strong>，它是虚拟内存管理中用于存放<strong>页</strong>（Page）的单位。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>页</strong>：虚拟内存被划分为大小固定的块，每块称为一个页（Page）。</p>
+</li>
+<li class="lvl-2">
+<p><strong>页面框</strong>：物理内存也被划分为同样大小的固定块，这些块称为页面框（Page Frame）。</p>
+</li>
+</ul>
+<p>页面框和页的大小相同（通常为 4KB 或 8KB，具体取决于操作系统和硬件架构），这样可以方便地实现虚拟内存和物理内存之间的映射。</p>
+<hr>
+<h3 id="页面框的作用"><a class="header-anchor" href="#页面框的作用">¶</a><strong>页面框的作用</strong></h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>存储页</strong>：页面框用于存储从虚拟内存中调入的页。</p>
+</li>
+<li class="lvl-2">
+<p><strong>虚拟内存与物理内存的映射</strong>：操作系统通过页表（Page Table）将虚拟内存的页与物理内存的页面框一一对应，从而实现虚拟内存管理。</p>
+</li>
+<li class="lvl-2">
+<p><strong>提升内存利用率</strong>：通过分页机制，进程无需全部加载到内存中，只需将常用的页装入页面框即可，减少内存的浪费。</p>
+</li>
+</ul>
+<hr>
+<h3 id="页面框的分配过程"><a class="header-anchor" href="#页面框的分配过程">¶</a><strong>页面框的分配过程</strong></h3>
 <ol>
 <li class="lvl-3">
-<p>总之，在你的<em>博客根目录</em><br>
-<small>(虽然不知道博客根目录是否难懂，但如果跟着教程配好了博客的人一定都很聪明)</small></p>
+<p>虚拟地址空间划分：进程的虚拟地址被划分为多个页。</p>
+<ul class="lvl-2">
+<li class="lvl-5">假设某进程需要 16KB 的虚拟内存，且每页大小为 4KB，则虚拟内存被划分为 4 个页。</li>
+</ul>
 </li>
 <li class="lvl-3">
-<p>新建一个<code>scripts</code>文件夹<small>当然，也可能有的大佬已经有了，<del>萌新瑟瑟发抖</del></small></p>
+<p>物理内存划分：操作系统将物理内存划分为等大小的页面框。</p>
+<ul class="lvl-2">
+<li class="lvl-5">假设有 1GB 的物理内存，页面框大小为 4KB，则物理内存被划分为 262,144 个页面框。</li>
+</ul>
 </li>
 <li class="lvl-3">
-<p>然后在该文件夹下新建文件<code>markdown-it-callout.js</code><small>当然，笔者的文件名取的是这个，但并不清楚其他名字是否可用</small></p>
-</li>
-<li class="lvl-3">
-<p>然后把上面那段<code>callout</code>渲染代码贴进去</p>
+<p>页面调度：当进程运行时，操作系统将虚拟内存中的页映射到物理内存中的页面框。</p>
+<ul class="lvl-2">
+<li class="lvl-5">若某页需要访问但不在内存（缺页中断），操作系统从磁盘将该页加载到某个空闲页面框中，或通过页面置换算法腾出一个页面框。</li>
+</ul>
 </li>
 </ol>
-<h3 id="自定义css样式"><a class="header-anchor" href="#自定义css样式">¶</a>自定义css样式</h3>
-<p>然后由于笔者使用的callout块是自己渲染的，需要<strong>自定义css样式</strong></p>
-<p>这个部分在<a href="/posts/d9cd1415">客制化css</a>有详细介绍</p>
-<h3 id="支持表情符部分"><a class="header-anchor" href="#支持表情符部分">¶</a>支持表情符部分</h3>
-<h4 id="安装-markdown-it-emoji-插件"><a class="header-anchor" href="#安装-markdown-it-emoji-插件">¶</a>安装 <code>markdown-it-emoji</code> 插件</h4>
-<p>使用 npm 安装 <code>markdown-it-emoji</code>：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install markdown-it-emoji</span><br></pre></td></tr></table></figure>
-<p>当然，如果不喜欢表情符的话，可以把<code>.use(require('markdown-it-emoji')</code>删除。</p>
 <hr>
-<p>然后！<big>然后！<big>然后！</big></big>你就获得了一个可以渲染<code>callout</code>的<code>hexo</code></p>
-<h2 id="然后就是效果展示了"><a class="header-anchor" href="#然后就是效果展示了">¶</a>然后就是效果展示了</h2>
-<p>其实看<a href="/posts/55009">写在前面</a>就可以了</p>
+<h3 id="页面框相关机制"><a class="header-anchor" href="#页面框相关机制">¶</a><strong>页面框相关机制</strong></h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>页表（Page Table）</strong>：存储每个页与页面框的映射关系。</p>
+</li>
+<li class="lvl-2">
+<p><strong>页面置换</strong>：当页面框不足时，操作系统通过页面置换算法（如 LRU、FIFO）将某些不常用的页移出页面框，以腾出空间给新的页。</p>
+</li>
+</ul>
 <hr>
-<div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>
-]]></content>
-      <tags>
-        <tag>hexo 建设</tag>
-      </tags>
+<h3 id="总结"><a class="header-anchor" href="#总结">¶</a><strong>总结</strong></h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>页面框是<strong>物理内存中的固定大小块</strong>，用于存储虚拟内存的页。</p>
+</li>
+<li class="lvl-2">
+<p>通过分页机制，操作系统可以高效管理内存，提高内存利用率，并支持更大的虚拟地址空间。</p>
+</li>
+</ul>
+<hr />
+<div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
   </entry>
 </search>
