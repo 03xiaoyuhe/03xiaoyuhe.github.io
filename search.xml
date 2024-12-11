@@ -225,14 +225,6 @@
       </tags>
   </entry>
   <entry>
-    <title>footnote使用</title>
-    <url>/posts/64648fb9.html</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
-<span id="more"></span>
-<hr />
-<div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
-  </entry>
-  <entry>
     <title>写在前面</title>
     <url>/posts/55009.html</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1>写在前面</h1>
@@ -447,6 +439,14 @@
         <tag>typora</tag>
         <tag>软件破解</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>footnote使用</title>
+    <url>/posts/64648fb9.html</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
+<span id="more"></span>
+<hr />
+<div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
   </entry>
   <entry>
     <title>一条指令在执行期间，可能产生多次缺页中断</title>
@@ -684,6 +684,14 @@ CPU在执行一条指令时，需要从内存取出指令。如果指令所在�
       </tags>
   </entry>
   <entry>
+    <title>折腾hexo</title>
+    <url>/posts/8dc8b2ab.html</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />
+<span id="more"></span>
+<hr />
+<div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
+  </entry>
+  <entry>
     <title>关于博客中使用的脚注功能</title>
     <url>/posts/c6910d47.html</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
@@ -816,12 +824,18 @@ CPU在执行一条指令时，需要从内存取出指令。如果指令所在�
       </tags>
   </entry>
   <entry>
-    <title>折腾hexo</title>
-    <url>/posts/8dc8b2ab.html</url>
+    <title>考试时间统计</title>
+    <url>/posts/28f58f35.html</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />
+<ul class="lvl-0">
+<li class="lvl-2">计组：25号</li>
+</ul>
 <span id="more"></span>
 <hr />
 <div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
+      <tags>
+        <tag>大学</tag>
+      </tags>
   </entry>
   <entry>
     <title>操作系统第六章复习</title>
@@ -1414,138 +1428,6 @@ $$</p>
       </tags>
   </entry>
   <entry>
-    <title>考试时间统计</title>
-    <url>/posts/28f58f35.html</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />
-<ul class="lvl-0">
-<li class="lvl-2">计组：25号</li>
-</ul>
-<span id="more"></span>
-<hr />
-<div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
-      <tags>
-        <tag>大学</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>请求分页-物理块分配策略</title>
-    <url>/posts/907f4c43.html</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
-
-<div class="callout callout-tip">
-    <div class="callout-head">
-        <span class="callout-head-icon">💡</span>
-        <span class="callout-head-text" style="color:#009688">TIP</span>
-    </div>
-    <div class="callout-contents">
-        <p><p></p>
-<h3>请求分页-物理块分配策略</h3>
-<h5>固定与可变</h5>
-<p><strong>固定</strong>与<strong>可变</strong>的区别在于给进程分配的物理块数</p>
-<p>即<strong>固定</strong>是指在给<strong>每个进程</strong>均分配<strong>固定数量</strong>的物理块</p>
-<p>可变即根据进程的不同，分配<strong>不同数量</strong>的物理块</p>
-<h5>全局与局部</h5>
-<p>即，当进程执行是发生缺页后，换入换出操作执行的范围</p>
-<p><strong>局部</strong> 即，当进程要执行换入换出操作时，仅在操作系统为<strong>该进程分配的物理空间</strong>之内发生替换，而不会影响其他进程块</p>
-<p><strong>全局</strong> 即，当前进程需要换入缺页的部分时，不仅仅会挑选当前进程拥有的物理块，还可能会换出其他进程的物理块。</p>
-</p>
-    </div>
-</div><span id="more"></span>
-<p>在操作系统中，<strong>物理块分配策略</strong>主要决定了内存如何分配给进程以及页面置换的策略。以下是这些策略的详细解释：</p>
-<hr>
-<h3 id="1-固定分配，局部置换"><a class="header-anchor" href="#1-固定分配，局部置换">¶</a><strong>1. 固定分配，局部置换</strong></h3>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>固定分配：每个进程在创建时，分配固定数量的物理块（即页面框）。这些物理块数量在整个运行过程中不再改变。</p>
-<ul class="lvl-2">
-<li class="lvl-4">例如，一个进程可能被分配 5 个页面框，另一个进程被分配 10 个页面框。</li>
-</ul>
-</li>
-<li class="lvl-2">
-<p>局部置换：当一个进程需要置换页面时，只能在它自己的物理块中进行替换，而不会占用或影响其他进程的物理块。</p>
-<ul class="lvl-2">
-<li class="lvl-4">换句话说，每个进程有自己的物理块范围，页面置换仅限于该范围内。</li>
-</ul>
-</li>
-</ul>
-<p><strong>优点</strong>：避免了进程之间的干扰，保证了各自的内存独立性。</p>
-<p><strong>缺点</strong>：如果某个进程的需求量超过了固定分配的物理块数，可能会出现高频率的页面置换（抖动问题）。</p>
-<hr>
-<h3 id="2-可变分配，全局置换"><a class="header-anchor" href="#2-可变分配，全局置换">¶</a><strong>2. 可变分配，全局置换</strong></h3>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p><strong>可变分配</strong>：系统可以根据进程的运行情况动态调整分配给每个进程的物理块数量。例如，一个进程内存需求增加时，可以从其他进程的分配中借用页面框。</p>
-</li>
-<li class="lvl-2">
-<p>全局置换：当某个进程需要置换页面时，可以在整个系统的所有物理块中选择受影响的页面，不局限于自身的物理块范围。</p>
-<ul class="lvl-2">
-<li class="lvl-4">例如，某个进程的页面置换可能会影响到其他进程正在使用的页面。</li>
-</ul>
-</li>
-</ul>
-<p><strong>优点</strong>：提高了系统内存的利用率，允许内存资源在进程之间灵活分配。</p>
-<p><strong>缺点</strong>：进程之间可能会互相干扰，导致某些进程因内存不足而性能下降。</p>
-<hr>
-<h3 id="3-可变分配，局部置换"><a class="header-anchor" href="#3-可变分配，局部置换">¶</a><strong>3. 可变分配，局部置换</strong></h3>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p><strong>可变分配</strong>：系统可以动态调整每个进程的物理块数量，具体分配数量由操作系统根据进程的需求决定。</p>
-</li>
-<li class="lvl-2">
-<p><strong>局部置换</strong>：尽管分配数量可变，但每个进程仍只能在自己当前拥有的物理块中进行页面置换，而不能影响其他进程的页面。</p>
-</li>
-</ul>
-<p><strong>优点</strong>：结合了固定分配和可变分配的优点，既能根据需求调整资源，又避免了进程之间的直接干扰。</p>
-<p><strong>缺点</strong>：动态分配增加了操作系统的复杂性。</p>
-<hr>
-<h3 id="总结对比"><a class="header-anchor" href="#总结对比">¶</a><strong>总结对比</strong></h3>
-<table>
-<thead>
-<tr>
-<th>策略类型</th>
-<th>物理块分配</th>
-<th>页面置换范围</th>
-<th>优点</th>
-<th>缺点</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>固定分配，局部置换</td>
-<td>固定数量</td>
-<td>自己的物理块</td>
-<td>简单、稳定，避免进程干扰</td>
-<td>缺乏灵活性，可能导致个别进程性能下降</td>
-</tr>
-<tr>
-<td>可变分配，全局置换</td>
-<td>动态调整</td>
-<td>全局</td>
-<td>高效利用内存资源，支持动态调整</td>
-<td>进程间干扰可能导致系统不稳定</td>
-</tr>
-<tr>
-<td>可变分配，局部置换</td>
-<td>动态调整</td>
-<td>自己的物理块</td>
-<td>兼顾灵活性和稳定性</td>
-<td>系统复杂度较高</td>
-</tr>
-</tbody>
-</table>
-<p>这三种策略在实际中会根据操作系统的设计目标与应用场景选择适用的方案。</p>
-<hr />
-<div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
-      <categories>
-        <category>408</category>
-      </categories>
-      <tags>
-        <tag>408</tag>
-        <tag>大学</tag>
-        <tag>OS</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>请求分页-LRU的实际实现过程</title>
     <url>/posts/f041ded5.html</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
@@ -1879,6 +1761,124 @@ $$</li>
 </ul>
 <p><strong>优点</strong>：保障高优先级任务的运行性能。</p>
 <p><strong>缺点</strong>：可能导致低优先级进程长时间无法获得足够的资源，影响其运行。</p>
+<hr />
+<div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
+      <categories>
+        <category>408</category>
+      </categories>
+      <tags>
+        <tag>408</tag>
+        <tag>大学</tag>
+        <tag>OS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>请求分页-物理块分配策略</title>
+    <url>/posts/907f4c43.html</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<h3>请求分页-物理块分配策略</h3>
+<h5>固定与可变</h5>
+<p><strong>固定</strong>与<strong>可变</strong>的区别在于给进程分配的物理块数</p>
+<p>即<strong>固定</strong>是指在给<strong>每个进程</strong>均分配<strong>固定数量</strong>的物理块</p>
+<p>可变即根据进程的不同，分配<strong>不同数量</strong>的物理块</p>
+<h5>全局与局部</h5>
+<p>即，当进程执行是发生缺页后，换入换出操作执行的范围</p>
+<p><strong>局部</strong> 即，当进程要执行换入换出操作时，仅在操作系统为<strong>该进程分配的物理空间</strong>之内发生替换，而不会影响其他进程块</p>
+<p><strong>全局</strong> 即，当前进程需要换入缺页的部分时，不仅仅会挑选当前进程拥有的物理块，还可能会换出其他进程的物理块。</p>
+</p>
+    </div>
+</div><span id="more"></span>
+<p>在操作系统中，<strong>物理块分配策略</strong>主要决定了内存如何分配给进程以及页面置换的策略。以下是这些策略的详细解释：</p>
+<hr>
+<h3 id="1-固定分配，局部置换"><a class="header-anchor" href="#1-固定分配，局部置换">¶</a><strong>1. 固定分配，局部置换</strong></h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>固定分配：每个进程在创建时，分配固定数量的物理块（即页面框）。这些物理块数量在整个运行过程中不再改变。</p>
+<ul class="lvl-2">
+<li class="lvl-4">例如，一个进程可能被分配 5 个页面框，另一个进程被分配 10 个页面框。</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>局部置换：当一个进程需要置换页面时，只能在它自己的物理块中进行替换，而不会占用或影响其他进程的物理块。</p>
+<ul class="lvl-2">
+<li class="lvl-4">换句话说，每个进程有自己的物理块范围，页面置换仅限于该范围内。</li>
+</ul>
+</li>
+</ul>
+<p><strong>优点</strong>：避免了进程之间的干扰，保证了各自的内存独立性。</p>
+<p><strong>缺点</strong>：如果某个进程的需求量超过了固定分配的物理块数，可能会出现高频率的页面置换（抖动问题）。</p>
+<hr>
+<h3 id="2-可变分配，全局置换"><a class="header-anchor" href="#2-可变分配，全局置换">¶</a><strong>2. 可变分配，全局置换</strong></h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>可变分配</strong>：系统可以根据进程的运行情况动态调整分配给每个进程的物理块数量。例如，一个进程内存需求增加时，可以从其他进程的分配中借用页面框。</p>
+</li>
+<li class="lvl-2">
+<p>全局置换：当某个进程需要置换页面时，可以在整个系统的所有物理块中选择受影响的页面，不局限于自身的物理块范围。</p>
+<ul class="lvl-2">
+<li class="lvl-4">例如，某个进程的页面置换可能会影响到其他进程正在使用的页面。</li>
+</ul>
+</li>
+</ul>
+<p><strong>优点</strong>：提高了系统内存的利用率，允许内存资源在进程之间灵活分配。</p>
+<p><strong>缺点</strong>：进程之间可能会互相干扰，导致某些进程因内存不足而性能下降。</p>
+<hr>
+<h3 id="3-可变分配，局部置换"><a class="header-anchor" href="#3-可变分配，局部置换">¶</a><strong>3. 可变分配，局部置换</strong></h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>可变分配</strong>：系统可以动态调整每个进程的物理块数量，具体分配数量由操作系统根据进程的需求决定。</p>
+</li>
+<li class="lvl-2">
+<p><strong>局部置换</strong>：尽管分配数量可变，但每个进程仍只能在自己当前拥有的物理块中进行页面置换，而不能影响其他进程的页面。</p>
+</li>
+</ul>
+<p><strong>优点</strong>：结合了固定分配和可变分配的优点，既能根据需求调整资源，又避免了进程之间的直接干扰。</p>
+<p><strong>缺点</strong>：动态分配增加了操作系统的复杂性。</p>
+<hr>
+<h3 id="总结对比"><a class="header-anchor" href="#总结对比">¶</a><strong>总结对比</strong></h3>
+<table>
+<thead>
+<tr>
+<th>策略类型</th>
+<th>物理块分配</th>
+<th>页面置换范围</th>
+<th>优点</th>
+<th>缺点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>固定分配，局部置换</td>
+<td>固定数量</td>
+<td>自己的物理块</td>
+<td>简单、稳定，避免进程干扰</td>
+<td>缺乏灵活性，可能导致个别进程性能下降</td>
+</tr>
+<tr>
+<td>可变分配，全局置换</td>
+<td>动态调整</td>
+<td>全局</td>
+<td>高效利用内存资源，支持动态调整</td>
+<td>进程间干扰可能导致系统不稳定</td>
+</tr>
+<tr>
+<td>可变分配，局部置换</td>
+<td>动态调整</td>
+<td>自己的物理块</td>
+<td>兼顾灵活性和稳定性</td>
+<td>系统复杂度较高</td>
+</tr>
+</tbody>
+</table>
+<p>这三种策略在实际中会根据操作系统的设计目标与应用场景选择适用的方案。</p>
 <hr />
 <div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
       <categories>
