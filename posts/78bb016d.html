@@ -21,19 +21,21 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="写在前面 这个博客用于发布一些笔者认为需要多端查看的各种笔记，或者用于记录想要分享的各种知识 另外，由于笔者还并没有完全掌握hexo的各种用法，这个博客同时也会记录一些在使用hexo时的个人心得。 ¶博客支持的callout块 123456&quot;info&quot;: &#123; &quot;color&quot;: &quot;#3178c6&quot;, &quot;icon&amp;quot">
+  <meta name="description" content="💡         TIP                    最少使用置换算法 (LFU, Least Frequently Used) 是一种基于页面访问频率的页面置换算法，其核心思想是将内存中使用频率最少的页面作为置换候选，确保较少被访问的页面优先被淘汰。LFU 算法适用于需要精确控制页面访问频率的场景，但在实际应用中常常因为实现复杂性和性能瓶颈而需要">
 <meta property="og:type" content="article">
-<meta property="og:title" content="写在前面">
-<meta property="og:url" content="http://example.com/posts/55009.html">
+<meta property="og:title" content="请求分页-LFU">
+<meta property="og:url" content="http://example.com/posts/78bb016d.html">
 <meta property="og:site_name" content="Ting&#39;s Blog">
-<meta property="og:description" content="写在前面 这个博客用于发布一些笔者认为需要多端查看的各种笔记，或者用于记录想要分享的各种知识 另外，由于笔者还并没有完全掌握hexo的各种用法，这个博客同时也会记录一些在使用hexo时的个人心得。 ¶博客支持的callout块 123456&quot;info&quot;: &#123; &quot;color&quot;: &quot;#3178c6&quot;, &quot;icon&amp;quot">
+<meta property="og:description" content="💡         TIP                    最少使用置换算法 (LFU, Least Frequently Used) 是一种基于页面访问频率的页面置换算法，其核心思想是将内存中使用频率最少的页面作为置换候选，确保较少被访问的页面优先被淘汰。LFU 算法适用于需要精确控制页面访问频率的场景，但在实际应用中常常因为实现复杂性和性能瓶颈而需要">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-12-09T09:43:29.774Z">
-<meta property="article:modified_time" content="2024-12-10T06:19:31.321Z">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png">
+<meta property="article:published_time" content="2024-12-11T12:00:53.000Z">
+<meta property="article:modified_time" content="2024-12-11T12:01:38.350Z">
 <meta property="article:author" content="听">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png">
 
-<link rel="canonical" href="http://example.com/posts/55009.html">
+<link rel="canonical" href="http://example.com/posts/78bb016d.html">
 
 
 <script id="page-configurations">
@@ -46,7 +48,7 @@
   };
 </script>
 
-  <title>写在前面 | Ting's Blog</title>
+  <title>请求分页-LFU | Ting's Blog</title>
   
 
 
@@ -196,7 +198,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/posts/55009.html">
+    <link itemprop="mainEntityOfPage" href="http://example.com/posts/78bb016d.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101430362.jpg">
@@ -209,30 +211,20 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          写在前面
+          请求分页-LFU
         </h1>
 
         <div class="post-meta">
         
-    <i class="fa fa-thumb-tack"></i>
-    <font color=7D26CD>置顶</font>
-    <span class="post-meta-divider">|</span>
-
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2024-12-09 17:43:29" itemprop="dateCreated datePublished" datetime="2024-12-09T17:43:29+08:00">2024-12-09</time>
+              <time title="创建时间：2024-12-11 20:00:53 / 修改时间：20:01:38" itemprop="dateCreated datePublished" datetime="2024-12-11T20:00:53+08:00">2024-12-11</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-12-10 14:19:31" itemprop="dateModified" datetime="2024-12-10T14:19:31+08:00">2024-12-10</time>
-              </span>
 
           
 
@@ -245,56 +237,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1>写在前面</h1>
-<p>这个博客用于发布一些笔者认为需要多端查看的各种笔记，或者用于记录想要分享的各种知识</p>
-<p>另外，由于笔者还并没有完全掌握<code>hexo</code>的各种用法，这个博客同时也会记录一些在使用<code>hexo</code>时的个人心得。</p>
-<h2 id="博客支持的callout块"><a class="header-anchor" href="#博客支持的callout块">¶</a>博客支持的callout块</h2>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&quot;info&quot;: &#123; &quot;<span class="attribute">color</span>&quot;: <span class="string">&quot;#3178c6&quot;</span>, <span class="string">&quot;icon&quot;</span>: <span class="string">&quot;ℹ️&quot;</span> &#125;,</span><br><span class="line">&quot;warning&quot;: &#123; &quot;<span class="attribute">color</span>&quot;: <span class="string">&quot;#e5a700&quot;</span>, <span class="string">&quot;icon&quot;</span>: <span class="string">&quot;⚠️&quot;</span> &#125;,</span><br><span class="line">&quot;error&quot;: &#123; &quot;<span class="attribute">color</span>&quot;: <span class="string">&quot;#d32f2f&quot;</span>, <span class="string">&quot;icon&quot;</span>: <span class="string">&quot;❌&quot;</span> &#125;,</span><br><span class="line">&quot;success&quot;: &#123; &quot;<span class="attribute">color</span>&quot;: <span class="string">&quot;#2e7d32&quot;</span>, <span class="string">&quot;icon&quot;</span>: <span class="string">&quot;✔️&quot;</span> &#125;,</span><br><span class="line">&quot;note&quot;: &#123; &quot;<span class="attribute">color</span>&quot;: <span class="string">&quot;#673ab7&quot;</span>, <span class="string">&quot;icon&quot;</span>: <span class="string">&quot;📝&quot;</span> &#125;,</span><br><span class="line">&quot;tip&quot;: &#123; &quot;<span class="attribute">color</span>&quot;: <span class="string">&quot;#009688&quot;</span>, <span class="string">&quot;icon&quot;</span>: <span class="string">&quot;💡&quot;</span> &#125;</span><br></pre></td></tr></table></figure>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
 
-<div class="callout callout-info">
-    <div class="callout-head">
-        <span class="callout-head-icon">ℹ️</span>
-        <span class="callout-head-text" style="color:#3178c6">INFO</span>
-    </div>
-    <div class="callout-contents">
-        <p><p></p>
-<p>嘿，typora不支持这个</p>
-</p>
-    </div>
-</div>
-<div class="callout callout-error">
-    <div class="callout-head">
-        <span class="callout-head-icon">❌</span>
-        <span class="callout-head-text" style="color:#d32f2f">ERROR</span>
-    </div>
-    <div class="callout-contents">
-        <p><p></p>
-<p>嘿！typora也不支持这个</p>
-</p>
-    </div>
-</div>
-<div class="callout callout-success">
-    <div class="callout-head">
-        <span class="callout-head-icon">✔️</span>
-        <span class="callout-head-text" style="color:#2e7d32">SUCCESS</span>
-    </div>
-    <div class="callout-contents">
-        <p><p></p>
-<p>好吧，typora支持的内容有点少了</p>
-</p>
-    </div>
-</div>
-<div class="callout callout-note">
-    <div class="callout-head">
-        <span class="callout-head-icon">📝</span>
-        <span class="callout-head-text" style="color:#673ab7">NOTE</span>
-    </div>
-    <div class="callout-contents">
-        <p><p></p>
-<p>太好了，typora支持<code>note</code></p>
-</p>
-    </div>
-</div>
 <div class="callout callout-tip">
     <div class="callout-head">
         <span class="callout-head-icon">💡</span>
@@ -302,77 +246,108 @@
     </div>
     <div class="callout-contents">
         <p><p></p>
-<p>测试callout</p>
+<p><strong>最少使用置换算法 (LFU, Least Frequently Used)</strong> 是一种基于页面访问频率的页面置换算法，其核心思想是将内存中使用频率最少的页面作为置换候选，确保较少被访问的页面优先被淘汰。LFU 算法适用于需要精确控制页面访问频率的场景，但在实际应用中常常因为实现复杂性和性能瓶颈而需要进行优化。</p>
 </p>
     </div>
-</div>
-<div class="callout callout-warning">
-    <div class="callout-head">
-        <span class="callout-head-icon">⚠️</span>
-        <span class="callout-head-text" style="color:#e5a700">WARNING</span>
-    </div>
-    <div class="callout-contents">
-        <p><p></p>
-<h2>测试一下是否支持应该支持的 md 语法</h2>
-<p>警告！</p>
-</p>
-    </div>
-</div>
-<div class="callout callout-tip">
-    <div class="callout-head">
-        <span class="callout-head-icon">💡</span>
-        <span class="callout-head-text" style="color:#009688">TIP</span>
-    </div>
-    <div class="callout-contents">
-        <p><p></p>
-<p><code>d</code> <code>rwx</code> <code>rwx</code> <code>rwx</code></p>
-<p>     $\uparrow  \ \ \ \      \uparrow  \ \ \ \     \uparrow$ 其他所有人</p>
-<p>     $\uparrow  \ \ \ \      \uparrow$ 用户组</p>
-<p>      $\uparrow$ 文件所有者</p>
-<p>普通文本内容，其他段落不受影响。</p>
-</p>
-    </div>
-</div>
-<div class="callout callout-tip">
-    <div class="callout-head">
-        <span class="callout-head-icon">💡</span>
-        <span class="callout-head-text" style="color:#009688">TIP</span>
-    </div>
-    <div class="callout-contents">
-        <p><p></p>
-<p><code>d</code> <code>rwx</code> <code>rwx</code> <code>rwx</code></p>
-<p><strong>Markdown 语法支持</strong>：</p>
-<ul class="lvl-1">
-<li class="lvl-2">
-<p>列表项 1</p>
+</div><span id="more"></span>
+<h3 id="LFU-算法原理"><a class="header-anchor" href="#LFU-算法原理">¶</a><strong>LFU 算法原理</strong></h3>
+<p>LFU 算法通过记录每个页面的访问频率（即页面被访问的次数）来决定哪些页面应该被淘汰。当需要替换页面时，选择访问频率最少的页面进行替换。如果有多个页面的访问频率相同，则通常按照其他规则（如 FIFO）进一步选择页面。</p>
+<h3 id="LFU-的实现步骤"><a class="header-anchor" href="#LFU-的实现步骤">¶</a><strong>LFU 的实现步骤</strong></h3>
+<ol>
+<li class="lvl-3">
+<p><strong>初始化</strong>：</p>
+<ul class="lvl-2">
+<li class="lvl-5">为每个页面分配一个计数器，用于记录该页面的访问次数。</li>
+<li class="lvl-5">页面访问时，计数器加一。</li>
+</ul>
 </li>
-<li class="lvl-2">
-<p>列表项 2</p>
+<li class="lvl-3">
+<p><strong>页面访问</strong>：</p>
+<ul class="lvl-2">
+<li class="lvl-5">如果页面在内存中，增加页面的访问频率（计数器加一）。</li>
+<li class="lvl-5">如果页面不在内存中：
+<ul class="lvl-4">
+<li class="lvl-7">若内存已满，则选择访问频率最少的页面进行置换。</li>
+<li class="lvl-7">将新页面加载到内存，并设置访问频率为 1。</li>
+</ul>
 </li>
 </ul>
-<blockquote>
-<p>嵌套引用块</p>
-</p>
-    </div>
-</div><p>普通文本内容，其他段落不受影响。</p>
-</blockquote>
-<h2 id="关于博客中自定义渲染callout块的部分"><a class="header-anchor" href="#关于博客中自定义渲染callout块的部分">¶</a>关于博客中自定义渲染<code>callout</code>块的部分</h2>
-<h3 id="首先是callout语法"><a class="header-anchor" href="#首先是callout语法">¶</a>首先是<code>callout</code>语法</h3>
-<figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="quote">&gt; [!tag]</span></span><br><span class="line"><span class="quote">&gt;</span></span><br><span class="line"><span class="quote">&gt; content1</span></span><br><span class="line"><span class="quote">&gt;</span></span><br><span class="line"><span class="quote">&gt; content2</span></span><br></pre></td></tr></table></figure>
-<p>由于笔者在编写此博客时使用的编写工具是<code>typora</code>，故将原来<code>obsidian</code>的语法做了一些改动，因为<code>typora</code>的引用块，行与行之间也会自动添加空行。<a href="/posts/4179">[关于callout块渲染]</a></p>
-
-<div class="callout callout-tip">
-    <div class="callout-head">
-        <span class="callout-head-icon">💡</span>
-        <span class="callout-head-text" style="color:#009688">TIP</span>
-    </div>
-    <div class="callout-contents">
-        <p><p></p>
-<p>渲染器部分，详见[[关于callout块渲染]]</p>
-</p>
-    </div>
-</div><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[!info] 信息头</span><br><span class="line">这是第一行内容。</span><br><span class="line">这是第二行内容。</span><br></pre></td></tr></table></figure>
-
+</li>
+<li class="lvl-3">
+<p><strong>页面置换</strong>：</p>
+<ul class="lvl-2">
+<li class="lvl-5">在内存已满时，选择访问频率最小的页面进行淘汰。</li>
+<li class="lvl-5">如果有多个页面的访问频率相同，则使用其他策略（如 FIFO）进一步确定淘汰页面。</li>
+</ul>
+</li>
+<li class="lvl-3">
+<p><strong>优化</strong>：</p>
+<ul class="lvl-2">
+<li class="lvl-5">在实际应用中，为了避免频繁淘汰的情况，可以引入衰减机制，即定期减少页面的访问频率，使得较久未访问的页面可以逐渐“过期”。</li>
+<li class="lvl-5">结合其他策略（如时间局部性）可以进一步优化 LFU 的效果。</li>
+</ul>
+</li>
+</ol>
+<h3 id="LFU-的优缺点"><a class="header-anchor" href="#LFU-的优缺点">¶</a><strong>LFU 的优缺点</strong></h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>优点：</p>
+<ul class="lvl-2">
+<li class="lvl-4">LFU 更能反映页面的实际使用情况，尤其适合处理那些经常使用的页面和较少访问的页面之间的差异。</li>
+<li class="lvl-4">与 FIFO 不同，LFU 会根据页面的访问历史来判断哪些页面应该继续留在内存中，从而避免了 FIFO 在某些场景下的缺陷（如热点页面被淘汰的情况）。</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>缺点：</p>
+<ul class="lvl-2">
+<li class="lvl-4"><strong>实现复杂性</strong>：LFU 算法需要为每个页面维护一个访问计数器，这增加了系统的开销。</li>
+<li class="lvl-4"><strong>性能瓶颈</strong>：每次访问页面时，都需要更新访问计数器，并且置换时需要遍历所有页面，找到访问频率最小的页面，这在大规模系统中可能会导致性能问题。</li>
+<li class="lvl-4"><strong>长时间未使用页面</strong>：LFU 在某些情况下可能会保留一些长期未访问但仍然有高访问频率的页面，这在时间局部性较强的场景中可能不适用。</li>
+</ul>
+</li>
+</ul>
+<h3 id="优化方法"><a class="header-anchor" href="#优化方法">¶</a><strong>优化方法</strong></h3>
+<p>由于 LFU 算法容易受到高频页面占用内存的影响，现代系统中往往采用以下优化方法：</p>
+<ol>
+<li class="lvl-3">
+<p><strong>衰减机制</strong>：定期减小页面的访问计数，使得长期未访问的页面计数器值会逐渐降低，避免低频页面被长期保留。</p>
+</li>
+<li class="lvl-3">
+<p><strong>结合其他算法</strong>：例如，结合 LRU（最近最久未使用）策略，使用 LFU+LRU（如 LFU 结合链表）来同时考虑页面的访问频率和最近的访问时间，提升整体性能。</p>
+</li>
+</ol>
+<h3 id="LFU-与-FIFO-比较"><a class="header-anchor" href="#LFU-与-FIFO-比较">¶</a><strong>LFU 与 FIFO 比较</strong></h3>
+<p>LFU 算法是 FIFO 算法的一种改进。FIFO 仅根据页面进入内存的顺序来决定置换，而 LFU 则考虑了页面的使用频率，从而能更精确地反映页面的实际需求。相比 FIFO，LFU 更能避免热点页面被淘汰的情况，但其实现和维护的复杂性较高。</p>
+<h3 id="示例"><a class="header-anchor" href="#示例">¶</a><strong>示例</strong></h3>
+<p>假设我们有一个大小为 3 的页面框，页面访问序列如下：<code>1, 2, 3, 1, 2, 4, 5</code>。初始时，所有页面的访问频率为 0。每次访问时，页面的频率会增加，最终进行置换时会选择频率最小的页面。</p>
+<ol>
+<li class="lvl-3">
+<p>访问页面 <code>1</code>：内存中插入页面 <code>1</code>，频率为 <code>[1]</code>。</p>
+</li>
+<li class="lvl-3">
+<p>访问页面 <code>2</code>：内存中插入页面 <code>2</code>，频率为 <code>[1, 1]</code>。</p>
+</li>
+<li class="lvl-3">
+<p>访问页面 <code>3</code>：内存中插入页面 <code>3</code>，频率为 <code>[1, 1, 1]</code>。</p>
+</li>
+<li class="lvl-3">
+<p>再次访问页面 <code>1</code>：频率更新为 <code>[2, 1, 1]</code>。</p>
+</li>
+<li class="lvl-3">
+<p>再次访问页面 <code>2</code>：频率更新为 <code>[2, 2, 1]</code>。</p>
+</li>
+<li class="lvl-3">
+<p>访问页面 <code>4</code>：页面 <code>3</code> 被淘汰（频率最小），插入页面 <code>4</code>，频率为 <code>[2, 2, 1]</code>。</p>
+</li>
+<li class="lvl-3">
+<p>访问页面 <code>5</code>：页面 <code>1</code> 被淘汰（频率最小），插入页面 <code>5</code>，频率为 <code>[2, 2, 1]</code>。</p>
+</li>
+</ol>
+<p>在这个过程中，LFU 根据访问频率选择淘汰页面，相比 FIFO 更能有效管理频繁访问的页面。</p>
+<h3 id="总结"><a class="header-anchor" href="#总结">¶</a><strong>总结</strong></h3>
+<p>LFU 算法是一种有效的页面置换策略，适用于处理那些访问频率差异较大的场景。它相比 FIFO 更能反映页面的实际使用情况，但其实现复杂度和性能问题可能需要结合其他策略进行优化。在现代操作系统中，LFU 和其改进版本（如 LFU+LRU）通常会与其他页面管理策略一起使用，以达到更好的性能效果。</p>
+<hr />
+<div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>
     </div>
 
     
@@ -386,11 +361,11 @@
 
         
     <div class="post-nav">
-      <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/posts/4179.html" rel="next" title="关于 callout 块渲染">
-      关于 callout 块渲染 <i class="fa fa-chevron-right"></i>
+    <a href="/posts/f041ded5.html" rel="prev" title="请求分页-LRU的实际实现过程">
+      <i class="fa fa-chevron-left"></i> 请求分页-LRU的实际实现过程
     </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -449,7 +424,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">写在前面</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%9A%E5%AE%A2%E6%94%AF%E6%8C%81%E7%9A%84callout%E5%9D%97"><span class="nav-number">1.1.</span> <span class="nav-text">博客支持的callout块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">1.2.</span> <span class="nav-text">测试一下是否支持应该支持的 md 语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E4%BA%8E%E5%8D%9A%E5%AE%A2%E4%B8%AD%E8%87%AA%E5%AE%9A%E4%B9%89%E6%B8%B2%E6%9F%93callout%E5%9D%97%E7%9A%84%E9%83%A8%E5%88%86"><span class="nav-number">1.3.</span> <span class="nav-text">关于博客中自定义渲染callout块的部分</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A6%96%E5%85%88%E6%98%AFcallout%E8%AF%AD%E6%B3%95"><span class="nav-number">1.3.1.</span> <span class="nav-text">首先是callout语法</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#LFU-%E7%AE%97%E6%B3%95%E5%8E%9F%E7%90%86"><span class="nav-number">1.</span> <span class="nav-text">LFU 算法原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LFU-%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%AD%A5%E9%AA%A4"><span class="nav-number">2.</span> <span class="nav-text">LFU 的实现步骤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LFU-%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="nav-number">3.</span> <span class="nav-text">LFU 的优缺点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%98%E5%8C%96%E6%96%B9%E6%B3%95"><span class="nav-number">4.</span> <span class="nav-text">优化方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LFU-%E4%B8%8E-FIFO-%E6%AF%94%E8%BE%83"><span class="nav-number">5.</span> <span class="nav-text">LFU 与 FIFO 比较</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B"><span class="nav-number">6.</span> <span class="nav-text">示例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">7.</span> <span class="nav-text">总结</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

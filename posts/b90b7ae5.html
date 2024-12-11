@@ -40,12 +40,15 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412111656423.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412111709272.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412111714913.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412112017506.png">
+<meta property="og:image" content="http://example.com/posts/assets/image-20241211201956645.png">
+<meta property="og:image" content="http://example.com/posts/assets/image-20241211202426933.png">
 <meta property="article:published_time" content="2024-12-10T07:39:50.000Z">
-<meta property="article:modified_time" content="2024-12-11T09:19:36.337Z">
+<meta property="article:modified_time" content="2024-12-11T12:29:14.446Z">
 <meta property="article:author" content="听">
 <meta property="article:tag" content="408">
-<meta property="article:tag" content="大学">
 <meta property="article:tag" content="OS">
+<meta property="article:tag" content="大学">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png">
 
@@ -243,7 +246,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-12-11 17:19:36" itemprop="dateModified" datetime="2024-12-11T17:19:36+08:00">2024-12-11</time>
+                <time title="修改时间：2024-12-11 20:29:14" itemprop="dateModified" datetime="2024-12-11T20:29:14+08:00">2024-12-11</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -320,8 +323,7 @@
 <p>只需要让程序当前需要运行的内容存在于内存中，程序就能跑</p>
 </blockquote>
 <h3 id="虚拟存储器的定义"><a class="header-anchor" href="#虚拟存储器的定义">¶</a>虚拟存储器的定义</h3>
-<p>具有请求调入功能<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--medium hint--info hint--rounded hint--bounce" aria-label="调入功能 是 指将进程所需的数据或指令从磁盘调入主存
-">[1]</span></a></sup>和置换功能，能从逻辑上对内存容量加以扩充的一种存储器系统。</p>
+<p>具有请求调入功能<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--medium hint--rounded hint--bounce" aria-label="调入功能 是 指将进程所需的数据或指令从磁盘调入主存">[1]</span></a></sup>和置换功能，能从逻辑上对内存容量加以扩充的一种存储器系统。</p>
 <p><big>虚拟存储器的容量 = $min($ 内存 $+$ 外存 $,$ <code>cpu</code>寻址空间 $)$ </big></p>
 <h3 id="虚拟存储器的特征"><a class="header-anchor" href="#虚拟存储器的特征">¶</a>虚拟存储器的特征</h3>
 <ul class="lvl-0">
@@ -379,8 +381,7 @@
 </ul>
 <h3 id="硬件支持"><a class="header-anchor" href="#硬件支持">¶</a>硬件支持</h3>
 <h4 id="页表机制"><a class="header-anchor" href="#页表机制">¶</a>页表机制</h4>
-<p>需要在进程页表<sup id="fnref:2"><a href="#fn:2" rel="footnote"><span class="hint--top hint--medium hint--info hint--rounded hint--bounce" aria-label="进程页表 是操作系统管理虚拟存储器时，用于映射进程的 **虚拟地址**和 **物理地址** 的一个重要数据结构。<br>每个进程都有自己的 **页表** ，它记录了该进程所有虚拟页的相关信息，<br>包括虚拟页是否已被加载到主存以及其对应的物理页框地址。
-">[2]</span></a></sup>中添加若干项</p>
+<p>需要在进程页表<sup id="fnref:2"><a href="#fn:2" rel="footnote"><span class="hint--top hint--medium hint--rounded hint--bounce" aria-label="进程页表 是操作系统管理虚拟存储器时，用于映射进程的 **虚拟地址**和 **物理地址** 的一个重要数据结构。&lt;br&gt;每个进程都有自己的 **页表** ，它记录了该进程所有虚拟页的相关信息，&lt;br&gt;包括虚拟页是否已被加载到主存以及其对应的物理页框地址。">[2]</span></a></sup>中添加若干项</p>
 <ul class="lvl-0">
 <li class="lvl-2">
 <p>状态位P：指示该页是否在内存</p>
@@ -432,8 +433,7 @@
 </li>
 </ul>
 <h4>指令操作多次访问内存</h4>
-<p>一些复杂的指令（尤其在<a href="/posts/7436c65f">CISC架构</a><sup id="fnref:3"><a href="#fn:3" rel="footnote"><span class="hint--top hint--medium hint--info hint--rounded hint--bounce" aria-label="**CISC（Complex Instruction Set Computer）** 架构是一种处理器设计理念，其特点是提供 **复杂且多样化的指令集**
-">[3]</span></a></sup>中）可能在执行期间涉及多个内存访问，每次访问可能触发缺页中断。例如：</p>
+<p>一些复杂的指令（尤其在<a href="/posts/7436c65f">CISC架构</a><sup id="fnref:3"><a href="#fn:3" rel="footnote"><span class="hint--top hint--medium hint--rounded hint--bounce" aria-label="**CISC（Complex Instruction Set Computer）** 架构是一种处理器设计理念，其特点是提供 **复杂且多样化的指令集**">[3]</span></a></sup>中）可能在执行期间涉及多个内存访问，每次访问可能触发缺页中断。例如：</p>
 <ul class="lvl-1">
 <li class="lvl-2">
 <p><strong>字符串处理指令</strong><br>
@@ -651,8 +651,7 @@ $$</p>
 </p>
     </div>
 </div><h4 id="页面置换算法"><a class="header-anchor" href="#页面置换算法">¶</a>页面置换算法</h4>
-<p><strong>功能</strong>：需要调入页面时，选择内存中年哪个物理页面被置换。称为replacement policy<sup id="fnref:4"><a href="#fn:4" rel="footnote"><span class="hint--top hint--medium hint--info hint--rounded hint--bounce" aria-label="policy：/ˈpɒləsi/ n.  策略；方针；
-">[4]</span></a></sup></p>
+<p><strong>功能</strong>：需要调入页面时，选择内存中年哪个物理页面被置换。称为replacement policy<sup id="fnref:4"><a href="#fn:4" rel="footnote"><span class="hint--top hint--medium hint--rounded hint--bounce" aria-label="policy：/ˈpɒləsi/ n.  策略；方针；">[4]</span></a></sup></p>
 <p><small><strong>目标</strong>：把未来不再使用的或短期内较少使用的页面调出，通常只能在局部性原理指导下依据过去的统计数据进行预测；</small></p>
 
 <div class="callout callout-note">
@@ -701,26 +700,17 @@ $$</p>
     </div>
     <div class="callout-contents">
         <p><p></p>
-<h4>Belady<sup id="fnref:5"><a href="#fn:5" rel="footnote">&lt;span class=“hint–top hint–medium hint–info hint–rounded hint–bounce” aria-label=&quot;贝拉迪：贝拉迪异常（Belady’s anomaly）是一种计算机科学中的现象，指的是在某些页面置换算法中，增加可用的物理内存可能导致更多的页面错误</h4>
-</p>
-    </div>
-</div><p>&quot;&gt;[5]</span></a></sup>现象</p>
-<blockquote>
+<h4>Belady<sup id="fnref:5"><a href="#fn:5" rel="footnote"><span class="hint--top hint--medium hint--rounded hint--bounce" aria-label="贝拉迪  贝拉迪异常（Belady&#039;s anomaly）是一种计算机科学中的现象，指的是在某些页面置换算法中，增加可用的物理内存可能导致更多的页面错误">[5]</span></a></sup> 现象</h4>
 <p>采用FIFO算法时，如果对一个进程未分配它所要求的全部页面，有时就会出现分配的页面数增多，缺页率反而提高的异常现象。</p>
-<h4 id="Belady-sup-id-fnref-5-a-href-fn-5-rel-footnote-span-class-“hint–top-hint–medium-hint–info-hint–rounded-hint–bounce”-aria-label-贝拉迪：贝拉迪异常（Belady’s-anomaly）是一种计算机科学中的现象，指的是在某些页面置换算法中，增加可用的物理内存可能导致更多的页面错误"><a class="header-anchor" href="#Belady-sup-id-fnref-5-a-href-fn-5-rel-footnote-span-class-“hint–top-hint–medium-hint–info-hint–rounded-hint–bounce”-aria-label-贝拉迪：贝拉迪异常（Belady’s-anomaly）是一种计算机科学中的现象，指的是在某些页面置换算法中，增加可用的物理内存可能导致更多的页面错误">¶</a>Belady<sup id="fnref:5"><a href="#fn:5" rel="footnote">&lt;span class=“hint–top hint–medium hint–info hint–rounded hint–bounce” aria-label=&quot;贝拉迪：贝拉迪异常（Belady’s anomaly）是一种计算机科学中的现象，指的是在某些页面置换算法中，增加可用的物理内存可能导致更多的页面错误</h4>
-</blockquote>
-<p>&quot;&gt;[5]</span></a></sup>现象的描述</p>
-<blockquote>
+<h4>Belady现象的描述</h4>
 <p>一个进程P要访问M个页，OS分配N个内存页面给进程P；对一个访问序列S，发生缺页次数为PE（S,N）。当N增大时，PE(S, N)时而增大，时而减小。</p>
-<h4 id="Belady-sup-id-fnref-5-a-href-fn-5-rel-footnote-span-class-“hint–top-hint–medium-hint–info-hint–rounded-hint–bounce”-aria-label-贝拉迪：贝拉迪异常（Belady’s-anomaly）是一种计算机科学中的现象，指的是在某些页面置换算法中，增加可用的物理内存可能导致更多的页面错误-2"><a class="header-anchor" href="#Belady-sup-id-fnref-5-a-href-fn-5-rel-footnote-span-class-“hint–top-hint–medium-hint–info-hint–rounded-hint–bounce”-aria-label-贝拉迪：贝拉迪异常（Belady’s-anomaly）是一种计算机科学中的现象，指的是在某些页面置换算法中，增加可用的物理内存可能导致更多的页面错误-2">¶</a>Belady<sup id="fnref:5"><a href="#fn:5" rel="footnote">&lt;span class=“hint–top hint–medium hint–info hint–rounded hint–bounce” aria-label=&quot;贝拉迪：贝拉迪异常（Belady’s anomaly）是一种计算机科学中的现象，指的是在某些页面置换算法中，增加可用的物理内存可能导致更多的页面错误</h4>
-</blockquote>
-<p>&quot;&gt;[5]</span></a></sup>现象的原因</p>
-<blockquote>
+<h4>Belady现象的原因</h4>
 <p>FIFO算法的置换特征与进程访问内存的动态特征是矛盾的，即被置换的页面并不是进程不会访问的。</p>
 <blockquote>
 <p>反而，先加载进去的页面可能是访问次数最多的，如c语言中，定义的函数往往放在<code>main</code>函数<small>程序入口之前</small>，而且当函数调用另一个函数时，被调用的函数必须放在当前函数之前。</p>
-</blockquote>
-</blockquote>
+</p>
+    </div>
+</div></blockquote>
 
 <div class="callout callout-info">
     <div class="callout-head">
@@ -752,7 +742,7 @@ $$</p>
 <ul class="lvl-0">
 <li class="lvl-2">
 <p>寄存器</p>
-<p>为了记录某进程在内存中各页的使用情况，须为每个在内存中的页面配置一个<a href="/posts/3d2c198d">移位寄存器</a><sup id="fnref:6"><a href="#fn:6" rel="footnote"><span class="hint--top hint--medium hint--info hint--rounded hint--bounce" aria-label="**移位寄存器**（Shift Register）是一种数字电路，用于将数据按照一定规则在其存储单元之间移动。它是由一组触发器（Flip-Flop）组成的逻辑电路，每个触发器存储一个位数据。">[6]</span></a></sup>，可表示为<br>
+<p>为了记录某进程在内存中各页的使用情况，须为每个在内存中的页面配置一个<a href="/posts/3d2c198d">移位寄存器</a><sup id="fnref:6"><a href="#fn:6" rel="footnote"><span class="hint--top hint--medium hint--rounded hint--bounce" aria-label="**移位寄存器**（Shift Register）是一种数字电路，用于将数据按照一定规则在其存储单元之间移动。它是由一组触发器（Flip-Flop）组成的逻辑电路，每个触发器存储一个位数据。">[6]</span></a></sup>，可表示为<br>
 $$<br>
 R=R_{n-1}R_{n-2}R_{n-3}…R_2R_1R_0<br>
 $$</p>
@@ -841,9 +831,149 @@ $$</p>
     </div>
 </div><h6 id="改进Clock置换算法"><a class="header-anchor" href="#改进Clock置换算法">¶</a>改进Clock置换算法</h6>
 <p>除须考虑页面的使用情况外，还须增加置换代价</p>
-<p>淘汰时，同时检查访问位A与修改位M</p>
+
+<div class="callout callout-note">
+    <div class="callout-head">
+        <span class="callout-head-icon">📝</span>
+        <span class="callout-head-text" style="color:#673ab7">NOTE</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p>考虑置换代价，即考虑当前页表是否被修改</p>
+<p>因为被修改的页表，需要写入磁盘更加耗时</p>
+<p><small>没有被修改的页表，在换出后直接丢掉就好了</small></p>
+</p>
+    </div>
+</div><p>即，淘汰时，同时检查访问位A与修改位M</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>第1类（A=0，M=0）：表示该页最近既未被访问、又未被修改，是最佳淘汰页。</p>
+</li>
+<li class="lvl-2">
+<p>第2类（A=0，M=1）：表示该页最近未被访问，但已被修改，并不是很好的淘汰页。</p>
+</li>
+<li class="lvl-2">
+<p>第3类（A=1，M=0）：表示该页最近已被访问，但未被修改，该页有可能再被访问。</p>
+</li>
+<li class="lvl-2">
+<p>第4类（A=1，M=1）：表示该页最近已被访问且被修改，该页有可能再被访问。</p>
+</li>
+</ul>
+<p>置换时，循环依次查找第1类、第2类页面，找到为止。</p>
+<h5 id="最少使用置换算法-LFU-small-详细解释-small"><a class="header-anchor" href="#最少使用置换算法-LFU-small-详细解释-small">¶</a>最少使用置换算法 LFU<small><a href="/posts/78bb016d">详细解释</a></small></h5>
+<p>为内存中的每个页面设置一个移位寄存器，用来记录该页面的被访问频率</p>
+<p>LFU 选择在<span style="color:red">最近时期使用最少的额页面内</span>作为淘汰页</p>
+<h5 id="页面缓冲算法-PBA"><a class="header-anchor" href="#页面缓冲算法-PBA">¶</a>页面缓冲算法 PBA</h5>
+<p>是对 FIFO<sup id="fnref:7"><a href="#fn:7" rel="footnote"><span class="hint--top hint--medium hint--rounded hint--bounce" aria-label="先进先出算法">[7]</span></a></sup> 算法的发展，通过被置换页面的缓冲，有机会找回刚被置换的页面</p>
+<h6 id="被置换页面的选择和处理："><a class="header-anchor" href="#被置换页面的选择和处理：">¶</a><strong>被置换页面的选择和处理</strong>：</h6>
+<p>用 FIFO 算法选择被置换页，把被置换的页面放入两个链表之一</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>如果页面未被修改，就将其归入到空闲页面链表的末尾</p>
+</li>
+<li class="lvl-2">
+<p>否则将其归入到已修改页面链表。</p>
+</li>
+</ul>
+<h6 id="处理过程"><a class="header-anchor" href="#处理过程">¶</a>处理过程</h6>
+<p>需要调入新的物理页面时，将新页面内容读入到空闲页面链表的第一项所指的页面，然后将第一项删除。</p>
+<p>空闲页面和已修改页面，仍停留在内存中一段时间，如果这些页面再次被访问，只需要较小的开销就可以将被访问的页面返还，重新作为进程的内容页。</p>
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p>其实，空闲页面链表和已修改页面链表就像两个缓冲区，等过了缓冲时间任未访问的页面就真的扔了。</p>
+</p>
+    </div>
+</div><p>当已修改页面达到一定次数后，在将它们一起调出到外存，然后将他们归入空闲页面链表，这样能大大减少I/O操作次数<small>也相当于是一个缓冲区吧，页表I/O缓冲区，因为I/O操作比较慢</small></p>
+<h4 id="访问内存的有效时间"><a class="header-anchor" href="#访问内存的有效时间">¶</a>访问内存的有效时间</h4>
+<p>系统中有快表，</p>
+<center><small>快表时间λ，</small></center>
+<center><small>页表时间t，</small></center>
+<center><small>缺页处理时间ε，</small></center>
+<center><small>快表命中率a，</small></center>
+<center><small>缺页率f</small></center>
+<p>具有快表的请求分页管理方式的内存访问操作：</p>
+<p>（1）被访问页在内存中，对应页表项在快表中</p>
+<p>​    EAT=λ+t</p>
+<p>（2）被访问页在内存中，对应页表项不在快表中</p>
+<p>​    EAT=λ+t+λ+t=2×（λ+t）</p>
+<p>（3）被访问页不在内存中</p>
+<p>​    EAT= λ+t+ε+λ+t=2×（λ+t）+ε</p>
+<p>（4）快表命中率为a，缺页率为f，缺页中断处理时间为ε</p>
+<p>EAT= λ+a×t+(1-a)×((1-f)×(λ+t)+f×(t+ε+ λ)+t)</p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412112017506.png" alt="image-20241211201722945"></p>
+<h4 id="抖动与工作集"><a class="header-anchor" href="#抖动与工作集">¶</a>抖动与工作集</h4>
+<h5 id="抖动-颠簸-Thrashing"><a class="header-anchor" href="#抖动-颠簸-Thrashing">¶</a>抖动/颠簸(Thrashing)</h5>
+<p>页面在内存与外存之间频繁调度，以至于调度页面所需时间比进程实际运行的时间还多，此时系统效率急剧下降，甚至导致系统崩溃。这种现象为颠簸。</p>
+<h6 id="原因"><a class="header-anchor" href="#原因">¶</a>原因</h6>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>系统中运行的进程太多</p>
+</li>
+<li class="lvl-2">
+<p>页面淘汰算法不合理</p>
+</li>
+<li class="lvl-2">
+<p>分配给进程的物理页面数太少</p>
+</li>
+</ul>
+<h5 id="常驻集"><a class="header-anchor" href="#常驻集">¶</a>常驻集</h5>
+<p>常驻集指虚拟页式管理中给进程分配的物理页面。</p>
+<p><img src="./assets/image-20241211201956645.png" alt="image-20241211201956645"></p>
+<center><small>缺页率和物理块数（常驻集）之间的关系图</small></center>
+<h5 id="工作集"><a class="header-anchor" href="#工作集">¶</a>工作集</h5>
+<blockquote>
+<p>1968年由Denning提出，目的是依据进程在过去的一段时间内访问的页面来调整常驻集大小。</p>
+</blockquote>
+<p>所谓工作集，指在某段时间间隔Δ里进程实际要访问页面的集合。</p>
+<p>把某进程在时间t的工作集记为w(t，Δ),其中的变量Δ称为工作集的“窗口尺寸”</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>$\Delta$是一个虚拟时间段，称为窗口大小(window size)，它采用&quot;虚拟时间&quot;单位(阻塞时不计时)，大致可以用执行的指令数目，或处理器执行时间来计算；</p>
+</li>
+<li class="lvl-2">
+<p>工作集是在[t - $\Delta$, t]时间段内所访问的页面的集合；</p>
+</li>
+<li class="lvl-2">
+<p>| W(t, $\Delta$) | 指工作集大小即页面数目；</p>
+</li>
+</ul>
+<p><img src="./assets/image-20241211202426933.png" alt="image-20241211202426933"></p>
+<h6 id="抖动的预防方法"><a class="header-anchor" href="#抖动的预防方法">¶</a>抖动的预防方法</h6>
+<ol>
+<li class="lvl-3">
+<p>采取局部置换策略：只能在分配给自己的内存空间内进行置换；</p>
+</li>
+<li class="lvl-3">
+<p>把工作集算法融入到处理机调度中，让常驻集包含工作集；</p>
+</li>
+<li class="lvl-3">
+<p>利用“L=S”准则调节缺页率：</p>
+ <center><small>L是缺页之间的平均时间</small></center>
+ <center><small>S是平均缺页服务时间，即用于置换一个页面的时间</small></center>
+<ul class="lvl-2">
+<li class="lvl-6">
+<p>L&gt;S，说明很少发生缺页</p>
+</li>
+<li class="lvl-6">
+<p>L&lt;S，说明频繁缺页</p>
+</li>
+<li class="lvl-6">
+<p>L=S，磁盘和处理机都可达到最大利用率</p>
+</li>
+</ul>
+</li>
+<li class="lvl-3">
+<p>选择暂停进程。</p>
+</li>
+</ol>
 <hr />
-<div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div><div id="footnotes"><hr><div id="footnotelist"><h5>相关脚注</h5><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">调入功能 是 指将进程所需的数据或指令从磁盘调入主存<a href="#fnref:1" rev="footnote"> ↩</a></span></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">2.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">进程页表 是操作系统管理虚拟存储器时，用于映射进程的 <strong>虚拟地址</strong>和 <strong>物理地址</strong> 的一个重要数据结构。<br>每个进程都有自己的 <strong>页表</strong> ，它记录了该进程所有虚拟页的相关信息，<br>包括虚拟页是否已被加载到主存以及其对应的物理页框地址。<a href="#fnref:2" rev="footnote"> ↩</a></span></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">3.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><strong>CISC（Complex Instruction Set Computer）</strong> 架构是一种处理器设计理念，其特点是提供 <strong>复杂且多样化的指令集</strong><a href="#fnref:3" rev="footnote"> ↩</a></span></li><li id="fn:4"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">4.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">policy：/ˈpɒləsi/ n.  策略；方针；<a href="#fnref:4" rev="footnote"> ↩</a></span></li><li id="fn:5"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">5.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">贝拉迪：贝拉迪异常（Belady’s anomaly）是一种计算机科学中的现象，指的是在某些页面置换算法中，增加可用的物理内存可能导致更多的页面错误<a href="#fnref:5" rev="footnote"> ↩</a></span></li><li id="fn:6"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">6.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><strong>移位寄存器</strong>（Shift Register）是一种数字电路，用于将数据按照一定规则在其存储单元之间移动。它是由一组触发器（Flip-Flop）组成的逻辑电路，每个触发器存储一个位数据。<a href="#fnref:6" rev="footnote"> ↩</a></span></li></ol></div></div>
+<div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div><div id="footnotes"><hr><h4>相关注解</h4><ol class="custom-footnotes"><li id="fn:1" class="footnote-item"><span class="footnote-content">调入功能 是 指将进程所需的数据或指令从磁盘调入主存<a href="#fnref:1" rev="footnote"> ↩</a></span></li><li id="fn:2" class="footnote-item"><span class="footnote-content">进程页表 是操作系统管理虚拟存储器时，用于映射进程的 <strong>虚拟地址</strong>和 <strong>物理地址</strong> 的一个重要数据结构。<br>每个进程都有自己的 <strong>页表</strong> ，它记录了该进程所有虚拟页的相关信息，<br>包括虚拟页是否已被加载到主存以及其对应的物理页框地址。<a href="#fnref:2" rev="footnote"> ↩</a></span></li><li id="fn:3" class="footnote-item"><span class="footnote-content"><strong>CISC（Complex Instruction Set Computer）</strong> 架构是一种处理器设计理念，其特点是提供 <strong>复杂且多样化的指令集</strong><a href="#fnref:3" rev="footnote"> ↩</a></span></li><li id="fn:4" class="footnote-item"><span class="footnote-content">policy：/ˈpɒləsi/ n.  策略；方针；<a href="#fnref:4" rev="footnote"> ↩</a></span></li><li id="fn:5" class="footnote-item"><span class="footnote-content">贝拉迪  贝拉迪异常（Belady's anomaly）是一种计算机科学中的现象，指的是在某些页面置换算法中，增加可用的物理内存可能导致更多的页面错误<a href="#fnref:5" rev="footnote"> ↩</a></span></li><li id="fn:6" class="footnote-item"><span class="footnote-content"><strong>移位寄存器</strong>（Shift Register）是一种数字电路，用于将数据按照一定规则在其存储单元之间移动。它是由一组触发器（Flip-Flop）组成的逻辑电路，每个触发器存储一个位数据。<a href="#fnref:6" rev="footnote"> ↩</a></span></li><li id="fn:7" class="footnote-item"><span class="footnote-content">先进先出算法<a href="#fnref:7" rev="footnote"> ↩</a></span></li></ol></div>
     </div>
 
     
@@ -853,8 +983,8 @@ $$</p>
       <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/408/" rel="tag"><i class="fa fa-tag"></i> 408</a>
-              <a href="/tags/%E5%A4%A7%E5%AD%A6/" rel="tag"><i class="fa fa-tag"></i> 大学</a>
               <a href="/tags/OS/" rel="tag"><i class="fa fa-tag"></i> OS</a>
+              <a href="/tags/%E5%A4%A7%E5%AD%A6/" rel="tag"><i class="fa fa-tag"></i> 大学</a>
           </div>
 
         
@@ -928,7 +1058,7 @@ $$</p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%99%9A%E6%8B%9F%E5%AD%98%E5%82%A8%E5%99%A8%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">虚拟存储器的概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%99%9A%E6%8B%9F%E5%AD%98%E5%82%A8%E5%99%A8%E7%9A%84%E4%BB%BB%E5%8A%A1"><span class="nav-number">1.1.</span> <span class="nav-text">虚拟存储器的任务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B1%80%E9%83%A8%E6%80%A7%E5%8E%9F%E7%90%86"><span class="nav-number">1.2.</span> <span class="nav-text">局部性原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%99%9A%E6%8B%9F%E5%AD%98%E5%82%A8%E5%99%A8%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="nav-number">1.3.</span> <span class="nav-text">虚拟存储器的定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%99%9A%E6%8B%9F%E5%AD%98%E5%82%A8%E5%99%A8%E7%9A%84%E7%89%B9%E5%BE%81"><span class="nav-number">1.4.</span> <span class="nav-text">虚拟存储器的特征</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%99%9A%E6%8B%9F%E5%AD%98%E5%82%A8%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="nav-number">1.5.</span> <span class="nav-text">虚拟存储器的实现</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%B7%E6%B1%82%E5%88%86%E9%A1%B5%E7%B3%BB%E7%BB%9F"><span class="nav-number">1.5.1.</span> <span class="nav-text">请求分页系统</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%B7%E6%B1%82%E5%88%86%E6%AE%B5%E7%B3%BB%E7%BB%9F"><span class="nav-number">1.5.2.</span> <span class="nav-text">请求分段系统</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AE%B5%E9%A1%B5%E5%BC%8F%E8%99%9A%E6%8B%9F%E5%AD%98%E5%82%A8%E5%99%A8"><span class="nav-number">1.5.3.</span> <span class="nav-text">段页式虚拟存储器</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%B7%E6%B1%82%E5%88%86%E9%A1%B5%E5%AD%98%E5%82%A8%E7%AE%A1%E7%90%86"><span class="nav-number">2.</span> <span class="nav-text">请求分页存储管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%AE%E6%A0%87%E8%AF%84%E4%BB%B7"><span class="nav-number">2.1.</span> <span class="nav-text">目标评价</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A1%AC%E4%BB%B6%E6%94%AF%E6%8C%81"><span class="nav-number">2.2.</span> <span class="nav-text">硬件支持</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A1%B5%E8%A1%A8%E6%9C%BA%E5%88%B6"><span class="nav-number">2.2.1.</span> <span class="nav-text">页表机制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BC%BA%E9%A1%B5%E4%B8%AD%E6%96%AD%E6%9C%BA%E6%9E%84"><span class="nav-number">2.2.2.</span> <span class="nav-text">缺页中断机构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">2.2.3.</span> <span class="nav-text">关于 一条指令在执行期间，可能产生多次缺页中断</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">2.2.4.</span> <span class="nav-text">指令本身产生的缺页中断</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">2.2.5.</span> <span class="nav-text">操作数访问导致的缺页中断</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">2.2.6.</span> <span class="nav-text">指令操作多次访问内存</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">2.2.7.</span> <span class="nav-text">页表访问产生的缺页中断</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">2.2.8.</span> <span class="nav-text">内存管理器的间接操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BC%BA%E9%A1%B5%E4%B8%AD%E6%96%AD%E7%9A%84%E7%89%B9%E6%AE%8A%E6%80%A7"><span class="nav-number">2.2.9.</span> <span class="nav-text">缺页中断的特殊性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9C%B0%E5%9D%80%E5%8F%98%E6%8D%A2%E6%9C%BA%E6%9E%84"><span class="nav-number">2.2.10.</span> <span class="nav-text">地址变换机构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D"><span class="nav-number">2.2.11.</span> <span class="nav-text">内存分配</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%9C%80%E5%B0%8F%E7%89%A9%E7%90%86%E5%9D%97%E6%95%B0%E7%9A%84%E7%A1%AE%E5%AE%9A"><span class="nav-number">2.2.11.1.</span> <span class="nav-text">最小物理块数的确定</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%89%A9%E7%90%86%E5%9D%97%E7%9A%84%E5%88%86%E9%85%8D%E7%AD%96%E7%95%A5"><span class="nav-number">2.2.11.2.</span> <span class="nav-text">物理块的分配策略</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">2.2.11.3.</span> <span class="nav-text">固定与可变</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">2.2.11.4.</span> <span class="nav-text">全局与局部</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%89%A9%E7%90%86%E5%9D%97%E5%88%86%E9%85%8D%E7%AE%97%E6%B3%95"><span class="nav-number">2.2.11.5.</span> <span class="nav-text">物理块分配算法</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B0%83%E9%A1%B5%E7%AD%96%E7%95%A5"><span class="nav-number">2.2.12.</span> <span class="nav-text">调页策略</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BD%95%E6%97%B6%E8%B0%83%E5%85%A5%E9%A1%B5%E9%9D%A2"><span class="nav-number">2.2.12.1.</span> <span class="nav-text">何时调入页面</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BB%8E%E4%BD%95%E5%A4%84%E8%B0%83%E5%85%A5%E9%A1%B5%E9%9D%A2"><span class="nav-number">2.2.12.2.</span> <span class="nav-text">从何处调入页面</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#span-style-color-red-%E5%A6%82%E4%BD%95%E8%B0%83%E5%85%A5%E9%A1%B5%E9%9D%A2-span"><span class="nav-number">2.2.12.3.</span> <span class="nav-text">如何调入页面</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%BC%BA%E9%A1%B5%E7%8E%87"><span class="nav-number">2.2.12.4.</span> <span class="nav-text">缺页率</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">2.2.12.5.</span> <span class="nav-text">例子</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A1%B5%E9%9D%A2%E7%BD%AE%E6%8D%A2%E7%AE%97%E6%B3%95"><span class="nav-number">2.2.13.</span> <span class="nav-text">页面置换算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">2.2.14.</span> <span class="nav-text">算法一览</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%9C%80%E4%BD%B3%E7%BD%AE%E6%8D%A2%E7%AE%97%E6%B3%95-OPT"><span class="nav-number">2.2.14.1.</span> <span class="nav-text">最佳置换算法 OPT</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%85%88%E8%BF%9B%E5%85%88%E5%87%BA%E7%BD%AE%E6%8D%A2%E7%AE%97%E6%B3%95"><span class="nav-number">2.2.14.2.</span> <span class="nav-text">先进先出置换算法</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">2.2.15.</span> <span class="nav-text">Belady&lt;span class&#x3D;“hint–top hint–medium hint–info hint–rounded hint–bounce” aria-label&#x3D;&quot;贝拉迪：贝拉迪异常（Belady’s anomaly）是一种计算机科学中的现象，指的是在某些页面置换算法中，增加可用的物理内存可能导致更多的页面错误</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Belady-sup-id-fnref-5-a-href-fn-5-rel-footnote-span-class-%E2%80%9Chint%E2%80%93top-hint%E2%80%93medium-hint%E2%80%93info-hint%E2%80%93rounded-hint%E2%80%93bounce%E2%80%9D-aria-label-%E8%B4%9D%E6%8B%89%E8%BF%AA%EF%BC%9A%E8%B4%9D%E6%8B%89%E8%BF%AA%E5%BC%82%E5%B8%B8%EF%BC%88Belady%E2%80%99s-anomaly%EF%BC%89%E6%98%AF%E4%B8%80%E7%A7%8D%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6%E4%B8%AD%E7%9A%84%E7%8E%B0%E8%B1%A1%EF%BC%8C%E6%8C%87%E7%9A%84%E6%98%AF%E5%9C%A8%E6%9F%90%E4%BA%9B%E9%A1%B5%E9%9D%A2%E7%BD%AE%E6%8D%A2%E7%AE%97%E6%B3%95%E4%B8%AD%EF%BC%8C%E5%A2%9E%E5%8A%A0%E5%8F%AF%E7%94%A8%E7%9A%84%E7%89%A9%E7%90%86%E5%86%85%E5%AD%98%E5%8F%AF%E8%83%BD%E5%AF%BC%E8%87%B4%E6%9B%B4%E5%A4%9A%E7%9A%84%E9%A1%B5%E9%9D%A2%E9%94%99%E8%AF%AF"><span class="nav-number">2.2.16.</span> <span class="nav-text">Belady&lt;span class&#x3D;“hint–top hint–medium hint–info hint–rounded hint–bounce” aria-label&#x3D;&quot;贝拉迪：贝拉迪异常（Belady’s anomaly）是一种计算机科学中的现象，指的是在某些页面置换算法中，增加可用的物理内存可能导致更多的页面错误</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Belady-sup-id-fnref-5-a-href-fn-5-rel-footnote-span-class-%E2%80%9Chint%E2%80%93top-hint%E2%80%93medium-hint%E2%80%93info-hint%E2%80%93rounded-hint%E2%80%93bounce%E2%80%9D-aria-label-%E8%B4%9D%E6%8B%89%E8%BF%AA%EF%BC%9A%E8%B4%9D%E6%8B%89%E8%BF%AA%E5%BC%82%E5%B8%B8%EF%BC%88Belady%E2%80%99s-anomaly%EF%BC%89%E6%98%AF%E4%B8%80%E7%A7%8D%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6%E4%B8%AD%E7%9A%84%E7%8E%B0%E8%B1%A1%EF%BC%8C%E6%8C%87%E7%9A%84%E6%98%AF%E5%9C%A8%E6%9F%90%E4%BA%9B%E9%A1%B5%E9%9D%A2%E7%BD%AE%E6%8D%A2%E7%AE%97%E6%B3%95%E4%B8%AD%EF%BC%8C%E5%A2%9E%E5%8A%A0%E5%8F%AF%E7%94%A8%E7%9A%84%E7%89%A9%E7%90%86%E5%86%85%E5%AD%98%E5%8F%AF%E8%83%BD%E5%AF%BC%E8%87%B4%E6%9B%B4%E5%A4%9A%E7%9A%84%E9%A1%B5%E9%9D%A2%E9%94%99%E8%AF%AF-2"><span class="nav-number">2.2.17.</span> <span class="nav-text">Belady&lt;span class&#x3D;“hint–top hint–medium hint–info hint–rounded hint–bounce” aria-label&#x3D;&quot;贝拉迪：贝拉迪异常（Belady’s anomaly）是一种计算机科学中的现象，指的是在某些页面置换算法中，增加可用的物理内存可能导致更多的页面错误</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">2.2.18.</span> <span class="nav-text">Belady现象的例子</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%9C%80%E8%BF%91%E6%9C%80%E4%B9%85%E6%9C%AA%E4%BD%BF%E7%94%A8-LRU"><span class="nav-number">2.2.18.1.</span> <span class="nav-text">最近最久未使用 LRU</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E7%A1%AC%E4%BB%B6%E6%94%AF%E6%8C%81-2"><span class="nav-number">2.2.18.1.1.</span> <span class="nav-text">硬件支持</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">2.2.19.</span> <span class="nav-text">实际实现详细实现过程</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">2.2.19.1.</span> <span class="nav-text">1. 用移位寄存器实现 LRU</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">2.2.19.2.</span> <span class="nav-text">2. 用栈实现 LRU</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Clock%E7%BD%AE%E6%8D%A2%E7%AE%97%E6%B3%95"><span class="nav-number">2.2.19.3.</span> <span class="nav-text">Clock置换算法</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E7%AE%80%E5%8D%95%E7%9A%84Clock%E7%AE%97%E6%B3%95"><span class="nav-number">2.2.19.3.1.</span> <span class="nav-text">简单的Clock算法</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%94%B9%E8%BF%9BClock%E7%BD%AE%E6%8D%A2%E7%AE%97%E6%B3%95"><span class="nav-number">2.2.19.3.2.</span> <span class="nav-text">改进Clock置换算法</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#footnotelist"><span class="nav-number">2.2.19.4.</span> <span class="nav-text">相关脚注</span></a></li></ol></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%99%9A%E6%8B%9F%E5%AD%98%E5%82%A8%E5%99%A8%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">虚拟存储器的概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%99%9A%E6%8B%9F%E5%AD%98%E5%82%A8%E5%99%A8%E7%9A%84%E4%BB%BB%E5%8A%A1"><span class="nav-number">1.1.</span> <span class="nav-text">虚拟存储器的任务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B1%80%E9%83%A8%E6%80%A7%E5%8E%9F%E7%90%86"><span class="nav-number">1.2.</span> <span class="nav-text">局部性原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%99%9A%E6%8B%9F%E5%AD%98%E5%82%A8%E5%99%A8%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="nav-number">1.3.</span> <span class="nav-text">虚拟存储器的定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%99%9A%E6%8B%9F%E5%AD%98%E5%82%A8%E5%99%A8%E7%9A%84%E7%89%B9%E5%BE%81"><span class="nav-number">1.4.</span> <span class="nav-text">虚拟存储器的特征</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%99%9A%E6%8B%9F%E5%AD%98%E5%82%A8%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="nav-number">1.5.</span> <span class="nav-text">虚拟存储器的实现</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%B7%E6%B1%82%E5%88%86%E9%A1%B5%E7%B3%BB%E7%BB%9F"><span class="nav-number">1.5.1.</span> <span class="nav-text">请求分页系统</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%B7%E6%B1%82%E5%88%86%E6%AE%B5%E7%B3%BB%E7%BB%9F"><span class="nav-number">1.5.2.</span> <span class="nav-text">请求分段系统</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AE%B5%E9%A1%B5%E5%BC%8F%E8%99%9A%E6%8B%9F%E5%AD%98%E5%82%A8%E5%99%A8"><span class="nav-number">1.5.3.</span> <span class="nav-text">段页式虚拟存储器</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%B7%E6%B1%82%E5%88%86%E9%A1%B5%E5%AD%98%E5%82%A8%E7%AE%A1%E7%90%86"><span class="nav-number">2.</span> <span class="nav-text">请求分页存储管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%AE%E6%A0%87%E8%AF%84%E4%BB%B7"><span class="nav-number">2.1.</span> <span class="nav-text">目标评价</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A1%AC%E4%BB%B6%E6%94%AF%E6%8C%81"><span class="nav-number">2.2.</span> <span class="nav-text">硬件支持</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A1%B5%E8%A1%A8%E6%9C%BA%E5%88%B6"><span class="nav-number">2.2.1.</span> <span class="nav-text">页表机制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BC%BA%E9%A1%B5%E4%B8%AD%E6%96%AD%E6%9C%BA%E6%9E%84"><span class="nav-number">2.2.2.</span> <span class="nav-text">缺页中断机构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">2.2.3.</span> <span class="nav-text">关于 一条指令在执行期间，可能产生多次缺页中断</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">2.2.4.</span> <span class="nav-text">指令本身产生的缺页中断</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">2.2.5.</span> <span class="nav-text">操作数访问导致的缺页中断</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">2.2.6.</span> <span class="nav-text">指令操作多次访问内存</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">2.2.7.</span> <span class="nav-text">页表访问产生的缺页中断</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">2.2.8.</span> <span class="nav-text">内存管理器的间接操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BC%BA%E9%A1%B5%E4%B8%AD%E6%96%AD%E7%9A%84%E7%89%B9%E6%AE%8A%E6%80%A7"><span class="nav-number">2.2.9.</span> <span class="nav-text">缺页中断的特殊性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9C%B0%E5%9D%80%E5%8F%98%E6%8D%A2%E6%9C%BA%E6%9E%84"><span class="nav-number">2.2.10.</span> <span class="nav-text">地址变换机构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D"><span class="nav-number">2.2.11.</span> <span class="nav-text">内存分配</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%9C%80%E5%B0%8F%E7%89%A9%E7%90%86%E5%9D%97%E6%95%B0%E7%9A%84%E7%A1%AE%E5%AE%9A"><span class="nav-number">2.2.11.1.</span> <span class="nav-text">最小物理块数的确定</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%89%A9%E7%90%86%E5%9D%97%E7%9A%84%E5%88%86%E9%85%8D%E7%AD%96%E7%95%A5"><span class="nav-number">2.2.11.2.</span> <span class="nav-text">物理块的分配策略</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">2.2.11.3.</span> <span class="nav-text">固定与可变</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">2.2.11.4.</span> <span class="nav-text">全局与局部</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%89%A9%E7%90%86%E5%9D%97%E5%88%86%E9%85%8D%E7%AE%97%E6%B3%95"><span class="nav-number">2.2.11.5.</span> <span class="nav-text">物理块分配算法</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B0%83%E9%A1%B5%E7%AD%96%E7%95%A5"><span class="nav-number">2.2.12.</span> <span class="nav-text">调页策略</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BD%95%E6%97%B6%E8%B0%83%E5%85%A5%E9%A1%B5%E9%9D%A2"><span class="nav-number">2.2.12.1.</span> <span class="nav-text">何时调入页面</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BB%8E%E4%BD%95%E5%A4%84%E8%B0%83%E5%85%A5%E9%A1%B5%E9%9D%A2"><span class="nav-number">2.2.12.2.</span> <span class="nav-text">从何处调入页面</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#span-style-color-red-%E5%A6%82%E4%BD%95%E8%B0%83%E5%85%A5%E9%A1%B5%E9%9D%A2-span"><span class="nav-number">2.2.12.3.</span> <span class="nav-text">如何调入页面</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%BC%BA%E9%A1%B5%E7%8E%87"><span class="nav-number">2.2.12.4.</span> <span class="nav-text">缺页率</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">2.2.12.5.</span> <span class="nav-text">例子</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A1%B5%E9%9D%A2%E7%BD%AE%E6%8D%A2%E7%AE%97%E6%B3%95"><span class="nav-number">2.2.13.</span> <span class="nav-text">页面置换算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">2.2.14.</span> <span class="nav-text">算法一览</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%9C%80%E4%BD%B3%E7%BD%AE%E6%8D%A2%E7%AE%97%E6%B3%95-OPT"><span class="nav-number">2.2.14.1.</span> <span class="nav-text">最佳置换算法 OPT</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%85%88%E8%BF%9B%E5%85%88%E5%87%BA%E7%BD%AE%E6%8D%A2%E7%AE%97%E6%B3%95"><span class="nav-number">2.2.14.2.</span> <span class="nav-text">先进先出置换算法</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">2.2.15.</span> <span class="nav-text">Belady[5] 现象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">2.2.16.</span> <span class="nav-text">Belady现象的描述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">2.2.17.</span> <span class="nav-text">Belady现象的原因</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">2.2.18.</span> <span class="nav-text">Belady现象的例子</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%9C%80%E8%BF%91%E6%9C%80%E4%B9%85%E6%9C%AA%E4%BD%BF%E7%94%A8-LRU"><span class="nav-number">2.2.18.1.</span> <span class="nav-text">最近最久未使用 LRU</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E7%A1%AC%E4%BB%B6%E6%94%AF%E6%8C%81-2"><span class="nav-number">2.2.18.1.1.</span> <span class="nav-text">硬件支持</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">2.2.19.</span> <span class="nav-text">实际实现详细实现过程</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">2.2.19.1.</span> <span class="nav-text">1. 用移位寄存器实现 LRU</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">2.2.19.2.</span> <span class="nav-text">2. 用栈实现 LRU</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Clock%E7%BD%AE%E6%8D%A2%E7%AE%97%E6%B3%95"><span class="nav-number">2.2.19.3.</span> <span class="nav-text">Clock置换算法</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E7%AE%80%E5%8D%95%E7%9A%84Clock%E7%AE%97%E6%B3%95"><span class="nav-number">2.2.19.3.1.</span> <span class="nav-text">简单的Clock算法</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%94%B9%E8%BF%9BClock%E7%BD%AE%E6%8D%A2%E7%AE%97%E6%B3%95"><span class="nav-number">2.2.19.3.2.</span> <span class="nav-text">改进Clock置换算法</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%9C%80%E5%B0%91%E4%BD%BF%E7%94%A8%E7%BD%AE%E6%8D%A2%E7%AE%97%E6%B3%95-LFU-small-%E8%AF%A6%E7%BB%86%E8%A7%A3%E9%87%8A-small"><span class="nav-number">2.2.19.4.</span> <span class="nav-text">最少使用置换算法 LFU详细解释</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%A1%B5%E9%9D%A2%E7%BC%93%E5%86%B2%E7%AE%97%E6%B3%95-PBA"><span class="nav-number">2.2.19.5.</span> <span class="nav-text">页面缓冲算法 PBA</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E8%A2%AB%E7%BD%AE%E6%8D%A2%E9%A1%B5%E9%9D%A2%E7%9A%84%E9%80%89%E6%8B%A9%E5%92%8C%E5%A4%84%E7%90%86%EF%BC%9A"><span class="nav-number">2.2.19.5.1.</span> <span class="nav-text">被置换页面的选择和处理：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%A4%84%E7%90%86%E8%BF%87%E7%A8%8B"><span class="nav-number">2.2.19.5.2.</span> <span class="nav-text">处理过程</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AE%BF%E9%97%AE%E5%86%85%E5%AD%98%E7%9A%84%E6%9C%89%E6%95%88%E6%97%B6%E9%97%B4"><span class="nav-number">2.2.20.</span> <span class="nav-text">访问内存的有效时间</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8A%96%E5%8A%A8%E4%B8%8E%E5%B7%A5%E4%BD%9C%E9%9B%86"><span class="nav-number">2.2.21.</span> <span class="nav-text">抖动与工作集</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%8A%96%E5%8A%A8-%E9%A2%A0%E7%B0%B8-Thrashing"><span class="nav-number">2.2.21.1.</span> <span class="nav-text">抖动&#x2F;颠簸(Thrashing)</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%8E%9F%E5%9B%A0"><span class="nav-number">2.2.21.1.1.</span> <span class="nav-text">原因</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%B8%B8%E9%A9%BB%E9%9B%86"><span class="nav-number">2.2.21.2.</span> <span class="nav-text">常驻集</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%B7%A5%E4%BD%9C%E9%9B%86"><span class="nav-number">2.2.21.3.</span> <span class="nav-text">工作集</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%8A%96%E5%8A%A8%E7%9A%84%E9%A2%84%E9%98%B2%E6%96%B9%E6%B3%95"><span class="nav-number">2.2.21.3.1.</span> <span class="nav-text">抖动的预防方法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#footnotes"><span class="nav-number">2.2.22.</span> <span class="nav-text">相关注解</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -944,7 +1074,7 @@ $$</p>
       <div class="site-state-item site-state-posts">
           <a href="/archives">
         
-          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-count">18</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1119,7 +1249,7 @@ $$</p>
                     },
                     visualMap: {
                         min: 0,
-                        max: Math.max(...[["2024-12-09",3],["2024-12-10",8],["2024-12-11",6]].map(item => item[1])),
+                        max: Math.max(...[["2024-12-09",3],["2024-12-10",8],["2024-12-11",7]].map(item => item[1])),
                         calculable: false,
                         orient: 'horizontal', // 横向布局
                         right: '5%',
@@ -1139,7 +1269,7 @@ $$</p>
                     series: [{
                         type: 'heatmap',
                         coordinateSystem: 'calendar',
-                        data: [["2024-12-09",3],["2024-12-10",8],["2024-12-11",6]]
+                        data: [["2024-12-09",3],["2024-12-10",8],["2024-12-11",7]]
                     }]
                 });
             }
@@ -1162,7 +1292,7 @@ $$</p>
                     series: [{
                         name: 'Articles',
                         type: 'line',
-                        data: [17],
+                        data: [18],
                         smooth: true,
                         lineStyle: { color: '#5470C6', width: 2 },
                         itemStyle: { color: '#5470C6' },
