@@ -31,8 +31,10 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101903431.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412102029580.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412111512688.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412111515908.png">
 <meta property="article:published_time" content="2024-12-10T07:39:50.000Z">
-<meta property="article:modified_time" content="2024-12-11T06:21:05.972Z">
+<meta property="article:modified_time" content="2024-12-11T07:21:42.206Z">
 <meta property="article:author" content="听">
 <meta property="article:tag" content="408">
 <meta property="article:tag" content="大学">
@@ -233,7 +235,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-12-11 14:21:05" itemprop="dateModified" datetime="2024-12-11T14:21:05+08:00">2024-12-11</time>
+                <time title="修改时间：2024-12-11 15:21:42" itemprop="dateModified" datetime="2024-12-11T15:21:42+08:00">2024-12-11</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -422,7 +424,8 @@
 </li>
 </ul>
 <h4>指令操作多次访问内存</h4>
-<p>一些复杂的指令（尤其在<a href="/posts/7436c65f">CISC架构</a><sup id="fnref:3"><a href="#fn:3" rel="footnote"><span class="hint--top hint--medium hint--info hint--rounded hint--bounce" aria-label="<strong>CISC（Complex Instruction Set Computer）</strong> 架构是一种处理器设计理念，其特点是提供 <strong>复杂且多样化的指令集</strong>">[3]</span></a></sup>中）可能在执行期间涉及多个内存访问，每次访问可能触发缺页中断。例如：</p>
+<p>一些复杂的指令（尤其在<a href="/posts/7436c65f">CISC架构</a><sup id="fnref:3"><a href="#fn:3" rel="footnote"><span class="hint--top hint--medium hint--info hint--rounded hint--bounce" aria-label="<strong>CISC（Complex Instruction Set Computer）</strong> 架构是一种处理器设计理念，其特点是提供 <strong>复杂且多样化的指令集</strong><br>
+">[3]</span></a></sup>中）可能在执行期间涉及多个内存访问，每次访问可能触发缺页中断。例如：</p>
 <ul class="lvl-1">
 <li class="lvl-2">
 <p><strong>字符串处理指令</strong><br>
@@ -603,8 +606,101 @@
 <p>重启用户进程</p>
 </li>
 </ol>
+<h5 id="缺页率"><a class="header-anchor" href="#缺页率">¶</a>缺页率</h5>
+<p>缺页率的计算：<br>
+$$<br>
+f= F/A<br>
+$$</p>
+<div style="text-align: center;"><small>s为访问页面成功<small>(在内存中)</small>次数</small>
+<div style="text-align: center;"><small>F为访问页面失败<small>(不在内存)</small>次数</small></div>
+<div style="text-align: center;"><small>A为总访问次数 A = s+F</small></div>
+- 影响因素：页面大小、分配内存块的数目、页面置换算法、程序固有属性
+<p>缺页中断处理的时间：</p>
+<p>$$<br>
+t = β×t_a + (1- β)×t_b<br>
+$$</p>
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<h5>例子</h5>
+<p>存取内存的时间= 200 nanoseconds (ns)</p>
+<p>平均缺页处理时间 = 8 milliseconds (ms)</p>
+<p><em>t</em> = (1 – p) × 200ns + p × 8ms</p>
+<p>= (1 – p) × 200ns + p ×8,000,000ns</p>
+<p>= 200ns + p × 7,999,800ns</p>
+<p>如果每1,000次访问中有一个缺页中断，那么：</p>
+<p><em>t</em> = 8.2 ms</p>
+<p><strong>这是导致计算机速度放慢</strong> <strong>40</strong> <strong>倍的影响因子！</strong></p>
+</p>
+    </div>
+</div><h4 id="页面置换算法"><a class="header-anchor" href="#页面置换算法">¶</a>页面置换算法</h4>
+<p><strong>功能</strong>：需要调入页面时，选择内存中年哪个物理页面被置换。称为replacement policy<sup id="fnref:4"><a href="#fn:4" rel="footnote"><span class="hint--top hint--medium hint--info hint--rounded hint--bounce" aria-label="policy：/ˈpɒləsi/ n.  策略；方针；">[4]</span></a></sup></p>
+<p><small><strong>目标</strong>：把未来不再使用的或短期内较少使用的页面调出，通常只能在局部性原理指导下依据过去的统计数据进行预测；</small></p>
+
+<div class="callout callout-note">
+    <div class="callout-head">
+        <span class="callout-head-icon">📝</span>
+        <span class="callout-head-text" style="color:#673ab7">NOTE</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<h4>算法一览</h4>
+<ul class="lvl-1">
+<li class="lvl-2">
+<p>最佳算法(<strong>OPT</strong>, optimal)</p>
+</li>
+<li class="lvl-2">
+<p>先进先出算法(<strong>FIFO</strong>)</p>
+</li>
+<li class="lvl-2">
+<p>最近最久未使用算法(<strong>LRU</strong>, Least Recently Used)</p>
+</li>
+<li class="lvl-2">
+<p>轮转算法(clock)</p>
+</li>
+<li class="lvl-2">
+<p>最不常用算法(<strong>LFU</strong>, Least Frequently Used)</p>
+</li>
+<li class="lvl-2">
+<p>页面缓冲算法(page buffering)</p>
+</li>
+</ul>
+</p>
+    </div>
+</div><h5 id="最佳置换算法-OPT"><a class="header-anchor" href="#最佳置换算法-OPT">¶</a>最佳置换算法 OPT</h5>
+<p>被置换的页将是之后最长时间不被使用的页</p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412111512688.png" alt="image-20241211151237943"></p>
+<p>无法实现的算法，可用来评价其他算法</p>
+<h5 id="先进先出置换算法"><a class="header-anchor" href="#先进先出置换算法">¶</a>先进先出置换算法</h5>
+<p><span style="color:red">总是淘汰最先进入内存的页面</span>，即选择在内存中驻留时间最久的页面予以淘汰</p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412111515908.png" alt="image-20241211151558420"></p>
+<p>性能较差。较早调入的页往往是经常被访问的页，这些页在FIFO算法下被反复调入和调出。并且有Belady现象。</p>
+
+<div class="callout callout-note">
+    <div class="callout-head">
+        <span class="callout-head-icon">📝</span>
+        <span class="callout-head-text" style="color:#673ab7">NOTE</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<h4>Belady现象</h4>
+<p>采用FIFO算法时，如果对一个进程未分配它所要求的全部页面，有时就会出现分配的页面数增多，缺页率反而提高的异常现象。</p>
+<h4>Belady现象的描述</h4>
+<p>一个进程P要访问M个页，OS分配N个内存页面给进程P；对一个访问序列S，发生缺页次数为PE（S,N）。当N增大时，PE(S, N)时而增大，时而减小。</p>
+<h4>Belady现象的原因</h4>
+<p>FIFO算法的置换特征与进程访问内存的动态特征是矛盾的，即被置换的页面并不是进程不会访问的。</p>
+<blockquote>
+<p>反而，先加载进去的页面可能是访问次数最多的，如c语言中，定义的函数往往放在<code>main</code>函数<small>程序入口之前</small>，而且当函数调用另一个函数时，被调用的函数必须放在当前函数之前。</p>
+</p>
+    </div>
+</div></blockquote>
 <hr />
-<div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div><div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">调入功能 是 指将进程所需的数据或指令从磁盘调入主存<a href="#fnref:1" rev="footnote"> ↩</a></span></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">2.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">进程页表 是操作系统管理虚拟存储器时，用于映射进程的 <strong>虚拟地址</strong>和 <strong>物理地址</strong> 的一个重要数据结构。<br>每个进程都有自己的 <strong>页表</strong> ，它记录了该进程所有虚拟页的相关信息，<br>包括虚拟页是否已被加载到主存以及其对应的物理页框地址。<a href="#fnref:2" rev="footnote"> ↩</a></span></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">3.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><strong>CISC（Complex Instruction Set Computer）</strong> 架构是一种处理器设计理念，其特点是提供 <strong>复杂且多样化的指令集</strong><a href="#fnref:3" rev="footnote"> ↩</a></span></li></ol></div></div>
+<div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div><div id="footnotes"><hr><div id="footnotelist"><h5>相关脚注</h5><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">调入功能 是 指将进程所需的数据或指令从磁盘调入主存<a href="#fnref:1" rev="footnote"> ↩</a></span></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">2.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">进程页表 是操作系统管理虚拟存储器时，用于映射进程的 <strong>虚拟地址</strong>和 <strong>物理地址</strong> 的一个重要数据结构。<br>每个进程都有自己的 <strong>页表</strong> ，它记录了该进程所有虚拟页的相关信息，<br>包括虚拟页是否已被加载到主存以及其对应的物理页框地址。<a href="#fnref:2" rev="footnote"> ↩</a></span></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">3.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><strong>CISC（Complex Instruction Set Computer）</strong> 架构是一种处理器设计理念，其特点是提供 <strong>复杂且多样化的指令集</strong><a href="#fnref:3" rev="footnote"> ↩</a></span></li><li id="fn:4"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">4.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">policy：/ˈpɒləsi/ n.  策略；方针；<a href="#fnref:4" rev="footnote"> ↩</a></span></li></ol></div></div>
     </div>
 
     
@@ -689,7 +785,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%99%9A%E6%8B%9F%E5%AD%98%E5%82%A8%E5%99%A8%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">虚拟存储器的概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%99%9A%E6%8B%9F%E5%AD%98%E5%82%A8%E5%99%A8%E7%9A%84%E4%BB%BB%E5%8A%A1"><span class="nav-number">1.1.</span> <span class="nav-text">虚拟存储器的任务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B1%80%E9%83%A8%E6%80%A7%E5%8E%9F%E7%90%86"><span class="nav-number">1.2.</span> <span class="nav-text">局部性原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%99%9A%E6%8B%9F%E5%AD%98%E5%82%A8%E5%99%A8%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="nav-number">1.3.</span> <span class="nav-text">虚拟存储器的定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%99%9A%E6%8B%9F%E5%AD%98%E5%82%A8%E5%99%A8%E7%9A%84%E7%89%B9%E5%BE%81"><span class="nav-number">1.4.</span> <span class="nav-text">虚拟存储器的特征</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%99%9A%E6%8B%9F%E5%AD%98%E5%82%A8%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="nav-number">1.5.</span> <span class="nav-text">虚拟存储器的实现</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%B7%E6%B1%82%E5%88%86%E9%A1%B5%E7%B3%BB%E7%BB%9F"><span class="nav-number">1.5.1.</span> <span class="nav-text">请求分页系统</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%B7%E6%B1%82%E5%88%86%E6%AE%B5%E7%B3%BB%E7%BB%9F"><span class="nav-number">1.5.2.</span> <span class="nav-text">请求分段系统</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AE%B5%E9%A1%B5%E5%BC%8F%E8%99%9A%E6%8B%9F%E5%AD%98%E5%82%A8%E5%99%A8"><span class="nav-number">1.5.3.</span> <span class="nav-text">段页式虚拟存储器</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%B7%E6%B1%82%E5%88%86%E9%A1%B5%E5%AD%98%E5%82%A8%E7%AE%A1%E7%90%86"><span class="nav-number">2.</span> <span class="nav-text">请求分页存储管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%AE%E6%A0%87%E8%AF%84%E4%BB%B7"><span class="nav-number">2.1.</span> <span class="nav-text">目标评价</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A1%AC%E4%BB%B6%E6%94%AF%E6%8C%81"><span class="nav-number">2.2.</span> <span class="nav-text">硬件支持</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A1%B5%E8%A1%A8%E6%9C%BA%E5%88%B6"><span class="nav-number">2.2.1.</span> <span class="nav-text">页表机制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BC%BA%E9%A1%B5%E4%B8%AD%E6%96%AD%E6%9C%BA%E6%9E%84"><span class="nav-number">2.2.2.</span> <span class="nav-text">缺页中断机构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">2.2.3.</span> <span class="nav-text">关于 一条指令在执行期间，可能产生多次缺页中断</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">2.2.4.</span> <span class="nav-text">指令本身产生的缺页中断</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">2.2.5.</span> <span class="nav-text">操作数访问导致的缺页中断</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">2.2.6.</span> <span class="nav-text">指令操作多次访问内存</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">2.2.7.</span> <span class="nav-text">页表访问产生的缺页中断</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">2.2.8.</span> <span class="nav-text">内存管理器的间接操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BC%BA%E9%A1%B5%E4%B8%AD%E6%96%AD%E7%9A%84%E7%89%B9%E6%AE%8A%E6%80%A7"><span class="nav-number">2.2.9.</span> <span class="nav-text">缺页中断的特殊性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9C%B0%E5%9D%80%E5%8F%98%E6%8D%A2%E6%9C%BA%E6%9E%84"><span class="nav-number">2.2.10.</span> <span class="nav-text">地址变换机构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D"><span class="nav-number">2.2.11.</span> <span class="nav-text">内存分配</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%9C%80%E5%B0%8F%E7%89%A9%E7%90%86%E5%9D%97%E6%95%B0%E7%9A%84%E7%A1%AE%E5%AE%9A"><span class="nav-number">2.2.11.1.</span> <span class="nav-text">最小物理块数的确定</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%89%A9%E7%90%86%E5%9D%97%E7%9A%84%E5%88%86%E9%85%8D%E7%AD%96%E7%95%A5"><span class="nav-number">2.2.11.2.</span> <span class="nav-text">物理块的分配策略</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">2.2.11.3.</span> <span class="nav-text">固定与可变</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">2.2.11.4.</span> <span class="nav-text">全局与局部</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%89%A9%E7%90%86%E5%9D%97%E5%88%86%E9%85%8D%E7%AE%97%E6%B3%95"><span class="nav-number">2.2.11.5.</span> <span class="nav-text">物理块分配算法</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B0%83%E9%A1%B5%E7%AD%96%E7%95%A5"><span class="nav-number">2.2.12.</span> <span class="nav-text">调页策略</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BD%95%E6%97%B6%E8%B0%83%E5%85%A5%E9%A1%B5%E9%9D%A2"><span class="nav-number">2.2.12.1.</span> <span class="nav-text">何时调入页面</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BB%8E%E4%BD%95%E5%A4%84%E8%B0%83%E5%85%A5%E9%A1%B5%E9%9D%A2"><span class="nav-number">2.2.12.2.</span> <span class="nav-text">从何处调入页面</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#span-style-color-red-%E5%A6%82%E4%BD%95%E8%B0%83%E5%85%A5%E9%A1%B5%E9%9D%A2-span"><span class="nav-number">2.2.12.3.</span> <span class="nav-text">如何调入页面</span></a></li></ol></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%99%9A%E6%8B%9F%E5%AD%98%E5%82%A8%E5%99%A8%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">虚拟存储器的概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%99%9A%E6%8B%9F%E5%AD%98%E5%82%A8%E5%99%A8%E7%9A%84%E4%BB%BB%E5%8A%A1"><span class="nav-number">1.1.</span> <span class="nav-text">虚拟存储器的任务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B1%80%E9%83%A8%E6%80%A7%E5%8E%9F%E7%90%86"><span class="nav-number">1.2.</span> <span class="nav-text">局部性原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%99%9A%E6%8B%9F%E5%AD%98%E5%82%A8%E5%99%A8%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="nav-number">1.3.</span> <span class="nav-text">虚拟存储器的定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%99%9A%E6%8B%9F%E5%AD%98%E5%82%A8%E5%99%A8%E7%9A%84%E7%89%B9%E5%BE%81"><span class="nav-number">1.4.</span> <span class="nav-text">虚拟存储器的特征</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%99%9A%E6%8B%9F%E5%AD%98%E5%82%A8%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="nav-number">1.5.</span> <span class="nav-text">虚拟存储器的实现</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%B7%E6%B1%82%E5%88%86%E9%A1%B5%E7%B3%BB%E7%BB%9F"><span class="nav-number">1.5.1.</span> <span class="nav-text">请求分页系统</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%B7%E6%B1%82%E5%88%86%E6%AE%B5%E7%B3%BB%E7%BB%9F"><span class="nav-number">1.5.2.</span> <span class="nav-text">请求分段系统</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AE%B5%E9%A1%B5%E5%BC%8F%E8%99%9A%E6%8B%9F%E5%AD%98%E5%82%A8%E5%99%A8"><span class="nav-number">1.5.3.</span> <span class="nav-text">段页式虚拟存储器</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%B7%E6%B1%82%E5%88%86%E9%A1%B5%E5%AD%98%E5%82%A8%E7%AE%A1%E7%90%86"><span class="nav-number">2.</span> <span class="nav-text">请求分页存储管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%AE%E6%A0%87%E8%AF%84%E4%BB%B7"><span class="nav-number">2.1.</span> <span class="nav-text">目标评价</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A1%AC%E4%BB%B6%E6%94%AF%E6%8C%81"><span class="nav-number">2.2.</span> <span class="nav-text">硬件支持</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A1%B5%E8%A1%A8%E6%9C%BA%E5%88%B6"><span class="nav-number">2.2.1.</span> <span class="nav-text">页表机制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BC%BA%E9%A1%B5%E4%B8%AD%E6%96%AD%E6%9C%BA%E6%9E%84"><span class="nav-number">2.2.2.</span> <span class="nav-text">缺页中断机构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">2.2.3.</span> <span class="nav-text">关于 一条指令在执行期间，可能产生多次缺页中断</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">2.2.4.</span> <span class="nav-text">指令本身产生的缺页中断</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">2.2.5.</span> <span class="nav-text">操作数访问导致的缺页中断</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">2.2.6.</span> <span class="nav-text">指令操作多次访问内存</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">2.2.7.</span> <span class="nav-text">页表访问产生的缺页中断</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">2.2.8.</span> <span class="nav-text">内存管理器的间接操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BC%BA%E9%A1%B5%E4%B8%AD%E6%96%AD%E7%9A%84%E7%89%B9%E6%AE%8A%E6%80%A7"><span class="nav-number">2.2.9.</span> <span class="nav-text">缺页中断的特殊性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9C%B0%E5%9D%80%E5%8F%98%E6%8D%A2%E6%9C%BA%E6%9E%84"><span class="nav-number">2.2.10.</span> <span class="nav-text">地址变换机构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D"><span class="nav-number">2.2.11.</span> <span class="nav-text">内存分配</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%9C%80%E5%B0%8F%E7%89%A9%E7%90%86%E5%9D%97%E6%95%B0%E7%9A%84%E7%A1%AE%E5%AE%9A"><span class="nav-number">2.2.11.1.</span> <span class="nav-text">最小物理块数的确定</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%89%A9%E7%90%86%E5%9D%97%E7%9A%84%E5%88%86%E9%85%8D%E7%AD%96%E7%95%A5"><span class="nav-number">2.2.11.2.</span> <span class="nav-text">物理块的分配策略</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">2.2.11.3.</span> <span class="nav-text">固定与可变</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">2.2.11.4.</span> <span class="nav-text">全局与局部</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%89%A9%E7%90%86%E5%9D%97%E5%88%86%E9%85%8D%E7%AE%97%E6%B3%95"><span class="nav-number">2.2.11.5.</span> <span class="nav-text">物理块分配算法</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B0%83%E9%A1%B5%E7%AD%96%E7%95%A5"><span class="nav-number">2.2.12.</span> <span class="nav-text">调页策略</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BD%95%E6%97%B6%E8%B0%83%E5%85%A5%E9%A1%B5%E9%9D%A2"><span class="nav-number">2.2.12.1.</span> <span class="nav-text">何时调入页面</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BB%8E%E4%BD%95%E5%A4%84%E8%B0%83%E5%85%A5%E9%A1%B5%E9%9D%A2"><span class="nav-number">2.2.12.2.</span> <span class="nav-text">从何处调入页面</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#span-style-color-red-%E5%A6%82%E4%BD%95%E8%B0%83%E5%85%A5%E9%A1%B5%E9%9D%A2-span"><span class="nav-number">2.2.12.3.</span> <span class="nav-text">如何调入页面</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%BC%BA%E9%A1%B5%E7%8E%87"><span class="nav-number">2.2.12.4.</span> <span class="nav-text">缺页率</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">2.2.12.5.</span> <span class="nav-text">例子</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A1%B5%E9%9D%A2%E7%BD%AE%E6%8D%A2%E7%AE%97%E6%B3%95"><span class="nav-number">2.2.13.</span> <span class="nav-text">页面置换算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">2.2.14.</span> <span class="nav-text">算法一览</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%9C%80%E4%BD%B3%E7%BD%AE%E6%8D%A2%E7%AE%97%E6%B3%95-OPT"><span class="nav-number">2.2.14.1.</span> <span class="nav-text">最佳置换算法 OPT</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%85%88%E8%BF%9B%E5%85%88%E5%87%BA%E7%BD%AE%E6%8D%A2%E7%AE%97%E6%B3%95"><span class="nav-number">2.2.14.2.</span> <span class="nav-text">先进先出置换算法</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">2.2.15.</span> <span class="nav-text">Belady现象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">2.2.16.</span> <span class="nav-text">Belady现象的描述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">2.2.17.</span> <span class="nav-text">Belady现象的原因</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#footnotelist"><span class="nav-number">2.2.17.1.</span> <span class="nav-text">相关脚注</span></a></li></ol></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -705,7 +801,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives">
         
-          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-count">15</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -718,7 +814,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags">
           
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -880,7 +976,7 @@
                     },
                     visualMap: {
                         min: 0,
-                        max: Math.max(...[["2024-12-09",3],["2024-12-10",8],["2024-12-11",3]].map(item => item[1])),
+                        max: Math.max(...[["2024-12-09",3],["2024-12-10",8],["2024-12-11",4]].map(item => item[1])),
                         calculable: false,
                         orient: 'horizontal', // 横向布局
                         right: '5%',
@@ -900,7 +996,7 @@
                     series: [{
                         type: 'heatmap',
                         coordinateSystem: 'calendar',
-                        data: [["2024-12-09",3],["2024-12-10",8],["2024-12-11",3]]
+                        data: [["2024-12-09",3],["2024-12-10",8],["2024-12-11",4]]
                     }]
                 });
             }
@@ -923,7 +1019,7 @@
                     series: [{
                         name: 'Articles',
                         type: 'line',
-                        data: [14],
+                        data: [15],
                         smooth: true,
                         lineStyle: { color: '#5470C6', width: 2 },
                         itemStyle: { color: '#5470C6' },
@@ -943,7 +1039,7 @@
                     series: [{
                         type: 'pie',
                         radius: '60%',
-                        data: [{"name":"大学","value":6},{"name":"408","value":5},{"name":"OS","value":5},{"name":"hexo 建设","value":2},{"name":"typora","value":1},{"name":"软件破解","value":1},{"name":"hexo","value":1}],
+                        data: [{"name":"大学","value":6},{"name":"408","value":5},{"name":"OS","value":5},{"name":"hexo 建设","value":2},{"name":"折腾 hexo","value":1},{"name":"typora","value":1},{"name":"软件破解","value":1},{"name":"hexo","value":1}],
                         label: {
                             position: 'outside',
                             formatter: '{b} {c} ({d}%)',
@@ -955,7 +1051,7 @@
                     legend: {
                         bottom: '0',
                         left: 'center',
-                        data: [{"name":"大学","value":6},{"name":"408","value":5},{"name":"OS","value":5},{"name":"hexo 建设","value":2},{"name":"typora","value":1},{"name":"软件破解","value":1},{"name":"hexo","value":1}].map(tag => tag.name),
+                        data: [{"name":"大学","value":6},{"name":"408","value":5},{"name":"OS","value":5},{"name":"hexo 建设","value":2},{"name":"折腾 hexo","value":1},{"name":"typora","value":1},{"name":"软件破解","value":1},{"name":"hexo","value":1}].map(tag => tag.name),
                         textStyle: { fontSize: 12 }
                     }
                 });
@@ -973,13 +1069,13 @@
                     },
                     yAxis: {
                         type: 'category',
-                        data: [{"name":"408","value":5},{"name":"Typora","value":1},{"name":"折腾hexo","value":1},{"name":"hexo","value":1}].map(category => category.name).reverse(),
+                        data: [{"name":"408","value":5},{"name":"hexo","value":2},{"name":"Typora","value":1},{"name":"折腾hexo","value":1}].map(category => category.name).reverse(),
                         axisLabel: { fontSize: 12 }
                     },
                     series: [{
                         name: 'Category Count',
                         type: 'bar',
-                        data: [{"name":"408","value":5},{"name":"Typora","value":1},{"name":"折腾hexo","value":1},{"name":"hexo","value":1}].map(category => category.value).reverse(),
+                        data: [{"name":"408","value":5},{"name":"hexo","value":2},{"name":"Typora","value":1},{"name":"折腾hexo","value":1}].map(category => category.value).reverse(),
                         label: {
                             show: true,
                             position: 'right',
