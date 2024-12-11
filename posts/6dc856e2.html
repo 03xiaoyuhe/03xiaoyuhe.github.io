@@ -21,15 +21,21 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="O3xiaoyuhe">
-<meta property="og:url" content="http://example.com/archives/2024/index.html">
+  <meta name="description" content="💡         TIP                    总结   页面框是物理内存中的固定大小块，用于存储虚拟内存的页。   通过分页机制，操作系统可以高效管理内存，提高内存利用率，并支持更大的虚拟地址空间。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="请求分页-页面框">
+<meta property="og:url" content="http://example.com/posts/6dc856e2.html">
 <meta property="og:site_name" content="O3xiaoyuhe">
+<meta property="og:description" content="💡         TIP                    总结   页面框是物理内存中的固定大小块，用于存储虚拟内存的页。   通过分页机制，操作系统可以高效管理内存，提高内存利用率，并支持更大的虚拟地址空间。">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png">
+<meta property="article:published_time" content="2024-12-11T05:56:20.000Z">
+<meta property="article:modified_time" content="2024-12-11T06:04:43.086Z">
 <meta property="article:author" content="听">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png">
 
-<link rel="canonical" href="http://example.com/archives/2024/">
+<link rel="canonical" href="http://example.com/posts/6dc856e2.html">
 
 
 <script id="page-configurations">
@@ -37,12 +43,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>归档 | O3xiaoyuhe</title>
+  <title>请求分页-页面框 | O3xiaoyuhe</title>
   
 
 
@@ -184,234 +190,168 @@
         <div class="content-wrap">
           
 
-          <div class="content archive">
+          <div class="content post posts-expand">
             
 
+    
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <span class="collection-header">嗯..! 目前共计 14 篇日志。 继续努力。</span>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/posts/6dc856e2.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101430362.jpg">
+      <meta itemprop="name" content="听">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="O3xiaoyuhe">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          请求分页-页面框
+        </h1>
+
+        <div class="post-meta">
+        
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-12-11 13:56:20 / 修改时间：14:04:43" itemprop="dateCreated datePublished" datetime="2024-12-11T13:56:20+08:00">2024-12-11</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2024</span>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<h3><strong>总结</strong></h3>
+<ul class="lvl-1">
+<li class="lvl-2">
+<p>页面框是<strong>物理内存中的固定大小块</strong>，用于存储虚拟内存的页。</p>
+</li>
+<li class="lvl-2">
+<p>通过分页机制，操作系统可以高效管理内存，提高内存利用率，并支持更大的虚拟地址空间。</p>
+</li>
+</ul>
+</p>
+    </div>
+</div><span id="more"></span>
+<p><strong>页面框</strong>（Page Frame）是操作系统中物理内存管理的一个重要概念。</p>
+<hr>
+<h3 id="页面框的定义"><a class="header-anchor" href="#页面框的定义">¶</a><strong>页面框的定义</strong></h3>
+<p>页面框是指<strong>物理内存中的固定大小的块</strong>，它是虚拟内存管理中用于存放<strong>页</strong>（Page）的单位。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>页</strong>：虚拟内存被划分为大小固定的块，每块称为一个页（Page）。</p>
+</li>
+<li class="lvl-2">
+<p><strong>页面框</strong>：物理内存也被划分为同样大小的固定块，这些块称为页面框（Page Frame）。</p>
+</li>
+</ul>
+<p>页面框和页的大小相同（通常为 4KB 或 8KB，具体取决于操作系统和硬件架构），这样可以方便地实现虚拟内存和物理内存之间的映射。</p>
+<hr>
+<h3 id="页面框的作用"><a class="header-anchor" href="#页面框的作用">¶</a><strong>页面框的作用</strong></h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>存储页</strong>：页面框用于存储从虚拟内存中调入的页。</p>
+</li>
+<li class="lvl-2">
+<p><strong>虚拟内存与物理内存的映射</strong>：操作系统通过页表（Page Table）将虚拟内存的页与物理内存的页面框一一对应，从而实现虚拟内存管理。</p>
+</li>
+<li class="lvl-2">
+<p><strong>提升内存利用率</strong>：通过分页机制，进程无需全部加载到内存中，只需将常用的页装入页面框即可，减少内存的浪费。</p>
+</li>
+</ul>
+<hr>
+<h3 id="页面框的分配过程"><a class="header-anchor" href="#页面框的分配过程">¶</a><strong>页面框的分配过程</strong></h3>
+<ol>
+<li class="lvl-3">
+<p>虚拟地址空间划分：进程的虚拟地址被划分为多个页。</p>
+<ul class="lvl-2">
+<li class="lvl-5">假设某进程需要 16KB 的虚拟内存，且每页大小为 4KB，则虚拟内存被划分为 4 个页。</li>
+</ul>
+</li>
+<li class="lvl-3">
+<p>物理内存划分：操作系统将物理内存划分为等大小的页面框。</p>
+<ul class="lvl-2">
+<li class="lvl-5">假设有 1GB 的物理内存，页面框大小为 4KB，则物理内存被划分为 262,144 个页面框。</li>
+</ul>
+</li>
+<li class="lvl-3">
+<p>页面调度：当进程运行时，操作系统将虚拟内存中的页映射到物理内存中的页面框。</p>
+<ul class="lvl-2">
+<li class="lvl-5">若某页需要访问但不在内存（缺页中断），操作系统从磁盘将该页加载到某个空闲页面框中，或通过页面置换算法腾出一个页面框。</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h3 id="页面框相关机制"><a class="header-anchor" href="#页面框相关机制">¶</a><strong>页面框相关机制</strong></h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>页表（Page Table）</strong>：存储每个页与页面框的映射关系。</p>
+</li>
+<li class="lvl-2">
+<p><strong>页面置换</strong>：当页面框不足时，操作系统通过页面置换算法（如 LRU、FIFO）将某些不常用的页移出页面框，以腾出空间给新的页。</p>
+</li>
+</ul>
+<hr>
+<h3 id="总结"><a class="header-anchor" href="#总结">¶</a><strong>总结</strong></h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>页面框是<strong>物理内存中的固定大小块</strong>，用于存储虚拟内存的页。</p>
+</li>
+<li class="lvl-2">
+<p>通过分页机制，操作系统可以高效管理内存，提高内存利用率，并支持更大的虚拟地址空间。</p>
+</li>
+</ul>
+<hr />
+<div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+    
+    
+    
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2024-12-11T13:56:20+08:00"
-              content="2024-12-11">
-          12-11
-        </time>
-      </div>
+      <footer class="post-footer">
 
-      <div class="post-title">
-          <a class="post-title-link" href="/posts/6dc856e2.html" itemprop="url">
-            <span itemprop="name">请求分页-页面框</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2024-12-11T13:52:58+08:00"
-              content="2024-12-11">
-          12-11
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/posts/8ba68849.html" itemprop="url">
-            <span itemprop="name">请求分页-物理块分配算法</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2024-12-11T13:32:52+08:00"
-              content="2024-12-11">
-          12-11
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/posts/907f4c43.html" itemprop="url">
-            <span itemprop="name">请求分页-物理块分配策略</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2024-12-10T19:48:07+08:00"
-              content="2024-12-10">
-          12-10
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/posts/52e033e8.html" itemprop="url">
-            <span itemprop="name">一条指令在执行期间，可能产生多次缺页中断</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2024-12-10T19:37:15+08:00"
-              content="2024-12-10">
-          12-10
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/posts/7436c65f.html" itemprop="url">
-            <span itemprop="name">CISC架构</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2024-12-10T18:19:45+08:00"
-              content="2024-12-10">
-          12-10
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/posts/8fcf3ec6.html" itemprop="url">
-            <span itemprop="name">typora破解</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2024-12-10T16:53:49+08:00"
-              content="2024-12-10">
-          12-10
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/posts/64648fb9.html" itemprop="url">
-            <span itemprop="name">footnote使用</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2024-12-10T16:39:56+08:00"
-              content="2024-12-10">
-          12-10
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/posts/c6910d47.html" itemprop="url">
-            <span itemprop="name">关于博客中使用的脚注功能</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2024-12-10T15:39:50+08:00"
-              content="2024-12-10">
-          12-10
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/posts/b90b7ae5.html" itemprop="url">
-            <span itemprop="name">操作系统第六章复习</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2024-12-10T13:57:31+08:00"
-              content="2024-12-10">
-          12-10
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/posts/8dc8b2ab.html" itemprop="url">
-            <span itemprop="name">折腾hexo</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
+        
 
 
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/posts/8ba68849.html" rel="prev" title="请求分页-物理块分配算法">
+      <i class="fa fa-chevron-left"></i> 请求分页-物理块分配算法
+    </a></div>
+      <div class="post-nav-item"></div>
     </div>
-  </div>
+      </footer>
+    
+  </article>
   
   
   
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/2024/page/2/">2</a><a class="extend next" rel="next" href="/archives/2024/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
-  </nav>
 
 
 
@@ -463,6 +403,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%B5%E9%9D%A2%E6%A1%86%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="nav-number">2.</span> <span class="nav-text">页面框的定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%B5%E9%9D%A2%E6%A1%86%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="nav-number">3.</span> <span class="nav-text">页面框的作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%B5%E9%9D%A2%E6%A1%86%E7%9A%84%E5%88%86%E9%85%8D%E8%BF%87%E7%A8%8B"><span class="nav-number">4.</span> <span class="nav-text">页面框的分配过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%B5%E9%9D%A2%E6%A1%86%E7%9B%B8%E5%85%B3%E6%9C%BA%E5%88%B6"><span class="nav-number">5.</span> <span class="nav-text">页面框相关机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">6.</span> <span class="nav-text">总结</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -581,6 +522,59 @@
   
 
   
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 
