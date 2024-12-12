@@ -21,22 +21,26 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="💡         TIP                    当然是记一些关于本博客客制化css相关的内容啦">
+  <meta name="description" content="💡         TIP                    总结一些在markdown中书写Latex公式的用法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="关于本博客的客制化css">
-<meta property="og:url" content="http://example.com/posts/d9cd1415.html">
+<meta property="og:title" content="Markdown中latex的使用记录">
+<meta property="og:url" content="http://example.com/posts/3d12274.html">
 <meta property="og:site_name" content="Ting&#39;s Blog">
-<meta property="og:description" content="💡         TIP                    当然是记一些关于本博客客制化css相关的内容啦">
+<meta property="og:description" content="💡         TIP                    总结一些在markdown中书写Latex公式的用法">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png">
-<meta property="article:published_time" content="2024-12-10T05:54:40.000Z">
-<meta property="article:modified_time" content="2024-12-10T07:24:12.832Z">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412121457874.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412121530568.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412121555139.png">
+<meta property="article:published_time" content="2024-12-12T06:21:31.000Z">
+<meta property="article:modified_time" content="2024-12-12T08:03:44.910Z">
 <meta property="article:author" content="听">
-<meta property="article:tag" content="hexo 建设">
+<meta property="article:tag" content="Latex">
+<meta property="article:tag" content="Markdown">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png">
 
-<link rel="canonical" href="http://example.com/posts/d9cd1415.html">
+<link rel="canonical" href="http://example.com/posts/3d12274.html">
 
 
 <script id="page-configurations">
@@ -49,7 +53,7 @@
   };
 </script>
 
-  <title>关于本博客的客制化css | Ting's Blog</title>
+  <title>Markdown中latex的使用记录 | Ting's Blog</title>
   
 
 
@@ -199,7 +203,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/posts/d9cd1415.html">
+    <link itemprop="mainEntityOfPage" href="http://example.com/posts/3d12274.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101430362.jpg">
@@ -212,11 +216,15 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          关于本博客的客制化css
+          Markdown中latex的使用记录
         </h1>
 
         <div class="post-meta">
         
+    <i class="fa fa-thumb-tack"></i>
+    <font color=7D26CD>置顶</font>
+    <span class="post-meta-divider">|</span>
+
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
@@ -224,7 +232,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2024-12-10 13:54:40 / 修改时间：15:24:12" itemprop="dateCreated datePublished" datetime="2024-12-10T13:54:40+08:00">2024-12-10</time>
+              <time title="创建时间：2024-12-12 14:21:31 / 修改时间：16:03:44" itemprop="dateCreated datePublished" datetime="2024-12-12T14:21:31+08:00">2024-12-12</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -232,7 +240,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/hexo/" itemprop="url" rel="index"><span itemprop="name">hexo</span></a>
+                  <a href="/categories/Markdown%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">Markdown学习</span></a>
                 </span>
             </span>
 
@@ -247,7 +255,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
 
 <div class="callout callout-tip">
     <div class="callout-head">
@@ -256,16 +264,100 @@
     </div>
     <div class="callout-contents">
         <p><p></p>
-<p>当然是记一些关于本博客客制化<code>css</code>相关的内容啦</p>
+<p>总结一些在<code>markdown</code>中书写<code>Latex</code>公式的用法</p>
 </p>
     </div>
 </div><span id="more"></span>
-<p><strong>由于之前说到<a href="/posts/4179">用自定义渲染器渲染<code>callout</code></a></strong></p>
-<p>但是其中其实还有一个问题有待解决：</p>
-<p><big>如何将自定义的<code>callout</code>样式块渲染出来</big></p>
-<p><small>这里指的是，<code>Markdown</code>已经成功的转换成显示在网站中的<code>html</code>代码块了</small></p>
-<p>但是实际上我们发现，解析的<code>html</code>我们确实有了，但是<code>callout</code>并非是我们想要的样式，而是一个并没有进行任何着色的状态。</p>
-<h2 id="自定义css样式"><a class="header-anchor" href="#自定义css样式">¶</a>自定义<code>css</code>样式</h2>
+<h2 id="一些常用的希腊字母"><a class="header-anchor" href="#一些常用的希腊字母">¶</a>一些常用的希腊字母</h2>
+<table>
+<thead>
+<tr>
+<th>希腊字母</th>
+<th>LaTex形式</th>
+<th>希腊字母</th>
+<th>LaTex形式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$\alpha$ $\Alpha$</td>
+<td>\alpha</td>
+<td>$\mu$ $\Mu$</td>
+<td>\mu</td>
+</tr>
+<tr>
+<td>$\beta$ $\Beta$</td>
+<td>\beta</td>
+<td>$\pi$</td>
+<td>\pi</td>
+</tr>
+<tr>
+<td>$\gamma$ $\Gamma$</td>
+<td>\gamma</td>
+<td>$\rho$ $\varrho$ $\Rho$</td>
+<td>\rho \varrho \Rho</td>
+</tr>
+<tr>
+<td>$\delta$ $\Delta$</td>
+<td>\delta</td>
+<td>$\sigma$ $\Sigma$</td>
+<td>\sigma</td>
+</tr>
+<tr>
+<td>$\epsilon$ $\varepsilon$ $\Epsilon$</td>
+<td>\epsilon \varepsilon \Epsilon</td>
+<td>$\tau$ $\Tau$</td>
+<td>\tau</td>
+</tr>
+<tr>
+<td>$\zeta$ $\Zeta$</td>
+<td>\zeta</td>
+<td>$\upsilon$ $\Upsilon$</td>
+<td>\upsilon</td>
+</tr>
+<tr>
+<td>$\eta$ $\Eta$</td>
+<td>\eta</td>
+<td>$\phi$ $\varphi$ $\Phi$</td>
+<td>\phi \varphi \Phi</td>
+</tr>
+<tr>
+<td>$\theta$ $\vartheta$ $\Theta$</td>
+<td>\theta \vartheta \Theta</td>
+<td>$\chi$ $\Chi$</td>
+<td>\chi</td>
+</tr>
+<tr>
+<td>$\omega$ $\Omega$</td>
+<td>\omega</td>
+<td>$\psi$ $\Psi$</td>
+<td>\psi</td>
+</tr>
+<tr>
+<td>$\kappa$ $\Kappa$</td>
+<td>\kappa</td>
+<td>$\iota$ $\Iota$</td>
+<td>\iota</td>
+</tr>
+<tr>
+<td>$\lambda$ $\Lambda$</td>
+<td>\lambda</td>
+<td>$\theta$ $\Theta$</td>
+<td>\theta</td>
+</tr>
+</tbody>
+</table>
+<h2 id="上标下标"><a class="header-anchor" href="#上标下标">¶</a>上标下标</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>上标$a^2$： <code>a^2</code></p>
+</li>
+<li class="lvl-2">
+<p>下标$H_2O$：<code>H_2O</code></p>
+</li>
+</ul>
+<h2 id="顶标"><a class="header-anchor" href="#顶标">¶</a>顶标</h2>
+<p>通用标签：<code>\overset&#123;顶标&#125;&#123;字体&#125;</code>：$\overset{顶标}{字体}$</p>
 
 <div class="callout callout-tip">
     <div class="callout-head">
@@ -274,32 +366,163 @@
     </div>
     <div class="callout-contents">
         <p><p></p>
-<h3>2.1 添加客制化css</h3>
-<p>虽然在<code>css</code>目录下任意<code>.styl</code>下添加<code>css</code>样式代码可以生效，但是为了方便以后修改，最好创建一个新的<code>.styl</code>文件记录自己的修改。</p>
-<ol>
+<h4>关于通用顶标的拓展尝试</h4>
+<ul class="lvl-1">
 <li class="lvl-3">
-<p>在<code>themes/next/source/css/main.styl</code>最后加上：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@import &quot;_custom/custom&quot;</span><br></pre></td></tr></table></figure>
+<p>$\overset{_}{a}$ ：<code>\overset&#123;\_&#125;&#123;a&#125;</code></p>
 </li>
-<li class="lvl-3">
-<p>在<code>themes/next/source/css</code>目录下创建<code>_custom</code>文件夹；</p>
+<li class="lvl-2">
+<p>$\overset{·}{a}$：<code>\overset&#123;·&#125;&#123;a&#125;</code></p>
+<p><small>这里的<code>·</code>是中文的<big><big>`</big></big></small></p>
 </li>
-<li class="lvl-3">
-<p>在目录<code>themes/next/source/css/_custom</code>下新建文件<code>custom.styl</code>。</p>
+<li class="lvl-2">
+<p>$\overset{~}{a}$：失败的尝试，若不使用<code>\</code>转义，则<code>~</code>不会显示，就像这样$\overset{~}{a}$</p>
 </li>
-<li class="lvl-3">
-<p>在<code>custom.styl</code>中添加<code>css</code>样式修改博客的<code>css</code>。</p>
+<li class="lvl-2">
+<p>$\overset{^}{a}$：<code>$\overset&#123;\^&#125;&#123;a&#125;</code></p>
 </li>
-</ol>
-<p>—— 摘自 <a target="_blank" rel="noopener" href="https://zachary116699.github.io/2024/05/09/hexo-next-css/">hexo-next主题配置css | 大水笔✰档案室</a></p>
+</ul>
 </p>
     </div>
-</div><p>然后就是将自己自定义的<code>css</code>样式放在里面</p>
-<p>这里贴一下<code>callout</code>样式部分：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/* 基础样式 */</span></span><br><span class="line"><span class="selector-class">.callout</span> &#123;</span><br><span class="line">    <span class="attribute">border-left</span>: <span class="number">4px</span> solid;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#f0f0f0</span>;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">10px</span> <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">14px</span>;</span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="number">4px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Info 样式 */</span></span><br><span class="line"><span class="selector-class">.callout-info</span> &#123;</span><br><span class="line">    <span class="attribute">border-left-color</span>: <span class="number">#3178c6</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#e3f2fd</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Warning 样式 */</span></span><br><span class="line"><span class="selector-class">.callout-warning</span> &#123;</span><br><span class="line">    <span class="attribute">border-left-color</span>: <span class="number">#e5a700</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#fff3e0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Error 样式 */</span></span><br><span class="line"><span class="selector-class">.callout-error</span> &#123;</span><br><span class="line">    <span class="attribute">border-left-color</span>: <span class="number">#d32f2f</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#ffebee</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Success 样式 */</span></span><br><span class="line"><span class="selector-class">.callout-success</span> &#123;</span><br><span class="line">    <span class="attribute">border-left-color</span>: <span class="number">#2e7d32</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#e8f5e9</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Note 样式 */</span></span><br><span class="line"><span class="selector-class">.callout-note</span> &#123;</span><br><span class="line">    <span class="attribute">border-left-color</span>: <span class="number">#673ab7</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#ede7f6</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Tip 样式 */</span></span><br><span class="line"><span class="selector-class">.callout-tip</span> &#123;</span><br><span class="line">    <span class="attribute">border-left-color</span>: <span class="number">#009688</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#e0f2f1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>然后，就好了，现在整个<code>callout</code>块的部分就完整了🙌</p>
+</div><p>常用顶标：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><code>\hat&#123;1&#125;</code> : $\hat{1}$</p>
+</li>
+<li class="lvl-2">
+<p><code>\overline&#123;1&#125;</code> : $\overline{1}$</p>
+</li>
+<li class="lvl-2">
+<p><code>\dot&#123;1&#125;</code> : $\dot{1}$</p>
+</li>
+<li class="lvl-2">
+<p><code>\widetilde&#123;1&#125;</code> : $\widetilde{1}$</p>
+</li>
+</ul>
+<h2 id="分数"><a class="header-anchor" href="#分数">¶</a>分数</h2>
+<p>$5/6$ <code>5/6</code>，美中不足，不同渲染器渲染结果不同，比如<code>typora</code>就是这样的：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412121457874.png" alt="image-20241212145726822"></p>
+<center><small>这显然不是我们想要的样子</small></center>
+<p>规范的分式写法：</p>
+<p>$\frac{a}{b}$:<code>\frac&#123;a&#125;&#123;b&#125;</code></p>
+<p>但其实也不太必要。😰</p>
+<h2 id="求和与积分"><a class="header-anchor" href="#求和与积分">¶</a>求和与积分</h2>
+<p>$\sum_{i=1}^n i^2$</p>
+<p><code>\sum_&#123;i=1&#125;^n i^2</code></p>
+<p>$ \int_a^b x^2 , dx$</p>
+<p><code> \int_a^b x^2 \, dx</code></p>
+<blockquote>
+<p>有趣🎃</p>
+<p>$,$<small>：<code>$,$</code></small>是会被<code>latex</code>渲染出来的，</p>
+<p>$,$<small>$\leftarrow$这里有东西</small><small>：<code>$\,$</code></small>就像会把 ’ ,’ 忽略一样，可能只渲染出一个空格吧</p>
+</blockquote>
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p>其实就是$\sum$：<code>$\sum$</code>加个上标，加个下标$\sum_a^b$<code>$\sum_a^b$</code>，就变成求和的这个了</p>
+<p>积分符号<code>$\int$</code><small>：$\int$</small> ，同理，加个上标加个下标就好了，$\int_a^b$<code>$\int_a^b$</code></p>
+</p>
+    </div>
+</div>
+<div class="callout callout-note">
+    <div class="callout-head">
+        <span class="callout-head-icon">📝</span>
+        <span class="callout-head-text" style="color:#673ab7">NOTE</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<h4>感觉需要补一下知识</h4>
+<p>例如，我们可以很方便的将一个字母或者数字作为上标或者下标：</p>
+<p>$a_2, b^3$ <code>$a_2, b^3$</code></p>
+<p>而我们想将$(n-1)$<code>$(n-1)$</code>作为上标或者下标时，我们就会涉及到将$(n-1)$作为一个整体，当作下标和上标。</p>
+<p>在$\LaTeX$中如果想将一组符号<small>如$n-1$</small>，就需要用到<code>$&#123;&#125;$</code></p>
+<p>例如，$a_{n-1}$：<code>$a_&#123;n-1&#125;$</code>，就将<code>n-1</code>用<code>&#123;&#125;</code>括起来，当成一个整体。</p>
+</p>
+    </div>
+</div><h2 id="逻辑符号"><a class="header-anchor" href="#逻辑符号">¶</a>逻辑符号</h2>
+<p>$\forall, \exists, \neg, \land, \lor, \implies, \iff$</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>$\forall$：<code>$forall$</code></p>
+</li>
+<li class="lvl-2">
+<p>$\exists$：<code>$\exists$</code></p>
+</li>
+<li class="lvl-2">
+<p>$\neg$：<code>$\neg$</code><sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--medium hint--rounded hint--bounce" aria-label="negative 英 /ˈneɡətɪv/ 否定的，拒绝的；">[1]</span></a></sup></p>
+</li>
+<li class="lvl-2">
+<p>$\land$：<code>$\land$</code><sup id="fnref:2"><a href="#fn:2" rel="footnote"><span class="hint--top hint--medium hint--rounded hint--bounce" aria-label="logical AND">[2]</span></a></sup> l-and</p>
+</li>
+<li class="lvl-2">
+<p>$\lor$：<code>$\lor$</code><sup id="fnref:3"><a href="#fn:3" rel="footnote"><span class="hint--top hint--medium hint--rounded hint--bounce" aria-label="logical OR">[3]</span></a></sup> l-or</p>
+</li>
+<li class="lvl-2">
+<p>$\implies$：<code>$\implies$</code></p>
+</li>
+<li class="lvl-2">
+<p>$\iff$：<code>$\iff$</code></p>
+</li>
+</ul>
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p>贴张趣图:happy:</p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412121530568.png" alt="image-20241212153056632"></p>
+</p>
+    </div>
+</div><h2 id="方程"><a class="header-anchor" href="#方程">¶</a>方程</h2>
+<p>$$<br>
+\begin{aligned}<br>
+x &amp;= y + z \\<br>
+a &amp;= b + c<br>
+\end{aligned}<br>
+$$</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">$</span><span class="built_in">$</span></span><br><span class="line"><span class="keyword">\begin</span>&#123;aligned&#125;</span><br><span class="line">x <span class="built_in">&amp;</span>= y + z <span class="keyword">\\</span><span class="keyword">\\</span></span><br><span class="line">a <span class="built_in">&amp;</span>= b + c</span><br><span class="line"><span class="keyword">\end</span>&#123;aligned&#125;</span><br><span class="line"><span class="built_in">$</span><span class="built_in">$</span></span><br></pre></td></tr></table></figure>
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p>因为<code>hexo</code>渲染器问题，<code>\\</code>会被转成<code>\</code>无论是不是在公式块中，而<code>\</code>在latex中是空格的意思，而<code>\\</code>是换行的意思，但是在被渲染处理后<code>\\</code>就会变成<code>\</code>，这样在mathjax渲染是可就bug了🙁</p>
+<p>网上并没有好的解决方案，有修改渲染器源代码的，有用个分割块让渲染器强制不处理的，但是这样在正文块还正常，在引用块中就出现各种问题了</p>
+</p>
+    </div>
+</div><p>哎，还得是这个没办法的方案了</p>
+<p>就是，hexo不是会吧<code>\\</code>转义成<code>\</code>吗，那就索性让他转义，我们直接<code>\\\\</code>不就好了，<code>\\\\</code>就会变成<code>\\</code>，不过这样在自己的编辑器中就会中间多一行空行了</p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412121555139.png" alt="image-20241212155459686"></p>
+<center><small>会中间多一行空行</small></center>
+<p>但其实无伤大雅对吧。</p>
+<p>另外，用<code>&amp;</code>可以对其方程，<code>&amp;</code>所在的位置会被上下对齐</p>
+<h2 id="矩阵"><a class="header-anchor" href="#矩阵">¶</a>矩阵</h2>
+<p>$$<br>
+\begin{bmatrix}<br>
+a &amp; b \\<br>
+c &amp; d<br>
+\end{bmatrix}<br>
+$$</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\begin</span>&#123;bmatrix&#125;</span><br><span class="line">a <span class="built_in">&amp;</span> b <span class="keyword">\\</span><span class="keyword">\\</span></span><br><span class="line">c <span class="built_in">&amp;</span> d</span><br><span class="line"><span class="keyword">\end</span>&#123;bmatrix&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="向量与点积"><a class="header-anchor" href="#向量与点积">¶</a>向量与点积</h2>
+<p>$\vec{a}, \vec{b}, \cdot$</p>
+<p><code>$\vec&#123;a&#125;, \vec&#123;b&#125;, \cdot$</code></p>
+<h2 id="根号"><a class="header-anchor" href="#根号">¶</a>根号</h2>
+<p>$\sqrt{a}, \sqrt[3]{b}, \sqrt{x^2 + y^2}$</p>
+<p><code>$\sqrt&#123;a&#125;, \sqrt[3]&#123;b&#125;, \sqrt&#123;x^2 + y^2&#125;$</code></p>
 <hr />
-<div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>
+<div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div><div id="footnotes"><hr><h4>相关注解</h4><ol class="custom-footnotes"><li id="fn:1" class="footnote-item"><span class="footnote-content">negative 英 /ˈneɡətɪv/ 否定的，拒绝的；<a href="#fnref:1" rev="footnote"> ↩</a></span></li><li id="fn:2" class="footnote-item"><span class="footnote-content">logical AND<a href="#fnref:2" rev="footnote"> ↩</a></span></li><li id="fn:3" class="footnote-item"><span class="footnote-content">logical OR<a href="#fnref:3" rev="footnote"> ↩</a></span></li></ol></div>
     </div>
 
     
@@ -308,7 +531,8 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/hexo-%E5%BB%BA%E8%AE%BE/" rel="tag"><i class="fa fa-tag"></i> hexo 建设</a>
+              <a href="/tags/Latex/" rel="tag"><i class="fa fa-tag"></i> Latex</a>
+              <a href="/tags/Markdown/" rel="tag"><i class="fa fa-tag"></i> Markdown</a>
           </div>
 
         
@@ -317,13 +541,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/posts/28f58f35.html" rel="prev" title="考试时间统计">
-      <i class="fa fa-chevron-left"></i> 考试时间统计
+    <a href="/posts/cd647b6c.html" rel="prev" title="操作系统复习">
+      <i class="fa fa-chevron-left"></i> 操作系统复习
     </a></div>
-      <div class="post-nav-item">
-    <a href="/posts/8dc8b2ab.html" rel="next" title="折腾hexo">
-      折腾hexo <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -382,7 +603,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89css%E6%A0%B7%E5%BC%8F"><span class="nav-number">1.</span> <span class="nav-text">自定义css样式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.1.</span> <span class="nav-text">2.1 添加客制化css</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E5%B8%B8%E7%94%A8%E7%9A%84%E5%B8%8C%E8%85%8A%E5%AD%97%E6%AF%8D"><span class="nav-number">1.</span> <span class="nav-text">一些常用的希腊字母</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8A%E6%A0%87%E4%B8%8B%E6%A0%87"><span class="nav-number">2.</span> <span class="nav-text">上标下标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A1%B6%E6%A0%87"><span class="nav-number">3.</span> <span class="nav-text">顶标</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">3.0.1.</span> <span class="nav-text">关于通用顶标的拓展尝试</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E6%95%B0"><span class="nav-number">4.</span> <span class="nav-text">分数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B1%82%E5%92%8C%E4%B8%8E%E7%A7%AF%E5%88%86"><span class="nav-number">5.</span> <span class="nav-text">求和与积分</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">5.0.1.</span> <span class="nav-text">感觉需要补一下知识</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%BB%E8%BE%91%E7%AC%A6%E5%8F%B7"><span class="nav-number">6.</span> <span class="nav-text">逻辑符号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E7%A8%8B"><span class="nav-number">7.</span> <span class="nav-text">方程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9F%A9%E9%98%B5"><span class="nav-number">8.</span> <span class="nav-text">矩阵</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%91%E9%87%8F%E4%B8%8E%E7%82%B9%E7%A7%AF"><span class="nav-number">9.</span> <span class="nav-text">向量与点积</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%B9%E5%8F%B7"><span class="nav-number">10.</span> <span class="nav-text">根号</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#footnotes"><span class="nav-number">10.0.1.</span> <span class="nav-text">相关注解</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
