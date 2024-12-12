@@ -389,6 +389,73 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/posts/bd8dd267.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101430362.jpg">
+      <meta itemprop="name" content="听">
+      <meta itemprop="description" content="放一些个人笔记">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ting's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/bd8dd267.html" class="post-title-link" itemprop="url">计网第二章</a>
+        </h2>
+
+        <div class="post-meta">
+        
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-12-12 11:03:05 / 修改时间：11:04:37" itemprop="dateCreated datePublished" datetime="2024-12-12T11:03:05+08:00">2024-12-12</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/bd8dd267.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/posts/c38ea43e.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1166,106 +1233,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/posts/907f4c43.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101430362.jpg">
-      <meta itemprop="name" content="听">
-      <meta itemprop="description" content="放一些个人笔记">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ting's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/posts/907f4c43.html" class="post-title-link" itemprop="url">请求分页-物理块分配策略</a>
-        </h2>
-
-        <div class="post-meta">
-        
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2024-12-11 13:32:52 / 修改时间：13:54:23" itemprop="dateCreated datePublished" datetime="2024-12-11T13:32:52+08:00">2024-12-11</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/408/" itemprop="url" rel="index"><span itemprop="name">408</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
-
-<div class="callout callout-tip">
-    <div class="callout-head">
-        <span class="callout-head-icon">💡</span>
-        <span class="callout-head-text" style="color:#009688">TIP</span>
-    </div>
-    <div class="callout-contents">
-        <p><p></p>
-<h3>请求分页-物理块分配策略</h3>
-<h5>固定与可变</h5>
-<p><strong>固定</strong>与<strong>可变</strong>的区别在于给进程分配的物理块数</p>
-<p>即<strong>固定</strong>是指在给<strong>每个进程</strong>均分配<strong>固定数量</strong>的物理块</p>
-<p>可变即根据进程的不同，分配<strong>不同数量</strong>的物理块</p>
-<h5>全局与局部</h5>
-<p>即，当进程执行是发生缺页后，换入换出操作执行的范围</p>
-<p><strong>局部</strong> 即，当进程要执行换入换出操作时，仅在操作系统为<strong>该进程分配的物理空间</strong>之内发生替换，而不会影响其他进程块</p>
-<p><strong>全局</strong> 即，当前进程需要换入缺页的部分时，不仅仅会挑选当前进程拥有的物理块，还可能会换出其他进程的物理块。</p>
-</p>
-    </div>
-</div>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/posts/907f4c43.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1333,7 +1304,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives">
         
-          <span class="site-state-item-count">20</span>
+          <span class="site-state-item-count">21</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1508,7 +1479,7 @@
                     },
                     visualMap: {
                         min: 0,
-                        max: Math.max(...[["2024-12-09",3],["2024-12-10",8],["2024-12-11",9]].map(item => item[1])),
+                        max: Math.max(...[["2024-12-09",3],["2024-12-10",8],["2024-12-11",9],["2024-12-12",1]].map(item => item[1])),
                         calculable: false,
                         orient: 'horizontal', // 横向布局
                         right: '5%',
@@ -1528,7 +1499,7 @@
                     series: [{
                         type: 'heatmap',
                         coordinateSystem: 'calendar',
-                        data: [["2024-12-09",3],["2024-12-10",8],["2024-12-11",9]]
+                        data: [["2024-12-09",3],["2024-12-10",8],["2024-12-11",9],["2024-12-12",1]]
                     }]
                 });
             }
@@ -1551,7 +1522,7 @@
                     series: [{
                         name: 'Articles',
                         type: 'line',
-                        data: [20],
+                        data: [21],
                         smooth: true,
                         lineStyle: { color: '#5470C6', width: 2 },
                         itemStyle: { color: '#5470C6' },
