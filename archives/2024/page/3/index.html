@@ -196,13 +196,53 @@
   <div class="post-block">
     <div class="posts-collapse">
       <div class="collection-title">
-        <span class="collection-header">嗯..! 目前共计 21 篇日志。 继续努力。</span>
+        <span class="collection-header">嗯..! 目前共计 23 篇日志。 继续努力。</span>
       </div>
 
       
     <div class="collection-year">
       <span class="collection-header">2024</span>
     </div>
+
+  <article itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <div class="post-meta">
+        <time itemprop="dateCreated"
+              datetime="2024-12-09T17:48:59+08:00"
+              content="2024-12-09">
+          12-09
+        </time>
+      </div>
+
+      <div class="post-title">
+          <a class="post-title-link" href="/posts/28f58f35.html" itemprop="url">
+            <span itemprop="name">考试时间统计</span>
+          </a>
+      </div>
+
+    </header>
+  </article>
+
+  <article itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <div class="post-meta">
+        <time itemprop="dateCreated"
+              datetime="2024-12-09T17:43:29+08:00"
+              content="2024-12-09">
+          12-09
+        </time>
+      </div>
+
+      <div class="post-title">
+          <a class="post-title-link" href="/posts/4179.html" itemprop="url">
+            <span itemprop="name">关于 callout 块渲染</span>
+          </a>
+      </div>
+
+    </header>
+  </article>
 
   <article itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
@@ -301,7 +341,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives">
         
-          <span class="site-state-item-count">21</span>
+          <span class="site-state-item-count">23</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -423,7 +463,7 @@
                     },
                     visualMap: {
                         min: 0,
-                        max: Math.max(...[["2024-12-09",3],["2024-12-10",8],["2024-12-11",9],["2024-12-12",1]].map(item => item[1])),
+                        max: Math.max(...[["2024-12-09",3],["2024-12-10",8],["2024-12-11",9],["2024-12-12",3]].map(item => item[1])),
                         calculable: false,
                         orient: 'horizontal', // 横向布局
                         right: '5%',
@@ -443,7 +483,7 @@
                     series: [{
                         type: 'heatmap',
                         coordinateSystem: 'calendar',
-                        data: [["2024-12-09",3],["2024-12-10",8],["2024-12-11",9],["2024-12-12",1]]
+                        data: [["2024-12-09",3],["2024-12-10",8],["2024-12-11",9],["2024-12-12",3]]
                     }]
                 });
             }
@@ -466,7 +506,7 @@
                     series: [{
                         name: 'Articles',
                         type: 'line',
-                        data: [21],
+                        data: [23],
                         smooth: true,
                         lineStyle: { color: '#5470C6', width: 2 },
                         itemStyle: { color: '#5470C6' },
@@ -486,7 +526,7 @@
                     series: [{
                         type: 'pie',
                         radius: '60%',
-                        data: [{"name":"大学","value":11},{"name":"408","value":10},{"name":"OS","value":10},{"name":"hexo 建设","value":2},{"name":"折腾 hexo","value":1},{"name":"typora","value":1},{"name":"软件破解","value":1},{"name":"hexo","value":1}],
+                        data: [{"name":"大学","value":13},{"name":"408","value":12},{"name":"OS","value":12},{"name":"hexo 建设","value":2},{"name":"折腾 hexo","value":1},{"name":"typora","value":1},{"name":"软件破解","value":1},{"name":"hexo","value":1}],
                         label: {
                             position: 'outside',
                             formatter: '{b} {c} ({d}%)',
@@ -498,7 +538,7 @@
                     legend: {
                         bottom: '0',
                         left: 'center',
-                        data: [{"name":"大学","value":11},{"name":"408","value":10},{"name":"OS","value":10},{"name":"hexo 建设","value":2},{"name":"折腾 hexo","value":1},{"name":"typora","value":1},{"name":"软件破解","value":1},{"name":"hexo","value":1}].map(tag => tag.name),
+                        data: [{"name":"大学","value":13},{"name":"408","value":12},{"name":"OS","value":12},{"name":"hexo 建设","value":2},{"name":"折腾 hexo","value":1},{"name":"typora","value":1},{"name":"软件破解","value":1},{"name":"hexo","value":1}].map(tag => tag.name),
                         textStyle: { fontSize: 12 }
                     }
                 });
@@ -516,13 +556,13 @@
                     },
                     yAxis: {
                         type: 'category',
-                        data: [{"name":"408","value":10},{"name":"hexo","value":2},{"name":"Typora","value":1},{"name":"折腾hexo","value":1}].map(category => category.name).reverse(),
+                        data: [{"name":"408","value":12},{"name":"hexo","value":2},{"name":"Typora","value":1},{"name":"折腾hexo","value":1}].map(category => category.name).reverse(),
                         axisLabel: { fontSize: 12 }
                     },
                     series: [{
                         name: 'Category Count',
                         type: 'bar',
-                        data: [{"name":"408","value":10},{"name":"hexo","value":2},{"name":"Typora","value":1},{"name":"折腾hexo","value":1}].map(category => category.value).reverse(),
+                        data: [{"name":"408","value":12},{"name":"hexo","value":2},{"name":"Typora","value":1},{"name":"折腾hexo","value":1}].map(category => category.value).reverse(),
                         label: {
                             show: true,
                             position: 'right',

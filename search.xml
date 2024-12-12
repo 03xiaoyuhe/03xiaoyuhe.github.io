@@ -117,7 +117,7 @@
 <h2 id="关于博客中自定义渲染callout块的部分"><a class="header-anchor" href="#关于博客中自定义渲染callout块的部分">¶</a>关于博客中自定义渲染<code>callout</code>块的部分</h2>
 <h3 id="首先是callout语法"><a class="header-anchor" href="#首先是callout语法">¶</a>首先是<code>callout</code>语法</h3>
 <figure class="highlight md"><table><tr><td class="code"><pre><span class="line"><span class="quote">&gt; [!tag]</span></span><br><span class="line"><span class="quote">&gt;</span></span><br><span class="line"><span class="quote">&gt; content1</span></span><br><span class="line"><span class="quote">&gt;</span></span><br><span class="line"><span class="quote">&gt; content2</span></span><br></pre></td></tr></table></figure>
-<p>由于笔者在编写此博客时使用的编写工具是<code>typora</code>，故将原来<code>obsidian</code>的语法做了一些改动，因为<code>typora</code>的引用块，行与行之间也会自动添加空行。<a href="/posts/4179">[关于callout块渲染]</a></p>
+<p>由于笔者在编写此博客时使用的编写工具是<code>typora</code>，故将原来<code>obsidian</code>的语法做了一些改动，因为<code>typora</code>的引用块，行与行之间也会自动添加空行。</p>
 
 <div class="callout callout-tip">
     <div class="callout-head">
@@ -126,11 +126,63 @@
     </div>
     <div class="callout-contents">
         <p><p></p>
-<p>渲染器部分，详见[[关于callout块渲染]]</p>
+<p>渲染器部分，详见<a href="/posts/4179">关于callout块渲染</a></p>
 </p>
     </div>
 </div><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[!info] 信息头</span><br><span class="line">这是第一行内容。</span><br><span class="line">这是第二行内容。</span><br></pre></td></tr></table></figure>
 ]]></content>
+  </entry>
+  <entry>
+    <title>操作系统复习</title>
+    <url>/posts/cd647b6c.html</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p>操作系统复习笔记的章节目录</p>
+</p>
+    </div>
+</div><span id="more"></span>
+<h4 id="操作系统章节目录"><a class="header-anchor" href="#操作系统章节目录">¶</a>操作系统章节目录</h4>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><a href="/posts/">第五章</a></p>
+</li>
+<li class="lvl-2">
+<p><a href="/posts/b90b7ae5">第六章</a></p>
+</li>
+</ul>
+<hr />
+<div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
+      <categories>
+        <category>408</category>
+      </categories>
+      <tags>
+        <tag>408</tag>
+        <tag>大学</tag>
+        <tag>OS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>OS第五章总结</title>
+    <url>/posts/6070b0ed.html</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
+<span id="more"></span>
+<hr />
+<div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
+      <categories>
+        <category>408</category>
+      </categories>
+      <tags>
+        <tag>408</tag>
+        <tag>大学</tag>
+        <tag>OS</tag>
+      </tags>
   </entry>
   <entry>
     <title>计网第二章</title>
@@ -2347,35 +2399,15 @@ $$</p>
 <p>概述：当使用<code>clock</code>算法换入缺失的页面后，指针会指向当前换入页的后一个页。</p>
 <h4>细节辨析</h4>
 <p>当算法已经选择好了一个页面并将其换出的细节过程</p>
-<p>比如替换前的序列<br>
-$$<br>
-\begin{split}<br>
-&amp;\downarrow \\<br>
-&amp;[1_1, 2_1, 3_1]<br>
-\end{split}<br>
-$$<br>
-现在需要调入页面$4$在使用<code>clock</code>算法计算后：<br>
-$$<br>
-\begin{split}<br>
-&amp;\downarrow \\<br>
-&amp;[1_0, 2_0, 3_0]<br>
-\end{split}<br>
-$$<br>
-此时页面$1$被选择，然后替换<br>
-$$<br>
-\begin{split}<br>
-&amp;\downarrow \\<br>
-&amp;[4_1, 2_0, 3_0]<br>
-\end{split}<br>
-$$<br>
-然后指针指向刚换入页面的<strong>后一个页面</strong><br>
-$$<br>
-\begin{split}<br>
-&amp;\downarrow \\<br>
-[4_1,&amp; 2_0, 3_0]<br>
-\end{split}<br>
-$$<br>
-然后才完成一次完整的$clock$</p>
+<p>比如替换前的序列</p>
+<p>$[\overset{\downarrow}{1_1}, 2_1, 3_1]$</p>
+<p>现在需要调入页面$4$在使用<code>clock</code>算法计算后：</p>
+<p>$[\overset{\downarrow}{1_0}, 2_0, 3_0]$</p>
+<p>此时页面$1$被选择，然后替换</p>
+<p>$[\overset{\downarrow}{4_1}, 2_1, 3_1]$</p>
+<p>然后指针指向刚换入页面的<strong>后一个页面</strong></p>
+<p>$[{1_1}, \overset{\downarrow}{2_1}, 3_1]$</p>
+<p>然后才完成一次完整的$clock$</p>
 </p>
     </div>
 </div><h6 id="改进Clock置换算法"><a class="header-anchor" href="#改进Clock置换算法">¶</a>改进Clock置换算法</h6>
