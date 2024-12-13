@@ -160,7 +160,7 @@
 <hr />
 <div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
       <categories>
-        <category>408</category>
+        <category>408/OS</category>
       </categories>
       <tags>
         <tag>大学</tag>
@@ -440,7 +440,7 @@ $$</p>
 <hr />
 <div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div><div id="footnotes"><hr><h4>相关注解</h4><ol class="custom-footnotes"><li id="fn:1" class="footnote-item"><span class="footnote-content">negative 英 /ˈneɡətɪv/ 否定的，拒绝的；<a href="#fnref:1" rev="footnote"> ↩</a></span></li><li id="fn:2" class="footnote-item"><span class="footnote-content">logical AND<a href="#fnref:2" rev="footnote"> ↩</a></span></li><li id="fn:3" class="footnote-item"><span class="footnote-content">logical OR<a href="#fnref:3" rev="footnote"> ↩</a></span></li></ol></div>]]></content>
       <categories>
-        <category>Markdown学习</category>
+        <category>Markdown</category>
       </categories>
       <tags>
         <tag>Latex</tag>
@@ -451,9 +451,107 @@ $$</p>
     <title>动态链接库与CMake</title>
     <url>/posts/376b14fc.html</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
-<span id="more"></span>
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p>CMake 和动态链接库（DLL 或共享库）关系密切，因为 CMake 是一种构建工具，可以用来生成、管理和使用动态链接库。通过 CMake，可以轻松地定义动态库的构建规则，并在项目中加载或链接这些库。</p>
+</p>
+    </div>
+</div><span id="more"></span>
+<h3 id="CMake-与动态链接库的关系"><a class="header-anchor" href="#CMake-与动态链接库的关系">¶</a>CMake 与动态链接库的关系</h3>
+<p>CMake 和动态链接库（DLL 或共享库）关系密切，因为 CMake 是一种构建工具，可以用来生成、管理和使用动态链接库。通过 CMake，可以轻松地定义动态库的构建规则，并在项目中加载或链接这些库。</p>
+<hr>
+<h3 id="CMake-如何生成动态链接库"><a class="header-anchor" href="#CMake-如何生成动态链接库">¶</a>CMake 如何生成动态链接库</h3>
+<p>动态链接库（Dynamic Link Library，Windows 下通常是 <code>.dll</code>，Linux 下是 <code>.so</code>，macOS 下是 <code>.dylib</code>）的构建需要指定库的类型。CMake 提供了灵活的机制来创建动态库。</p>
+<h4 id="示例：创建动态链接库"><a class="header-anchor" href="#示例：创建动态链接库">¶</a>示例：创建动态链接库</h4>
+<p>项目结构：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">project/</span><br><span class="line">├── CMakeLists.txt</span><br><span class="line">├── library/</span><br><span class="line">│   ├── CMakeLists.txt</span><br><span class="line">│   ├── my_library.cpp</span><br><span class="line">│   └── my_library.h</span><br><span class="line">├── app/</span><br><span class="line">│   ├── CMakeLists.txt</span><br><span class="line">│   └── main.cpp</span><br></pre></td></tr></table></figure>
+<h4 id="1-编写动态库的代码"><a class="header-anchor" href="#1-编写动态库的代码">¶</a>1. 编写动态库的代码</h4>
+<p><code>library/my_library.h</code>:</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">ifndef</span> MY_LIBRARY_H</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> MY_LIBRARY_H</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">add</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br></pre></td></tr></table></figure>
+<p><code>library/my_library.cpp</code>:</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;my_library.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">add</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a + b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="2-编写-library-CMakeLists-txt"><a class="header-anchor" href="#2-编写-library-CMakeLists-txt">¶</a>2. 编写 <code>library/CMakeLists.txt</code></h4>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line"><span class="keyword">add_library</span>(my_library SHARED my_library.cpp)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置库的输出名称（可选）</span></span><br><span class="line"><span class="keyword">set_target_properties</span>(my_library PROPERTIES OUTPUT_NAME <span class="string">&quot;my_dynamic_library&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 指定库头文件供外部使用</span></span><br><span class="line"><span class="keyword">target_include_directories</span>(my_library PUBLIC <span class="variable">$&#123;CMAKE_CURRENT_SOURCE_DIR&#125;</span>)</span><br></pre></td></tr></table></figure>
+<p><code>SHARED</code> 标志表示生成动态链接库。如果需要生成静态库，可以将其替换为 <code>STATIC</code>。</p>
+<hr>
+<h3 id="3-使用动态链接库"><a class="header-anchor" href="#3-使用动态链接库">¶</a>3. 使用动态链接库</h3>
+<p><code>app/main.cpp</code>:</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;my_library.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;2 + 3 = &quot;</span> &lt;&lt; <span class="built_in">add</span>(<span class="number">2</span>, <span class="number">3</span>) &lt;&lt; std::endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="4-编写-app-CMakeLists-txt"><a class="header-anchor" href="#4-编写-app-CMakeLists-txt">¶</a>4. 编写 <code>app/CMakeLists.txt</code></h4>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line"><span class="keyword">add_executable</span>(my_app main.cpp)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 链接动态库</span></span><br><span class="line"><span class="keyword">target_link_libraries</span>(my_app PRIVATE my_library)</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="5-根目录-CMakeLists-txt"><a class="header-anchor" href="#5-根目录-CMakeLists-txt">¶</a>5. 根目录 <code>CMakeLists.txt</code></h3>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line"><span class="keyword">cmake_minimum_required</span>(VERSION <span class="number">3.10</span>)</span><br><span class="line"><span class="keyword">project</span>(DynamicLibraryExample)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加子目录</span></span><br><span class="line"><span class="keyword">add_subdirectory</span>(library)</span><br><span class="line"><span class="keyword">add_subdirectory</span>(app)</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="6-构建和运行"><a class="header-anchor" href="#6-构建和运行">¶</a>6. 构建和运行</h3>
+<p>在项目根目录执行以下命令：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 生成构建系统</span></span><br><span class="line">cmake -S . -B build</span><br><span class="line"></span><br><span class="line"><span class="comment"># 构建项目</span></span><br><span class="line">cmake --build build</span><br></pre></td></tr></table></figure>
+<p>运行生成的可执行文件：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./build/app/my_app</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="CMake-使用动态库的常见场景"><a class="header-anchor" href="#CMake-使用动态库的常见场景">¶</a>CMake 使用动态库的常见场景</h3>
+<ol>
+<li class="lvl-3">
+<p><strong>动态加载动态库</strong><br>
+通过操作系统接口（如 <code>dlopen</code> 和 <code>LoadLibrary</code>）加载动态库并调用其函数。</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;dlfcn.h&gt;</span> <span class="comment">// Linux/macOS</span></span></span><br><span class="line"><span class="type">void</span>* handle = <span class="built_in">dlopen</span>(<span class="string">&quot;my_dynamic_library.so&quot;</span>, RTLD_LAZY);</span><br></pre></td></tr></table></figure>
+</li>
+<li class="lvl-3">
+<p><strong>查找系统动态库</strong><br>
+使用 CMake 的 <code>find_library</code> 命令查找系统中已安装的动态库。</p>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line"><span class="keyword">find_library</span>(MY_LIB my_library PATHS /usr/lib /usr/local/lib)</span><br><span class="line"><span class="keyword">target_link_libraries</span>(my_app PRIVATE <span class="variable">$&#123;MY_LIB&#125;</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li class="lvl-3">
+<p><strong>安装动态库</strong><br>
+配置安装规则，将动态库安装到指定路径。</p>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line"><span class="keyword">install</span>(TARGETS my_library DESTINATION lib)</span><br><span class="line"><span class="keyword">install</span>(FILES my_library.h DESTINATION <span class="keyword">include</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li class="lvl-3">
+<p><strong>控制动态库版本</strong><br>
+CMake 支持为动态库设置版本号，用于兼容性管理。</p>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line"><span class="keyword">set_target_properties</span>(my_library PROPERTIES VERSION <span class="number">1.0</span> SOVERSION <span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<hr>
+<h3 id="动态库的优点通过-CMake-放大"><a class="header-anchor" href="#动态库的优点通过-CMake-放大">¶</a>动态库的优点通过 CMake 放大</h3>
+<ol>
+<li class="lvl-3">
+<p><strong>模块化构建</strong><br>
+动态库可与多个项目共享，CMake 管理动态库的构建和链接更加简单。</p>
+</li>
+<li class="lvl-3">
+<p><strong>跨平台兼容</strong><br>
+CMake 抽象了不同平台的动态库细节（如 <code>.dll</code> 和 <code>.so</code> 的差异），开发者只需专注于库的功能实现。</p>
+</li>
+<li class="lvl-3">
+<p><strong>依赖关系管理</strong><br>
+CMake 能自动处理动态库的依赖，确保库按正确顺序链接。</p>
+</li>
+<li class="lvl-3">
+<p><strong>动态库的安装和部署</strong><br>
+使用 CMake，可以轻松地将动态库与项目一起打包并分发。</p>
+</li>
+</ol>
+<hr>
+<h3 id="总结"><a class="header-anchor" href="#总结">¶</a>总结</h3>
+<p>CMake 与动态链接库密切相关，是开发和管理动态库的理想工具。通过 CMake，可以轻松完成动态库的创建、链接、加载、安装和跨平台管理，显著简化复杂项目的开发流程。</p>
+<p>如需进一步了解动态库的特定实现或动态加载，可以提供更详细的场景！</p>
 <hr />
 <div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
+      <categories>
+        <category>编程知识</category>
+      </categories>
+      <tags>
+        <tag>C/C++</tag>
+        <tag>编程</tag>
+        <tag>项目构建工具</tag>
+      </tags>
   </entry>
   <entry>
     <title>CMake</title>
@@ -668,6 +766,14 @@ $$</p>
 </ol>
 <hr />
 <div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
+      <categories>
+        <category>编程知识</category>
+      </categories>
+      <tags>
+        <tag>C/C++</tag>
+        <tag>编程</tag>
+        <tag>项目构建工具</tag>
+      </tags>
   </entry>
   <entry>
     <title>OS第五章总结</title>
@@ -999,7 +1105,7 @@ $$</p>
 </div><hr />
 <div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
       <categories>
-        <category>408</category>
+        <category>408/OS</category>
       </categories>
       <tags>
         <tag>大学</tag>
@@ -1108,7 +1214,7 @@ $$</p>
 <hr />
 <div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
       <categories>
-        <category>408</category>
+        <category>408/OS</category>
       </categories>
       <tags>
         <tag>大学</tag>
@@ -1267,7 +1373,7 @@ $$</p>
 <hr />
 <div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
       <categories>
-        <category>408</category>
+        <category>408/OS</category>
       </categories>
       <tags>
         <tag>大学</tag>
@@ -1389,6 +1495,14 @@ $$</p>
 <p>LFU 算法是一种有效的页面置换策略，适用于处理那些访问频率差异较大的场景。它相比 FIFO 更能反映页面的实际使用情况，但其实现复杂度和性能问题可能需要结合其他策略进行优化。在现代操作系统中，LFU 和其改进版本（如 LFU+LRU）通常会与其他页面管理策略一起使用，以达到更好的性能效果。</p>
 <hr />
 <div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
+      <categories>
+        <category>408/OS</category>
+      </categories>
+      <tags>
+        <tag>大学</tag>
+        <tag>408</tag>
+        <tag>OS</tag>
+      </tags>
   </entry>
   <entry>
     <title>请求分页-LRU的实际实现过程</title>
@@ -1595,7 +1709,7 @@ $$</p>
 <hr />
 <div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
       <categories>
-        <category>408</category>
+        <category>408/OS</category>
       </categories>
       <tags>
         <tag>大学</tag>
@@ -1730,7 +1844,7 @@ $$</p>
 <hr />
 <div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
       <categories>
-        <category>408</category>
+        <category>408/OS</category>
       </categories>
       <tags>
         <tag>大学</tag>
@@ -1860,7 +1974,7 @@ $$</p>
 <hr />
 <div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
       <categories>
-        <category>408</category>
+        <category>408/OS</category>
       </categories>
       <tags>
         <tag>大学</tag>
@@ -1992,7 +2106,7 @@ $$</li>
 <hr />
 <div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
       <categories>
-        <category>408</category>
+        <category>408/OS</category>
       </categories>
       <tags>
         <tag>大学</tag>
@@ -2110,7 +2224,7 @@ $$</li>
 <hr />
 <div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
       <categories>
-        <category>408</category>
+        <category>408/OS</category>
       </categories>
       <tags>
         <tag>大学</tag>
@@ -2246,7 +2360,7 @@ CPU在执行一条指令时，需要从内存取出指令。如果指令所在�
 <hr />
 <div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
       <categories>
-        <category>408</category>
+        <category>408/OS</category>
       </categories>
       <tags>
         <tag>大学</tag>
@@ -2470,7 +2584,7 @@ CPU在执行一条指令时，需要从内存取出指令。如果指令所在�
 <hr />
 <div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
       <categories>
-        <category>408</category>
+        <category>408/OS</category>
       </categories>
       <tags>
         <tag>大学</tag>
@@ -3407,7 +3521,7 @@ $$</p>
 <hr />
 <div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div><div id="footnotes"><hr><h4>相关注解</h4><ol class="custom-footnotes"><li id="fn:1" class="footnote-item"><span class="footnote-content">调入功能 是 指将进程所需的数据或指令从磁盘调入主存<a href="#fnref:1" rev="footnote"> ↩</a></span></li><li id="fn:2" class="footnote-item"><span class="footnote-content">进程页表 是操作系统管理虚拟存储器时，用于映射进程的 <strong>虚拟地址</strong>和 <strong>物理地址</strong> 的一个重要数据结构。<br>每个进程都有自己的 <strong>页表</strong> ，它记录了该进程所有虚拟页的相关信息，<br>包括虚拟页是否已被加载到主存以及其对应的物理页框地址。<a href="#fnref:2" rev="footnote"> ↩</a></span></li><li id="fn:3" class="footnote-item"><span class="footnote-content"><strong>CISC（Complex Instruction Set Computer）</strong> 架构是一种处理器设计理念，其特点是提供 <strong>复杂且多样化的指令集</strong><a href="#fnref:3" rev="footnote"> ↩</a></span></li><li id="fn:4" class="footnote-item"><span class="footnote-content">policy：/ˈpɒləsi/ n.  策略；方针；<a href="#fnref:4" rev="footnote"> ↩</a></span></li><li id="fn:5" class="footnote-item"><span class="footnote-content">贝拉迪  贝拉迪异常（Belady's anomaly）是一种计算机科学中的现象，指的是在某些页面置换算法中，增加可用的物理内存可能导致更多的页面错误<a href="#fnref:5" rev="footnote"> ↩</a></span></li><li id="fn:6" class="footnote-item"><span class="footnote-content"><strong>移位寄存器</strong>（Shift Register）是一种数字电路，用于将数据按照一定规则在其存储单元之间移动。它是由一组触发器（Flip-Flop）组成的逻辑电路，每个触发器存储一个位数据。<a href="#fnref:6" rev="footnote"> ↩</a></span></li><li id="fn:7" class="footnote-item"><span class="footnote-content">先进先出算法<a href="#fnref:7" rev="footnote"> ↩</a></span></li></ol></div>]]></content>
       <categories>
-        <category>408</category>
+        <category>408/OS</category>
       </categories>
       <tags>
         <tag>大学</tag>
