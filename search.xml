@@ -916,7 +916,33 @@ CMake 能自动处理动态库的依赖，确保库按正确顺序链接。</p>
     </div>
 </div><h3 id="程序地址"><a class="header-anchor" href="#程序地址">¶</a>程序地址</h3>
 <h4 id="程序在成为进程前的准备工作"><a class="header-anchor" href="#程序在成为进程前的准备工作">¶</a>程序在成为进程前的准备工作</h4>
-<ol>
+
+<div class="callout callout-note">
+    <div class="callout-head">
+        <span class="callout-head-icon">📝</span>
+        <span class="callout-head-text" style="color:#673ab7">NOTE</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<h5>总结</h5>
+<h6>程序在成为进程前的准备工作</h6>
+<ul class="lvl-1">
+<li class="lvl-2">
+<p><span style="color:red">编辑</span>：形成源文件(<span style="color:blue">符号地址</span>)</p>
+</li>
+<li class="lvl-2">
+<p><span style="color:red">编译</span>：形成目标模块(<span style="color:blue">模块内符号地址解析</span>)</p>
+</li>
+<li class="lvl-2">
+<p><span style="color:red">链接</span>：由多个模块或程序库形成可执行文件(<span style="color:blue">模块间符号地址解析</span>)</p>
+</li>
+<li class="lvl-2">
+<p><span style="color:red">装入</span>：构造PCB，形成进程(<span style="color:blue">物理地址</span>)</p>
+</li>
+</ul>
+</p>
+    </div>
+</div><ol>
 <li class="lvl-3">
 <p>编辑：编写源程序</p>
 </li>
@@ -990,32 +1016,6 @@ CMake 能自动处理动态库的依赖，确保库按正确顺序链接。</p>
         <p><p></p>
 <p>编译、汇编、链接，三个过程的地址变换是编译器做的</p>
 <p>而，将生成好的可执行文件，放到内存中运行，是操作系统要考虑的事情</p>
-</p>
-    </div>
-</div>
-<div class="callout callout-note">
-    <div class="callout-head">
-        <span class="callout-head-icon">📝</span>
-        <span class="callout-head-text" style="color:#673ab7">NOTE</span>
-    </div>
-    <div class="callout-contents">
-        <p><p></p>
-<h4>总结</h4>
-<h5>程序在成为进程前的准备工作</h5>
-<ul class="lvl-1">
-<li class="lvl-2">
-<p><span style="color:red">编辑</span>：形成源文件(<span style="color:blue">符号地址</span>)</p>
-</li>
-<li class="lvl-2">
-<p><span style="color:red">编译</span>：形成目标模块(<span style="color:blue">模块内符号地址解析</span>)</p>
-</li>
-<li class="lvl-2">
-<p><span style="color:red">链接</span>：由多个模块或程序库形成可执行文件(<span style="color:blue">模块间符号地址解析</span>)</p>
-</li>
-<li class="lvl-2">
-<p><span style="color:red">装入</span>：构造PCB，形成进程(<span style="color:blue">物理地址</span>)</p>
-</li>
-</ul>
 </p>
     </div>
 </div><h4 id="物理地址和逻辑地址"><a class="header-anchor" href="#物理地址和逻辑地址">¶</a>物理地址和逻辑地址</h4>
