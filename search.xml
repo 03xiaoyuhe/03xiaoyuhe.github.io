@@ -163,8 +163,8 @@
         <category>408</category>
       </categories>
       <tags>
-        <tag>408</tag>
         <tag>大学</tag>
+        <tag>408</tag>
         <tag>OS</tag>
       </tags>
   </entry>
@@ -448,18 +448,562 @@ $$</p>
       </tags>
   </entry>
   <entry>
-    <title>OS第五章总结</title>
-    <url>/posts/6070b0ed.html</url>
+    <title>动态链接库与CMake</title>
+    <url>/posts/376b14fc.html</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
 <span id="more"></span>
 <hr />
+<div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
+  </entry>
+  <entry>
+    <title>CMake</title>
+    <url>/posts/42cbd3c8.html</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p><strong>CMake</strong> 是一种跨平台的构建工具，用于管理软件项目的构建流程。它通过使用配置文件（<code>CMakeLists.txt</code>）来生成适合特定平台的原生构建系统文件，如 <strong>Makefile</strong>（Linux）或 <strong>Visual Studio 工程文件</strong>（Windows）。</p>
+<p>CMake 的目标是让开发者在不同的操作系统和编译器之间轻松地构建、测试和打包软件项目。</p>
+</p>
+    </div>
+</div><span id="more"></span>
+<h3 id="CMake-简介"><a class="header-anchor" href="#CMake-简介">¶</a>CMake 简介</h3>
+<p><strong>CMake</strong> 是一种跨平台的构建工具，用于管理软件项目的构建流程。它通过使用配置文件（<code>CMakeLists.txt</code>）来生成适合特定平台的原生构建系统文件，如 <strong>Makefile</strong>（Linux）或 <strong>Visual Studio 工程文件</strong>（Windows）。</p>
+<p>CMake 的目标是让开发者在不同的操作系统和编译器之间轻松地构建、测试和打包软件项目。</p>
+<hr>
+<h3 id="CMake-的主要特点"><a class="header-anchor" href="#CMake-的主要特点">¶</a>CMake 的主要特点</h3>
+<ol>
+<li class="lvl-3">
+<p><strong>跨平台支持</strong>：支持 Windows、Linux、macOS，以及嵌入式系统开发。</p>
+</li>
+<li class="lvl-3">
+<p><strong>生成原生构建文件</strong>：通过 <code>CMakeLists.txt</code>，生成适合平台的构建系统文件。</p>
+</li>
+<li class="lvl-3">
+<p><strong>模块化管理</strong>：支持分模块编译和依赖关系管理。</p>
+</li>
+<li class="lvl-3">
+<p><strong>灵活的配置</strong>：支持多种构建选项（如 Debug/Release）。</p>
+</li>
+<li class="lvl-3">
+<p><strong>集成测试工具</strong>：可以通过 CTest 实现测试自动化。</p>
+</li>
+<li class="lvl-3">
+<p><strong>广泛支持的工具链</strong>：支持多种编译器（GCC、Clang、MSVC 等）和工具链（Ninja 等）。</p>
+</li>
+</ol>
+<hr>
+<h3 id="CMake-的基本使用流程"><a class="header-anchor" href="#CMake-的基本使用流程">¶</a>CMake 的基本使用流程</h3>
+<ol>
+<li class="lvl-3">
+<p><strong>安装 CMake</strong>：在系统中安装 CMake，可通过包管理工具（如 apt、yum、brew）或官网下载安装包。</p>
+</li>
+<li class="lvl-3">
+<p><strong>创建 CMakeLists.txt</strong>：编写一个 <code>CMakeLists.txt</code> 文件，描述项目的构建流程。</p>
+</li>
+<li class="lvl-3">
+<p><strong>运行 CMake</strong>：使用 <code>cmake</code> 命令生成构建系统文件（如 Makefile）。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cmake -S . -B build</span><br></pre></td></tr></table></figure>
+</li>
+<li class="lvl-3">
+<p><strong>构建项目</strong>：使用生成的构建文件进行编译。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cmake --build build</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<hr>
+<h3 id="一个简单的-CMake-示例"><a class="header-anchor" href="#一个简单的-CMake-示例">¶</a>一个简单的 CMake 示例</h3>
+<p>假设有以下项目结构：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">project/</span><br><span class="line">├── CMakeLists.txt</span><br><span class="line">├── main.cpp</span><br></pre></td></tr></table></figure>
+<h4 id="1-编写-main-cpp"><a class="header-anchor" href="#1-编写-main-cpp">¶</a>1. 编写 <code>main.cpp</code></h4>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;Hello, CMake!&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="2-编写-CMakeLists-txt"><a class="header-anchor" href="#2-编写-CMakeLists-txt">¶</a>2. 编写 <code>CMakeLists.txt</code></h4>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 指定 CMake 的最低版本</span></span><br><span class="line"><span class="keyword">cmake_minimum_required</span>(VERSION <span class="number">3.10</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义项目名称和语言</span></span><br><span class="line"><span class="keyword">project</span>(HelloCMake LANGUAGES CXX)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置 C++ 标准</span></span><br><span class="line"><span class="keyword">set</span>(CMAKE_CXX_STANDARD <span class="number">17</span>)</span><br><span class="line"><span class="keyword">set</span>(CMAKE_CXX_STANDARD_REQUIRED <span class="keyword">True</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 指定生成的可执行文件</span></span><br><span class="line"><span class="keyword">add_executable</span>(hello main.cpp)</span><br></pre></td></tr></table></figure>
+<h4 id="3-构建项目"><a class="header-anchor" href="#3-构建项目">¶</a>3. 构建项目</h4>
+<p>在项目根目录执行以下命令：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 生成构建系统文件</span></span><br><span class="line">cmake -S . -B build</span><br><span class="line"></span><br><span class="line"><span class="comment"># 编译项目</span></span><br><span class="line">cmake --build build</span><br></pre></td></tr></table></figure>
+<p>运行生成的可执行文件：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./build/hello</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="CMake-的核心命令"><a class="header-anchor" href="#CMake-的核心命令">¶</a>CMake 的核心命令</h3>
+<ol>
+<li class="lvl-3">
+<p><code>project</code>：定义项目名称及支持的语言。</p>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line"><span class="keyword">project</span>(MyProject LANGUAGES CXX)</span><br></pre></td></tr></table></figure>
+</li>
+<li class="lvl-3">
+<p><code>add_executable</code>：添加可执行文件。</p>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line"><span class="keyword">add_executable</span>(my_program main.cpp)</span><br></pre></td></tr></table></figure>
+</li>
+<li class="lvl-3">
+<p><code>add_library</code>：添加库文件。</p>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line"><span class="keyword">add_library</span>(my_library STATIC lib.cpp)</span><br></pre></td></tr></table></figure>
+</li>
+<li class="lvl-3">
+<p><code>target_include_directories</code>：指定头文件路径。</p>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line"><span class="keyword">target_include_directories</span>(my_program PRIVATE <span class="keyword">include</span>/)</span><br></pre></td></tr></table></figure>
+</li>
+<li class="lvl-3">
+<p><code>target_link_libraries</code>：链接库文件。</p>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line"><span class="keyword">target_link_libraries</span>(my_program PRIVATE my_library)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<hr>
+<h3 id="CMake-的优势"><a class="header-anchor" href="#CMake-的优势">¶</a>CMake 的优势</h3>
+<ol>
+<li class="lvl-3">
+<p><strong>自动化管理依赖关系</strong>：轻松管理第三方库和自定义模块。</p>
+</li>
+<li class="lvl-3">
+<p><strong>适应性强</strong>：支持不同编译器和平台。</p>
+</li>
+<li class="lvl-3">
+<p><strong>模块支持</strong>：自带许多模块（如查找库、设置编译选项）</p>
+</li>
+</ol>
+<hr />
+<div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
+      <categories>
+        <category>编程知识</category>
+      </categories>
+      <tags>
+        <tag>C/C++</tag>
+        <tag>编程</tag>
+        <tag>项目构建工具</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>动态链接库</title>
+    <url>/posts/29b48e9.html</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p>动态链接库（Dynamic Link Library，简称DLL）是包含可以由多个程序共享使用的代码和数据的文件。这种技术使程序能够高效地复用资源、减少重复代码以及节省内存空间。</p>
+</p>
+    </div>
+</div><span id="more"></span>
+<h3 id="动态链接库的特点："><a class="header-anchor" href="#动态链接库的特点：">¶</a>动态链接库的特点：</h3>
+<ol>
+<li class="lvl-3">
+<p><strong>动态加载</strong>：程序运行时，DLL文件才会被加载到内存中。</p>
+</li>
+<li class="lvl-3">
+<p><strong>共享资源</strong>：多个程序可以同时使用同一个DLL文件，减少重复代码占用的磁盘和内存资源。</p>
+</li>
+<li class="lvl-3">
+<p><strong>模块化开发</strong>：通过动态链接库，可以将应用程序拆分为多个模块，方便独立开发、测试和部署。</p>
+</li>
+<li class="lvl-3">
+<p><strong>可更新性</strong>：更新程序时，只需替换DLL文件，无需更改主程序。</p>
+</li>
+</ol>
+<hr>
+<h3 id="DLL的应用场景："><a class="header-anchor" href="#DLL的应用场景：">¶</a>DLL的应用场景：</h3>
+<ol>
+<li class="lvl-3">
+<p><strong>共享代码和功能</strong>：如Windows的系统功能（<code>user32.dll</code>、<code>kernel32.dll</code>）。</p>
+</li>
+<li class="lvl-3">
+<p><strong>插件系统</strong>：支持动态加载的插件，提供功能扩展。</p>
+</li>
+<li class="lvl-3">
+<p><strong>跨语言调用</strong>：通过DLL，允许不同编程语言的程序共享同一段功能代码。</p>
+</li>
+<li class="lvl-3">
+<p><strong>节省资源</strong>：避免重复代码的加载。</p>
+</li>
+</ol>
+<hr>
+<h3 id="使用动态链接库的注意事项："><a class="header-anchor" href="#使用动态链接库的注意事项：">¶</a>使用动态链接库的注意事项：</h3>
+<ol>
+<li class="lvl-3">
+<p><strong>版本兼容性</strong>：更新DLL时必须保证接口兼容，否则可能导致主程序崩溃。</p>
+</li>
+<li class="lvl-3">
+<p><strong>依赖问题</strong>：动态链接库可能依赖其他库，必须确保相关库也被正确部署。</p>
+</li>
+<li class="lvl-3">
+<p><strong>安全性</strong>：动态链接库容易受到DLL劫持（DLL Hijacking）攻击，加载DLL时需指定明确路径或使用签名校验。</p>
+</li>
+</ol>
+<hr>
+<h4 id="如何创建和使用动态链接库？"><a class="header-anchor" href="#如何创建和使用动态链接库？">¶</a>如何创建和使用动态链接库？</h4>
+<p><strong>C++（Windows平台示例）</strong><br>
+创建一个简单的动态链接库（<code>.dll</code>）并调用。</p>
+<h5 id="创建DLL："><a class="header-anchor" href="#创建DLL：">¶</a>创建DLL：</h5>
+<ol>
+<li class="lvl-3">
+<p>创建<code>mydll.cpp</code>文件：</p>
+</li>
+</ol>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">extern</span> <span class="string">&quot;C&quot;</span> __declspec(dllexport) <span class="function"><span class="type">void</span> <span class="title">HelloWorld</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;Hello, World from DLL!&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol>
+<li class="lvl-3">
+<p>使用命令行编译为DLL：</p>
+</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cl /LD mydll.cpp</span><br></pre></td></tr></table></figure>
+<p>生成的<code>mydll.dll</code>就是动态链接库。</p>
+<h5 id="调用DLL："><a class="header-anchor" href="#调用DLL：">¶</a>调用DLL：</h5>
+<ol>
+<li class="lvl-3">
+<p>创建<code>main.cpp</code>文件：</p>
+</li>
+</ol>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;windows.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">typedef</span> <span class="title">void</span> <span class="params">(*HelloWorldFunc)</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    HMODULE hModule = <span class="built_in">LoadLibrary</span>(<span class="built_in">TEXT</span>(<span class="string">&quot;mydll.dll&quot;</span>));</span><br><span class="line">    <span class="keyword">if</span> (hModule) &#123;</span><br><span class="line">        HelloWorldFunc hello = (HelloWorldFunc)<span class="built_in">GetProcAddress</span>(hModule, <span class="string">&quot;HelloWorld&quot;</span>);</span><br><span class="line">        <span class="keyword">if</span> (hello) &#123;</span><br><span class="line">            <span class="built_in">hello</span>();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">FreeLibrary</span>(hModule);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        std::cerr &lt;&lt; <span class="string">&quot;Failed to load DLL&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol>
+<li class="lvl-3">
+<p>编译并运行，确保<code>mydll.dll</code>在同一目录下。</p>
+</li>
+</ol>
+<hr />
+<div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
+  </entry>
+  <entry>
+    <title>OS第五章总结</title>
+    <url>/posts/6070b0ed.html</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p>放一下存储器管理的笔记把</p>
+</p>
+    </div>
+</div><span id="more"></span>
+<h2 id="学习目标"><a class="header-anchor" href="#学习目标">¶</a>学习目标</h2>
+<p>Ø能够理解各层存储器的作用</p>
+<p>Ø理解存储管理的基本任务</p>
+<p>Ø理解逻辑地址、物理地址的概念</p>
+<p>Ø理解程序装入的实现方式及特点</p>
+<p>Ø理解程序链接的实现方式及特点</p>
+<h2 id="目标评价"><a class="header-anchor" href="#目标评价">¶</a>目标评价</h2>
+<ol>
+<li class="lvl-3">
+<p>说出常见的计算机存储硬件</p>
+</li>
+<li class="lvl-3">
+<p>说出存储层次中各硬件的特点</p>
+</li>
+<li class="lvl-3">
+<p>分析源程序、目标程序和可执行程序的地址形式</p>
+</li>
+<li class="lvl-3">
+<p>理解CPU对内存的访问过程</p>
+</li>
+<li class="lvl-3">
+<p>说出程序的装入和链接方式</p>
+</li>
+</ol>
+<h2 id="基础概念"><a class="header-anchor" href="#基础概念">¶</a>基础概念</h2>
+<h3 id="内存管理的任务"><a class="header-anchor" href="#内存管理的任务">¶</a>内存管理的任务</h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>内存分配回收</p>
+</li>
+<li class="lvl-2">
+<p>地址转换</p>
+</li>
+<li class="lvl-2">
+<p>存储扩充</p>
+</li>
+<li class="lvl-2">
+<p>存储保护</p>
+</li>
+</ul>
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<h3>学后应能够回答的问题</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412131403033.png" alt="image-20241213140352275"></p>
+</p>
+    </div>
+</div><h3 id="存储器的层次结构"><a class="header-anchor" href="#存储器的层次结构">¶</a>存储器的层次结构</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412131405756.png" alt="image-20241213140513750"></p>
+<center><small>计算机存储层次示意图</small></center>
+<h4 id="寄存器"><a class="header-anchor" href="#寄存器">¶</a>寄存器</h4>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>存放<code>CPU</code>执行时的数据和指令</p>
+</li>
+</ul>
+<h4 id="高速缓存"><a class="header-anchor" href="#高速缓存">¶</a>高速缓存</h4>
+<p>介于寄存器和存储器之间</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>备份主存常用数据和指令，减少对主存储器的访问次数</p>
+</li>
+<li class="lvl-2">
+<p>缓和内存和处理机之间的矛盾</p>
+</li>
+</ul>
+
+<div class="callout callout-note">
+    <div class="callout-head">
+        <span class="callout-head-icon">📝</span>
+        <span class="callout-head-text" style="color:#673ab7">NOTE</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412131408580.png" alt="image-20241213140854868"></p>
+<center><small>多级缓存</small></center>
+<p>l1d：一级数据缓存</p>
+<p>L1i：一级指令缓存</p>
+<p>L2 cache：二级缓存</p>
+<p>L3 cache：三级缓存</p>
+</p>
+    </div>
+</div><h4 id="磁盘缓存"><a class="header-anchor" href="#磁盘缓存">¶</a>磁盘缓存</h4>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>暂时存放频繁使用的一部分磁盘数据和信息</p>
+</li>
+<li class="lvl-2">
+<p>缓和主存和I/O设备在速度上的额不匹配</p>
+</li>
+<li class="lvl-2">
+<p><strong>利用主存的部分空间，主存可看成辅存的高速缓存</strong></p>
+</li>
+</ul>
+<h4 id="主存"><a class="header-anchor" href="#主存">¶</a>主存</h4>
+<h5 id="性能指标"><a class="header-anchor" href="#性能指标">¶</a>性能指标</h5>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>按<strong>字节</strong>连续编址，没个存储单元为1个字节<small>(8个二进制位)</small></p>
+</li>
+<li class="lvl-2">
+<p>存储容量：所包含的存储单元总数<small>(单位：MB或GB)</small></p>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412131419619.png" alt="image-20241213141949137"></p>
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<h5>简例</h5>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412131421631.png" alt="image-20241213142102753"></p>
+</p>
+    </div>
+</div><h3 id="程序地址"><a class="header-anchor" href="#程序地址">¶</a>程序地址</h3>
+<h4 id="程序在成为进程前的准备工作"><a class="header-anchor" href="#程序在成为进程前的准备工作">¶</a>程序在成为进程前的准备工作</h4>
+<ol>
+<li class="lvl-3">
+<p>编辑：编写源程序</p>
+</li>
+<li class="lvl-3">
+<p>编译：由编译程序<small>(Complier)</small>对源程序进行编译，形成若干个目标模块</p>
+</li>
+<li class="lvl-3">
+<p>链接：由链接程序<small>(Linker)</small>将目标模块和他们所需要的库函数链接在一起，形成一个完整的装入模块</p>
+</li>
+<li class="lvl-3">
+<p>装入：由装入程序<small>(Loader)</small>，将装入模块装入内存</p>
+</li>
+</ol>
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p>就像C语言代码，到运行的过程：</p>
+<ul class="lvl-1">
+<li class="lvl-2">
+<p>编译</p>
+</li>
+<li class="lvl-2">
+<p>链接</p>
+</li>
+<li class="lvl-2">
+<p>运行</p>
+</li>
+</ul>
+</p>
+    </div>
+</div><h4 id="程序各阶段的地址变换"><a class="header-anchor" href="#程序各阶段的地址变换">¶</a>程序各阶段的地址变换</h4>
+<ol>
+<li class="lvl-3">
+<p>源程序编译后的main.s</p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412131438484.png" alt="image-20241213143808948"></p>
+<p>add：符号表示</p>
+<p><big><strong>符号地址</strong></big></p>
+<hr>
+</li>
+<li class="lvl-3">
+<p>源程序汇编后的main.o和test.o反汇编的文件</p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412131438521.png" alt="image-20241213143843828"></p>
+<p>13：整数值</p>
+<p><big><strong>相对地址</strong></big></p>
+<hr>
+</li>
+<li class="lvl-3">
+<p>可执行程序myprog</p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412131440028.png" alt="image-20241213144033296"></p>
+<p>4004e2 ：整数值</p>
+<p><big><strong>相对地址</strong></big></p>
+<hr>
+</li>
+<li class="lvl-3">
+<p>可执行文件装入内存执行时的地址？</p>
+<p>内存单元地址<small><span style="color:red">由CPU对内存的访问方式决定</span></small></p>
+</li>
+</ol>
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p>编译、汇编、链接，三个过程的地址变换是编译器做的</p>
+<p>而，将生成好的可执行文件，放到内存中运行，是操作系统要考虑的事情</p>
+</p>
+    </div>
+</div>
+<div class="callout callout-note">
+    <div class="callout-head">
+        <span class="callout-head-icon">📝</span>
+        <span class="callout-head-text" style="color:#673ab7">NOTE</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<h4>总结</h4>
+<h5>程序在成为进程前的准备工作</h5>
+<ul class="lvl-1">
+<li class="lvl-2">
+<p><span style="color:red">编辑</span>：形成源文件(<span style="color:blue">符号地址</span>)</p>
+</li>
+<li class="lvl-2">
+<p><span style="color:red">编译</span>：形成目标模块(<span style="color:blue">模块内符号地址解析</span>)</p>
+</li>
+<li class="lvl-2">
+<p><span style="color:red">链接</span>：由多个模块或程序库形成可执行文件(<span style="color:blue">模块间符号地址解析</span>)</p>
+</li>
+<li class="lvl-2">
+<p><span style="color:red">装入</span>：构造PCB，形成进程(<span style="color:blue">物理地址</span>)</p>
+</li>
+</ul>
+</p>
+    </div>
+</div><h4 id="物理地址和逻辑地址"><a class="header-anchor" href="#物理地址和逻辑地址">¶</a>物理地址和逻辑地址</h4>
+<h5 id="物理地址-small-绝对地址-small"><a class="header-anchor" href="#物理地址-small-绝对地址-small">¶</a>物理地址<small>(绝对地址)</small></h5>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>物理内存的地址，内存以字节位单位编址</p>
+</li>
+<li class="lvl-2">
+<p>物理地址空间：所有物理地址的集合</p>
+</li>
+</ul>
+<h5 id="逻辑地址-small-虚拟地址、相对地址-small"><a class="header-anchor" href="#逻辑地址-small-虚拟地址、相对地址-small">¶</a>逻辑地址<small>(虚拟地址、相对地址)</small></h5>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>由CPU产生的地址，即成程序编译后使用的相对于0字节的地址</p>
+</li>
+<li class="lvl-2">
+<p>逻辑地址空间：由程序所生成的所有逻辑地址的集合</p>
+</li>
+</ul>
+<h5 id="地址转换-small-地址重定位、地址映射-small"><a class="header-anchor" href="#地址转换-small-地址重定位、地址映射-small">¶</a>地址转换<small>(地址重定位、地址映射)</small></h5>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>程序中的逻辑地址转换为物理地址</p>
+</li>
+</ul>
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p><span style="color:red">地址转换是操作系统内存管理任务之一</span></p>
+</p>
+    </div>
+</div><h3 id="程序的装入"><a class="header-anchor" href="#程序的装入">¶</a>程序的装入</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412131504204.png" alt="image-20241213150423225"></p>
+<center><small>程序装入示意图</small></center>
+<h4 id="地址转换时期"><a class="header-anchor" href="#地址转换时期">¶</a>地址转换时期</h4>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>绝对装入方式</p>
+<ul class="lvl-2">
+<li class="lvl-4"><strong>编译</strong>产生的地址使用<strong>绝对地址</strong></li>
+<li class="lvl-4">程序或数据被修改时，需要重新编译程序</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>可重定位装入方式</p>
+<ul class="lvl-2">
+<li class="lvl-4">编译后的目标模块使用相对地址</li>
+<li class="lvl-4">在<strong>装入</strong>时，完成<strong>重定位</strong><big>(静态重定位)</big></li>
+<li class="lvl-4">需硬件支持</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>动态运行时装入方式</p>
+<ul class="lvl-2">
+<li class="lvl-4">编译后的目标模块使用相对地址</li>
+<li class="lvl-4">在<strong>运行</strong>时，完成重定位<big>(动态重定位)</big></li>
+</ul>
+</li>
+</ul>
+<h4 id="程序的链接"><a class="header-anchor" href="#程序的链接">¶</a>程序的链接</h4>
+<h5 id="静态链接"><a class="header-anchor" href="#静态链接">¶</a>静态链接</h5>
+<ul class="lvl-0">
+<li class="lvl-2">
+</li>
+</ul>
+<h5 id="装入时动态链接"><a class="header-anchor" href="#装入时动态链接">¶</a>装入时动态链接</h5>
+<h5 id="运行时动态链接"><a class="header-anchor" href="#运行时动态链接">¶</a>运行时动态链接</h5>
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p>对于<strong>运行时动态链接</strong>，动态链接库像是相关联的东西</p>
+<h4>动态链接库<small><a href="/posts/29b48e9">详细介绍</a></small></h4>
+<p>动态链接库（Dynamic Link Library，简称DLL）是包含可以由多个程序共享使用的代码和数据的文件。这种技术使程序能够高效地复用资源、减少重复代码以及节省内存空间。</p>
+</p>
+    </div>
+</div><hr />
 <div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
       <categories>
         <category>408</category>
       </categories>
       <tags>
-        <tag>408</tag>
         <tag>大学</tag>
+        <tag>408</tag>
         <tag>OS</tag>
       </tags>
   </entry>
@@ -567,8 +1111,8 @@ $$</p>
         <category>408</category>
       </categories>
       <tags>
-        <tag>408</tag>
         <tag>大学</tag>
+        <tag>408</tag>
         <tag>OS</tag>
       </tags>
   </entry>
@@ -726,8 +1270,8 @@ $$</p>
         <category>408</category>
       </categories>
       <tags>
-        <tag>408</tag>
         <tag>大学</tag>
+        <tag>408</tag>
         <tag>OS</tag>
       </tags>
   </entry>
@@ -1054,8 +1598,8 @@ $$</p>
         <category>408</category>
       </categories>
       <tags>
-        <tag>408</tag>
         <tag>大学</tag>
+        <tag>408</tag>
         <tag>OS</tag>
       </tags>
   </entry>
@@ -1189,8 +1733,8 @@ $$</p>
         <category>408</category>
       </categories>
       <tags>
-        <tag>408</tag>
         <tag>大学</tag>
+        <tag>408</tag>
         <tag>OS</tag>
       </tags>
   </entry>
@@ -1319,8 +1863,8 @@ $$</p>
         <category>408</category>
       </categories>
       <tags>
-        <tag>408</tag>
         <tag>大学</tag>
+        <tag>408</tag>
         <tag>OS</tag>
       </tags>
   </entry>
@@ -1451,8 +1995,8 @@ $$</li>
         <category>408</category>
       </categories>
       <tags>
-        <tag>408</tag>
         <tag>大学</tag>
+        <tag>408</tag>
         <tag>OS</tag>
       </tags>
   </entry>
@@ -1569,8 +2113,8 @@ $$</li>
         <category>408</category>
       </categories>
       <tags>
-        <tag>408</tag>
         <tag>大学</tag>
+        <tag>408</tag>
         <tag>OS</tag>
       </tags>
   </entry>
@@ -1705,8 +2249,8 @@ CPU在执行一条指令时，需要从内存取出指令。如果指令所在�
         <category>408</category>
       </categories>
       <tags>
-        <tag>408</tag>
         <tag>大学</tag>
+        <tag>408</tag>
         <tag>OS</tag>
       </tags>
   </entry>
@@ -1929,8 +2473,8 @@ CPU在执行一条指令时，需要从内存取出指令。如果指令所在�
         <category>408</category>
       </categories>
       <tags>
-        <tag>408</tag>
         <tag>大学</tag>
+        <tag>408</tag>
         <tag>OS</tag>
       </tags>
   </entry>
@@ -2866,8 +3410,8 @@ $$</p>
         <category>408</category>
       </categories>
       <tags>
-        <tag>408</tag>
         <tag>大学</tag>
+        <tag>408</tag>
         <tag>OS</tag>
       </tags>
   </entry>
