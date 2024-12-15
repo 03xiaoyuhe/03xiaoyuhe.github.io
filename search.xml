@@ -450,6 +450,33 @@ $$</p>
       </tags>
   </entry>
   <entry>
+    <title>内存管理中固定分区的地址重定位与存储保护</title>
+    <url>/posts/1c6fec2c.html</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
+<span id="more"></span>
+<hr />
+<div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
+      <categories>
+        <category>未分类</category>
+      </categories>
+      <tags>
+        <tag>大学</tag>
+        <tag>408 - OS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Daily Words</title>
+    <url>/posts/4c75609f.html</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
+<span id="more"></span>
+<p>campus /'kæmpəs/  n. 大学，大学生活；</p>
+<hr />
+<div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
+      <categories>
+        <category>未分类</category>
+      </categories>
+  </entry>
+  <entry>
     <title>动态链接库与CMake</title>
     <url>/posts/376b14fc.html</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
@@ -1226,7 +1253,58 @@ CMake 能自动处理动态库的依赖，确保库按正确顺序链接。</p>
 <p>分区个数固定</p>
 <p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412131631934.png" alt="image-20241213163147362"></p>
 <center><small>固定分区(大小相同)<small>(左)</small>，固定分区(大小不同)<small>(右)</small></small></center>
-<hr />
+
+<div class="callout callout-note">
+    <div class="callout-head">
+        <span class="callout-head-icon">📝</span>
+        <span class="callout-head-text" style="color:#673ab7">NOTE</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p>固定分区中，使用固定分区使用表来管理分区的使用情况。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412151344340.png" alt="image-20241215134409673"></p>
+<center><small>固定分区使用表</small></center>
+</p>
+    </div>
+</div><h4 id="地址重定位与存储保护"><a class="header-anchor" href="#地址重定位与存储保护">¶</a>地址重定位与存储保护</h4>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412151346947.png" alt="image-20241215134606043"></p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>静态重定位</p>
+</li>
+<li class="lvl-2">
+<p>界限寄存器</p>
+</li>
+</ul>
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<h5>静态重定位</h5>
+<ul class="lvl-1">
+<li class="lvl-2">
+<p>在<strong>程序装载</strong>时，<strong>由操作系统</strong>将逻辑地址加上分区的起始地址，转换为物理地址</p>
+</li>
+<li class="lvl-2">
+<p>该方法简单，但程序装载后地址固定，无法移动<small>(但固定分区情况下，程序确实不会发生移动)</small></p>
+</li>
+</ul>
+<h5>界限寄存器</h5>
+<ul class="lvl-1">
+<li class="lvl-2">
+<p>每一个分区设置一个界限寄存器，记录该分区的最大地址范围。</p>
+</li>
+<li class="lvl-2">
+<p>访问内存时，硬件检查物理地址是否在分区范围内，超出范围则触发包含异常。</p>
+</li>
+</ul>
+</p>
+    </div>
+</div><hr />
 <div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
       <categories>
         <category>408/OS</category>
