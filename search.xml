@@ -162,7 +162,7 @@
 <hr />
 <div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
       <categories>
-        <category>408/OS</category>
+        <category>408 - OS</category>
       </categories>
       <tags>
         <tag>大学</tag>
@@ -453,15 +453,131 @@ $$</p>
     <title>内存管理中固定分区的地址重定位与存储保护</title>
     <url>/posts/1c6fec2c.html</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
-<span id="more"></span>
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p>在内存管理的固定分区方法中，地址重定位和存储保护是两个关键概念，它们确保程序正确执行并保护内存数据的完整性。以下是对这两个方面的详细解释：</p>
+</p>
+    </div>
+</div><span id="more"></span>
+<h3 id="1-地址重定位（Address-Relocation）"><a class="header-anchor" href="#1-地址重定位（Address-Relocation）">¶</a>1. 地址重定位（Address Relocation）</h3>
+<p><strong>地址重定位</strong>是指将程序的逻辑地址转换为物理地址的过程。在固定分区内存管理中，内存被划分为若干固定大小的分区，每个分区都可能被一个进程占用。当程序装载到某个分区时，逻辑地址需要被调整为物理地址，以正确访问内存中的数据。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>逻辑地址与物理地址</strong></p>
+<ul class="lvl-2">
+<li class="lvl-4"><strong>逻辑地址</strong>：由程序生成，通常从 0 开始，描述程序内部的内存访问。</li>
+<li class="lvl-4"><strong>物理地址</strong>：程序实际运行时的内存地址，由操作系统或硬件计算得出。</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p><strong>重定位的方式</strong></p>
+<ol>
+<li class="lvl-5">静态重定位：
+<ul class="lvl-4">
+<li class="lvl-7">程序在装载时由操作系统将逻辑地址加上分区的起始地址，转换为物理地址。</li>
+<li class="lvl-7">该方法简单，但程序装载后地址固定，无法移动。</li>
+</ul>
+</li>
+<li class="lvl-5">动态重定位：
+<ul class="lvl-4">
+<li class="lvl-7">程序运行时，通过硬件中的**重定位寄存器（Base Register）**实时完成地址转换。</li>
+<li class="lvl-7">在访问内存时，硬件会将逻辑地址加上分区的起始地址来计算物理地址。</li>
+</ul>
+</li>
+</ol>
+</li>
+<li class="lvl-2">
+<p><strong>示例</strong>： 如果一个程序需要访问逻辑地址 100，而该程序被加载到起始地址为 1000 的分区中，则：</p>
+<ul class="lvl-2">
+<li class="lvl-4">物理地址 = 分区起始地址 + 逻辑地址 = 1000 + 100 = 1100</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="2-存储保护（Memory-Protection）"><a class="header-anchor" href="#2-存储保护（Memory-Protection）">¶</a>2. 存储保护（Memory Protection）</h3>
+<p><strong>存储保护</strong>的目的是防止一个程序访问到其他程序或操作系统的内存，确保内存安全性。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>实现方法</strong>：</p>
+<ol>
+<li class="lvl-5">界限寄存器（Limit Register）：
+<ul class="lvl-4">
+<li class="lvl-7">每个分区设置一个界限寄存器，记录该分区的最大地址范围。</li>
+<li class="lvl-7">在访问内存时，硬件检查物理地址是否在分区范围内，超出范围则触发保护异常（Protection Fault）。</li>
+</ul>
+</li>
+<li class="lvl-5">重定位寄存器和界限寄存器联合使用：
+<ul class="lvl-4">
+<li class="lvl-7"><strong>重定位寄存器</strong>保存分区的起始地址，用于地址转换。</li>
+<li class="lvl-7"><strong>界限寄存器</strong>保存分区大小，用于检查是否越界。</li>
+<li class="lvl-7">访问内存时，实际地址需满足：<br>
+<code>实际地址 &gt;= 起始地址</code> 且 <code>实际地址 &lt; 起始地址 + 分区大小</code></li>
+</ul>
+</li>
+</ol>
+</li>
+<li class="lvl-2">
+<p><strong>保护机制的作用</strong>：</p>
+<ul class="lvl-2">
+<li class="lvl-4">防止一个程序越界访问其他分区的内存。</li>
+<li class="lvl-4">避免意外覆盖操作系统或其他程序的关键数据。</li>
+<li class="lvl-4">在多道程序系统中，保障各进程互不干扰。</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p><strong>示例</strong>： 假设分区起始地址为 1000，分区大小为 500：</p>
+<ul class="lvl-2">
+<li class="lvl-4">合法范围：1000 ≤ 地址 &lt; 1500</li>
+<li class="lvl-4">如果程序试图访问地址 1600，硬件会检测到越界并触发保护异常。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="3-地址重定位与存储保护的结合"><a class="header-anchor" href="#3-地址重定位与存储保护的结合">¶</a>3. 地址重定位与存储保护的结合</h3>
+<p>在固定分区中，地址重定位和存储保护通常通过硬件协作实现：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>每个分区分配一个<strong>重定位寄存器</strong>和一个<strong>界限寄存器</strong>。</p>
+</li>
+<li class="lvl-2">
+<p>在程序访问内存时：</p>
+<ol>
+<li class="lvl-5">重定位寄存器负责将逻辑地址转换为物理地址。</li>
+<li class="lvl-5">界限寄存器确保转换后的物理地址在合法范围内。</li>
+</ol>
+</li>
+<li class="lvl-2">
+<p>若地址转换或越界检查失败，操作系统会终止相关程序，并防止内存损坏。</p>
+</li>
+</ul>
+<hr>
+<h3 id="总结"><a class="header-anchor" href="#总结">¶</a>总结</h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>地址重定位</strong>解决了程序在不同内存分区中的装载问题，使逻辑地址转换为物理地址。</p>
+</li>
+<li class="lvl-2">
+<p><strong>存储保护</strong>通过限制内存访问范围，确保程序运行的安全性和稳定性。</p>
+</li>
+<li class="lvl-2">
+<p>在固定分区方法中，这两者结合通过硬件（如寄存器）实现高效的内存管理和保护。</p>
+</li>
+</ul>
 <hr />
 <div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
       <categories>
-        <category>未分类</category>
+        <category>408 - OS</category>
       </categories>
       <tags>
         <tag>大学</tag>
-        <tag>408/OS</tag>
+        <tag>408</tag>
+        <tag>OS</tag>
       </tags>
   </entry>
   <entry>
@@ -1304,10 +1420,166 @@ CMake 能自动处理动态库的依赖，确保库按正确顺序链接。</p>
 </ul>
 </p>
     </div>
+</div><h4 id="特点"><a class="header-anchor" href="#特点">¶</a>特点</h4>
+<p>优点：易于实现，开销小</p>
+<p><span style="color:red">问题</span>：</p>
+<ol>
+<li class="lvl-3">
+<p>可能存在内碎片和外碎片</p>
+
+<div class="callout callout-note">
+    <div class="callout-head">
+        <span class="callout-head-icon">📝</span>
+        <span class="callout-head-text" style="color:#673ab7">NOTE</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p><strong>内碎片</strong>：占用分区之内未被利用的空间</p>
+<p><strong>外碎片</strong>：占用分区之间难以利用的空闲分区<small>通常是小的空闲分区</small></p>
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p>举个例子：</p>
+<p>例如，现在操作系统分给的固定分区大小为16k</p>
+<p>但是又进程现在申请12k大小的内存，但是由于操作系统为固定分区模式，所以只能给该进程分一个大小为16k的分区，这样就有4k空间被浪费了，这浪费的4K空间称为内碎片</p>
+<p>另外，再比如，现在操作系统仅剩下1K的存储空间，所有进程都无法装入，这1K存储空间，就称为内碎片</p>
+</p>
+    </div>
+</div></p>
+    </div>
+</div></li>
+<li class="lvl-3">
+<p>分区数固定，限制了并发执行的程序数目</p>
+</li>
+</ol>
+<h3 id="动态分区"><a class="header-anchor" href="#动态分区">¶</a>动态分区</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412151439067.png" alt="image-20241215143909924"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412151439724.png" alt="image-20241215143929060"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412151439958.png" alt="image-20241215143947058"></p>
+<center><small>动态分区示意图</small></center>
+<h4 id="数据结构"><a class="header-anchor" href="#数据结构">¶</a>数据结构</h4>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412151500000.png" alt="image-20241215150022370"></p>
+<center><small>已分配分区表</small></center>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412151501017.png" alt="image-20241215150156082"></p>
+<center><small>空闲分区表</small></center>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412151503462.png" alt="image-20241215150357079"></p>
+<center><small>空闲分区链</small></center>
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p>空闲分区链用于高效的管理空闲内存块</p>
+<p>看起来，每一个空闲分区中，都会存放下一个空闲分区的首地址</p>
+<p>另外，还会存放当前分区的大小</p>
+</p>
+    </div>
+</div><h4 id="分配算法"><a class="header-anchor" href="#分配算法">¶</a>分配算法</h4>
+<h5 id="基于-span-style-color-blue-顺序搜索-span-的动态分区分配算法"><a class="header-anchor" href="#基于-span-style-color-blue-顺序搜索-span-的动态分区分配算法">¶</a>基于<span style="color:blue">顺序搜索</span>的动态分区分配算法</h5>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>依次搜索空闲分区链上的空闲分区，寻找一个大小能够满足要求的分区</p>
+</li>
+<li class="lvl-2">
+<p>首次适应算法、循环适应算法、最佳适应算法、最坏适应算法</p>
+</li>
+</ul>
+<h5 id="基于-span-style-color-red-索引搜索-span-的动态分区分配算法"><a class="header-anchor" href="#基于-span-style-color-red-索引搜索-span-的动态分区分配算法">¶</a>基于<span style="color:red">索引搜索</span>的动态分区分配算法</h5>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>提高搜索分区的速度，在大、中型系统中采用</p>
+</li>
+<li class="lvl-2">
+<p>快速适应算法、伙伴系统和哈希算法</p>
+</li>
+</ul>
+<h6 id="首次适应算法"><a class="header-anchor" href="#首次适应算法">¶</a>首次适应算法</h6>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>空闲分区链以<strong>地址</strong>递增的次序链接<small>(<span style="color:red;">注意！</span>这里不是按照空闲分区的大小进行链接)</small></p>
+</li>
+<li class="lvl-2">
+<p>从链首开始顺序查找，直到找到一个大小能够满足要求的空闲分区为止</p>
+</li>
+<li class="lvl-2">
+<p>缺点：低址部分留下许多小碎片</p>
+</li>
+</ul>
+<h6 id="循环首次适应算法"><a class="header-anchor" href="#循环首次适应算法">¶</a>循环首次适应算法</h6>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><span style="color:red">从上次找到的空闲分区的下一个空闲分区开始查找</span>，直到找到一个能满足要求的空闲分区</p>
+</li>
+<li class="lvl-2">
+<p>空闲分区分布更均匀，减少了查找的开销</p>
+</li>
+<li class="lvl-2">
+<p>缺乏大的空闲分区</p>
+</li>
+</ul>
+<h6 id="最佳适应算法"><a class="header-anchor" href="#最佳适应算法">¶</a>最佳适应算法</h6>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>搜索整个序列，找到适合条件的最小分区进行分配</p>
+</li>
+<li class="lvl-2">
+<p>空闲分区按其<strong>容量</strong>从小到大的顺序链接</p>
+</li>
+<li class="lvl-2">
+<p>用最小空间满足要求；但留下许多难以利用的小碎片</p>
+</li>
+</ul>
+<h6 id="最坏适应算法"><a class="header-anchor" href="#最坏适应算法">¶</a>最坏适应算法</h6>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>搜索整个序列，寻找最大分区进行匹配</p>
+</li>
+<li class="lvl-2">
+<p>空闲分区按其容量从大到小的顺序链接</p>
+</li>
+<li class="lvl-2">
+<p>分割后空闲块任为较大空块；缺乏大的空闲分区</p>
+</li>
+</ul>
+<h6 id="快速适应算法"><a class="header-anchor" href="#快速适应算法">¶</a>快速适应算法</h6>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>将空闲分区按其容量大小进行分类，具有相同容量的所有空闲分区设有一个空闲分区链表</p>
+</li>
+<li class="lvl-2">
+<p>分配时，根据进程长度，从索引表中寻找能容纳它的最小空闲分区链表；从链表取下第一块进行翻盘</p>
+</li>
+<li class="lvl-2">
+<p>特点</p>
+<ul class="lvl-2">
+<li class="lvl-4">优点：不分割分区，不产生碎片，查找效率高</li>
+<li class="lvl-4">缺点：分区归还主存时算法复杂，系统开销较大，存在浪费</li>
+</ul>
+</li>
+</ul>
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<h5>关于每种分配算法是否会产生 内/外碎片的讨论</h5>
+</p>
+    </div>
 </div><hr />
 <div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
       <categories>
-        <category>408/OS</category>
+        <category>408 - OS</category>
       </categories>
       <tags>
         <tag>大学</tag>
@@ -1416,7 +1688,7 @@ CMake 能自动处理动态库的依赖，确保库按正确顺序链接。</p>
 <hr />
 <div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
       <categories>
-        <category>408/OS</category>
+        <category>408 - OS</category>
       </categories>
       <tags>
         <tag>大学</tag>
@@ -1575,7 +1847,7 @@ CMake 能自动处理动态库的依赖，确保库按正确顺序链接。</p>
 <hr />
 <div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
       <categories>
-        <category>408/OS</category>
+        <category>408 - OS</category>
       </categories>
       <tags>
         <tag>大学</tag>
@@ -1698,7 +1970,7 @@ CMake 能自动处理动态库的依赖，确保库按正确顺序链接。</p>
 <hr />
 <div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
       <categories>
-        <category>408/OS</category>
+        <category>408 - OS</category>
       </categories>
       <tags>
         <tag>大学</tag>
@@ -1911,7 +2183,7 @@ CMake 能自动处理动态库的依赖，确保库按正确顺序链接。</p>
 <hr />
 <div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
       <categories>
-        <category>408/OS</category>
+        <category>408 - OS</category>
       </categories>
       <tags>
         <tag>大学</tag>
@@ -2046,7 +2318,7 @@ CMake 能自动处理动态库的依赖，确保库按正确顺序链接。</p>
 <hr />
 <div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
       <categories>
-        <category>408/OS</category>
+        <category>408 - OS</category>
       </categories>
       <tags>
         <tag>大学</tag>
@@ -2176,7 +2448,7 @@ CMake 能自动处理动态库的依赖，确保库按正确顺序链接。</p>
 <hr />
 <div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
       <categories>
-        <category>408/OS</category>
+        <category>408 - OS</category>
       </categories>
       <tags>
         <tag>大学</tag>
@@ -2308,7 +2580,7 @@ $$</li>
 <hr />
 <div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
       <categories>
-        <category>408/OS</category>
+        <category>408 - OS</category>
       </categories>
       <tags>
         <tag>大学</tag>
@@ -2426,7 +2698,7 @@ $$</li>
 <hr />
 <div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
       <categories>
-        <category>408/OS</category>
+        <category>408 - OS</category>
       </categories>
       <tags>
         <tag>大学</tag>
@@ -2562,7 +2834,7 @@ CPU在执行一条指令时，需要从内存取出指令。如果指令所在�
 <hr />
 <div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
       <categories>
-        <category>408/OS</category>
+        <category>408 - OS</category>
       </categories>
       <tags>
         <tag>大学</tag>
@@ -3723,7 +3995,7 @@ $$</p>
 <hr />
 <div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div><div id="footnotes"><hr><h4>相关注解</h4><ol class="custom-footnotes"><li id="fn:1" class="footnote-item"><span class="footnote-content">调入功能 是 指将进程所需的数据或指令从磁盘调入主存<a href="#fnref:1" rev="footnote"> ↩</a></span></li><li id="fn:2" class="footnote-item"><span class="footnote-content">进程页表 是操作系统管理虚拟存储器时，用于映射进程的 <strong>虚拟地址</strong>和 <strong>物理地址</strong> 的一个重要数据结构。<br>每个进程都有自己的 <strong>页表</strong> ，它记录了该进程所有虚拟页的相关信息，<br>包括虚拟页是否已被加载到主存以及其对应的物理页框地址。<a href="#fnref:2" rev="footnote"> ↩</a></span></li><li id="fn:3" class="footnote-item"><span class="footnote-content"><strong>CISC（Complex Instruction Set Computer）</strong> 架构是一种处理器设计理念，其特点是提供 <strong>复杂且多样化的指令集</strong><a href="#fnref:3" rev="footnote"> ↩</a></span></li><li id="fn:4" class="footnote-item"><span class="footnote-content">policy：/ˈpɒləsi/ n.  策略；方针；<a href="#fnref:4" rev="footnote"> ↩</a></span></li><li id="fn:5" class="footnote-item"><span class="footnote-content">贝拉迪  贝拉迪异常（Belady's anomaly）是一种计算机科学中的现象，指的是在某些页面置换算法中，增加可用的物理内存可能导致更多的页面错误<a href="#fnref:5" rev="footnote"> ↩</a></span></li><li id="fn:6" class="footnote-item"><span class="footnote-content"><strong>移位寄存器</strong>（Shift Register）是一种数字电路，用于将数据按照一定规则在其存储单元之间移动。它是由一组触发器（Flip-Flop）组成的逻辑电路，每个触发器存储一个位数据。<a href="#fnref:6" rev="footnote"> ↩</a></span></li><li id="fn:7" class="footnote-item"><span class="footnote-content">先进先出算法<a href="#fnref:7" rev="footnote"> ↩</a></span></li></ol></div>]]></content>
       <categories>
-        <category>408/OS</category>
+        <category>408 - OS</category>
       </categories>
       <tags>
         <tag>大学</tag>

@@ -21,17 +21,20 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta property="og:type" content="article">
+  <meta name="description" content="💡         TIP                    在内存管理的固定分区方法中，地址重定位和存储保护是两个关键概念，它们确保程序正确执行并保护内存数据的完整性。以下是对这两个方面的详细解释：">
+<meta property="og:type" content="article">
 <meta property="og:title" content="内存管理中固定分区的地址重定位与存储保护">
 <meta property="og:url" content="http://example.com/posts/1c6fec2c.html">
 <meta property="og:site_name" content="Ting&#39;s Blog">
+<meta property="og:description" content="💡         TIP                    在内存管理的固定分区方法中，地址重定位和存储保护是两个关键概念，它们确保程序正确执行并保护内存数据的完整性。以下是对这两个方面的详细解释：">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png">
 <meta property="article:published_time" content="2024-12-15T06:00:06.000Z">
-<meta property="article:modified_time" content="2024-12-15T06:06:24.094Z">
+<meta property="article:modified_time" content="2024-12-15T06:14:45.220Z">
 <meta property="article:author" content="听">
 <meta property="article:tag" content="大学">
-<meta property="article:tag" content="408&#x2F;OS">
+<meta property="article:tag" content="408">
+<meta property="article:tag" content="OS">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png">
 
@@ -223,7 +226,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2024-12-15 14:00:06 / 修改时间：14:06:24" itemprop="dateCreated datePublished" datetime="2024-12-15T14:00:06+08:00">2024-12-15</time>
+              <time title="创建时间：2024-12-15 14:00:06 / 修改时间：14:14:45" itemprop="dateCreated datePublished" datetime="2024-12-15T14:00:06+08:00">2024-12-15</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -231,7 +234,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/" itemprop="url" rel="index"><span itemprop="name">未分类</span></a>
+                  <a href="/categories/408-OS/" itemprop="url" rel="index"><span itemprop="name">408 - OS</span></a>
                 </span>
             </span>
 
@@ -247,7 +250,122 @@
 
       
         <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
-<span id="more"></span>
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p>在内存管理的固定分区方法中，地址重定位和存储保护是两个关键概念，它们确保程序正确执行并保护内存数据的完整性。以下是对这两个方面的详细解释：</p>
+</p>
+    </div>
+</div><span id="more"></span>
+<h3 id="1-地址重定位（Address-Relocation）"><a class="header-anchor" href="#1-地址重定位（Address-Relocation）">¶</a>1. 地址重定位（Address Relocation）</h3>
+<p><strong>地址重定位</strong>是指将程序的逻辑地址转换为物理地址的过程。在固定分区内存管理中，内存被划分为若干固定大小的分区，每个分区都可能被一个进程占用。当程序装载到某个分区时，逻辑地址需要被调整为物理地址，以正确访问内存中的数据。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>逻辑地址与物理地址</strong></p>
+<ul class="lvl-2">
+<li class="lvl-4"><strong>逻辑地址</strong>：由程序生成，通常从 0 开始，描述程序内部的内存访问。</li>
+<li class="lvl-4"><strong>物理地址</strong>：程序实际运行时的内存地址，由操作系统或硬件计算得出。</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p><strong>重定位的方式</strong></p>
+<ol>
+<li class="lvl-5">静态重定位：
+<ul class="lvl-4">
+<li class="lvl-7">程序在装载时由操作系统将逻辑地址加上分区的起始地址，转换为物理地址。</li>
+<li class="lvl-7">该方法简单，但程序装载后地址固定，无法移动。</li>
+</ul>
+</li>
+<li class="lvl-5">动态重定位：
+<ul class="lvl-4">
+<li class="lvl-7">程序运行时，通过硬件中的**重定位寄存器（Base Register）**实时完成地址转换。</li>
+<li class="lvl-7">在访问内存时，硬件会将逻辑地址加上分区的起始地址来计算物理地址。</li>
+</ul>
+</li>
+</ol>
+</li>
+<li class="lvl-2">
+<p><strong>示例</strong>： 如果一个程序需要访问逻辑地址 100，而该程序被加载到起始地址为 1000 的分区中，则：</p>
+<ul class="lvl-2">
+<li class="lvl-4">物理地址 = 分区起始地址 + 逻辑地址 = 1000 + 100 = 1100</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="2-存储保护（Memory-Protection）"><a class="header-anchor" href="#2-存储保护（Memory-Protection）">¶</a>2. 存储保护（Memory Protection）</h3>
+<p><strong>存储保护</strong>的目的是防止一个程序访问到其他程序或操作系统的内存，确保内存安全性。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>实现方法</strong>：</p>
+<ol>
+<li class="lvl-5">界限寄存器（Limit Register）：
+<ul class="lvl-4">
+<li class="lvl-7">每个分区设置一个界限寄存器，记录该分区的最大地址范围。</li>
+<li class="lvl-7">在访问内存时，硬件检查物理地址是否在分区范围内，超出范围则触发保护异常（Protection Fault）。</li>
+</ul>
+</li>
+<li class="lvl-5">重定位寄存器和界限寄存器联合使用：
+<ul class="lvl-4">
+<li class="lvl-7"><strong>重定位寄存器</strong>保存分区的起始地址，用于地址转换。</li>
+<li class="lvl-7"><strong>界限寄存器</strong>保存分区大小，用于检查是否越界。</li>
+<li class="lvl-7">访问内存时，实际地址需满足：<br>
+<code>实际地址 &gt;= 起始地址</code> 且 <code>实际地址 &lt; 起始地址 + 分区大小</code></li>
+</ul>
+</li>
+</ol>
+</li>
+<li class="lvl-2">
+<p><strong>保护机制的作用</strong>：</p>
+<ul class="lvl-2">
+<li class="lvl-4">防止一个程序越界访问其他分区的内存。</li>
+<li class="lvl-4">避免意外覆盖操作系统或其他程序的关键数据。</li>
+<li class="lvl-4">在多道程序系统中，保障各进程互不干扰。</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p><strong>示例</strong>： 假设分区起始地址为 1000，分区大小为 500：</p>
+<ul class="lvl-2">
+<li class="lvl-4">合法范围：1000 ≤ 地址 &lt; 1500</li>
+<li class="lvl-4">如果程序试图访问地址 1600，硬件会检测到越界并触发保护异常。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="3-地址重定位与存储保护的结合"><a class="header-anchor" href="#3-地址重定位与存储保护的结合">¶</a>3. 地址重定位与存储保护的结合</h3>
+<p>在固定分区中，地址重定位和存储保护通常通过硬件协作实现：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>每个分区分配一个<strong>重定位寄存器</strong>和一个<strong>界限寄存器</strong>。</p>
+</li>
+<li class="lvl-2">
+<p>在程序访问内存时：</p>
+<ol>
+<li class="lvl-5">重定位寄存器负责将逻辑地址转换为物理地址。</li>
+<li class="lvl-5">界限寄存器确保转换后的物理地址在合法范围内。</li>
+</ol>
+</li>
+<li class="lvl-2">
+<p>若地址转换或越界检查失败，操作系统会终止相关程序，并防止内存损坏。</p>
+</li>
+</ul>
+<hr>
+<h3 id="总结"><a class="header-anchor" href="#总结">¶</a>总结</h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>地址重定位</strong>解决了程序在不同内存分区中的装载问题，使逻辑地址转换为物理地址。</p>
+</li>
+<li class="lvl-2">
+<p><strong>存储保护</strong>通过限制内存访问范围，确保程序运行的安全性和稳定性。</p>
+</li>
+<li class="lvl-2">
+<p>在固定分区方法中，这两者结合通过硬件（如寄存器）实现高效的内存管理和保护。</p>
+</li>
+</ul>
 <hr />
 <div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>
     </div>
@@ -259,7 +377,8 @@
       <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/%E5%A4%A7%E5%AD%A6/" rel="tag"><i class="fa fa-tag"></i> 大学</a>
-              <a href="/tags/408-OS/" rel="tag"><i class="fa fa-tag"></i> 408/OS</a>
+              <a href="/tags/408/" rel="tag"><i class="fa fa-tag"></i> 408</a>
+              <a href="/tags/OS/" rel="tag"><i class="fa fa-tag"></i> OS</a>
           </div>
 
         
@@ -330,6 +449,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%9C%B0%E5%9D%80%E9%87%8D%E5%AE%9A%E4%BD%8D%EF%BC%88Address-Relocation%EF%BC%89"><span class="nav-number">1.</span> <span class="nav-text">1. 地址重定位（Address Relocation）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%AD%98%E5%82%A8%E4%BF%9D%E6%8A%A4%EF%BC%88Memory-Protection%EF%BC%89"><span class="nav-number">2.</span> <span class="nav-text">2. 存储保护（Memory Protection）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E5%9C%B0%E5%9D%80%E9%87%8D%E5%AE%9A%E4%BD%8D%E4%B8%8E%E5%AD%98%E5%82%A8%E4%BF%9D%E6%8A%A4%E7%9A%84%E7%BB%93%E5%90%88"><span class="nav-number">3.</span> <span class="nav-text">3. 地址重定位与存储保护的结合</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -352,13 +472,13 @@
       <div class="site-state-item site-state-categories">
             <a href="/categories">
           
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags">
           
-        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -583,7 +703,7 @@
                     series: [{
                         type: 'pie',
                         radius: '60%',
-                        data: [{"name":"大学","value":15},{"name":"408","value":13},{"name":"OS","value":13},{"name":"C/C++","value":3},{"name":"编程","value":3},{"name":"项目构建工具","value":2},{"name":"hexo 建设","value":2},{"name":"Latex","value":1}],
+                        data: [{"name":"大学","value":15},{"name":"408","value":14},{"name":"OS","value":14},{"name":"C/C++","value":3},{"name":"编程","value":3},{"name":"项目构建工具","value":2},{"name":"hexo 建设","value":2},{"name":"Latex","value":1}],
                         label: {
                             position: 'outside',
                             formatter: '{b} {c} ({d}%)',
@@ -595,7 +715,7 @@
                     legend: {
                         bottom: '0',
                         left: 'center',
-                        data: [{"name":"大学","value":15},{"name":"408","value":13},{"name":"OS","value":13},{"name":"C/C++","value":3},{"name":"编程","value":3},{"name":"项目构建工具","value":2},{"name":"hexo 建设","value":2},{"name":"Latex","value":1}].map(tag => tag.name),
+                        data: [{"name":"大学","value":15},{"name":"408","value":14},{"name":"OS","value":14},{"name":"C/C++","value":3},{"name":"编程","value":3},{"name":"项目构建工具","value":2},{"name":"hexo 建设","value":2},{"name":"Latex","value":1}].map(tag => tag.name),
                         textStyle: { fontSize: 12 }
                     }
                 });
@@ -613,13 +733,13 @@
                     },
                     yAxis: {
                         type: 'category',
-                        data: [{"name":"408/OS","value":13},{"name":"编程知识","value":3},{"name":"未分类","value":2},{"name":"hexo","value":2},{"name":"Markdown","value":1}].map(category => category.name).reverse(),
+                        data: [{"name":"408 - OS","value":13},{"name":"编程知识","value":3},{"name":"hexo","value":2},{"name":"Markdown","value":1},{"name":"未分类","value":1}].map(category => category.name).reverse(),
                         axisLabel: { fontSize: 12 }
                     },
                     series: [{
                         name: 'Category Count',
                         type: 'bar',
-                        data: [{"name":"408/OS","value":13},{"name":"编程知识","value":3},{"name":"未分类","value":2},{"name":"hexo","value":2},{"name":"Markdown","value":1}].map(category => category.value).reverse(),
+                        data: [{"name":"408 - OS","value":13},{"name":"编程知识","value":3},{"name":"hexo","value":2},{"name":"Markdown","value":1},{"name":"未分类","value":1}].map(category => category.value).reverse(),
                         label: {
                             show: true,
                             position: 'right',
