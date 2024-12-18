@@ -463,8 +463,28 @@ $$</p>
 </p>
     </div>
 </div><span id="more"></span>
+<h2 id="了解各种ROM"><a class="header-anchor" href="#了解各种ROM">¶</a>了解各种ROM</h2>
+<h3 id="MROM"><a class="header-anchor" href="#MROM">¶</a>MROM</h3>
+<p>掩模式只读ROM</p>
+<p>厂家按照客户需求，在芯片生产过长中直接写入信息，之后<span style="color:red">任何人不可重写</span>（只能读出）</p>
+<p>可靠性高、灵活性差、生产周期长、只适合批量定制</p>
+<h3 id="PROM"><a class="header-anchor" href="#PROM">¶</a>PROM</h3>
+<p>可编程只读ROM</p>
+<p>用户可用专门PROM写入器写入信息，写<span style="color:red">写一次之后就无法更改</span></p>
+<h3 id="EPROM"><a class="header-anchor" href="#EPROM">¶</a>EPROM</h3>
+<p>可擦除可编程只读存储器</p>
+<p>允许用户写入信息，之后用某种方法擦除数据，<span style="color:red">可进行多次重写</span></p>
+<h3 id="UVEPROM"><a class="header-anchor" href="#UVEPROM">¶</a>UVEPROM</h3>
+<p>用紫外线照射8~20分钟，擦除<mark>所有信息</mark></p>
+<h3 id="EEROM"><a class="header-anchor" href="#EEROM">¶</a>EEROM</h3>
+<p>(也常记为$E^2PROM$，第一个E是Electioneering)</p>
+<p>可用“电擦除”的方式，擦除<mark>特定的字</mark></p>
+<h3 id="Flash-Mermory"><a class="header-anchor" href="#Flash-Mermory">¶</a>Flash Mermory</h3>
+<p>闪速存储器（注：U盘，SD卡，就是闪存)</p>
+<p>注意：由于闪存需要擦除再写入，因此<mark>闪存的“写”速度要比“读”速度更慢</mark></p>
 <hr />
-<div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
+<div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>
+]]></content>
       <categories>
         <category>未分类</category>
       </categories>
