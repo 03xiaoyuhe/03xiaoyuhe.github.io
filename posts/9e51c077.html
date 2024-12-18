@@ -21,24 +21,29 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="📝         NOTE                    总结   没有 TLB 的情况下，单级页表访问一次，多级页表可能需要访问两次甚至更多次。   使用 TLB 后，大部分情况下只需访问一次页表（命中情况下直接完成转换），未命中的情况下才需访问页表的所有层级。   通过 TLB 缓解页表访问延迟是现代虚拟存储管理的重要优化手段。">
+  <meta name="description" content="💡         TIP">
 <meta property="og:type" content="article">
-<meta property="og:title" content="在地址转换过程中会访问两次页表嘛？">
-<meta property="og:url" content="http://example.com/posts/c38ea43e.html">
+<meta property="og:title" content="计组-第三章-SRAM和DRAM">
+<meta property="og:url" content="http://example.com/posts/9e51c077.html">
 <meta property="og:site_name" content="Ting&#39;s Blog">
-<meta property="og:description" content="📝         NOTE                    总结   没有 TLB 的情况下，单级页表访问一次，多级页表可能需要访问两次甚至更多次。   使用 TLB 后，大部分情况下只需访问一次页表（命中情况下直接完成转换），未命中的情况下才需访问页表的所有层级。   通过 TLB 缓解页表访问延迟是现代虚拟存储管理的重要优化手段。">
+<meta property="og:description" content="💡         TIP">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png">
-<meta property="article:published_time" content="2024-12-11T13:15:02.000Z">
-<meta property="article:modified_time" content="2024-12-15T06:13:17.966Z">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412172253813.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412172254176.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412172301628.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412172317892.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412180922018.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412180853639.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412180856798.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412180932106.png">
+<meta property="article:published_time" content="2024-12-17T14:51:45.000Z">
+<meta property="article:modified_time" content="2024-12-18T01:36:55.929Z">
 <meta property="article:author" content="听">
-<meta property="article:tag" content="大学">
-<meta property="article:tag" content="408">
-<meta property="article:tag" content="OS">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png">
 
-<link rel="canonical" href="http://example.com/posts/c38ea43e.html">
+<link rel="canonical" href="http://example.com/posts/9e51c077.html">
 
 
 <script id="page-configurations">
@@ -51,7 +56,7 @@
   };
 </script>
 
-  <title>在地址转换过程中会访问两次页表嘛？ | Ting's Blog</title>
+  <title>计组-第三章-SRAM和DRAM | Ting's Blog</title>
   
 
 
@@ -201,7 +206,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/posts/c38ea43e.html">
+    <link itemprop="mainEntityOfPage" href="http://example.com/posts/9e51c077.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101430362.jpg">
@@ -214,7 +219,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          在地址转换过程中会访问两次页表嘛？
+          计组-第三章-SRAM和DRAM
         </h1>
 
         <div class="post-meta">
@@ -225,14 +230,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2024-12-11 21:15:02" itemprop="dateCreated datePublished" datetime="2024-12-11T21:15:02+08:00">2024-12-11</time>
+              <time title="创建时间：2024-12-17 22:51:45" itemprop="dateCreated datePublished" datetime="2024-12-17T22:51:45+08:00">2024-12-17</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-12-15 14:13:17" itemprop="dateModified" datetime="2024-12-15T14:13:17+08:00">2024-12-15</time>
+                <time title="修改时间：2024-12-18 09:36:55" itemprop="dateModified" datetime="2024-12-18T09:36:55+08:00">2024-12-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -240,7 +245,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/408-OS/" itemprop="url" rel="index"><span itemprop="name">408 - OS</span></a>
+                  <a href="/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/" itemprop="url" rel="index"><span itemprop="name">未分类</span></a>
                 </span>
             </span>
 
@@ -257,6 +262,127 @@
       
         <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
 
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412172253813.png" alt="image-20241217225313705"></p>
+</p>
+    </div>
+</div><span id="more"></span>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412172254176.png" alt="image-20241217225433063"></p>
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p>DRAM是使用栅极电容作为一个存储元</p>
+<p>SRAM是使用双稳态触发器作为一个存储元</p>
+</p>
+    </div>
+</div><p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412172301628.png" alt="image-20241217230118820"></p>
+<h2 id="栅极电容与双稳态触发器对比"><a class="header-anchor" href="#栅极电容与双稳态触发器对比">¶</a>栅极电容与双稳态触发器对比</h2>
+<h3 id="栅极电容"><a class="header-anchor" href="#栅极电容">¶</a>栅极电容</h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>读出1：MOS管接通，电容放电，数据上产生电流</p>
+</li>
+</ul>
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p>电容放电信息被破坏，是<mark>破坏性读出</mark>。读出后应有<mark>重写</mark>操作，也称再生</p>
+<p>另外，电容内的电荷只能维持2ms，即使不断电，2ms后信息也会消失，2ms之内必须“刷新”一次(给电容器充电)</p>
+</p>
+    </div>
+</div><ul class="lvl-0">
+<li class="lvl-2">
+<p>读出0：MOS管接通后，数据线上无电流</p>
+</li>
+</ul>
+<p>每个存储器制造成本更低，集成度高，功耗低</p>
+<h3 id="双稳态触发器"><a class="header-anchor" href="#双稳态触发器">¶</a>双稳态触发器</h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>读出0：BL为低电平</p>
+</li>
+<li class="lvl-2">
+<p>读出1：BLX为低电平</p>
+</li>
+</ul>
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p>读出数据，触发器状态保持稳定，是<mark>非破坏性读出</mark>，<mark>无需重写</mark></p>
+</p>
+    </div>
+</div><p>每个存储元制造成本更高，集成度低，功耗大</p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412172317892.png" alt="image-20241217231730785"></p>
+<h2 id="DRAM的刷新"><a class="header-anchor" href="#DRAM的刷新">¶</a>DRAM的刷新</h2>
+<ol>
+<li class="lvl-3">
+<p>多久需要刷新一次：刷新周期，一般为2ms</p>
+</li>
+<li class="lvl-3">
+<p>每次刷新多少存储单元：以行为单位，每次刷新一行存储单元</p>
+</li>
+<li class="lvl-3">
+<p>如何刷新：</p>
+<p><span style="color:blue">有硬件支持，读出一行的信息后重新写入，占用1个 读/写周期</span></p>
+</li>
+<li class="lvl-3">
+<p>在什么时候刷新：</p>
+<ul class="lvl-2">
+<li class="lvl-5">
+<p>思路一：每次读写玩就刷新一次</p>
+<ul class="lvl-4">
+<li class="lvl-7">
+<p>系统的存取周期变为1us</p>
+<p>前0.5us用于正常读写</p>
+<p>后0.5us用于刷新某行</p>
+</li>
+</ul>
+</li>
+<li class="lvl-5">
+<p>思路二：2ms内集中全部刷新</p>
+<ul class="lvl-4">
+<li class="lvl-7">
+<p>系统的存取周期还是0.4us</p>
+<p>有一段时间专门用于刷新</p>
+<p>无法访问存储器，称为访存&quot;死区&quot;</p>
+</li>
+</ul>
+</li>
+<li class="lvl-5">
+<p>思路三：2ms内每行刷新1次即可</p>
+<ul class="lvl-4">
+<li class="lvl-7">
+<p>2ms/128 = 15.6us一次</p>
+<p>每15.6us内有0.5us的&quot;死时间&quot;</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412180922018.png" alt="image-20241218092153796"></p>
+
 <div class="callout callout-note">
     <div class="callout-head">
         <span class="callout-head-icon">📝</span>
@@ -264,85 +390,54 @@
     </div>
     <div class="callout-contents">
         <p><p></p>
-<h3><strong>总结</strong></h3>
-<ol>
-<li class="lvl-3">
-<p>没有 TLB 的情况下，单级页表访问一次，多级页表可能需要访问两次甚至更多次。</p>
-</li>
-<li class="lvl-3">
-<p>使用 TLB 后，大部分情况下只需访问一次页表（命中情况下直接完成转换），未命中的情况下才需访问页表的所有层级。</p>
-</li>
-</ol>
-<p>通过 TLB 缓解页表访问延迟是现代虚拟存储管理的重要优化手段。</p>
+<p>“刷新”由存储器独立完成，不需要cpu控制</p>
 </p>
     </div>
-</div><span id="more"></span>
-<hr>
-<h3 id="1-单级页表的地址转换"><a class="header-anchor" href="#1-单级页表的地址转换">¶</a><strong>1. 单级页表的地址转换</strong></h3>
-<p>在单级页表中，虚拟地址通过以下步骤转换为物理地址：</p>
-<ol>
-<li class="lvl-3">
-<p><strong>页号查找</strong>：通过虚拟地址中的页号部分访问页表，找到对应的页表项，获取物理页号。</p>
-</li>
-<li class="lvl-3">
-<p><strong>偏移量加法</strong>：将物理页号与虚拟地址中的页内偏移量结合，得到物理地址。</p>
-</li>
-</ol>
-<p>此时，页表只需访问一次。但由于页表存储在主存中，这次访问本身也需要访问主存一次，增加了访问延迟。</p>
-<hr>
-<h3 id="2-多级页表的地址转换"><a class="header-anchor" href="#2-多级页表的地址转换">¶</a><strong>2. 多级页表的地址转换</strong></h3>
-<p>在多级页表中（例如二级页表），为了减小页表占用的内存，页表被分解为多个层级。虚拟地址的转换过程如下：</p>
-<ol>
-<li class="lvl-3">
-<p>从虚拟地址中提取多级页号（如一级页号和二级页号）。</p>
-</li>
-<li class="lvl-3">
-<p><strong>第一级页表访问</strong>：使用一级页号查找一级页表，找到指向二级页表的地址。</p>
-</li>
-<li class="lvl-3">
-<p><strong>第二级页表访问</strong>：使用二级页号查找二级页表，找到对应的物理页号。</p>
-</li>
-<li class="lvl-3">
-<p><strong>偏移量加法</strong>：将物理页号与页内偏移量结合，生成最终物理地址。</p>
-</li>
-</ol>
-<p>此时，由于需要分别访问一级页表和二级页表，因此需要两次内存访问。</p>
-<hr>
-<h3 id="3-TLB-的作用"><a class="header-anchor" href="#3-TLB-的作用">¶</a><strong>3. TLB 的作用</strong></h3>
-<p>为了避免多次访问页表带来的性能开销，现代系统中通常会使用 <strong>TLB</strong> 来缓存常用的页表项。如果虚拟地址对应的页表项已经在 TLB 中：</p>
-<ol>
-<li class="lvl-3">
-<p>地址转换直接通过 TLB 完成，只需访问一次主存。</p>
-</li>
-<li class="lvl-3">
-<p>如果 TLB 未命中，则需要按上述流程访问多级页表，并更新 TLB。</p>
-</li>
-</ol>
-<hr>
-<h3 id="4-具体分析"><a class="header-anchor" href="#4-具体分析">¶</a><strong>4. 具体分析</strong></h3>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p><strong>单级页表</strong>：理论上只需访问一次页表（加上实际的数据访问总共两次主存访问）。</p>
-</li>
-<li class="lvl-2">
-<p><strong>多级页表</strong>：可能需要访问页表两次（或更多次），再加上最终的数据访问，总计三次或更多主存访问。</p>
-</li>
-<li class="lvl-2">
-<p><strong>带 TLB 的多级页表</strong>：在 TLB 命中的情况下，地址转换和数据访问总共只需两次主存访问。</p>
-</li>
-</ul>
-<hr>
-<h3 id="总结"><a class="header-anchor" href="#总结">¶</a><strong>总结</strong></h3>
-<ol>
-<li class="lvl-3">
-<p>没有 TLB 的情况下，单级页表访问一次，多级页表可能需要访问两次甚至更多次。</p>
-</li>
-<li class="lvl-3">
-<p>使用 TLB 后，大部分情况下只需访问一次页表（命中情况下直接完成转换），未命中的情况下才需访问页表的所有层级。</p>
-</li>
-</ol>
-<p>通过 TLB 缓解页表访问延迟是现代虚拟存储管理的重要优化手段。</p>
-<hr />
+</div>
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p><big><strong>DRAM通常使用行列地址，以减少选通线的数量</strong></big></p>
+<p>因为如果只用一维地址线，大容量存储就会使用非常多的地址线</p>
+<p>所以在实际使用时，一般采用二维地址线，即行列地址线</p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412180853639.png" alt="image-20241218085302674"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412180856798.png" alt="image-20241218085631434"></p>
+</p>
+    </div>
+</div><h2 id="DRAM地址线复用技术"><a class="header-anchor" href="#DRAM地址线复用技术">¶</a>DRAM地址线复用技术</h2>
+<p>因为DRAM需要很长的寻址，所以将行地址与列地址进行复用</p>
+<p>则只需要$\frac{n}{2}$条地址线</p>
+<p>在地址解析时，</p>
+<p>先将行地址通过地址线放入行地址缓冲器</p>
+<p>再将列地址通过地址线放入列地址缓冲区</p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412180932106.png" alt="image-20241218093200088"></p>
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p>地址线复用技术，导致地址线、地址引脚减半</p>
+</p>
+    </div>
+</div>
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p>现在的主存通常采用SDRAM芯片</p>
+</p>
+    </div>
+</div><hr />
 <div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>
     </div>
 
@@ -351,11 +446,6 @@
     
 
       <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/%E5%A4%A7%E5%AD%A6/" rel="tag"><i class="fa fa-tag"></i> 大学</a>
-              <a href="/tags/408/" rel="tag"><i class="fa fa-tag"></i> 408</a>
-              <a href="/tags/OS/" rel="tag"><i class="fa fa-tag"></i> OS</a>
-          </div>
 
         
 
@@ -363,12 +453,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/posts/f830ee25.html" rel="prev" title="调页策略">
-      <i class="fa fa-chevron-left"></i> 调页策略
+    <a href="/posts/55b84d3b.html" rel="prev" title="计组-第三章-主存储器的基本组成">
+      <i class="fa fa-chevron-left"></i> 计组-第三章-主存储器的基本组成
     </a></div>
       <div class="post-nav-item">
-    <a href="/posts/bd8dd267.html" rel="next" title="计网第二章">
-      计网第二章 <i class="fa fa-chevron-right"></i>
+    <a href="/posts/4bd706e9.html" rel="next" title="计组-第三章-只读存储器ROM">
+      计组-第三章-只读存储器ROM <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -428,7 +518,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%8D%95%E7%BA%A7%E9%A1%B5%E8%A1%A8%E7%9A%84%E5%9C%B0%E5%9D%80%E8%BD%AC%E6%8D%A2"><span class="nav-number">2.</span> <span class="nav-text">1. 单级页表的地址转换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%A4%9A%E7%BA%A7%E9%A1%B5%E8%A1%A8%E7%9A%84%E5%9C%B0%E5%9D%80%E8%BD%AC%E6%8D%A2"><span class="nav-number">3.</span> <span class="nav-text">2. 多级页表的地址转换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-TLB-%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="nav-number">4.</span> <span class="nav-text">3. TLB 的作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E5%85%B7%E4%BD%93%E5%88%86%E6%9E%90"><span class="nav-number">5.</span> <span class="nav-text">4. 具体分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">6.</span> <span class="nav-text">总结</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%85%E6%9E%81%E7%94%B5%E5%AE%B9%E4%B8%8E%E5%8F%8C%E7%A8%B3%E6%80%81%E8%A7%A6%E5%8F%91%E5%99%A8%E5%AF%B9%E6%AF%94"><span class="nav-number">1.</span> <span class="nav-text">栅极电容与双稳态触发器对比</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%85%E6%9E%81%E7%94%B5%E5%AE%B9"><span class="nav-number">1.1.</span> <span class="nav-text">栅极电容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%8C%E7%A8%B3%E6%80%81%E8%A7%A6%E5%8F%91%E5%99%A8"><span class="nav-number">1.2.</span> <span class="nav-text">双稳态触发器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DRAM%E7%9A%84%E5%88%B7%E6%96%B0"><span class="nav-number">2.</span> <span class="nav-text">DRAM的刷新</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DRAM%E5%9C%B0%E5%9D%80%E7%BA%BF%E5%A4%8D%E7%94%A8%E6%8A%80%E6%9C%AF"><span class="nav-number">3.</span> <span class="nav-text">DRAM地址线复用技术</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

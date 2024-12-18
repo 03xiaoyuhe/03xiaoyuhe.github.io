@@ -390,7 +390,10 @@
     <a href="/posts/4c75609f.html" rel="prev" title="Daily Words">
       <i class="fa fa-chevron-left"></i> Daily Words
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/posts/80359a17.html" rel="next" title="计组-第三章-存储系统的基本概念">
+      计组-第三章-存储系统的基本概念 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -465,7 +468,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives">
         
-          <span class="site-state-item-count">29</span>
+          <span class="site-state-item-count">33</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -640,7 +643,7 @@
                     },
                     visualMap: {
                         min: 0,
-                        max: Math.max(...[["2024-12-09",3],["2024-12-10",8],["2024-12-11",9],["2024-12-12",4],["2024-12-13",4],["2024-12-15",1]].map(item => item[1])),
+                        max: Math.max(...[["2024-12-09",3],["2024-12-10",8],["2024-12-11",9],["2024-12-12",4],["2024-12-13",4],["2024-12-15",1],["2024-12-17",3],["2024-12-18",1]].map(item => item[1])),
                         calculable: false,
                         orient: 'horizontal', // 横向布局
                         right: '5%',
@@ -660,7 +663,7 @@
                     series: [{
                         type: 'heatmap',
                         coordinateSystem: 'calendar',
-                        data: [["2024-12-09",3],["2024-12-10",8],["2024-12-11",9],["2024-12-12",4],["2024-12-13",4],["2024-12-15",1]]
+                        data: [["2024-12-09",3],["2024-12-10",8],["2024-12-11",9],["2024-12-12",4],["2024-12-13",4],["2024-12-15",1],["2024-12-17",3],["2024-12-18",1]]
                     }]
                 });
             }
@@ -683,7 +686,7 @@
                     series: [{
                         name: 'Articles',
                         type: 'line',
-                        data: [29],
+                        data: [33],
                         smooth: true,
                         lineStyle: { color: '#5470C6', width: 2 },
                         itemStyle: { color: '#5470C6' },
@@ -733,13 +736,13 @@
                     },
                     yAxis: {
                         type: 'category',
-                        data: [{"name":"408 - OS","value":13},{"name":"编程知识","value":3},{"name":"hexo","value":2},{"name":"Markdown","value":1},{"name":"未分类","value":1}].map(category => category.name).reverse(),
+                        data: [{"name":"408 - OS","value":13},{"name":"未分类","value":5},{"name":"编程知识","value":3},{"name":"hexo","value":2},{"name":"Markdown","value":1}].map(category => category.name).reverse(),
                         axisLabel: { fontSize: 12 }
                     },
                     series: [{
                         name: 'Category Count',
                         type: 'bar',
-                        data: [{"name":"408 - OS","value":13},{"name":"编程知识","value":3},{"name":"hexo","value":2},{"name":"Markdown","value":1},{"name":"未分类","value":1}].map(category => category.value).reverse(),
+                        data: [{"name":"408 - OS","value":13},{"name":"未分类","value":5},{"name":"编程知识","value":3},{"name":"hexo","value":2},{"name":"Markdown","value":1}].map(category => category.value).reverse(),
                         label: {
                             show: true,
                             position: 'right',

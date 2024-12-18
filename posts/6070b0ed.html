@@ -51,8 +51,19 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412151500000.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412151501017.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412151503462.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412152058766.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412152059078.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412152100324.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412152105924.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412152105463.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412152110600.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412152114213.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412152115017.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412152116919.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412152124296.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412152125190.png">
 <meta property="article:published_time" content="2024-12-12T05:27:12.000Z">
-<meta property="article:modified_time" content="2024-12-15T12:29:16.192Z">
+<meta property="article:modified_time" content="2024-12-15T13:30:30.335Z">
 <meta property="article:author" content="听">
 <meta property="article:tag" content="大学">
 <meta property="article:tag" content="408">
@@ -254,7 +265,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-12-15 20:29:16" itemprop="dateModified" datetime="2024-12-15T20:29:16+08:00">2024-12-15</time>
+                <time title="修改时间：2024-12-15 21:30:30" itemprop="dateModified" datetime="2024-12-15T21:30:30+08:00">2024-12-15</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -973,14 +984,86 @@
 </p>
     </div>
 </div></blockquote>
-<p>其中，伙伴算法规定：</p>
+<p>伙伴算法规定，无论已分配分区或空闲分区，其<span style="color:blue">大小均为 $2$ 的 $k$ 次幂</span>，$k$ 为整数，$n &lt;= k &lt;= m$，其中：$2^n$ 表示分配的最小分区大小，$2^m$ 标识分配的最大分区的大小，通常$2^m$ 是整个可分配内存的大小。</p>
+<p>在系统运行过程中，由于不断的划分，可能会形成若干个不连续的空闲分区。</p>
+<p>内存管理模块保持有多个空闲块链表，空闲块的大小可以为 2，4，8，$2^m$ 字节（$m$ 为正整数）</p>
+<p>系统初起时，只有一个最大的空闲块（整个内存）。</p>
+<p><u>当一个长度为$n$的进程申请内存时，系统就分给它一个大于或等于所申请尺寸的最小的2的幂次的空闲块。</u><small>(<span style="color:blue">并没有一定和进程所需内存相同；即，即使进程用不了那么多，操作系统还是会分给它</span>)</small></p>
+<p><strong>伙伴系统的缺点</strong>：不能有效的利用内存。进程大小不一定是2的整数被，因此会造成浪费，内碎片严重。</p>
+<p>同时也会出现外碎片，因为还是会有进程无法放入较小的分区。</p>
+<h4 id="内存分配流程"><a class="header-anchor" href="#内存分配流程">¶</a><strong>内存分配流程</strong></h4>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412152058766.png" alt="image-20241215205802867"></p>
+<h4 id="内存回收"><a class="header-anchor" href="#内存回收">¶</a>内存回收</h4>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412152059078.png" alt="image-20241215205944359"></p>
+<h4 id="地址转换"><a class="header-anchor" href="#地址转换">¶</a>地址转换</h4>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412152100324.png" alt="image-20241215210048568"></p>
+<center><small>动态重定位示意图</small></center>
+<h4 id="相关技术"><a class="header-anchor" href="#相关技术">¶</a>相关技术</h4>
+<p>主存不足的存储管理技术</p>
 <ul class="lvl-0">
 <li class="lvl-2">
-<p>无论已分配分区或空闲分区，其<span style="color:blue">大小均为 $2$ 的 $k$ 次幂</span>，$k$ 为整数，$n &lt;= k &lt;= m$，其中：</p>
+<p>内存紧凑</p>
+</li>
+<li class="lvl-2">
+<p>交换</p>
+</li>
+<li class="lvl-2">
+<p>覆盖</p>
 </li>
 </ul>
+<h2 id="分页存储管理"><a class="header-anchor" href="#分页存储管理">¶</a>分页存储管理</h2>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412152105924.png" alt="image-20241215210511208"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412152105463.png" alt="image-20241215210526994"></p>
+<center><small>学习目标及目标评价</small></center>
+<h3 id="分页存储的基本原理"><a class="header-anchor" href="#分页存储的基本原理">¶</a>分页存储的基本原理</h3>
+<p>将内存空间分为一个个<strong>大小相等的分区</strong>（比如：每个分区4KB）</p>
+<p>每个分区就是一个“<strong>页框</strong>”<small>或称“<strong>页帧</strong>”、“<strong>内存块</strong>”、“<strong>物理块</strong>”</small></p>
+<p>每个页框有一个编号，即“<strong>页框号</strong>”<small>或者“<strong>内存块号</strong>”、“<strong>页帧号</strong>”、“<strong>物理块号</strong>”</small></p>
+<p>页框号从0开始。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412152110600.png" alt="页与页框"></p>
+<center><small>页与页框</small></center>
 <hr />
 <div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>
+<h3 id="地址结构"><a class="header-anchor" href="#地址结构">¶</a>地址结构</h3>
+<p>内存地址(<span style="color:red">逻辑地址</span>)范围（1块大小为1KB）</p>
+<img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412152114213.png" alt="image-20241215211426833" style="zoom:50%;" />
+<p>内存地址结构：</p>
+<img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412152115017.png" alt="image-20241215211502226" style="zoom:50%;" />
+<img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412152116919.png" alt="image-20241215211616857" style="zoom:80%;" />
+<center><small><span style="color:red"><strong>分页地址中的结构(32位)</strong></span></small></center>
+<h4 id="页号P"><a class="header-anchor" href="#页号P">¶</a>页号P</h4>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>12-31位：20位</p>
+</li>
+<li class="lvl-2">
+<p>地址空间最多运行有1M（$2^{20}$）页</p>
+</li>
+</ul>
+<h4 id="位移量W（页内地址）"><a class="header-anchor" href="#位移量W（页内地址）">¶</a>位移量W（页内地址）</h4>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>0-11：12位</p>
+</li>
+<li class="lvl-2">
+<p>每页大小为4KB（$2^{12}$）</p>
+</li>
+</ul>
+<p>对某特定机器，地址结构是一定的。</p>
+<p>若给抵挡一个逻辑地址空间中的地址为A，页面的大小为L，则<span style="color:red">页号P</span>和<span style="color:red">页内地址d</span>可按下式求得</p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412152124296.png" alt="image-20241215212411760"></p>
+<h3 id="数据结构-2"><a class="header-anchor" href="#数据结构-2">¶</a>数据结构</h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><big><span style="color:blue;">进程页表</span></big>：每个进程有一个页表，描述该进程占用的物理页面及逻辑排列顺序；</p>
+<ul class="lvl-2">
+<li class="lvl-4">逻辑页表</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412152125190.png" alt="image-20241215212545948"></p>
+<center><small>页表结构</small></center>
+
     </div>
 
     
@@ -1065,7 +1148,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%A6%E4%B9%A0%E7%9B%AE%E6%A0%87"><span class="nav-number">1.</span> <span class="nav-text">学习目标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%AE%E6%A0%87%E8%AF%84%E4%BB%B7"><span class="nav-number">2.</span> <span class="nav-text">目标评价</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5"><span class="nav-number">3.</span> <span class="nav-text">基础概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E7%9A%84%E4%BB%BB%E5%8A%A1"><span class="nav-number">3.1.</span> <span class="nav-text">内存管理的任务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">3.2.</span> <span class="nav-text">学后应能够回答的问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%98%E5%82%A8%E5%99%A8%E7%9A%84%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84"><span class="nav-number">3.3.</span> <span class="nav-text">存储器的层次结构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AF%84%E5%AD%98%E5%99%A8"><span class="nav-number">3.3.1.</span> <span class="nav-text">寄存器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%AB%98%E9%80%9F%E7%BC%93%E5%AD%98"><span class="nav-number">3.3.2.</span> <span class="nav-text">高速缓存</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A3%81%E7%9B%98%E7%BC%93%E5%AD%98"><span class="nav-number">3.3.3.</span> <span class="nav-text">磁盘缓存</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%BB%E5%AD%98"><span class="nav-number">3.3.4.</span> <span class="nav-text">主存</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87"><span class="nav-number">3.3.4.1.</span> <span class="nav-text">性能指标</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">3.3.4.2.</span> <span class="nav-text">简例</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A8%8B%E5%BA%8F%E5%9C%B0%E5%9D%80"><span class="nav-number">3.4.</span> <span class="nav-text">程序地址</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A8%8B%E5%BA%8F%E5%9C%A8%E6%88%90%E4%B8%BA%E8%BF%9B%E7%A8%8B%E5%89%8D%E7%9A%84%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="nav-number">3.4.1.</span> <span class="nav-text">程序在成为进程前的准备工作</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">3.4.1.1.</span> <span class="nav-text">总结</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">3.4.1.1.1.</span> <span class="nav-text">程序在成为进程前的准备工作</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A8%8B%E5%BA%8F%E5%90%84%E9%98%B6%E6%AE%B5%E7%9A%84%E5%9C%B0%E5%9D%80%E5%8F%98%E6%8D%A2"><span class="nav-number">3.4.2.</span> <span class="nav-text">程序各阶段的地址变换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%89%A9%E7%90%86%E5%9C%B0%E5%9D%80%E5%92%8C%E9%80%BB%E8%BE%91%E5%9C%B0%E5%9D%80"><span class="nav-number">3.4.3.</span> <span class="nav-text">物理地址和逻辑地址</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%89%A9%E7%90%86%E5%9C%B0%E5%9D%80-small-%E7%BB%9D%E5%AF%B9%E5%9C%B0%E5%9D%80-small"><span class="nav-number">3.4.3.1.</span> <span class="nav-text">物理地址(绝对地址)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%80%BB%E8%BE%91%E5%9C%B0%E5%9D%80-small-%E8%99%9A%E6%8B%9F%E5%9C%B0%E5%9D%80%E3%80%81%E7%9B%B8%E5%AF%B9%E5%9C%B0%E5%9D%80-small"><span class="nav-number">3.4.3.2.</span> <span class="nav-text">逻辑地址(虚拟地址、相对地址)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%9C%B0%E5%9D%80%E8%BD%AC%E6%8D%A2-small-%E5%9C%B0%E5%9D%80%E9%87%8D%E5%AE%9A%E4%BD%8D%E3%80%81%E5%9C%B0%E5%9D%80%E6%98%A0%E5%B0%84-small"><span class="nav-number">3.4.3.3.</span> <span class="nav-text">地址转换(地址重定位、地址映射)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A8%8B%E5%BA%8F%E7%9A%84%E8%A3%85%E5%85%A5"><span class="nav-number">3.5.</span> <span class="nav-text">程序的装入</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9C%B0%E5%9D%80%E8%BD%AC%E6%8D%A2%E6%97%B6%E6%9C%9F"><span class="nav-number">3.5.1.</span> <span class="nav-text">地址转换时期</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A8%8B%E5%BA%8F%E7%9A%84%E9%93%BE%E6%8E%A5"><span class="nav-number">3.5.2.</span> <span class="nav-text">程序的链接</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%9D%99%E6%80%81%E9%93%BE%E6%8E%A5"><span class="nav-number">3.5.2.1.</span> <span class="nav-text">静态链接</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%A3%85%E5%85%A5%E6%97%B6%E5%8A%A8%E6%80%81%E9%93%BE%E6%8E%A5"><span class="nav-number">3.5.2.2.</span> <span class="nav-text">装入时动态链接</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%BF%90%E8%A1%8C%E6%97%B6%E5%8A%A8%E6%80%81%E9%93%BE%E6%8E%A5"><span class="nav-number">3.5.2.3.</span> <span class="nav-text">运行时动态链接</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">3.5.3.</span> <span class="nav-text">动态链接库详细介绍</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">3.6.</span> <span class="nav-text">各种存储管理方案</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">3.7.</span> <span class="nav-text">学习目标</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9E%E7%BB%AD%E5%88%86%E9%85%8D%E5%AD%98%E5%82%A8%E7%AE%A1%E7%90%86%E6%96%B9%E5%BC%8F"><span class="nav-number">4.</span> <span class="nav-text">连续分配存储管理方式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">4.0.0.1.</span> <span class="nav-text">分类</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%95%E4%B8%80%E8%BF%9E%E7%BB%AD%E5%88%86%E5%8C%BA"><span class="nav-number">4.1.</span> <span class="nav-text">单一连续分区</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%86%E9%85%8D%E6%96%B9%E5%BC%8F"><span class="nav-number">4.1.1.</span> <span class="nav-text">分配方式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%BA%E5%AE%9A%E5%88%86%E5%8C%BA"><span class="nav-number">4.2.</span> <span class="nav-text">固定分区</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AE%A1%E7%90%86%E6%96%B9%E5%BC%8F"><span class="nav-number">4.2.1.</span> <span class="nav-text">管理方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9C%B0%E5%9D%80%E9%87%8D%E5%AE%9A%E4%BD%8D%E4%B8%8E%E5%AD%98%E5%82%A8%E4%BF%9D%E6%8A%A4"><span class="nav-number">4.2.2.</span> <span class="nav-text">地址重定位与存储保护</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">4.2.2.1.</span> <span class="nav-text">静态重定位</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">4.2.2.2.</span> <span class="nav-text">界限寄存器</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%89%B9%E7%82%B9"><span class="nav-number">4.2.3.</span> <span class="nav-text">特点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%A8%E6%80%81%E5%88%86%E5%8C%BA"><span class="nav-number">4.3.</span> <span class="nav-text">动态分区</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="nav-number">4.3.1.</span> <span class="nav-text">数据结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%86%E9%85%8D%E7%AE%97%E6%B3%95"><span class="nav-number">4.3.2.</span> <span class="nav-text">分配算法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8E-span-style-color-blue-%E9%A1%BA%E5%BA%8F%E6%90%9C%E7%B4%A2-span-%E7%9A%84%E5%8A%A8%E6%80%81%E5%88%86%E5%8C%BA%E5%88%86%E9%85%8D%E7%AE%97%E6%B3%95"><span class="nav-number">4.3.2.1.</span> <span class="nav-text">基于顺序搜索的动态分区分配算法</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E9%A6%96%E6%AC%A1%E9%80%82%E5%BA%94%E7%AE%97%E6%B3%95"><span class="nav-number">4.3.2.1.1.</span> <span class="nav-text">首次适应算法</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%BE%AA%E7%8E%AF%E9%A6%96%E6%AC%A1%E9%80%82%E5%BA%94%E7%AE%97%E6%B3%95"><span class="nav-number">4.3.2.1.2.</span> <span class="nav-text">循环首次适应算法</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%9C%80%E4%BD%B3%E9%80%82%E5%BA%94%E7%AE%97%E6%B3%95"><span class="nav-number">4.3.2.1.3.</span> <span class="nav-text">最佳适应算法</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%9C%80%E5%9D%8F%E9%80%82%E5%BA%94%E7%AE%97%E6%B3%95"><span class="nav-number">4.3.2.1.4.</span> <span class="nav-text">最坏适应算法</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">4.3.2.2.</span> <span class="nav-text">关于每种分配算法是否会产生 内&#x2F;外碎片的讨论</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">4.3.2.2.1.</span> <span class="nav-text">首次适应算法</span></a></li><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">4.3.2.2.2.</span> <span class="nav-text">循环首次适应</span></a></li><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">4.3.2.2.3.</span> <span class="nav-text">最佳适应算法</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8E-span-style-color-red-%E7%B4%A2%E5%BC%95%E6%90%9C%E7%B4%A2-span-%E7%9A%84%E5%8A%A8%E6%80%81%E5%88%86%E5%8C%BA%E5%88%86%E9%85%8D%E7%AE%97%E6%B3%95"><span class="nav-number">4.3.2.3.</span> <span class="nav-text">基于索引搜索的动态分区分配算法</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%BF%AB%E9%80%9F%E9%80%82%E5%BA%94%E7%AE%97%E6%B3%95"><span class="nav-number">4.3.2.3.1.</span> <span class="nav-text">快速适应算法</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%BC%99%E4%BC%B4%E7%B3%BB%E7%BB%9F"><span class="nav-number">4.3.2.3.2.</span> <span class="nav-text">伙伴系统</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%A6%E4%B9%A0%E7%9B%AE%E6%A0%87"><span class="nav-number">1.</span> <span class="nav-text">学习目标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%AE%E6%A0%87%E8%AF%84%E4%BB%B7"><span class="nav-number">2.</span> <span class="nav-text">目标评价</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5"><span class="nav-number">3.</span> <span class="nav-text">基础概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E7%9A%84%E4%BB%BB%E5%8A%A1"><span class="nav-number">3.1.</span> <span class="nav-text">内存管理的任务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">3.2.</span> <span class="nav-text">学后应能够回答的问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%98%E5%82%A8%E5%99%A8%E7%9A%84%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84"><span class="nav-number">3.3.</span> <span class="nav-text">存储器的层次结构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AF%84%E5%AD%98%E5%99%A8"><span class="nav-number">3.3.1.</span> <span class="nav-text">寄存器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%AB%98%E9%80%9F%E7%BC%93%E5%AD%98"><span class="nav-number">3.3.2.</span> <span class="nav-text">高速缓存</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A3%81%E7%9B%98%E7%BC%93%E5%AD%98"><span class="nav-number">3.3.3.</span> <span class="nav-text">磁盘缓存</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%BB%E5%AD%98"><span class="nav-number">3.3.4.</span> <span class="nav-text">主存</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87"><span class="nav-number">3.3.4.1.</span> <span class="nav-text">性能指标</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">3.3.4.2.</span> <span class="nav-text">简例</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A8%8B%E5%BA%8F%E5%9C%B0%E5%9D%80"><span class="nav-number">3.4.</span> <span class="nav-text">程序地址</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A8%8B%E5%BA%8F%E5%9C%A8%E6%88%90%E4%B8%BA%E8%BF%9B%E7%A8%8B%E5%89%8D%E7%9A%84%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="nav-number">3.4.1.</span> <span class="nav-text">程序在成为进程前的准备工作</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">3.4.1.1.</span> <span class="nav-text">总结</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">3.4.1.1.1.</span> <span class="nav-text">程序在成为进程前的准备工作</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A8%8B%E5%BA%8F%E5%90%84%E9%98%B6%E6%AE%B5%E7%9A%84%E5%9C%B0%E5%9D%80%E5%8F%98%E6%8D%A2"><span class="nav-number">3.4.2.</span> <span class="nav-text">程序各阶段的地址变换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%89%A9%E7%90%86%E5%9C%B0%E5%9D%80%E5%92%8C%E9%80%BB%E8%BE%91%E5%9C%B0%E5%9D%80"><span class="nav-number">3.4.3.</span> <span class="nav-text">物理地址和逻辑地址</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%89%A9%E7%90%86%E5%9C%B0%E5%9D%80-small-%E7%BB%9D%E5%AF%B9%E5%9C%B0%E5%9D%80-small"><span class="nav-number">3.4.3.1.</span> <span class="nav-text">物理地址(绝对地址)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%80%BB%E8%BE%91%E5%9C%B0%E5%9D%80-small-%E8%99%9A%E6%8B%9F%E5%9C%B0%E5%9D%80%E3%80%81%E7%9B%B8%E5%AF%B9%E5%9C%B0%E5%9D%80-small"><span class="nav-number">3.4.3.2.</span> <span class="nav-text">逻辑地址(虚拟地址、相对地址)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%9C%B0%E5%9D%80%E8%BD%AC%E6%8D%A2-small-%E5%9C%B0%E5%9D%80%E9%87%8D%E5%AE%9A%E4%BD%8D%E3%80%81%E5%9C%B0%E5%9D%80%E6%98%A0%E5%B0%84-small"><span class="nav-number">3.4.3.3.</span> <span class="nav-text">地址转换(地址重定位、地址映射)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A8%8B%E5%BA%8F%E7%9A%84%E8%A3%85%E5%85%A5"><span class="nav-number">3.5.</span> <span class="nav-text">程序的装入</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9C%B0%E5%9D%80%E8%BD%AC%E6%8D%A2%E6%97%B6%E6%9C%9F"><span class="nav-number">3.5.1.</span> <span class="nav-text">地址转换时期</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A8%8B%E5%BA%8F%E7%9A%84%E9%93%BE%E6%8E%A5"><span class="nav-number">3.5.2.</span> <span class="nav-text">程序的链接</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%9D%99%E6%80%81%E9%93%BE%E6%8E%A5"><span class="nav-number">3.5.2.1.</span> <span class="nav-text">静态链接</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%A3%85%E5%85%A5%E6%97%B6%E5%8A%A8%E6%80%81%E9%93%BE%E6%8E%A5"><span class="nav-number">3.5.2.2.</span> <span class="nav-text">装入时动态链接</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%BF%90%E8%A1%8C%E6%97%B6%E5%8A%A8%E6%80%81%E9%93%BE%E6%8E%A5"><span class="nav-number">3.5.2.3.</span> <span class="nav-text">运行时动态链接</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">3.5.3.</span> <span class="nav-text">动态链接库详细介绍</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">3.6.</span> <span class="nav-text">各种存储管理方案</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">3.7.</span> <span class="nav-text">学习目标</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9E%E7%BB%AD%E5%88%86%E9%85%8D%E5%AD%98%E5%82%A8%E7%AE%A1%E7%90%86%E6%96%B9%E5%BC%8F"><span class="nav-number">4.</span> <span class="nav-text">连续分配存储管理方式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">4.0.0.1.</span> <span class="nav-text">分类</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%95%E4%B8%80%E8%BF%9E%E7%BB%AD%E5%88%86%E5%8C%BA"><span class="nav-number">4.1.</span> <span class="nav-text">单一连续分区</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%86%E9%85%8D%E6%96%B9%E5%BC%8F"><span class="nav-number">4.1.1.</span> <span class="nav-text">分配方式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%BA%E5%AE%9A%E5%88%86%E5%8C%BA"><span class="nav-number">4.2.</span> <span class="nav-text">固定分区</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AE%A1%E7%90%86%E6%96%B9%E5%BC%8F"><span class="nav-number">4.2.1.</span> <span class="nav-text">管理方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9C%B0%E5%9D%80%E9%87%8D%E5%AE%9A%E4%BD%8D%E4%B8%8E%E5%AD%98%E5%82%A8%E4%BF%9D%E6%8A%A4"><span class="nav-number">4.2.2.</span> <span class="nav-text">地址重定位与存储保护</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">4.2.2.1.</span> <span class="nav-text">静态重定位</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">4.2.2.2.</span> <span class="nav-text">界限寄存器</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%89%B9%E7%82%B9"><span class="nav-number">4.2.3.</span> <span class="nav-text">特点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%A8%E6%80%81%E5%88%86%E5%8C%BA"><span class="nav-number">4.3.</span> <span class="nav-text">动态分区</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="nav-number">4.3.1.</span> <span class="nav-text">数据结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%86%E9%85%8D%E7%AE%97%E6%B3%95"><span class="nav-number">4.3.2.</span> <span class="nav-text">分配算法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8E-span-style-color-blue-%E9%A1%BA%E5%BA%8F%E6%90%9C%E7%B4%A2-span-%E7%9A%84%E5%8A%A8%E6%80%81%E5%88%86%E5%8C%BA%E5%88%86%E9%85%8D%E7%AE%97%E6%B3%95"><span class="nav-number">4.3.2.1.</span> <span class="nav-text">基于顺序搜索的动态分区分配算法</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E9%A6%96%E6%AC%A1%E9%80%82%E5%BA%94%E7%AE%97%E6%B3%95"><span class="nav-number">4.3.2.1.1.</span> <span class="nav-text">首次适应算法</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%BE%AA%E7%8E%AF%E9%A6%96%E6%AC%A1%E9%80%82%E5%BA%94%E7%AE%97%E6%B3%95"><span class="nav-number">4.3.2.1.2.</span> <span class="nav-text">循环首次适应算法</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%9C%80%E4%BD%B3%E9%80%82%E5%BA%94%E7%AE%97%E6%B3%95"><span class="nav-number">4.3.2.1.3.</span> <span class="nav-text">最佳适应算法</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%9C%80%E5%9D%8F%E9%80%82%E5%BA%94%E7%AE%97%E6%B3%95"><span class="nav-number">4.3.2.1.4.</span> <span class="nav-text">最坏适应算法</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">4.3.2.2.</span> <span class="nav-text">关于每种分配算法是否会产生 内&#x2F;外碎片的讨论</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">4.3.2.2.1.</span> <span class="nav-text">首次适应算法</span></a></li><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">4.3.2.2.2.</span> <span class="nav-text">循环首次适应</span></a></li><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">4.3.2.2.3.</span> <span class="nav-text">最佳适应算法</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8E-span-style-color-red-%E7%B4%A2%E5%BC%95%E6%90%9C%E7%B4%A2-span-%E7%9A%84%E5%8A%A8%E6%80%81%E5%88%86%E5%8C%BA%E5%88%86%E9%85%8D%E7%AE%97%E6%B3%95"><span class="nav-number">4.3.2.3.</span> <span class="nav-text">基于索引搜索的动态分区分配算法</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%BF%AB%E9%80%9F%E9%80%82%E5%BA%94%E7%AE%97%E6%B3%95"><span class="nav-number">4.3.2.3.1.</span> <span class="nav-text">快速适应算法</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%BC%99%E4%BC%B4%E7%B3%BB%E7%BB%9F"><span class="nav-number">4.3.2.3.2.</span> <span class="nav-text">伙伴系统</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E6%B5%81%E7%A8%8B"><span class="nav-number">4.3.3.</span> <span class="nav-text">内存分配流程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%86%85%E5%AD%98%E5%9B%9E%E6%94%B6"><span class="nav-number">4.3.4.</span> <span class="nav-text">内存回收</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9C%B0%E5%9D%80%E8%BD%AC%E6%8D%A2"><span class="nav-number">4.3.5.</span> <span class="nav-text">地址转换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E6%8A%80%E6%9C%AF"><span class="nav-number">4.3.6.</span> <span class="nav-text">相关技术</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E9%A1%B5%E5%AD%98%E5%82%A8%E7%AE%A1%E7%90%86"><span class="nav-number">5.</span> <span class="nav-text">分页存储管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E9%A1%B5%E5%AD%98%E5%82%A8%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86"><span class="nav-number">5.1.</span> <span class="nav-text">分页存储的基本原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%B0%E5%9D%80%E7%BB%93%E6%9E%84"><span class="nav-number">5.2.</span> <span class="nav-text">地址结构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A1%B5%E5%8F%B7P"><span class="nav-number">5.2.1.</span> <span class="nav-text">页号P</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%8D%E7%A7%BB%E9%87%8FW%EF%BC%88%E9%A1%B5%E5%86%85%E5%9C%B0%E5%9D%80%EF%BC%89"><span class="nav-number">5.2.2.</span> <span class="nav-text">位移量W（页内地址）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-2"><span class="nav-number">5.3.</span> <span class="nav-text">数据结构</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -1081,7 +1164,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives">
         
-          <span class="site-state-item-count">29</span>
+          <span class="site-state-item-count">33</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1256,7 +1339,7 @@
                     },
                     visualMap: {
                         min: 0,
-                        max: Math.max(...[["2024-12-09",3],["2024-12-10",8],["2024-12-11",9],["2024-12-12",4],["2024-12-13",4],["2024-12-15",1]].map(item => item[1])),
+                        max: Math.max(...[["2024-12-09",3],["2024-12-10",8],["2024-12-11",9],["2024-12-12",4],["2024-12-13",4],["2024-12-15",1],["2024-12-17",3],["2024-12-18",1]].map(item => item[1])),
                         calculable: false,
                         orient: 'horizontal', // 横向布局
                         right: '5%',
@@ -1276,7 +1359,7 @@
                     series: [{
                         type: 'heatmap',
                         coordinateSystem: 'calendar',
-                        data: [["2024-12-09",3],["2024-12-10",8],["2024-12-11",9],["2024-12-12",4],["2024-12-13",4],["2024-12-15",1]]
+                        data: [["2024-12-09",3],["2024-12-10",8],["2024-12-11",9],["2024-12-12",4],["2024-12-13",4],["2024-12-15",1],["2024-12-17",3],["2024-12-18",1]]
                     }]
                 });
             }
@@ -1299,7 +1382,7 @@
                     series: [{
                         name: 'Articles',
                         type: 'line',
-                        data: [29],
+                        data: [33],
                         smooth: true,
                         lineStyle: { color: '#5470C6', width: 2 },
                         itemStyle: { color: '#5470C6' },
@@ -1349,13 +1432,13 @@
                     },
                     yAxis: {
                         type: 'category',
-                        data: [{"name":"408 - OS","value":13},{"name":"编程知识","value":3},{"name":"hexo","value":2},{"name":"Markdown","value":1},{"name":"未分类","value":1}].map(category => category.name).reverse(),
+                        data: [{"name":"408 - OS","value":13},{"name":"未分类","value":5},{"name":"编程知识","value":3},{"name":"hexo","value":2},{"name":"Markdown","value":1}].map(category => category.name).reverse(),
                         axisLabel: { fontSize: 12 }
                     },
                     series: [{
                         name: 'Category Count',
                         type: 'bar',
-                        data: [{"name":"408 - OS","value":13},{"name":"编程知识","value":3},{"name":"hexo","value":2},{"name":"Markdown","value":1},{"name":"未分类","value":1}].map(category => category.value).reverse(),
+                        data: [{"name":"408 - OS","value":13},{"name":"未分类","value":5},{"name":"编程知识","value":3},{"name":"hexo","value":2},{"name":"Markdown","value":1}].map(category => category.value).reverse(),
                         label: {
                             show: true,
                             position: 'right',

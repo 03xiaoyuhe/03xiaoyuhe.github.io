@@ -21,24 +21,34 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="📝         NOTE                    总结   没有 TLB 的情况下，单级页表访问一次，多级页表可能需要访问两次甚至更多次。   使用 TLB 后，大部分情况下只需访问一次页表（命中情况下直接完成转换），未命中的情况下才需访问页表的所有层级。   通过 TLB 缓解页表访问延迟是现代虚拟存储管理的重要优化手段。">
+  <meta name="description" content="💡         TIP                    主存储器的基本组成笔记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="在地址转换过程中会访问两次页表嘛？">
-<meta property="og:url" content="http://example.com/posts/c38ea43e.html">
+<meta property="og:title" content="计组-第三章-主存储器的基本组成">
+<meta property="og:url" content="http://example.com/posts/55b84d3b.html">
 <meta property="og:site_name" content="Ting&#39;s Blog">
-<meta property="og:description" content="📝         NOTE                    总结   没有 TLB 的情况下，单级页表访问一次，多级页表可能需要访问两次甚至更多次。   使用 TLB 后，大部分情况下只需访问一次页表（命中情况下直接完成转换），未命中的情况下才需访问页表的所有层级。   通过 TLB 缓解页表访问延迟是现代虚拟存储管理的重要优化手段。">
+<meta property="og:description" content="💡         TIP                    主存储器的基本组成笔记">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png">
-<meta property="article:published_time" content="2024-12-11T13:15:02.000Z">
-<meta property="article:modified_time" content="2024-12-15T06:13:17.966Z">
+<meta property="og:image" content="http://example.com/posts/assets/image-20241217213252690.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412172155485.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412172137191.png">
+<meta property="og:image" content="http://example.com/posts/assets/image-20241217214844617.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412172154050.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412172203879.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412172203875.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412172202131.png">
+<meta property="og:image" content="http://example.com/posts/assets/image-20241217224002371.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412172246538.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412172247986.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412172248536.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412172249976.png">
+<meta property="article:published_time" content="2024-12-17T09:19:24.000Z">
+<meta property="article:modified_time" content="2024-12-17T14:49:17.034Z">
 <meta property="article:author" content="听">
-<meta property="article:tag" content="大学">
-<meta property="article:tag" content="408">
-<meta property="article:tag" content="OS">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png">
 
-<link rel="canonical" href="http://example.com/posts/c38ea43e.html">
+<link rel="canonical" href="http://example.com/posts/55b84d3b.html">
 
 
 <script id="page-configurations">
@@ -51,7 +61,7 @@
   };
 </script>
 
-  <title>在地址转换过程中会访问两次页表嘛？ | Ting's Blog</title>
+  <title>计组-第三章-主存储器的基本组成 | Ting's Blog</title>
   
 
 
@@ -201,7 +211,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/posts/c38ea43e.html">
+    <link itemprop="mainEntityOfPage" href="http://example.com/posts/55b84d3b.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101430362.jpg">
@@ -214,7 +224,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          在地址转换过程中会访问两次页表嘛？
+          计组-第三章-主存储器的基本组成
         </h1>
 
         <div class="post-meta">
@@ -224,23 +234,17 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2024-12-11 21:15:02" itemprop="dateCreated datePublished" datetime="2024-12-11T21:15:02+08:00">2024-12-11</time>
+              <time title="创建时间：2024-12-17 17:19:24 / 修改时间：22:49:17" itemprop="dateCreated datePublished" datetime="2024-12-17T17:19:24+08:00">2024-12-17</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-12-15 14:13:17" itemprop="dateModified" datetime="2024-12-15T14:13:17+08:00">2024-12-15</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/408-OS/" itemprop="url" rel="index"><span itemprop="name">408 - OS</span></a>
+                  <a href="/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/" itemprop="url" rel="index"><span itemprop="name">未分类</span></a>
                 </span>
             </span>
 
@@ -257,91 +261,51 @@
       
         <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
 
-<div class="callout callout-note">
+<div class="callout callout-tip">
     <div class="callout-head">
-        <span class="callout-head-icon">📝</span>
-        <span class="callout-head-text" style="color:#673ab7">NOTE</span>
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
     </div>
     <div class="callout-contents">
         <p><p></p>
-<h3><strong>总结</strong></h3>
-<ol>
-<li class="lvl-3">
-<p>没有 TLB 的情况下，单级页表访问一次，多级页表可能需要访问两次甚至更多次。</p>
-</li>
-<li class="lvl-3">
-<p>使用 TLB 后，大部分情况下只需访问一次页表（命中情况下直接完成转换），未命中的情况下才需访问页表的所有层级。</p>
-</li>
-</ol>
-<p>通过 TLB 缓解页表访问延迟是现代虚拟存储管理的重要优化手段。</p>
+<p>主存储器的基本组成笔记</p>
 </p>
     </div>
 </div><span id="more"></span>
-<hr>
-<h3 id="1-单级页表的地址转换"><a class="header-anchor" href="#1-单级页表的地址转换">¶</a><strong>1. 单级页表的地址转换</strong></h3>
-<p>在单级页表中，虚拟地址通过以下步骤转换为物理地址：</p>
-<ol>
-<li class="lvl-3">
-<p><strong>页号查找</strong>：通过虚拟地址中的页号部分访问页表，找到对应的页表项，获取物理页号。</p>
-</li>
-<li class="lvl-3">
-<p><strong>偏移量加法</strong>：将物理页号与虚拟地址中的页内偏移量结合，得到物理地址。</p>
-</li>
-</ol>
-<p>此时，页表只需访问一次。但由于页表存储在主存中，这次访问本身也需要访问主存一次，增加了访问延迟。</p>
-<hr>
-<h3 id="2-多级页表的地址转换"><a class="header-anchor" href="#2-多级页表的地址转换">¶</a><strong>2. 多级页表的地址转换</strong></h3>
-<p>在多级页表中（例如二级页表），为了减小页表占用的内存，页表被分解为多个层级。虚拟地址的转换过程如下：</p>
-<ol>
-<li class="lvl-3">
-<p>从虚拟地址中提取多级页号（如一级页号和二级页号）。</p>
-</li>
-<li class="lvl-3">
-<p><strong>第一级页表访问</strong>：使用一级页号查找一级页表，找到指向二级页表的地址。</p>
-</li>
-<li class="lvl-3">
-<p><strong>第二级页表访问</strong>：使用二级页号查找二级页表，找到对应的物理页号。</p>
-</li>
-<li class="lvl-3">
-<p><strong>偏移量加法</strong>：将物理页号与页内偏移量结合，生成最终物理地址。</p>
-</li>
-</ol>
-<p>此时，由于需要分别访问一级页表和二级页表，因此需要两次内存访问。</p>
-<hr>
-<h3 id="3-TLB-的作用"><a class="header-anchor" href="#3-TLB-的作用">¶</a><strong>3. TLB 的作用</strong></h3>
-<p>为了避免多次访问页表带来的性能开销，现代系统中通常会使用 <strong>TLB</strong> 来缓存常用的页表项。如果虚拟地址对应的页表项已经在 TLB 中：</p>
-<ol>
-<li class="lvl-3">
-<p>地址转换直接通过 TLB 完成，只需访问一次主存。</p>
-</li>
-<li class="lvl-3">
-<p>如果 TLB 未命中，则需要按上述流程访问多级页表，并更新 TLB。</p>
-</li>
-</ol>
-<hr>
-<h3 id="4-具体分析"><a class="header-anchor" href="#4-具体分析">¶</a><strong>4. 具体分析</strong></h3>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p><strong>单级页表</strong>：理论上只需访问一次页表（加上实际的数据访问总共两次主存访问）。</p>
-</li>
-<li class="lvl-2">
-<p><strong>多级页表</strong>：可能需要访问页表两次（或更多次），再加上最终的数据访问，总计三次或更多主存访问。</p>
-</li>
-<li class="lvl-2">
-<p><strong>带 TLB 的多级页表</strong>：在 TLB 命中的情况下，地址转换和数据访问总共只需两次主存访问。</p>
-</li>
-</ul>
-<hr>
-<h3 id="总结"><a class="header-anchor" href="#总结">¶</a><strong>总结</strong></h3>
-<ol>
-<li class="lvl-3">
-<p>没有 TLB 的情况下，单级页表访问一次，多级页表可能需要访问两次甚至更多次。</p>
-</li>
-<li class="lvl-3">
-<p>使用 TLB 后，大部分情况下只需访问一次页表（命中情况下直接完成转换），未命中的情况下才需访问页表的所有层级。</p>
-</li>
-</ol>
-<p>通过 TLB 缓解页表访问延迟是现代虚拟存储管理的重要优化手段。</p>
+<h2 id="基本的半导体元件及原理"><a class="header-anchor" href="#基本的半导体元件及原理">¶</a>基本的半导体元件及原理</h2>
+<p><img src="./assets/image-20241217213252690.png" alt="image-20241217213252690"></p>
+<center><small>一个存储元的结构图</small></center>
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p>MOS管可理解为一种电控开关，输入电压达到某个阈值时，MOS管就可以接通</p>
+</p>
+    </div>
+</div><h2 id="存储器芯片的基本原理"><a class="header-anchor" href="#存储器芯片的基本原理">¶</a>存储器芯片的基本原理</h2>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412172155485.png" alt="image-20241217215544934"></p>
+<center><small>存储器结构</small></center>
+<p>电容的状态，即当前存储元存储数据的内容</p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412172137191.png" alt="image-20241217213745682"></p>
+<center><small>将多个存储元串联，组成存储阵列</small></center>
+<p><img src="./assets/image-20241217214844617.png" alt="image-20241217214844617"></p>
+<center><small>通过将某根特定的地址线置为高电平，就可以读出存储字</small></center>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412172154050.png" alt="image-20241217215427377"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412172203879.png" alt="image-20241217215712458"></p>
+<center><small>译码器</small></center>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412172203875.png" alt="image-20241217215824431"></p>
+<center><small>总容量的计算</small></center>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412172202131.png" alt="image-20241217220217701"></p>
+<center><small>控制电路</small></center>
+<p><img src="./assets/image-20241217224002371.png" alt="image-20241217224002371"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412172246538.png" alt="image-20241217224634193"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412172247986.png" alt="image-20241217224756484"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412172248536.png" alt="image-20241217224834432"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412172249976.png" alt="image-20241217224910019"></p>
 <hr />
 <div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>
     </div>
@@ -351,11 +315,6 @@
     
 
       <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/%E5%A4%A7%E5%AD%A6/" rel="tag"><i class="fa fa-tag"></i> 大学</a>
-              <a href="/tags/408/" rel="tag"><i class="fa fa-tag"></i> 408</a>
-              <a href="/tags/OS/" rel="tag"><i class="fa fa-tag"></i> OS</a>
-          </div>
 
         
 
@@ -363,12 +322,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/posts/f830ee25.html" rel="prev" title="调页策略">
-      <i class="fa fa-chevron-left"></i> 调页策略
+    <a href="/posts/80359a17.html" rel="prev" title="计组-第三章-存储系统的基本概念">
+      <i class="fa fa-chevron-left"></i> 计组-第三章-存储系统的基本概念
     </a></div>
       <div class="post-nav-item">
-    <a href="/posts/bd8dd267.html" rel="next" title="计网第二章">
-      计网第二章 <i class="fa fa-chevron-right"></i>
+    <a href="/posts/9e51c077.html" rel="next" title="计组-第三章-SRAM和DRAM">
+      计组-第三章-SRAM和DRAM <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -428,7 +387,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%8D%95%E7%BA%A7%E9%A1%B5%E8%A1%A8%E7%9A%84%E5%9C%B0%E5%9D%80%E8%BD%AC%E6%8D%A2"><span class="nav-number">2.</span> <span class="nav-text">1. 单级页表的地址转换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%A4%9A%E7%BA%A7%E9%A1%B5%E8%A1%A8%E7%9A%84%E5%9C%B0%E5%9D%80%E8%BD%AC%E6%8D%A2"><span class="nav-number">3.</span> <span class="nav-text">2. 多级页表的地址转换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-TLB-%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="nav-number">4.</span> <span class="nav-text">3. TLB 的作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E5%85%B7%E4%BD%93%E5%88%86%E6%9E%90"><span class="nav-number">5.</span> <span class="nav-text">4. 具体分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">6.</span> <span class="nav-text">总结</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E7%9A%84%E5%8D%8A%E5%AF%BC%E4%BD%93%E5%85%83%E4%BB%B6%E5%8F%8A%E5%8E%9F%E7%90%86"><span class="nav-number">1.</span> <span class="nav-text">基本的半导体元件及原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%98%E5%82%A8%E5%99%A8%E8%8A%AF%E7%89%87%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86"><span class="nav-number">2.</span> <span class="nav-text">存储器芯片的基本原理</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
