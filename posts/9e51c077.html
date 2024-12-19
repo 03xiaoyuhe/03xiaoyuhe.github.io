@@ -21,12 +21,12 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="💡         TIP">
+  <meta name="description" content="💡         TIP                     相关链接|改错">
 <meta property="og:type" content="article">
 <meta property="og:title" content="计组-第三章-SRAM和DRAM">
 <meta property="og:url" content="http://example.com/posts/9e51c077.html">
 <meta property="og:site_name" content="Ting&#39;s Blog">
-<meta property="og:description" content="💡         TIP">
+<meta property="og:description" content="💡         TIP                     相关链接|改错">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412172253813.png">
@@ -38,7 +38,7 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412180856798.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412180932106.png">
 <meta property="article:published_time" content="2024-12-17T14:51:45.000Z">
-<meta property="article:modified_time" content="2024-12-18T11:44:07.297Z">
+<meta property="article:modified_time" content="2024-12-19T08:57:08.824Z">
 <meta property="article:author" content="听">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png">
@@ -237,7 +237,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-12-18 19:44:07" itemprop="dateModified" datetime="2024-12-18T19:44:07+08:00">2024-12-18</time>
+                <time title="修改时间：2024-12-19 16:57:08" itemprop="dateModified" datetime="2024-12-19T16:57:08+08:00">2024-12-19</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -270,6 +270,7 @@
     <div class="callout-contents">
         <p><p></p>
 <p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412172253813.png" alt="image-20241217225313705"></p>
+<p>相关链接|<a href="./posts/2b174fb2">改错</a></p>
 </p>
     </div>
 </div><span id="more"></span>
@@ -345,12 +346,23 @@
 <li class="lvl-3">
 <p>如何刷新：</p>
 <p><span style="color:blue">有硬件支持，读出一行的信息后重新写入，占用1个 读/写周期</span></p>
-</li>
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p>该处说明，无论哪种刷新方式，<span style="color:red"><big><strong>DRAM的刷新方式均是以行刷新的模式刷新的</strong></big></span></p>
+</p>
+    </div>
+</div></li>
 <li class="lvl-3">
 <p>在什么时候刷新：</p>
 <ul class="lvl-2">
 <li class="lvl-5">
-<p>思路一：每次读写玩就刷新一次</p>
+<p>思路一：每次读写完就刷新一次</p>
 <ul class="lvl-4">
 <li class="lvl-7">
 <p>系统的存取周期变为1us</p>
@@ -435,6 +447,17 @@
     <div class="callout-contents">
         <p><p></p>
 <p>现在的主存通常采用SDRAM芯片</p>
+</p>
+    </div>
+</div>
+<div class="callout callout-note">
+    <div class="callout-head">
+        <span class="callout-head-icon">📝</span>
+        <span class="callout-head-text" style="color:#673ab7">NOTE</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p>SDRAM：同步动态刷新存储器，是现在最常用的一种DRAM</p>
 </p>
     </div>
 </div><hr />
@@ -534,7 +557,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives">
         
-          <span class="site-state-item-count">34</span>
+          <span class="site-state-item-count">38</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -709,7 +732,7 @@
                     },
                     visualMap: {
                         min: 0,
-                        max: Math.max(...[["2024-12-09",3],["2024-12-10",8],["2024-12-11",9],["2024-12-12",4],["2024-12-13",4],["2024-12-15",1],["2024-12-17",3],["2024-12-18",2]].map(item => item[1])),
+                        max: Math.max(...[["2024-12-09",3],["2024-12-10",8],["2024-12-11",9],["2024-12-12",4],["2024-12-13",4],["2024-12-15",1],["2024-12-17",3],["2024-12-18",2],["2024-12-19",4]].map(item => item[1])),
                         calculable: false,
                         orient: 'horizontal', // 横向布局
                         right: '5%',
@@ -729,7 +752,7 @@
                     series: [{
                         type: 'heatmap',
                         coordinateSystem: 'calendar',
-                        data: [["2024-12-09",3],["2024-12-10",8],["2024-12-11",9],["2024-12-12",4],["2024-12-13",4],["2024-12-15",1],["2024-12-17",3],["2024-12-18",2]]
+                        data: [["2024-12-09",3],["2024-12-10",8],["2024-12-11",9],["2024-12-12",4],["2024-12-13",4],["2024-12-15",1],["2024-12-17",3],["2024-12-18",2],["2024-12-19",4]]
                     }]
                 });
             }
@@ -752,7 +775,7 @@
                     series: [{
                         name: 'Articles',
                         type: 'line',
-                        data: [34],
+                        data: [38],
                         smooth: true,
                         lineStyle: { color: '#5470C6', width: 2 },
                         itemStyle: { color: '#5470C6' },
@@ -802,13 +825,13 @@
                     },
                     yAxis: {
                         type: 'category',
-                        data: [{"name":"408 - OS","value":13},{"name":"未分类","value":5},{"name":"编程知识","value":3},{"name":"hexo","value":2},{"name":"Markdown","value":1}].map(category => category.name).reverse(),
+                        data: [{"name":"408 - OS","value":13},{"name":"未分类","value":9},{"name":"编程知识","value":3},{"name":"hexo","value":2},{"name":"Markdown","value":1}].map(category => category.name).reverse(),
                         axisLabel: { fontSize: 12 }
                     },
                     series: [{
                         name: 'Category Count',
                         type: 'bar',
-                        data: [{"name":"408 - OS","value":13},{"name":"未分类","value":5},{"name":"编程知识","value":3},{"name":"hexo","value":2},{"name":"Markdown","value":1}].map(category => category.value).reverse(),
+                        data: [{"name":"408 - OS","value":13},{"name":"未分类","value":9},{"name":"编程知识","value":3},{"name":"hexo","value":2},{"name":"Markdown","value":1}].map(category => category.value).reverse(),
                         label: {
                             show: true,
                             position: 'right',
