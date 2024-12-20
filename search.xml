@@ -159,6 +159,14 @@
       </tags>
   </entry>
   <entry>
+    <title>计网第二章</title>
+    <url>/posts/bd8dd267.html</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
+<span id="more"></span>
+<hr />
+<div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
+  </entry>
+  <entry>
     <title>Markdown中latex的使用记录</title>
     <url>/posts/3d12274.html</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
@@ -522,12 +530,104 @@ $$</p>
       </tags>
   </entry>
   <entry>
-    <title>计网第二章</title>
-    <url>/posts/bd8dd267.html</url>
+    <title>动态链接库</title>
+    <url>/posts/29b48e9.html</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
-<span id="more"></span>
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p>动态链接库（Dynamic Link Library，简称DLL）是包含可以由多个程序共享使用的代码和数据的文件。这种技术使程序能够高效地复用资源、减少重复代码以及节省内存空间。</p>
+</p>
+    </div>
+</div><span id="more"></span>
+<h3 id="动态链接库的特点："><a class="header-anchor" href="#动态链接库的特点：">¶</a>动态链接库的特点：</h3>
+<ol>
+<li class="lvl-3">
+<p><strong>动态加载</strong>：程序运行时，DLL文件才会被加载到内存中。</p>
+</li>
+<li class="lvl-3">
+<p><strong>共享资源</strong>：多个程序可以同时使用同一个DLL文件，减少重复代码占用的磁盘和内存资源。</p>
+</li>
+<li class="lvl-3">
+<p><strong>模块化开发</strong>：通过动态链接库，可以将应用程序拆分为多个模块，方便独立开发、测试和部署。</p>
+</li>
+<li class="lvl-3">
+<p><strong>可更新性</strong>：更新程序时，只需替换DLL文件，无需更改主程序。</p>
+</li>
+</ol>
+<hr>
+<h3 id="DLL的应用场景："><a class="header-anchor" href="#DLL的应用场景：">¶</a>DLL的应用场景：</h3>
+<ol>
+<li class="lvl-3">
+<p><strong>共享代码和功能</strong>：如Windows的系统功能（<code>user32.dll</code>、<code>kernel32.dll</code>）。</p>
+</li>
+<li class="lvl-3">
+<p><strong>插件系统</strong>：支持动态加载的插件，提供功能扩展。</p>
+</li>
+<li class="lvl-3">
+<p><strong>跨语言调用</strong>：通过DLL，允许不同编程语言的程序共享同一段功能代码。</p>
+</li>
+<li class="lvl-3">
+<p><strong>节省资源</strong>：避免重复代码的加载。</p>
+</li>
+</ol>
+<hr>
+<h3 id="使用动态链接库的注意事项："><a class="header-anchor" href="#使用动态链接库的注意事项：">¶</a>使用动态链接库的注意事项：</h3>
+<ol>
+<li class="lvl-3">
+<p><strong>版本兼容性</strong>：更新DLL时必须保证接口兼容，否则可能导致主程序崩溃。</p>
+</li>
+<li class="lvl-3">
+<p><strong>依赖问题</strong>：动态链接库可能依赖其他库，必须确保相关库也被正确部署。</p>
+</li>
+<li class="lvl-3">
+<p><strong>安全性</strong>：动态链接库容易受到DLL劫持（DLL Hijacking）攻击，加载DLL时需指定明确路径或使用签名校验。</p>
+</li>
+</ol>
+<hr>
+<h4 id="如何创建和使用动态链接库？"><a class="header-anchor" href="#如何创建和使用动态链接库？">¶</a>如何创建和使用动态链接库？</h4>
+<p><strong>C++（Windows平台示例）</strong><br>
+创建一个简单的动态链接库（<code>.dll</code>）并调用。</p>
+<h5 id="创建DLL："><a class="header-anchor" href="#创建DLL：">¶</a>创建DLL：</h5>
+<ol>
+<li class="lvl-3">
+<p>创建<code>mydll.cpp</code>文件：</p>
+</li>
+</ol>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">extern</span> <span class="string">&quot;C&quot;</span> __declspec(dllexport) <span class="function"><span class="type">void</span> <span class="title">HelloWorld</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;Hello, World from DLL!&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol>
+<li class="lvl-3">
+<p>使用命令行编译为DLL：</p>
+</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cl /LD mydll.cpp</span><br></pre></td></tr></table></figure>
+<p>生成的<code>mydll.dll</code>就是动态链接库。</p>
+<h5 id="调用DLL："><a class="header-anchor" href="#调用DLL：">¶</a>调用DLL：</h5>
+<ol>
+<li class="lvl-3">
+<p>创建<code>main.cpp</code>文件：</p>
+</li>
+</ol>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;windows.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">typedef</span> <span class="title">void</span> <span class="params">(*HelloWorldFunc)</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    HMODULE hModule = <span class="built_in">LoadLibrary</span>(<span class="built_in">TEXT</span>(<span class="string">&quot;mydll.dll&quot;</span>));</span><br><span class="line">    <span class="keyword">if</span> (hModule) &#123;</span><br><span class="line">        HelloWorldFunc hello = (HelloWorldFunc)<span class="built_in">GetProcAddress</span>(hModule, <span class="string">&quot;HelloWorld&quot;</span>);</span><br><span class="line">        <span class="keyword">if</span> (hello) &#123;</span><br><span class="line">            <span class="built_in">hello</span>();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">FreeLibrary</span>(hModule);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        std::cerr &lt;&lt; <span class="string">&quot;Failed to load DLL&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol>
+<li class="lvl-3">
+<p>编译并运行，确保<code>mydll.dll</code>在同一目录下。</p>
+</li>
+</ol>
 <hr />
 <div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
+      <categories>
+        <category>编程知识</category>
+      </categories>
+      <tags>
+        <tag>C/C++</tag>
+        <tag>编程</tag>
+      </tags>
   </entry>
   <entry>
     <title>CMake</title>
@@ -651,106 +751,6 @@ $$</p>
       </tags>
   </entry>
   <entry>
-    <title>动态链接库</title>
-    <url>/posts/29b48e9.html</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
-
-<div class="callout callout-tip">
-    <div class="callout-head">
-        <span class="callout-head-icon">💡</span>
-        <span class="callout-head-text" style="color:#009688">TIP</span>
-    </div>
-    <div class="callout-contents">
-        <p><p></p>
-<p>动态链接库（Dynamic Link Library，简称DLL）是包含可以由多个程序共享使用的代码和数据的文件。这种技术使程序能够高效地复用资源、减少重复代码以及节省内存空间。</p>
-</p>
-    </div>
-</div><span id="more"></span>
-<h3 id="动态链接库的特点："><a class="header-anchor" href="#动态链接库的特点：">¶</a>动态链接库的特点：</h3>
-<ol>
-<li class="lvl-3">
-<p><strong>动态加载</strong>：程序运行时，DLL文件才会被加载到内存中。</p>
-</li>
-<li class="lvl-3">
-<p><strong>共享资源</strong>：多个程序可以同时使用同一个DLL文件，减少重复代码占用的磁盘和内存资源。</p>
-</li>
-<li class="lvl-3">
-<p><strong>模块化开发</strong>：通过动态链接库，可以将应用程序拆分为多个模块，方便独立开发、测试和部署。</p>
-</li>
-<li class="lvl-3">
-<p><strong>可更新性</strong>：更新程序时，只需替换DLL文件，无需更改主程序。</p>
-</li>
-</ol>
-<hr>
-<h3 id="DLL的应用场景："><a class="header-anchor" href="#DLL的应用场景：">¶</a>DLL的应用场景：</h3>
-<ol>
-<li class="lvl-3">
-<p><strong>共享代码和功能</strong>：如Windows的系统功能（<code>user32.dll</code>、<code>kernel32.dll</code>）。</p>
-</li>
-<li class="lvl-3">
-<p><strong>插件系统</strong>：支持动态加载的插件，提供功能扩展。</p>
-</li>
-<li class="lvl-3">
-<p><strong>跨语言调用</strong>：通过DLL，允许不同编程语言的程序共享同一段功能代码。</p>
-</li>
-<li class="lvl-3">
-<p><strong>节省资源</strong>：避免重复代码的加载。</p>
-</li>
-</ol>
-<hr>
-<h3 id="使用动态链接库的注意事项："><a class="header-anchor" href="#使用动态链接库的注意事项：">¶</a>使用动态链接库的注意事项：</h3>
-<ol>
-<li class="lvl-3">
-<p><strong>版本兼容性</strong>：更新DLL时必须保证接口兼容，否则可能导致主程序崩溃。</p>
-</li>
-<li class="lvl-3">
-<p><strong>依赖问题</strong>：动态链接库可能依赖其他库，必须确保相关库也被正确部署。</p>
-</li>
-<li class="lvl-3">
-<p><strong>安全性</strong>：动态链接库容易受到DLL劫持（DLL Hijacking）攻击，加载DLL时需指定明确路径或使用签名校验。</p>
-</li>
-</ol>
-<hr>
-<h4 id="如何创建和使用动态链接库？"><a class="header-anchor" href="#如何创建和使用动态链接库？">¶</a>如何创建和使用动态链接库？</h4>
-<p><strong>C++（Windows平台示例）</strong><br>
-创建一个简单的动态链接库（<code>.dll</code>）并调用。</p>
-<h5 id="创建DLL："><a class="header-anchor" href="#创建DLL：">¶</a>创建DLL：</h5>
-<ol>
-<li class="lvl-3">
-<p>创建<code>mydll.cpp</code>文件：</p>
-</li>
-</ol>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">extern</span> <span class="string">&quot;C&quot;</span> __declspec(dllexport) <span class="function"><span class="type">void</span> <span class="title">HelloWorld</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;Hello, World from DLL!&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ol>
-<li class="lvl-3">
-<p>使用命令行编译为DLL：</p>
-</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cl /LD mydll.cpp</span><br></pre></td></tr></table></figure>
-<p>生成的<code>mydll.dll</code>就是动态链接库。</p>
-<h5 id="调用DLL："><a class="header-anchor" href="#调用DLL：">¶</a>调用DLL：</h5>
-<ol>
-<li class="lvl-3">
-<p>创建<code>main.cpp</code>文件：</p>
-</li>
-</ol>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;windows.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">typedef</span> <span class="title">void</span> <span class="params">(*HelloWorldFunc)</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    HMODULE hModule = <span class="built_in">LoadLibrary</span>(<span class="built_in">TEXT</span>(<span class="string">&quot;mydll.dll&quot;</span>));</span><br><span class="line">    <span class="keyword">if</span> (hModule) &#123;</span><br><span class="line">        HelloWorldFunc hello = (HelloWorldFunc)<span class="built_in">GetProcAddress</span>(hModule, <span class="string">&quot;HelloWorld&quot;</span>);</span><br><span class="line">        <span class="keyword">if</span> (hello) &#123;</span><br><span class="line">            <span class="built_in">hello</span>();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">FreeLibrary</span>(hModule);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        std::cerr &lt;&lt; <span class="string">&quot;Failed to load DLL&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ol>
-<li class="lvl-3">
-<p>编译并运行，确保<code>mydll.dll</code>在同一目录下。</p>
-</li>
-</ol>
-<hr />
-<div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
-      <categories>
-        <category>编程知识</category>
-      </categories>
-      <tags>
-        <tag>C/C++</tag>
-        <tag>编程</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>动态链接库与CMake</title>
     <url>/posts/376b14fc.html</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
@@ -857,33 +857,6 @@ CMake 能自动处理动态库的依赖，确保库按正确顺序链接。</p>
       </tags>
   </entry>
   <entry>
-    <title>关于hexo插件hexo-graph的使用</title>
-    <url>/posts/1bd5413e.html</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
-
-<div class="callout callout-tip">
-    <div class="callout-head">
-        <span class="callout-head-icon">💡</span>
-        <span class="callout-head-text" style="color:#009688">TIP</span>
-    </div>
-    <div class="callout-contents">
-        <p><p></p>
-<p>记一下文章&quot;关于&quot;页的书写</p>
-<p>插件地址<a href="https://github.com/codepzj/hexo-graph">codepzj/hexo-graph: hexo-graph，一个基于echarts，集成博客热力图，博客月份统计图，分类统计图，标签统计图的多元化插件。</a></p>
-</p>
-    </div>
-</div><span id="more"></span>
-<p>略</p>
-<hr />
-<div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
-      <categories>
-        <category>hexo</category>
-      </categories>
-      <tags>
-        <tag>折腾 hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>footnote使用</title>
     <url>/posts/64648fb9.html</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
@@ -964,6 +937,33 @@ CMake 能自动处理动态库的依赖，确保库按正确顺序链接。</p>
       </tags>
   </entry>
   <entry>
+    <title>关于hexo插件hexo-graph的使用</title>
+    <url>/posts/1bd5413e.html</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p>记一下文章&quot;关于&quot;页的书写</p>
+<p>插件地址<a href="https://github.com/codepzj/hexo-graph">codepzj/hexo-graph: hexo-graph，一个基于echarts，集成博客热力图，博客月份统计图，分类统计图，标签统计图的多元化插件。</a></p>
+</p>
+    </div>
+</div><span id="more"></span>
+<p>略</p>
+<hr />
+<div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>折腾 hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>关于博客中使用的脚注功能</title>
     <url>/posts/c6910d47.html</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
@@ -1033,6 +1033,14 @@ CMake 能自动处理动态库的依赖，确保库按正确顺序链接。</p>
       </tags>
   </entry>
   <entry>
+    <title>折腾hexo</title>
+    <url>/posts/8dc8b2ab.html</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />
+<span id="more"></span>
+<hr />
+<div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
+  </entry>
+  <entry>
     <title>关于本博客的客制化css</title>
     <url>/posts/d9cd1415.html</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />
@@ -1094,120 +1102,6 @@ CMake 能自动处理动态库的依赖，确保库按正确顺序链接。</p>
       <tags>
         <tag>hexo 建设</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>折腾hexo</title>
-    <url>/posts/8dc8b2ab.html</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />
-<span id="more"></span>
-<hr />
-<div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
-  </entry>
-  <entry>
-    <title>OS-习题精析</title>
-    <url>/posts/ac0632b5.html</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
-
-<div class="callout callout-tip">
-    <div class="callout-head">
-        <span class="callout-head-icon">💡</span>
-        <span class="callout-head-text" style="color:#009688">TIP</span>
-    </div>
-    <div class="callout-contents">
-        <p><p></p>
-<p>放一些操作系统课堂习题的思考</p>
-<p>相关链接|</p>
-</p>
-    </div>
-</div><span id="more"></span>
-<ol>
-<li class="lvl-3">
-</li>
-</ol>
-<p><img src="./assets/image-20241219191642448.png" alt="image-20241219191642448"></p>
-<p>正解B，</p>
-
-<div class="callout callout-tip">
-    <div class="callout-head">
-        <span class="callout-head-icon">💡</span>
-        <span class="callout-head-text" style="color:#009688">TIP</span>
-    </div>
-    <div class="callout-contents">
-        <p><p></p>
-<p>程序是否能够运行，除了装入主存（RAM）以外，还需要满足以下几个条件：</p>
-<ol>
-<li class="lvl-3">
-<p><strong>程序必须经过编译或解释</strong></p>
-<ul class="lvl-3">
-<li class="lvl-5">如果是编译型语言（如 C、C++、Java 等），程序需要先被编译为可执行的机器码。</li>
-<li class="lvl-5">如果是解释型语言（如 Python、JavaScript），需要一个解释器在运行时逐行解释代码。</li>
-</ul>
-</li>
-<li class="lvl-3">
-<p><strong>依赖的操作系统和环境支持</strong></p>
-<ul class="lvl-3">
-<li class="lvl-5">程序需要运行在支持的操作系统环境下，例如 Windows、Linux 或 macOS。</li>
-<li class="lvl-5">如果程序依赖特定的运行时环境（如 Java 的 JVM 或 .NET 的 CLR），必须确保这些环境已安装且版本兼容。</li>
-</ul>
-</li>
-<li class="lvl-3">
-<p><strong>所需资源的可用性</strong></p>
-<ul class="lvl-3">
-<li class="lvl-5">程序运行需要 CPU 时间片、内存空间和其他硬件资源。如果系统资源不足，程序可能无法正常运行。</li>
-<li class="lvl-5">如果程序依赖外部文件、数据库或网络服务，这些资源也需要可用。</li>
-</ul>
-</li>
-<li class="lvl-3">
-<p><strong>入口地址或执行点明确</strong></p>
-<ul class="lvl-3">
-<li class="lvl-5">程序需要有明确的入口点（如主函数 <code>main()</code> 或脚本的起始点）。在操作系统加载程序时，它需要知道从哪里开始执行。</li>
-</ul>
-</li>
-<li class="lvl-3">
-<p><strong>程序权限满足要求</strong></p>
-<ul class="lvl-3">
-<li class="lvl-5">程序需要足够的权限访问主存、外部设备或系统功能。如果权限不足，可能无法运行或只能部分功能正常。</li>
-</ul>
-</li>
-</ol>
-<p>如果仅仅是装入主存而未满足以上条件，程序将无法正确运行。</p>
-<p>——GPT</p>
-</p>
-    </div>
-</div><ol start="2">
-<li class="lvl-3">
-<p>程序获得CPU执行的两个条件是？</p>
-<ul class="lvl-2">
-<li class="lvl-5">程序进入内存</li>
-<li class="lvl-5">程序待执行指令的内存地址设为PC寄存器的值</li>
-</ul>
-</li>
-<li class="lvl-3">
-<p>在程序执行时，如果两个并发程序同时访问并修改同一个全局变量时，程序结果会不确定，但如果程序并不相互干涉及，就不会影响程序结果</p>
-</li>
-<li class="lvl-3">
-<p>程序在并发运行的过程中并不具有封闭性，这是因为多个程序会共享资源，导致他们的执行相互影响</p>
-</li>
-<li class="lvl-3">
-<p>A、B两个程序并发执行必须先满足的条件：即每个程序的写集均与其他进程的读/写集均无交集</p>
-</li>
-<li class="lvl-3">
-<p>进程可以并发执行，而程序像是进程的规则，由程序可以创建很多可以运行的进程，以执行程序所规定的任务</p>
-</li>
-<li class="lvl-3">
-<p>若系统为单处理机系统，现在共有$n$个用户进程</p>
-<p>则处于就绪状态的用户进程最多有$n-1$个<small>（如果所有进程均处于就绪状态，则一定有一个进程会被CPU拿去执行）</small></p>
-<p>处于阻塞的进程一共有$n$个<small>（发生死锁）</small></p>
-</li>
-<li class="lvl-3">
-<p>一个进程被唤醒，仅意味着该进程变为就绪状态，并不意味着进程重新占用CPU</p>
-</li>
-</ol>
-<hr />
-<div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
-      <categories>
-        <category>未分类</category>
-      </categories>
   </entry>
   <entry>
     <title>CISC架构</title>
@@ -2205,12 +2099,80 @@ CMake 能自动处理动态库的依赖，确保库按正确顺序链接。</p>
 <li class="lvl-2">
 <p><big><span style="color:blue;">进程页表</span></big>：每个进程有一个页表，描述该进程占用的物理页面及逻辑排列顺序；</p>
 <ul class="lvl-2">
-<li class="lvl-4">逻辑页表</li>
+<li class="lvl-4">逻辑页号（本进程的地址空间）-&gt; 物理页号（实际内存空间）；</li>
 </ul>
 </li>
+<li class="lvl-2">
+<p><big><span style="color:blue;">物理页面表</span></big>：整个系统有一个物理页面表，描述物理内存空间的分配使用情况</p>
+<ul class="lvl-2">
+<li class="lvl-4">数据结构：位示图，空闲分区链表</li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412152125190.png" alt="image-20241215212545948"></p>
+</li>
+<li class="lvl-2">
+<p><big><span style="color:blue;">请求表</span></big>：整个系统有一个请求表，描述系统内各个进程页表的位置和大小，用于地址转换，也可以结合到各进程PCB里</p>
+</li>
+</ul>
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p><big><strong>页表不属于进程的地址空间</strong></big></p>
+<p>但每个进程均有一个页表，由操作系统维护。</p>
+<p>页表的主要作用是将进程的虚拟地址（Virtual Address）映射到物理地址（Physical Address）。每个进程都有独立的虚拟地址空间，而页表是管理这种虚拟地址空间的关键数据结构。</p>
+<p>页表本身存储在内存中，由操作系统维护。它记录了虚拟页面与物理页面之间的映射关系，例如页面是否在内存中、页面权限等。</p>
+</p>
+    </div>
+</div><p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412152125190.png" alt="image-20241215212545948"></p>
 <center><small>页表结构</small></center>
+<h3 id="内存有效访问时间EAT"><a class="header-anchor" href="#内存有效访问时间EAT">¶</a>内存有效访问时间EAT</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412202139618.png" alt="image-20241220213940979"></p>
+<p><img src="./assets/1156ee8355ca107182c5e49788ac3c3.jpg" alt="1156ee8355ca107182c5e49788ac3c3"></p>
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p>当快表未命中时，根据程序的局部性原理，下一次再次访问的概率会很大，所以需要将缺失的信息写入到块表中，以便下次查询时可以命中。</p>
+</p>
+    </div>
+</div><h3 id="相关技术-2"><a class="header-anchor" href="#相关技术-2">¶</a>相关技术</h3>
+<h4 id="两级或多级页表"><a class="header-anchor" href="#两级或多级页表">¶</a>两级或多级页表</h4>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412202217960.png" alt="image-20241220221715989"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412202217488.png" alt="image-20241220221737815"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412202238250.png" alt="image-20241220223823781"></p>
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p>对于该题，通过逻辑地址空间和页大小可以得出</p>
+<blockquote>
+<p>逻辑地址结构即寻址到一个位</p>
+</p>
+    </div>
+</div><p>逻辑地址共$10 + 16 = 26$位，</p>
+<p>则，寻址到一个位需要：$26$位，即逻辑地址长度为$26$</p>
+<p>而通过页表项大小和页大小可以算出一个页表可以存下$2^9$个页表，即逻辑地址结构中页号长度为$9$位</p>
+<p>页内偏移量长度即页大小$10$位</p>
+<p>所以可以推出现在已经用了$10 + 9 = 19$位</p>
+<p>则剩下$7$位</p>
+<p>全为页目录号长度</p>
+<p>则，页目录号包含表项的个数至少为$2^7$</p>
+<blockquote>
+<p>页目录表，指的是一级页表。</p>
+<p>包含表项，指的一级页表中的一项。</p>
+</blockquote>
+</blockquote>
 ]]></content>
       <categories>
         <category>408 - OS</category>
@@ -2222,140 +2184,110 @@ CMake 能自动处理动态库的依赖，确保库按正确顺序链接。</p>
       </tags>
   </entry>
   <entry>
-    <title>一条指令在执行期间，可能产生多次缺页中断</title>
-    <url>/posts/52e033e8.html</url>
+    <title>OS-习题精析</title>
+    <url>/posts/ac0632b5.html</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
 
-<div class="callout callout-note">
+<div class="callout callout-tip">
     <div class="callout-head">
-        <span class="callout-head-icon">📝</span>
-        <span class="callout-head-text" style="color:#673ab7">NOTE</span>
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
     </div>
     <div class="callout-contents">
         <p><p></p>
-<p>一条指令在执行期间，可能产生多次缺页中断 的详细解析</p>
+<p>放一些操作系统课堂习题的思考</p>
+<p>相关链接|</p>
 </p>
     </div>
 </div><span id="more"></span>
-<p>是的，一条指令在执行期间<strong>可能产生多次缺页中断</strong>。这是因为指令的执行可能涉及到多个内存地址的访问，而每个地址的访问都有可能导致缺页中断。以下是几种可能导致这种情况的场景：</p>
-<hr>
-<h3 id="1-指令本身产生的缺页中断"><a class="header-anchor" href="#1-指令本身产生的缺页中断">¶</a><strong>1. 指令本身产生的缺页中断</strong></h3>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p><strong>指令取指</strong><br>
-CPU在执行一条指令时，需要从内存取出指令。如果指令所在的虚拟页面尚未加载到主存，就会触发缺页中断。</p>
-</li>
-</ul>
-<hr>
-<h3 id="2-操作数访问导致的缺页中断"><a class="header-anchor" href="#2-操作数访问导致的缺页中断">¶</a><strong>2. 操作数访问导致的缺页中断</strong></h3>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p><strong>直接操作数</strong><br>
-如果指令使用了内存中的数据作为操作数，操作数对应的页面可能尚未加载，触发缺页中断。</p>
-</li>
-<li class="lvl-2">
-<p><strong>间接访问（如指针或数组访问）</strong><br>
-指令可能需要通过指针或索引来访问内存中的数据。如果这些地址指向的页面不在主存，也会触发缺页中断。</p>
-</li>
-</ul>
-<hr>
-<h3 id="3-指令操作多次访问内存"><a class="header-anchor" href="#3-指令操作多次访问内存">¶</a><strong>3. 指令操作多次访问内存</strong></h3>
-<p>一些复杂指令（尤其在CISC架构中）可能在执行期间涉及多个内存访问，每次访问都可能触发缺页中断。例如：</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p><strong>字符串处理指令</strong><br>
-一条指令可能遍历一个数组或字符串，多次访问内存中的页面。</p>
-</li>
-<li class="lvl-2">
-<p><strong>多维数组操作</strong><br>
-在访问二维或三维数组时，可能涉及多个页面。</p>
-</li>
-</ul>
-<hr>
-<h3 id="4-页表访问产生的缺页中断"><a class="header-anchor" href="#4-页表访问产生的缺页中断">¶</a><strong>4. 页表访问产生的缺页中断</strong></h3>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p><strong>多级页表</strong><br>
-虚拟地址到物理地址的转换需要访问页表。如果页表本身存储在磁盘中，访问页表时可能触发缺页中断。</p>
-</li>
-<li class="lvl-2">
-<p><strong>页目录和页表分级加载</strong><br>
-如果多级页表结构中的多个级别对应的页面都不在主存，每一级别都会触发一次缺页中断。</p>
-</li>
-</ul>
-<hr>
-<h3 id="5-内存管理器的间接操作"><a class="header-anchor" href="#5-内存管理器的间接操作">¶</a><strong>5. 内存管理器的间接操作</strong></h3>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p><strong>堆栈操作</strong><br>
-某些指令（如函数调用或返回）会隐式修改堆栈指针。如果堆栈页面未加载，也会触发缺页中断。</p>
-</li>
-<li class="lvl-2">
-<p><strong>动态内存分配</strong><br>
-指令可能涉及动态分配的内存区域（如<code>malloc</code>或<code>new</code>），而这些区域的页面可能尚未加载到主存。</p>
-</li>
-</ul>
-<hr>
-<h3 id="示例"><a class="header-anchor" href="#示例">¶</a><strong>示例</strong></h3>
-<p>假设有一条指令：</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">a[i] = b[j] + c[k];</span><br></pre></td></tr></table></figure>
-<p>执行这条指令可能涉及以下几个内存访问：</p>
 <ol>
 <li class="lvl-3">
-<p>取出指令本身（指令所在页面可能触发缺页中断）。</p>
-</li>
-<li class="lvl-3">
-<p>读取数组<code>a</code>的地址。</p>
-</li>
-<li class="lvl-3">
-<p>读取数组<code>b</code>的地址。</p>
-</li>
-<li class="lvl-3">
-<p>读取数组<code>c</code>的地址。</p>
-</li>
-<li class="lvl-3">
-<p>访问<code>b[j]</code>的值。</p>
-</li>
-<li class="lvl-3">
-<p>访问<code>c[k]</code>的值。</p>
-</li>
-<li class="lvl-3">
-<p>写入<code>a[i]</code>。</p>
 </li>
 </ol>
-<p>如果这些访问的页面都未加载到主存，则可能触发<strong>多次缺页中断</strong>。</p>
-<hr>
-<h3 id="如何缓解缺页中断带来的开销"><a class="header-anchor" href="#如何缓解缺页中断带来的开销">¶</a><strong>如何缓解缺页中断带来的开销</strong></h3>
+<p><img src="./assets/image-20241219191642448.png" alt="image-20241219191642448"></p>
+<p>正解B，</p>
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p>程序是否能够运行，除了装入主存（RAM）以外，还需要满足以下几个条件：</p>
 <ol>
 <li class="lvl-3">
-<p><strong>预取机制</strong><br>
-操作系统可预测程序的访问模式，提前将相关页面加载到主存，减少缺页中断。</p>
+<p><strong>程序必须经过编译或解释</strong></p>
+<ul class="lvl-3">
+<li class="lvl-5">如果是编译型语言（如 C、C++、Java 等），程序需要先被编译为可执行的机器码。</li>
+<li class="lvl-5">如果是解释型语言（如 Python、JavaScript），需要一个解释器在运行时逐行解释代码。</li>
+</ul>
 </li>
 <li class="lvl-3">
-<p><strong>使用更大的页面（大页）</strong><br>
-使用大页面（如2MB或1GB）可以减少页表项数量，降低缺页中断概率。</p>
+<p><strong>依赖的操作系统和环境支持</strong></p>
+<ul class="lvl-3">
+<li class="lvl-5">程序需要运行在支持的操作系统环境下，例如 Windows、Linux 或 macOS。</li>
+<li class="lvl-5">如果程序依赖特定的运行时环境（如 Java 的 JVM 或 .NET 的 CLR），必须确保这些环境已安装且版本兼容。</li>
+</ul>
 </li>
 <li class="lvl-3">
-<p><strong>优化程序内存访问模式</strong><br>
-开发者可以优化数据结构和算法，尽量减少跨页面访问。</p>
+<p><strong>所需资源的可用性</strong></p>
+<ul class="lvl-3">
+<li class="lvl-5">程序运行需要 CPU 时间片、内存空间和其他硬件资源。如果系统资源不足，程序可能无法正常运行。</li>
+<li class="lvl-5">如果程序依赖外部文件、数据库或网络服务，这些资源也需要可用。</li>
+</ul>
 </li>
 <li class="lvl-3">
-<p><strong>TLB优化</strong><br>
-提高页表缓存（TLB）的命中率，加快地址转换速度。</p>
+<p><strong>入口地址或执行点明确</strong></p>
+<ul class="lvl-3">
+<li class="lvl-5">程序需要有明确的入口点（如主函数 <code>main()</code> 或脚本的起始点）。在操作系统加载程序时，它需要知道从哪里开始执行。</li>
+</ul>
+</li>
+<li class="lvl-3">
+<p><strong>程序权限满足要求</strong></p>
+<ul class="lvl-3">
+<li class="lvl-5">程序需要足够的权限访问主存、外部设备或系统功能。如果权限不足，可能无法运行或只能部分功能正常。</li>
+</ul>
 </li>
 </ol>
-<hr>
-<p>综上，虽然一条指令可能导致多次缺页中断，但通过合理的内存管理策略和优化，可以有效降低缺页中断的频率，提高系统性能。</p>
+<p>如果仅仅是装入主存而未满足以上条件，程序将无法正确运行。</p>
+<p>——GPT</p>
+</p>
+    </div>
+</div><ol start="2">
+<li class="lvl-3">
+<p>程序获得CPU执行的两个条件是？</p>
+<ul class="lvl-2">
+<li class="lvl-5">程序进入内存</li>
+<li class="lvl-5">程序待执行指令的内存地址设为PC寄存器的值</li>
+</ul>
+</li>
+<li class="lvl-3">
+<p>在程序执行时，如果两个并发程序同时访问并修改同一个全局变量时，程序结果会不确定，但如果程序并不相互干涉及，就不会影响程序结果</p>
+</li>
+<li class="lvl-3">
+<p>程序在并发运行的过程中并不具有封闭性，这是因为多个程序会共享资源，导致他们的执行相互影响</p>
+</li>
+<li class="lvl-3">
+<p>A、B两个程序并发执行必须先满足的条件：即每个程序的写集均与其他进程的读/写集均无交集</p>
+</li>
+<li class="lvl-3">
+<p>进程可以并发执行，而程序像是进程的规则，由程序可以创建很多可以运行的进程，以执行程序所规定的任务</p>
+</li>
+<li class="lvl-3">
+<p>若系统为单处理机系统，现在共有$n$个用户进程</p>
+<p>则处于就绪状态的用户进程最多有$n-1$个<small>（如果所有进程均处于就绪状态，则一定有一个进程会被CPU拿去执行）</small></p>
+<p>处于阻塞的进程一共有$n$个<small>（发生死锁）</small></p>
+</li>
+<li class="lvl-3">
+<p>一个进程被唤醒，仅意味着该进程变为就绪状态，并不意味着进程重新占用CPU</p>
+</li>
+</ol>
 <hr />
 <div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
       <categories>
-        <category>408 - OS</category>
+        <category>未分类</category>
       </categories>
-      <tags>
-        <tag>大学</tag>
-        <tag>408</tag>
-        <tag>OS</tag>
-      </tags>
   </entry>
   <entry>
     <title>内存管理中固定分区的地址重定位与存储保护</title>
@@ -2903,6 +2835,142 @@ $$<br>
       </categories>
   </entry>
   <entry>
+    <title>一条指令在执行期间，可能产生多次缺页中断</title>
+    <url>/posts/52e033e8.html</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
+
+<div class="callout callout-note">
+    <div class="callout-head">
+        <span class="callout-head-icon">📝</span>
+        <span class="callout-head-text" style="color:#673ab7">NOTE</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p>一条指令在执行期间，可能产生多次缺页中断 的详细解析</p>
+</p>
+    </div>
+</div><span id="more"></span>
+<p>是的，一条指令在执行期间<strong>可能产生多次缺页中断</strong>。这是因为指令的执行可能涉及到多个内存地址的访问，而每个地址的访问都有可能导致缺页中断。以下是几种可能导致这种情况的场景：</p>
+<hr>
+<h3 id="1-指令本身产生的缺页中断"><a class="header-anchor" href="#1-指令本身产生的缺页中断">¶</a><strong>1. 指令本身产生的缺页中断</strong></h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>指令取指</strong><br>
+CPU在执行一条指令时，需要从内存取出指令。如果指令所在的虚拟页面尚未加载到主存，就会触发缺页中断。</p>
+</li>
+</ul>
+<hr>
+<h3 id="2-操作数访问导致的缺页中断"><a class="header-anchor" href="#2-操作数访问导致的缺页中断">¶</a><strong>2. 操作数访问导致的缺页中断</strong></h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>直接操作数</strong><br>
+如果指令使用了内存中的数据作为操作数，操作数对应的页面可能尚未加载，触发缺页中断。</p>
+</li>
+<li class="lvl-2">
+<p><strong>间接访问（如指针或数组访问）</strong><br>
+指令可能需要通过指针或索引来访问内存中的数据。如果这些地址指向的页面不在主存，也会触发缺页中断。</p>
+</li>
+</ul>
+<hr>
+<h3 id="3-指令操作多次访问内存"><a class="header-anchor" href="#3-指令操作多次访问内存">¶</a><strong>3. 指令操作多次访问内存</strong></h3>
+<p>一些复杂指令（尤其在CISC架构中）可能在执行期间涉及多个内存访问，每次访问都可能触发缺页中断。例如：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>字符串处理指令</strong><br>
+一条指令可能遍历一个数组或字符串，多次访问内存中的页面。</p>
+</li>
+<li class="lvl-2">
+<p><strong>多维数组操作</strong><br>
+在访问二维或三维数组时，可能涉及多个页面。</p>
+</li>
+</ul>
+<hr>
+<h3 id="4-页表访问产生的缺页中断"><a class="header-anchor" href="#4-页表访问产生的缺页中断">¶</a><strong>4. 页表访问产生的缺页中断</strong></h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>多级页表</strong><br>
+虚拟地址到物理地址的转换需要访问页表。如果页表本身存储在磁盘中，访问页表时可能触发缺页中断。</p>
+</li>
+<li class="lvl-2">
+<p><strong>页目录和页表分级加载</strong><br>
+如果多级页表结构中的多个级别对应的页面都不在主存，每一级别都会触发一次缺页中断。</p>
+</li>
+</ul>
+<hr>
+<h3 id="5-内存管理器的间接操作"><a class="header-anchor" href="#5-内存管理器的间接操作">¶</a><strong>5. 内存管理器的间接操作</strong></h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>堆栈操作</strong><br>
+某些指令（如函数调用或返回）会隐式修改堆栈指针。如果堆栈页面未加载，也会触发缺页中断。</p>
+</li>
+<li class="lvl-2">
+<p><strong>动态内存分配</strong><br>
+指令可能涉及动态分配的内存区域（如<code>malloc</code>或<code>new</code>），而这些区域的页面可能尚未加载到主存。</p>
+</li>
+</ul>
+<hr>
+<h3 id="示例"><a class="header-anchor" href="#示例">¶</a><strong>示例</strong></h3>
+<p>假设有一条指令：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">a[i] = b[j] + c[k];</span><br></pre></td></tr></table></figure>
+<p>执行这条指令可能涉及以下几个内存访问：</p>
+<ol>
+<li class="lvl-3">
+<p>取出指令本身（指令所在页面可能触发缺页中断）。</p>
+</li>
+<li class="lvl-3">
+<p>读取数组<code>a</code>的地址。</p>
+</li>
+<li class="lvl-3">
+<p>读取数组<code>b</code>的地址。</p>
+</li>
+<li class="lvl-3">
+<p>读取数组<code>c</code>的地址。</p>
+</li>
+<li class="lvl-3">
+<p>访问<code>b[j]</code>的值。</p>
+</li>
+<li class="lvl-3">
+<p>访问<code>c[k]</code>的值。</p>
+</li>
+<li class="lvl-3">
+<p>写入<code>a[i]</code>。</p>
+</li>
+</ol>
+<p>如果这些访问的页面都未加载到主存，则可能触发<strong>多次缺页中断</strong>。</p>
+<hr>
+<h3 id="如何缓解缺页中断带来的开销"><a class="header-anchor" href="#如何缓解缺页中断带来的开销">¶</a><strong>如何缓解缺页中断带来的开销</strong></h3>
+<ol>
+<li class="lvl-3">
+<p><strong>预取机制</strong><br>
+操作系统可预测程序的访问模式，提前将相关页面加载到主存，减少缺页中断。</p>
+</li>
+<li class="lvl-3">
+<p><strong>使用更大的页面（大页）</strong><br>
+使用大页面（如2MB或1GB）可以减少页表项数量，降低缺页中断概率。</p>
+</li>
+<li class="lvl-3">
+<p><strong>优化程序内存访问模式</strong><br>
+开发者可以优化数据结构和算法，尽量减少跨页面访问。</p>
+</li>
+<li class="lvl-3">
+<p><strong>TLB优化</strong><br>
+提高页表缓存（TLB）的命中率，加快地址转换速度。</p>
+</li>
+</ol>
+<hr>
+<p>综上，虽然一条指令可能导致多次缺页中断，但通过合理的内存管理策略和优化，可以有效降低缺页中断的频率，提高系统性能。</p>
+<hr />
+<div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
+      <categories>
+        <category>408 - OS</category>
+      </categories>
+      <tags>
+        <tag>大学</tag>
+        <tag>408</tag>
+        <tag>OS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>操作系统复习</title>
     <url>/posts/cd647b6c.html</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
@@ -2928,6 +2996,219 @@ $$<br>
 <p><a href="/posts/b90b7ae5">第六章</a></p>
 </li>
 </ul>
+<hr />
+<div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
+      <categories>
+        <category>408 - OS</category>
+      </categories>
+      <tags>
+        <tag>大学</tag>
+        <tag>408</tag>
+        <tag>OS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>请求分页-LRU的实际实现过程</title>
+    <url>/posts/f041ded5.html</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<h4>实际实现</h4>
+<p><strong>最近最久未使用（LRU）算法</strong> 的实现可以通过移位寄存器或栈的方式完成。这两种方式各有特点：</p>
+<h5><strong>1. 用移位寄存器实现 LRU</strong></h5>
+<p>移位寄存器是一种硬件或软件模拟的寄存结构，通过移位操作记录页面访问的历史。实现过程如下：</p>
+<ul class="lvl-1">
+<li class="lvl-2">
+<p>每个页面框分配一个寄存器，初始值为 0。</p>
+</li>
+<li class="lvl-2">
+<p>每次页面访问时，将该寄存器的最高位置为 1，其余位依次右移。</p>
+</li>
+<li class="lvl-2">
+<p>未访问的页面寄存器位移后会逐渐变成更小的值。</p>
+</li>
+<li class="lvl-2">
+<p>页面置换时，选择寄存器值最小的页面，即最久未使用的页面。</p>
+</li>
+</ul>
+<p>这种实现方式简单直观，但寄存器的位数增加会带来更多硬件需求，因此通常适合于特定规模的小型系统【18】【19】。</p>
+<h5><strong>2. 用栈实现 LRU</strong></h5>
+<p>通过栈来管理页面访问，栈顶表示最近使用的页面，栈底表示最久未使用的页面：</p>
+<ul class="lvl-1">
+<li class="lvl-2">
+<p>每次页面被访问时，若其已在栈中，则将其从原位置移除并放到栈顶。</p>
+</li>
+<li class="lvl-2">
+<p>若页面不在栈中，则将其直接插入栈顶。</p>
+</li>
+<li class="lvl-2">
+<p>如果栈已满，移除栈底元素（最久未使用页面），然后插入新页面。</p>
+</li>
+</ul>
+<p>栈的实现可以通过链表实现动态插入删除操作，同时保证页面顺序的调整。相比移位寄存器，栈方法适合于较大规模的系统，灵活性更高，但需要额外的空间来存储栈【18】【19】。</p>
+<p>以上两种方法在实际系统中应用时，还会因性能需求选择优化的数据结构（如哈希表结合链表），以便实现更高效的页面访问与置换管理。</p>
+</p>
+    </div>
+</div><span id="more"></span>
+<p>以下是使用<strong>移位寄存器</strong>和<strong>栈</strong>实现最近最久未使用（LRU）算法的详细过程：</p>
+<hr>
+<h3 id="1-用移位寄存器实现-LRU"><a class="header-anchor" href="#1-用移位寄存器实现-LRU">¶</a><strong>1. 用移位寄存器实现 LRU</strong></h3>
+<p>移位寄存器通过记录页面的访问历史，来跟踪最近最久未使用的页面。</p>
+<h4 id="基本原理"><a class="header-anchor" href="#基本原理">¶</a><strong>基本原理</strong></h4>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>每个页面框对应一个寄存器（n 位宽）。</p>
+</li>
+<li class="lvl-2">
+<p>每次访问页面时：</p>
+<ol>
+<li class="lvl-5">将对应寄存器的最高位设置为 1。</li>
+<li class="lvl-5">对所有寄存器执行右移操作。</li>
+</ol>
+</li>
+<li class="lvl-2">
+<p>随着时间推移，未被访问的页面寄存器的值会逐渐变小。</p>
+</li>
+<li class="lvl-2">
+<p>页面置换时，选择寄存器值最小的页面（即最久未使用的页面）。</p>
+</li>
+</ul>
+<h4 id="实现步骤"><a class="header-anchor" href="#实现步骤">¶</a><strong>实现步骤</strong></h4>
+<ol>
+<li class="lvl-3">
+<p><strong>初始化寄存器</strong>：为每个页面框分配一个寄存器，初始值为全 0。</p>
+</li>
+<li class="lvl-3">
+<p>页面访问：</p>
+<ul class="lvl-2">
+<li class="lvl-5">找到访问的页面对应的寄存器。</li>
+<li class="lvl-5">设置寄存器的最高位为 1。</li>
+<li class="lvl-5">对所有寄存器执行右移操作。</li>
+</ul>
+</li>
+<li class="lvl-3">
+<p>页面置换：</p>
+<ul class="lvl-2">
+<li class="lvl-5">在页面不在内存中且内存已满时，找到寄存器值最小的页面并将其替换。</li>
+</ul>
+</li>
+<li class="lvl-3">
+<p><strong>更新寄存器</strong>：置换完成后，初始化新页面的寄存器值为最高位为 1，其他位为 0。</p>
+</li>
+</ol>
+<h4 id="示例"><a class="header-anchor" href="#示例">¶</a><strong>示例</strong></h4>
+<p>假设有 4 个页面框，对应 4 个 4 位寄存器，初始值如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">R1: 0000  R2: 0000  R3: 0000  R4: 0000</span><br></pre></td></tr></table></figure>
+<p>访问页面框 1：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>设置 R1 的最高位为 1，并对所有寄存器右移：</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">R1: 1000  R2: 0000  R3: 0000  R4: 0000</span><br></pre></td></tr></table></figure>
+<p>再次访问页面框 1：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>设置 R1 的最高位为 1，并右移：</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">R1: 1100  R2: 0000  R3: 0000  R4: 0000</span><br></pre></td></tr></table></figure>
+<p>访问页面框 2：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>设置 R2 的最高位为 1，并右移：</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">R1: 0110  R2: 1000  R3: 0000  R4: 0000</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="2-用栈实现-LRU"><a class="header-anchor" href="#2-用栈实现-LRU">¶</a><strong>2. 用栈实现 LRU</strong></h3>
+<p>栈结构利用最近使用的页面总是在栈顶，而最久未使用的页面总是在栈底的特点，实现页面置换。</p>
+<h4 id="基本原理-2"><a class="header-anchor" href="#基本原理-2">¶</a><strong>基本原理</strong></h4>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>使用一个栈存储页面框号，栈顶是最近访问的页面。</p>
+</li>
+<li class="lvl-2">
+<p>页面访问时：</p>
+<ol>
+<li class="lvl-5">如果页面已在栈中，将其移到栈顶。</li>
+<li class="lvl-5">如果页面不在栈中：
+<ul class="lvl-4">
+<li class="lvl-7">栈未满时，将页面直接插入栈顶。</li>
+<li class="lvl-7">栈已满时，移除栈底页面（最久未使用），然后插入新页面到栈顶。</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<h4 id="实现步骤-2"><a class="header-anchor" href="#实现步骤-2">¶</a><strong>实现步骤</strong></h4>
+<ol>
+<li class="lvl-3">
+<p><strong>初始化栈</strong>：创建一个空栈，大小等于内存页面框数。</p>
+</li>
+<li class="lvl-3">
+<p>页面访问：</p>
+<ul class="lvl-2">
+<li class="lvl-5">检查页面是否在栈中：
+<ul class="lvl-4">
+<li class="lvl-7">如果在，将该页面从原位置移到栈顶。</li>
+<li class="lvl-7">如果不在：
+<ul class="lvl-6">
+<li class="lvl-9">栈未满时，直接将页面插入栈顶。</li>
+<li class="lvl-9">栈已满时，移除栈底页面，插入新页面到栈顶。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="lvl-3">
+<p>页面置换：</p>
+<ul class="lvl-2">
+<li class="lvl-5">置换操作在栈已满时，删除<strong>栈底</strong>页面，插入新页面到栈顶。</li>
+</ul>
+</li>
+</ol>
+<h4 id="示例-2"><a class="header-anchor" href="#示例-2">¶</a><strong>示例</strong></h4>
+<p>假设有 3 个页面框，初始栈为空：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">栈：[]</span><br></pre></td></tr></table></figure>
+<p>访问页面 1：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">栈：[1]</span><br></pre></td></tr></table></figure>
+<p>访问页面 2：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">栈：[2, 1]</span><br></pre></td></tr></table></figure>
+<p>访问页面 3：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">栈：[3, 2, 1]</span><br></pre></td></tr></table></figure>
+<p>再次访问页面 2：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>将页面 2 移到栈顶：</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">栈：[2, 3, 1]</span><br></pre></td></tr></table></figure>
+<p>访问页面 4（超出容量，需要置换）：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>移除栈底页面（1），插入 4：</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">栈：[4, 2, 3]</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="比较与选择"><a class="header-anchor" href="#比较与选择">¶</a><strong>比较与选择</strong></h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>移位寄存器</strong>实现简单，占用较少存储资源，但适合小型固定容量系统。</p>
+</li>
+<li class="lvl-2">
+<p><strong>栈</strong>灵活性更高，适合动态管理和较大规模的页面置换问题。</p>
+</li>
+</ul>
+<p>以上两种实现可以结合实际需求与硬件条件选择【18】【19】。</p>
 <hr />
 <div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
       <categories>
@@ -3716,6 +3997,379 @@ $$</p>
       </tags>
   </entry>
   <entry>
+    <title>请求分页-LFU</title>
+    <url>/posts/78bb016d.html</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p><strong>最少使用置换算法 (LFU, Least Frequently Used)</strong> 是一种基于页面访问频率的页面置换算法，其核心思想是将内存中使用频率最少的页面作为置换候选，确保较少被访问的页面优先被淘汰。LFU 算法适用于需要精确控制页面访问频率的场景，但在实际应用中常常因为实现复杂性和性能瓶颈而需要进行优化。</p>
+</p>
+    </div>
+</div><span id="more"></span>
+<h3 id="LFU-算法原理"><a class="header-anchor" href="#LFU-算法原理">¶</a><strong>LFU 算法原理</strong></h3>
+<p>LFU 算法通过记录每个页面的访问频率（即页面被访问的次数）来决定哪些页面应该被淘汰。当需要替换页面时，选择访问频率最少的页面进行替换。如果有多个页面的访问频率相同，则通常按照其他规则（如 FIFO）进一步选择页面。</p>
+<h3 id="LFU-的实现步骤"><a class="header-anchor" href="#LFU-的实现步骤">¶</a><strong>LFU 的实现步骤</strong></h3>
+<ol>
+<li class="lvl-3">
+<p><strong>初始化</strong>：</p>
+<ul class="lvl-2">
+<li class="lvl-5">为每个页面分配一个计数器，用于记录该页面的访问次数。</li>
+<li class="lvl-5">页面访问时，计数器加一。</li>
+</ul>
+</li>
+<li class="lvl-3">
+<p><strong>页面访问</strong>：</p>
+<ul class="lvl-2">
+<li class="lvl-5">如果页面在内存中，增加页面的访问频率（计数器加一）。</li>
+<li class="lvl-5">如果页面不在内存中：
+<ul class="lvl-4">
+<li class="lvl-7">若内存已满，则选择访问频率最少的页面进行置换。</li>
+<li class="lvl-7">将新页面加载到内存，并设置访问频率为 1。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="lvl-3">
+<p><strong>页面置换</strong>：</p>
+<ul class="lvl-2">
+<li class="lvl-5">在内存已满时，选择访问频率最小的页面进行淘汰。</li>
+<li class="lvl-5">如果有多个页面的访问频率相同，则使用其他策略（如 FIFO）进一步确定淘汰页面。</li>
+</ul>
+</li>
+<li class="lvl-3">
+<p><strong>优化</strong>：</p>
+<ul class="lvl-2">
+<li class="lvl-5">在实际应用中，为了避免频繁淘汰的情况，可以引入衰减机制，即定期减少页面的访问频率，使得较久未访问的页面可以逐渐“过期”。</li>
+<li class="lvl-5">结合其他策略（如时间局部性）可以进一步优化 LFU 的效果。</li>
+</ul>
+</li>
+</ol>
+<h3 id="LFU-的优缺点"><a class="header-anchor" href="#LFU-的优缺点">¶</a><strong>LFU 的优缺点</strong></h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>优点：</p>
+<ul class="lvl-2">
+<li class="lvl-4">LFU 更能反映页面的实际使用情况，尤其适合处理那些经常使用的页面和较少访问的页面之间的差异。</li>
+<li class="lvl-4">与 FIFO 不同，LFU 会根据页面的访问历史来判断哪些页面应该继续留在内存中，从而避免了 FIFO 在某些场景下的缺陷（如热点页面被淘汰的情况）。</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>缺点：</p>
+<ul class="lvl-2">
+<li class="lvl-4"><strong>实现复杂性</strong>：LFU 算法需要为每个页面维护一个访问计数器，这增加了系统的开销。</li>
+<li class="lvl-4"><strong>性能瓶颈</strong>：每次访问页面时，都需要更新访问计数器，并且置换时需要遍历所有页面，找到访问频率最小的页面，这在大规模系统中可能会导致性能问题。</li>
+<li class="lvl-4"><strong>长时间未使用页面</strong>：LFU 在某些情况下可能会保留一些长期未访问但仍然有高访问频率的页面，这在时间局部性较强的场景中可能不适用。</li>
+</ul>
+</li>
+</ul>
+<h3 id="优化方法"><a class="header-anchor" href="#优化方法">¶</a><strong>优化方法</strong></h3>
+<p>由于 LFU 算法容易受到高频页面占用内存的影响，现代系统中往往采用以下优化方法：</p>
+<ol>
+<li class="lvl-3">
+<p><strong>衰减机制</strong>：定期减小页面的访问计数，使得长期未访问的页面计数器值会逐渐降低，避免低频页面被长期保留。</p>
+</li>
+<li class="lvl-3">
+<p><strong>结合其他算法</strong>：例如，结合 LRU（最近最久未使用）策略，使用 LFU+LRU（如 LFU 结合链表）来同时考虑页面的访问频率和最近的访问时间，提升整体性能。</p>
+</li>
+</ol>
+<h3 id="LFU-与-FIFO-比较"><a class="header-anchor" href="#LFU-与-FIFO-比较">¶</a><strong>LFU 与 FIFO 比较</strong></h3>
+<p>LFU 算法是 FIFO 算法的一种改进。FIFO 仅根据页面进入内存的顺序来决定置换，而 LFU 则考虑了页面的使用频率，从而能更精确地反映页面的实际需求。相比 FIFO，LFU 更能避免热点页面被淘汰的情况，但其实现和维护的复杂性较高。</p>
+<h3 id="示例"><a class="header-anchor" href="#示例">¶</a><strong>示例</strong></h3>
+<p>假设我们有一个大小为 3 的页面框，页面访问序列如下：<code>1, 2, 3, 1, 2, 4, 5</code>。初始时，所有页面的访问频率为 0。每次访问时，页面的频率会增加，最终进行置换时会选择频率最小的页面。</p>
+<ol>
+<li class="lvl-3">
+<p>访问页面 <code>1</code>：内存中插入页面 <code>1</code>，频率为 <code>[1]</code>。</p>
+</li>
+<li class="lvl-3">
+<p>访问页面 <code>2</code>：内存中插入页面 <code>2</code>，频率为 <code>[1, 1]</code>。</p>
+</li>
+<li class="lvl-3">
+<p>访问页面 <code>3</code>：内存中插入页面 <code>3</code>，频率为 <code>[1, 1, 1]</code>。</p>
+</li>
+<li class="lvl-3">
+<p>再次访问页面 <code>1</code>：频率更新为 <code>[2, 1, 1]</code>。</p>
+</li>
+<li class="lvl-3">
+<p>再次访问页面 <code>2</code>：频率更新为 <code>[2, 2, 1]</code>。</p>
+</li>
+<li class="lvl-3">
+<p>访问页面 <code>4</code>：页面 <code>3</code> 被淘汰（频率最小），插入页面 <code>4</code>，频率为 <code>[2, 2, 1]</code>。</p>
+</li>
+<li class="lvl-3">
+<p>访问页面 <code>5</code>：页面 <code>1</code> 被淘汰（频率最小），插入页面 <code>5</code>，频率为 <code>[2, 2, 1]</code>。</p>
+</li>
+</ol>
+<p>在这个过程中，LFU 根据访问频率选择淘汰页面，相比 FIFO 更能有效管理频繁访问的页面。</p>
+<h3 id="总结"><a class="header-anchor" href="#总结">¶</a><strong>总结</strong></h3>
+<p>LFU 算法是一种有效的页面置换策略，适用于处理那些访问频率差异较大的场景。它相比 FIFO 更能反映页面的实际使用情况，但其实现复杂度和性能问题可能需要结合其他策略进行优化。在现代操作系统中，LFU 和其改进版本（如 LFU+LRU）通常会与其他页面管理策略一起使用，以达到更好的性能效果。</p>
+<hr />
+<div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
+      <categories>
+        <category>408 - OS</category>
+      </categories>
+      <tags>
+        <tag>大学</tag>
+        <tag>408</tag>
+        <tag>OS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>请求分页-物理块分配策略</title>
+    <url>/posts/907f4c43.html</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<h3>请求分页-物理块分配策略</h3>
+<h5>固定与可变</h5>
+<p><strong>固定</strong>与<strong>可变</strong>的区别在于给进程分配的物理块数</p>
+<p>即<strong>固定</strong>是指在给<strong>每个进程</strong>均分配<strong>固定数量</strong>的物理块</p>
+<p>可变即根据进程的不同，分配<strong>不同数量</strong>的物理块</p>
+<h5>全局与局部</h5>
+<p>即，当进程执行是发生缺页后，换入换出操作执行的范围</p>
+<p><strong>局部</strong> 即，当进程要执行换入换出操作时，仅在操作系统为<strong>该进程分配的物理空间</strong>之内发生替换，而不会影响其他进程块</p>
+<p><strong>全局</strong> 即，当前进程需要换入缺页的部分时，不仅仅会挑选当前进程拥有的物理块，还可能会换出其他进程的物理块。</p>
+</p>
+    </div>
+</div><span id="more"></span>
+<p>在操作系统中，<strong>物理块分配策略</strong>主要决定了内存如何分配给进程以及页面置换的策略。以下是这些策略的详细解释：</p>
+<hr>
+<h3 id="1-固定分配，局部置换"><a class="header-anchor" href="#1-固定分配，局部置换">¶</a><strong>1. 固定分配，局部置换</strong></h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>固定分配：每个进程在创建时，分配固定数量的物理块（即页面框）。这些物理块数量在整个运行过程中不再改变。</p>
+<ul class="lvl-2">
+<li class="lvl-4">例如，一个进程可能被分配 5 个页面框，另一个进程被分配 10 个页面框。</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>局部置换：当一个进程需要置换页面时，只能在它自己的物理块中进行替换，而不会占用或影响其他进程的物理块。</p>
+<ul class="lvl-2">
+<li class="lvl-4">换句话说，每个进程有自己的物理块范围，页面置换仅限于该范围内。</li>
+</ul>
+</li>
+</ul>
+<p><strong>优点</strong>：避免了进程之间的干扰，保证了各自的内存独立性。</p>
+<p><strong>缺点</strong>：如果某个进程的需求量超过了固定分配的物理块数，可能会出现高频率的页面置换（抖动问题）。</p>
+<hr>
+<h3 id="2-可变分配，全局置换"><a class="header-anchor" href="#2-可变分配，全局置换">¶</a><strong>2. 可变分配，全局置换</strong></h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>可变分配</strong>：系统可以根据进程的运行情况动态调整分配给每个进程的物理块数量。例如，一个进程内存需求增加时，可以从其他进程的分配中借用页面框。</p>
+</li>
+<li class="lvl-2">
+<p>全局置换：当某个进程需要置换页面时，可以在整个系统的所有物理块中选择受影响的页面，不局限于自身的物理块范围。</p>
+<ul class="lvl-2">
+<li class="lvl-4">例如，某个进程的页面置换可能会影响到其他进程正在使用的页面。</li>
+</ul>
+</li>
+</ul>
+<p><strong>优点</strong>：提高了系统内存的利用率，允许内存资源在进程之间灵活分配。</p>
+<p><strong>缺点</strong>：进程之间可能会互相干扰，导致某些进程因内存不足而性能下降。</p>
+<hr>
+<h3 id="3-可变分配，局部置换"><a class="header-anchor" href="#3-可变分配，局部置换">¶</a><strong>3. 可变分配，局部置换</strong></h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>可变分配</strong>：系统可以动态调整每个进程的物理块数量，具体分配数量由操作系统根据进程的需求决定。</p>
+</li>
+<li class="lvl-2">
+<p><strong>局部置换</strong>：尽管分配数量可变，但每个进程仍只能在自己当前拥有的物理块中进行页面置换，而不能影响其他进程的页面。</p>
+</li>
+</ul>
+<p><strong>优点</strong>：结合了固定分配和可变分配的优点，既能根据需求调整资源，又避免了进程之间的直接干扰。</p>
+<p><strong>缺点</strong>：动态分配增加了操作系统的复杂性。</p>
+<hr>
+<h3 id="总结对比"><a class="header-anchor" href="#总结对比">¶</a><strong>总结对比</strong></h3>
+<table>
+<thead>
+<tr>
+<th>策略类型</th>
+<th>物理块分配</th>
+<th>页面置换范围</th>
+<th>优点</th>
+<th>缺点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>固定分配，局部置换</td>
+<td>固定数量</td>
+<td>自己的物理块</td>
+<td>简单、稳定，避免进程干扰</td>
+<td>缺乏灵活性，可能导致个别进程性能下降</td>
+</tr>
+<tr>
+<td>可变分配，全局置换</td>
+<td>动态调整</td>
+<td>全局</td>
+<td>高效利用内存资源，支持动态调整</td>
+<td>进程间干扰可能导致系统不稳定</td>
+</tr>
+<tr>
+<td>可变分配，局部置换</td>
+<td>动态调整</td>
+<td>自己的物理块</td>
+<td>兼顾灵活性和稳定性</td>
+<td>系统复杂度较高</td>
+</tr>
+</tbody>
+</table>
+<p>这三种策略在实际中会根据操作系统的设计目标与应用场景选择适用的方案。</p>
+<hr />
+<div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
+      <categories>
+        <category>408 - OS</category>
+      </categories>
+      <tags>
+        <tag>大学</tag>
+        <tag>408</tag>
+        <tag>OS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>请求分页-物理块分配算法</title>
+    <url>/posts/8ba68849.html</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<h3>请求分页-物理块分配算法<strong>对比总结</strong></h3>
+<table>
+<thead>
+<tr>
+<th><strong>算法类型</strong></th>
+<th><strong>分配依据</strong></th>
+<th><strong>适用场景</strong></th>
+<th><strong>优点</strong></th>
+<th><strong>缺点</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>平均分配算法</td>
+<td>平均分配</td>
+<td>进程需求量相近的场景</td>
+<td>简单、公平</td>
+<td>无法动态适应需求，可能浪费资源</td>
+</tr>
+<tr>
+<td>按比例分配算法</td>
+<td>内存需求比例</td>
+<td>进程需求量差异大的场景</td>
+<td>资源利用率高，满足需求较大的进程</td>
+<td>计算复杂度较高</td>
+</tr>
+<tr>
+<td>考虑优先权的分配算法</td>
+<td>需求量和优先级</td>
+<td>多任务场景，优先保证关键任务</td>
+<td>确保关键任务优先，灵活调整分配策略</td>
+<td>可能导致低优先级任务资源匮乏</td>
+</tr>
+</tbody>
+</table>
+<p>在实际系统中，按比例分配算法和考虑优先权的分配算法更常见，因为它们能够更好地适应动态环境的需求。</p>
+</p>
+    </div>
+</div><span id="more"></span>
+<p>在物理块分配中，操作系统通过不同的分配算法将内存中的页面框分配给各个进程，以提高内存利用率和系统性能。以下是这些算法的详细解释：</p>
+<hr>
+<h3 id="1-平均分配算法"><a class="header-anchor" href="#1-平均分配算法">¶</a><strong>1. 平均分配算法</strong></h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>分配方法：</p>
+<ul class="lvl-2">
+<li class="lvl-4">系统将所有的物理块平均分配给当前运行的进程。</li>
+<li class="lvl-4">假设系统有 <code>N</code> 个页面框和 <code>M</code> 个进程，则每个进程分配到的页面框数量为 <code>N / M</code>，如果有余数，可以通过某种方式分配剩余的页面框。</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>特点：</p>
+<ul class="lvl-2">
+<li class="lvl-4">简单易实现，适用于所有进程的内存需求大致相同的场景。</li>
+<li class="lvl-4">对于需求量大的进程可能导致页面置换频繁（抖动问题），而需求量小的进程可能浪费内存。</li>
+</ul>
+</li>
+</ul>
+<p><strong>优点</strong>：公平、实现简单。</p>
+<p><strong>缺点</strong>：无法动态适应进程的实际需求，可能导致资源分配不合理。</p>
+<hr>
+<h3 id="2-按比例分配算法"><a class="header-anchor" href="#2-按比例分配算法">¶</a><strong>2. 按比例分配算法</strong></h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>分配方法：</p>
+<ul class="lvl-2">
+<li class="lvl-4">根据每个进程所需的页面数占比，按比例分配物理块。</li>
+<li class="lvl-4">假设系统有 <code>N</code> 个物理块，<code>M</code> 个进程，进程 <code>i</code> 所需页面数为 <code>Si</code>，则分配给进程 <code>i</code> 的页面框数为：<br>
+$$<br>
+\text{分配的页面框数} = N \times \frac{S_i}{\sum_{j=1}^{M} S_j}<br>
+$$</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>特点：</p>
+<ul class="lvl-2">
+<li class="lvl-4">进程内存需求较大时分配更多页面框，内存需求较小时分配更少。</li>
+<li class="lvl-4">适用于进程内存需求差异较大的场景，能较好地满足高需求进程的性能。</li>
+</ul>
+</li>
+</ul>
+<p><strong>优点</strong>：充分利用资源，能够根据需求动态调整分配。</p>
+<p><strong>缺点</strong>：计算复杂度较高，对需求量估计不准确时可能影响性能。</p>
+<hr>
+<h3 id="3-考虑优先权的分配算法"><a class="header-anchor" href="#3-考虑优先权的分配算法">¶</a><strong>3. 考虑优先权的分配算法</strong></h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>分配方法：</p>
+<ul class="lvl-2">
+<li class="lvl-4">在按比例分配的基础上，结合进程的优先级分配物理块。</li>
+<li class="lvl-4">系统会为高优先级进程分配更多的页面框，而低优先级进程分配较少。</li>
+<li class="lvl-4">假设优先级为 <code>Pi</code>，则分配公式可以扩展为：<br>
+$$<br>
+\text{分配的页面框数} = N \times \frac{P_i \cdot S_i}{\sum_{j=1}^{M} (P_j \cdot S_j)}<br>
+$$</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>特点：</p>
+<ul class="lvl-2">
+<li class="lvl-4">确保高优先级进程在资源分配上得到保障。</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>适用于多任务操作系统，优先保证关键任务或重要用户的性能。</p>
+</li>
+</ul>
+<p><strong>优点</strong>：保障高优先级任务的运行性能。</p>
+<p><strong>缺点</strong>：可能导致低优先级进程长时间无法获得足够的资源，影响其运行。</p>
+<hr />
+<div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
+      <categories>
+        <category>408 - OS</category>
+      </categories>
+      <tags>
+        <tag>大学</tag>
+        <tag>408</tag>
+        <tag>OS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>第2章-进程的描述与控制</title>
     <url>/posts/b9cdc318.html</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
@@ -4195,592 +4849,6 @@ $$</p>
       </categories>
   </entry>
   <entry>
-    <title>请求分页-LFU</title>
-    <url>/posts/78bb016d.html</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
-
-<div class="callout callout-tip">
-    <div class="callout-head">
-        <span class="callout-head-icon">💡</span>
-        <span class="callout-head-text" style="color:#009688">TIP</span>
-    </div>
-    <div class="callout-contents">
-        <p><p></p>
-<p><strong>最少使用置换算法 (LFU, Least Frequently Used)</strong> 是一种基于页面访问频率的页面置换算法，其核心思想是将内存中使用频率最少的页面作为置换候选，确保较少被访问的页面优先被淘汰。LFU 算法适用于需要精确控制页面访问频率的场景，但在实际应用中常常因为实现复杂性和性能瓶颈而需要进行优化。</p>
-</p>
-    </div>
-</div><span id="more"></span>
-<h3 id="LFU-算法原理"><a class="header-anchor" href="#LFU-算法原理">¶</a><strong>LFU 算法原理</strong></h3>
-<p>LFU 算法通过记录每个页面的访问频率（即页面被访问的次数）来决定哪些页面应该被淘汰。当需要替换页面时，选择访问频率最少的页面进行替换。如果有多个页面的访问频率相同，则通常按照其他规则（如 FIFO）进一步选择页面。</p>
-<h3 id="LFU-的实现步骤"><a class="header-anchor" href="#LFU-的实现步骤">¶</a><strong>LFU 的实现步骤</strong></h3>
-<ol>
-<li class="lvl-3">
-<p><strong>初始化</strong>：</p>
-<ul class="lvl-2">
-<li class="lvl-5">为每个页面分配一个计数器，用于记录该页面的访问次数。</li>
-<li class="lvl-5">页面访问时，计数器加一。</li>
-</ul>
-</li>
-<li class="lvl-3">
-<p><strong>页面访问</strong>：</p>
-<ul class="lvl-2">
-<li class="lvl-5">如果页面在内存中，增加页面的访问频率（计数器加一）。</li>
-<li class="lvl-5">如果页面不在内存中：
-<ul class="lvl-4">
-<li class="lvl-7">若内存已满，则选择访问频率最少的页面进行置换。</li>
-<li class="lvl-7">将新页面加载到内存，并设置访问频率为 1。</li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="lvl-3">
-<p><strong>页面置换</strong>：</p>
-<ul class="lvl-2">
-<li class="lvl-5">在内存已满时，选择访问频率最小的页面进行淘汰。</li>
-<li class="lvl-5">如果有多个页面的访问频率相同，则使用其他策略（如 FIFO）进一步确定淘汰页面。</li>
-</ul>
-</li>
-<li class="lvl-3">
-<p><strong>优化</strong>：</p>
-<ul class="lvl-2">
-<li class="lvl-5">在实际应用中，为了避免频繁淘汰的情况，可以引入衰减机制，即定期减少页面的访问频率，使得较久未访问的页面可以逐渐“过期”。</li>
-<li class="lvl-5">结合其他策略（如时间局部性）可以进一步优化 LFU 的效果。</li>
-</ul>
-</li>
-</ol>
-<h3 id="LFU-的优缺点"><a class="header-anchor" href="#LFU-的优缺点">¶</a><strong>LFU 的优缺点</strong></h3>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>优点：</p>
-<ul class="lvl-2">
-<li class="lvl-4">LFU 更能反映页面的实际使用情况，尤其适合处理那些经常使用的页面和较少访问的页面之间的差异。</li>
-<li class="lvl-4">与 FIFO 不同，LFU 会根据页面的访问历史来判断哪些页面应该继续留在内存中，从而避免了 FIFO 在某些场景下的缺陷（如热点页面被淘汰的情况）。</li>
-</ul>
-</li>
-<li class="lvl-2">
-<p>缺点：</p>
-<ul class="lvl-2">
-<li class="lvl-4"><strong>实现复杂性</strong>：LFU 算法需要为每个页面维护一个访问计数器，这增加了系统的开销。</li>
-<li class="lvl-4"><strong>性能瓶颈</strong>：每次访问页面时，都需要更新访问计数器，并且置换时需要遍历所有页面，找到访问频率最小的页面，这在大规模系统中可能会导致性能问题。</li>
-<li class="lvl-4"><strong>长时间未使用页面</strong>：LFU 在某些情况下可能会保留一些长期未访问但仍然有高访问频率的页面，这在时间局部性较强的场景中可能不适用。</li>
-</ul>
-</li>
-</ul>
-<h3 id="优化方法"><a class="header-anchor" href="#优化方法">¶</a><strong>优化方法</strong></h3>
-<p>由于 LFU 算法容易受到高频页面占用内存的影响，现代系统中往往采用以下优化方法：</p>
-<ol>
-<li class="lvl-3">
-<p><strong>衰减机制</strong>：定期减小页面的访问计数，使得长期未访问的页面计数器值会逐渐降低，避免低频页面被长期保留。</p>
-</li>
-<li class="lvl-3">
-<p><strong>结合其他算法</strong>：例如，结合 LRU（最近最久未使用）策略，使用 LFU+LRU（如 LFU 结合链表）来同时考虑页面的访问频率和最近的访问时间，提升整体性能。</p>
-</li>
-</ol>
-<h3 id="LFU-与-FIFO-比较"><a class="header-anchor" href="#LFU-与-FIFO-比较">¶</a><strong>LFU 与 FIFO 比较</strong></h3>
-<p>LFU 算法是 FIFO 算法的一种改进。FIFO 仅根据页面进入内存的顺序来决定置换，而 LFU 则考虑了页面的使用频率，从而能更精确地反映页面的实际需求。相比 FIFO，LFU 更能避免热点页面被淘汰的情况，但其实现和维护的复杂性较高。</p>
-<h3 id="示例"><a class="header-anchor" href="#示例">¶</a><strong>示例</strong></h3>
-<p>假设我们有一个大小为 3 的页面框，页面访问序列如下：<code>1, 2, 3, 1, 2, 4, 5</code>。初始时，所有页面的访问频率为 0。每次访问时，页面的频率会增加，最终进行置换时会选择频率最小的页面。</p>
-<ol>
-<li class="lvl-3">
-<p>访问页面 <code>1</code>：内存中插入页面 <code>1</code>，频率为 <code>[1]</code>。</p>
-</li>
-<li class="lvl-3">
-<p>访问页面 <code>2</code>：内存中插入页面 <code>2</code>，频率为 <code>[1, 1]</code>。</p>
-</li>
-<li class="lvl-3">
-<p>访问页面 <code>3</code>：内存中插入页面 <code>3</code>，频率为 <code>[1, 1, 1]</code>。</p>
-</li>
-<li class="lvl-3">
-<p>再次访问页面 <code>1</code>：频率更新为 <code>[2, 1, 1]</code>。</p>
-</li>
-<li class="lvl-3">
-<p>再次访问页面 <code>2</code>：频率更新为 <code>[2, 2, 1]</code>。</p>
-</li>
-<li class="lvl-3">
-<p>访问页面 <code>4</code>：页面 <code>3</code> 被淘汰（频率最小），插入页面 <code>4</code>，频率为 <code>[2, 2, 1]</code>。</p>
-</li>
-<li class="lvl-3">
-<p>访问页面 <code>5</code>：页面 <code>1</code> 被淘汰（频率最小），插入页面 <code>5</code>，频率为 <code>[2, 2, 1]</code>。</p>
-</li>
-</ol>
-<p>在这个过程中，LFU 根据访问频率选择淘汰页面，相比 FIFO 更能有效管理频繁访问的页面。</p>
-<h3 id="总结"><a class="header-anchor" href="#总结">¶</a><strong>总结</strong></h3>
-<p>LFU 算法是一种有效的页面置换策略，适用于处理那些访问频率差异较大的场景。它相比 FIFO 更能反映页面的实际使用情况，但其实现复杂度和性能问题可能需要结合其他策略进行优化。在现代操作系统中，LFU 和其改进版本（如 LFU+LRU）通常会与其他页面管理策略一起使用，以达到更好的性能效果。</p>
-<hr />
-<div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
-      <categories>
-        <category>408 - OS</category>
-      </categories>
-      <tags>
-        <tag>大学</tag>
-        <tag>408</tag>
-        <tag>OS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>请求分页-物理块分配策略</title>
-    <url>/posts/907f4c43.html</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
-
-<div class="callout callout-tip">
-    <div class="callout-head">
-        <span class="callout-head-icon">💡</span>
-        <span class="callout-head-text" style="color:#009688">TIP</span>
-    </div>
-    <div class="callout-contents">
-        <p><p></p>
-<h3>请求分页-物理块分配策略</h3>
-<h5>固定与可变</h5>
-<p><strong>固定</strong>与<strong>可变</strong>的区别在于给进程分配的物理块数</p>
-<p>即<strong>固定</strong>是指在给<strong>每个进程</strong>均分配<strong>固定数量</strong>的物理块</p>
-<p>可变即根据进程的不同，分配<strong>不同数量</strong>的物理块</p>
-<h5>全局与局部</h5>
-<p>即，当进程执行是发生缺页后，换入换出操作执行的范围</p>
-<p><strong>局部</strong> 即，当进程要执行换入换出操作时，仅在操作系统为<strong>该进程分配的物理空间</strong>之内发生替换，而不会影响其他进程块</p>
-<p><strong>全局</strong> 即，当前进程需要换入缺页的部分时，不仅仅会挑选当前进程拥有的物理块，还可能会换出其他进程的物理块。</p>
-</p>
-    </div>
-</div><span id="more"></span>
-<p>在操作系统中，<strong>物理块分配策略</strong>主要决定了内存如何分配给进程以及页面置换的策略。以下是这些策略的详细解释：</p>
-<hr>
-<h3 id="1-固定分配，局部置换"><a class="header-anchor" href="#1-固定分配，局部置换">¶</a><strong>1. 固定分配，局部置换</strong></h3>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>固定分配：每个进程在创建时，分配固定数量的物理块（即页面框）。这些物理块数量在整个运行过程中不再改变。</p>
-<ul class="lvl-2">
-<li class="lvl-4">例如，一个进程可能被分配 5 个页面框，另一个进程被分配 10 个页面框。</li>
-</ul>
-</li>
-<li class="lvl-2">
-<p>局部置换：当一个进程需要置换页面时，只能在它自己的物理块中进行替换，而不会占用或影响其他进程的物理块。</p>
-<ul class="lvl-2">
-<li class="lvl-4">换句话说，每个进程有自己的物理块范围，页面置换仅限于该范围内。</li>
-</ul>
-</li>
-</ul>
-<p><strong>优点</strong>：避免了进程之间的干扰，保证了各自的内存独立性。</p>
-<p><strong>缺点</strong>：如果某个进程的需求量超过了固定分配的物理块数，可能会出现高频率的页面置换（抖动问题）。</p>
-<hr>
-<h3 id="2-可变分配，全局置换"><a class="header-anchor" href="#2-可变分配，全局置换">¶</a><strong>2. 可变分配，全局置换</strong></h3>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p><strong>可变分配</strong>：系统可以根据进程的运行情况动态调整分配给每个进程的物理块数量。例如，一个进程内存需求增加时，可以从其他进程的分配中借用页面框。</p>
-</li>
-<li class="lvl-2">
-<p>全局置换：当某个进程需要置换页面时，可以在整个系统的所有物理块中选择受影响的页面，不局限于自身的物理块范围。</p>
-<ul class="lvl-2">
-<li class="lvl-4">例如，某个进程的页面置换可能会影响到其他进程正在使用的页面。</li>
-</ul>
-</li>
-</ul>
-<p><strong>优点</strong>：提高了系统内存的利用率，允许内存资源在进程之间灵活分配。</p>
-<p><strong>缺点</strong>：进程之间可能会互相干扰，导致某些进程因内存不足而性能下降。</p>
-<hr>
-<h3 id="3-可变分配，局部置换"><a class="header-anchor" href="#3-可变分配，局部置换">¶</a><strong>3. 可变分配，局部置换</strong></h3>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p><strong>可变分配</strong>：系统可以动态调整每个进程的物理块数量，具体分配数量由操作系统根据进程的需求决定。</p>
-</li>
-<li class="lvl-2">
-<p><strong>局部置换</strong>：尽管分配数量可变，但每个进程仍只能在自己当前拥有的物理块中进行页面置换，而不能影响其他进程的页面。</p>
-</li>
-</ul>
-<p><strong>优点</strong>：结合了固定分配和可变分配的优点，既能根据需求调整资源，又避免了进程之间的直接干扰。</p>
-<p><strong>缺点</strong>：动态分配增加了操作系统的复杂性。</p>
-<hr>
-<h3 id="总结对比"><a class="header-anchor" href="#总结对比">¶</a><strong>总结对比</strong></h3>
-<table>
-<thead>
-<tr>
-<th>策略类型</th>
-<th>物理块分配</th>
-<th>页面置换范围</th>
-<th>优点</th>
-<th>缺点</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>固定分配，局部置换</td>
-<td>固定数量</td>
-<td>自己的物理块</td>
-<td>简单、稳定，避免进程干扰</td>
-<td>缺乏灵活性，可能导致个别进程性能下降</td>
-</tr>
-<tr>
-<td>可变分配，全局置换</td>
-<td>动态调整</td>
-<td>全局</td>
-<td>高效利用内存资源，支持动态调整</td>
-<td>进程间干扰可能导致系统不稳定</td>
-</tr>
-<tr>
-<td>可变分配，局部置换</td>
-<td>动态调整</td>
-<td>自己的物理块</td>
-<td>兼顾灵活性和稳定性</td>
-<td>系统复杂度较高</td>
-</tr>
-</tbody>
-</table>
-<p>这三种策略在实际中会根据操作系统的设计目标与应用场景选择适用的方案。</p>
-<hr />
-<div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
-      <categories>
-        <category>408 - OS</category>
-      </categories>
-      <tags>
-        <tag>大学</tag>
-        <tag>408</tag>
-        <tag>OS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>请求分页-LRU的实际实现过程</title>
-    <url>/posts/f041ded5.html</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
-
-<div class="callout callout-tip">
-    <div class="callout-head">
-        <span class="callout-head-icon">💡</span>
-        <span class="callout-head-text" style="color:#009688">TIP</span>
-    </div>
-    <div class="callout-contents">
-        <p><p></p>
-<h4>实际实现</h4>
-<p><strong>最近最久未使用（LRU）算法</strong> 的实现可以通过移位寄存器或栈的方式完成。这两种方式各有特点：</p>
-<h5><strong>1. 用移位寄存器实现 LRU</strong></h5>
-<p>移位寄存器是一种硬件或软件模拟的寄存结构，通过移位操作记录页面访问的历史。实现过程如下：</p>
-<ul class="lvl-1">
-<li class="lvl-2">
-<p>每个页面框分配一个寄存器，初始值为 0。</p>
-</li>
-<li class="lvl-2">
-<p>每次页面访问时，将该寄存器的最高位置为 1，其余位依次右移。</p>
-</li>
-<li class="lvl-2">
-<p>未访问的页面寄存器位移后会逐渐变成更小的值。</p>
-</li>
-<li class="lvl-2">
-<p>页面置换时，选择寄存器值最小的页面，即最久未使用的页面。</p>
-</li>
-</ul>
-<p>这种实现方式简单直观，但寄存器的位数增加会带来更多硬件需求，因此通常适合于特定规模的小型系统【18】【19】。</p>
-<h5><strong>2. 用栈实现 LRU</strong></h5>
-<p>通过栈来管理页面访问，栈顶表示最近使用的页面，栈底表示最久未使用的页面：</p>
-<ul class="lvl-1">
-<li class="lvl-2">
-<p>每次页面被访问时，若其已在栈中，则将其从原位置移除并放到栈顶。</p>
-</li>
-<li class="lvl-2">
-<p>若页面不在栈中，则将其直接插入栈顶。</p>
-</li>
-<li class="lvl-2">
-<p>如果栈已满，移除栈底元素（最久未使用页面），然后插入新页面。</p>
-</li>
-</ul>
-<p>栈的实现可以通过链表实现动态插入删除操作，同时保证页面顺序的调整。相比移位寄存器，栈方法适合于较大规模的系统，灵活性更高，但需要额外的空间来存储栈【18】【19】。</p>
-<p>以上两种方法在实际系统中应用时，还会因性能需求选择优化的数据结构（如哈希表结合链表），以便实现更高效的页面访问与置换管理。</p>
-</p>
-    </div>
-</div><span id="more"></span>
-<p>以下是使用<strong>移位寄存器</strong>和<strong>栈</strong>实现最近最久未使用（LRU）算法的详细过程：</p>
-<hr>
-<h3 id="1-用移位寄存器实现-LRU"><a class="header-anchor" href="#1-用移位寄存器实现-LRU">¶</a><strong>1. 用移位寄存器实现 LRU</strong></h3>
-<p>移位寄存器通过记录页面的访问历史，来跟踪最近最久未使用的页面。</p>
-<h4 id="基本原理"><a class="header-anchor" href="#基本原理">¶</a><strong>基本原理</strong></h4>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>每个页面框对应一个寄存器（n 位宽）。</p>
-</li>
-<li class="lvl-2">
-<p>每次访问页面时：</p>
-<ol>
-<li class="lvl-5">将对应寄存器的最高位设置为 1。</li>
-<li class="lvl-5">对所有寄存器执行右移操作。</li>
-</ol>
-</li>
-<li class="lvl-2">
-<p>随着时间推移，未被访问的页面寄存器的值会逐渐变小。</p>
-</li>
-<li class="lvl-2">
-<p>页面置换时，选择寄存器值最小的页面（即最久未使用的页面）。</p>
-</li>
-</ul>
-<h4 id="实现步骤"><a class="header-anchor" href="#实现步骤">¶</a><strong>实现步骤</strong></h4>
-<ol>
-<li class="lvl-3">
-<p><strong>初始化寄存器</strong>：为每个页面框分配一个寄存器，初始值为全 0。</p>
-</li>
-<li class="lvl-3">
-<p>页面访问：</p>
-<ul class="lvl-2">
-<li class="lvl-5">找到访问的页面对应的寄存器。</li>
-<li class="lvl-5">设置寄存器的最高位为 1。</li>
-<li class="lvl-5">对所有寄存器执行右移操作。</li>
-</ul>
-</li>
-<li class="lvl-3">
-<p>页面置换：</p>
-<ul class="lvl-2">
-<li class="lvl-5">在页面不在内存中且内存已满时，找到寄存器值最小的页面并将其替换。</li>
-</ul>
-</li>
-<li class="lvl-3">
-<p><strong>更新寄存器</strong>：置换完成后，初始化新页面的寄存器值为最高位为 1，其他位为 0。</p>
-</li>
-</ol>
-<h4 id="示例"><a class="header-anchor" href="#示例">¶</a><strong>示例</strong></h4>
-<p>假设有 4 个页面框，对应 4 个 4 位寄存器，初始值如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">R1: 0000  R2: 0000  R3: 0000  R4: 0000</span><br></pre></td></tr></table></figure>
-<p>访问页面框 1：</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>设置 R1 的最高位为 1，并对所有寄存器右移：</p>
-</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">R1: 1000  R2: 0000  R3: 0000  R4: 0000</span><br></pre></td></tr></table></figure>
-<p>再次访问页面框 1：</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>设置 R1 的最高位为 1，并右移：</p>
-</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">R1: 1100  R2: 0000  R3: 0000  R4: 0000</span><br></pre></td></tr></table></figure>
-<p>访问页面框 2：</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>设置 R2 的最高位为 1，并右移：</p>
-</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">R1: 0110  R2: 1000  R3: 0000  R4: 0000</span><br></pre></td></tr></table></figure>
-<hr>
-<h3 id="2-用栈实现-LRU"><a class="header-anchor" href="#2-用栈实现-LRU">¶</a><strong>2. 用栈实现 LRU</strong></h3>
-<p>栈结构利用最近使用的页面总是在栈顶，而最久未使用的页面总是在栈底的特点，实现页面置换。</p>
-<h4 id="基本原理-2"><a class="header-anchor" href="#基本原理-2">¶</a><strong>基本原理</strong></h4>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>使用一个栈存储页面框号，栈顶是最近访问的页面。</p>
-</li>
-<li class="lvl-2">
-<p>页面访问时：</p>
-<ol>
-<li class="lvl-5">如果页面已在栈中，将其移到栈顶。</li>
-<li class="lvl-5">如果页面不在栈中：
-<ul class="lvl-4">
-<li class="lvl-7">栈未满时，将页面直接插入栈顶。</li>
-<li class="lvl-7">栈已满时，移除栈底页面（最久未使用），然后插入新页面到栈顶。</li>
-</ul>
-</li>
-</ol>
-</li>
-</ul>
-<h4 id="实现步骤-2"><a class="header-anchor" href="#实现步骤-2">¶</a><strong>实现步骤</strong></h4>
-<ol>
-<li class="lvl-3">
-<p><strong>初始化栈</strong>：创建一个空栈，大小等于内存页面框数。</p>
-</li>
-<li class="lvl-3">
-<p>页面访问：</p>
-<ul class="lvl-2">
-<li class="lvl-5">检查页面是否在栈中：
-<ul class="lvl-4">
-<li class="lvl-7">如果在，将该页面从原位置移到栈顶。</li>
-<li class="lvl-7">如果不在：
-<ul class="lvl-6">
-<li class="lvl-9">栈未满时，直接将页面插入栈顶。</li>
-<li class="lvl-9">栈已满时，移除栈底页面，插入新页面到栈顶。</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="lvl-3">
-<p>页面置换：</p>
-<ul class="lvl-2">
-<li class="lvl-5">置换操作在栈已满时，删除<strong>栈底</strong>页面，插入新页面到栈顶。</li>
-</ul>
-</li>
-</ol>
-<h4 id="示例-2"><a class="header-anchor" href="#示例-2">¶</a><strong>示例</strong></h4>
-<p>假设有 3 个页面框，初始栈为空：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">栈：[]</span><br></pre></td></tr></table></figure>
-<p>访问页面 1：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">栈：[1]</span><br></pre></td></tr></table></figure>
-<p>访问页面 2：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">栈：[2, 1]</span><br></pre></td></tr></table></figure>
-<p>访问页面 3：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">栈：[3, 2, 1]</span><br></pre></td></tr></table></figure>
-<p>再次访问页面 2：</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>将页面 2 移到栈顶：</p>
-</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">栈：[2, 3, 1]</span><br></pre></td></tr></table></figure>
-<p>访问页面 4（超出容量，需要置换）：</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>移除栈底页面（1），插入 4：</p>
-</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">栈：[4, 2, 3]</span><br></pre></td></tr></table></figure>
-<hr>
-<h3 id="比较与选择"><a class="header-anchor" href="#比较与选择">¶</a><strong>比较与选择</strong></h3>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p><strong>移位寄存器</strong>实现简单，占用较少存储资源，但适合小型固定容量系统。</p>
-</li>
-<li class="lvl-2">
-<p><strong>栈</strong>灵活性更高，适合动态管理和较大规模的页面置换问题。</p>
-</li>
-</ul>
-<p>以上两种实现可以结合实际需求与硬件条件选择【18】【19】。</p>
-<hr />
-<div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
-      <categories>
-        <category>408 - OS</category>
-      </categories>
-      <tags>
-        <tag>大学</tag>
-        <tag>408</tag>
-        <tag>OS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>请求分页-物理块分配算法</title>
-    <url>/posts/8ba68849.html</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
-
-<div class="callout callout-tip">
-    <div class="callout-head">
-        <span class="callout-head-icon">💡</span>
-        <span class="callout-head-text" style="color:#009688">TIP</span>
-    </div>
-    <div class="callout-contents">
-        <p><p></p>
-<h3>请求分页-物理块分配算法<strong>对比总结</strong></h3>
-<table>
-<thead>
-<tr>
-<th><strong>算法类型</strong></th>
-<th><strong>分配依据</strong></th>
-<th><strong>适用场景</strong></th>
-<th><strong>优点</strong></th>
-<th><strong>缺点</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>平均分配算法</td>
-<td>平均分配</td>
-<td>进程需求量相近的场景</td>
-<td>简单、公平</td>
-<td>无法动态适应需求，可能浪费资源</td>
-</tr>
-<tr>
-<td>按比例分配算法</td>
-<td>内存需求比例</td>
-<td>进程需求量差异大的场景</td>
-<td>资源利用率高，满足需求较大的进程</td>
-<td>计算复杂度较高</td>
-</tr>
-<tr>
-<td>考虑优先权的分配算法</td>
-<td>需求量和优先级</td>
-<td>多任务场景，优先保证关键任务</td>
-<td>确保关键任务优先，灵活调整分配策略</td>
-<td>可能导致低优先级任务资源匮乏</td>
-</tr>
-</tbody>
-</table>
-<p>在实际系统中，按比例分配算法和考虑优先权的分配算法更常见，因为它们能够更好地适应动态环境的需求。</p>
-</p>
-    </div>
-</div><span id="more"></span>
-<p>在物理块分配中，操作系统通过不同的分配算法将内存中的页面框分配给各个进程，以提高内存利用率和系统性能。以下是这些算法的详细解释：</p>
-<hr>
-<h3 id="1-平均分配算法"><a class="header-anchor" href="#1-平均分配算法">¶</a><strong>1. 平均分配算法</strong></h3>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>分配方法：</p>
-<ul class="lvl-2">
-<li class="lvl-4">系统将所有的物理块平均分配给当前运行的进程。</li>
-<li class="lvl-4">假设系统有 <code>N</code> 个页面框和 <code>M</code> 个进程，则每个进程分配到的页面框数量为 <code>N / M</code>，如果有余数，可以通过某种方式分配剩余的页面框。</li>
-</ul>
-</li>
-<li class="lvl-2">
-<p>特点：</p>
-<ul class="lvl-2">
-<li class="lvl-4">简单易实现，适用于所有进程的内存需求大致相同的场景。</li>
-<li class="lvl-4">对于需求量大的进程可能导致页面置换频繁（抖动问题），而需求量小的进程可能浪费内存。</li>
-</ul>
-</li>
-</ul>
-<p><strong>优点</strong>：公平、实现简单。</p>
-<p><strong>缺点</strong>：无法动态适应进程的实际需求，可能导致资源分配不合理。</p>
-<hr>
-<h3 id="2-按比例分配算法"><a class="header-anchor" href="#2-按比例分配算法">¶</a><strong>2. 按比例分配算法</strong></h3>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>分配方法：</p>
-<ul class="lvl-2">
-<li class="lvl-4">根据每个进程所需的页面数占比，按比例分配物理块。</li>
-<li class="lvl-4">假设系统有 <code>N</code> 个物理块，<code>M</code> 个进程，进程 <code>i</code> 所需页面数为 <code>Si</code>，则分配给进程 <code>i</code> 的页面框数为：<br>
-$$<br>
-\text{分配的页面框数} = N \times \frac{S_i}{\sum_{j=1}^{M} S_j}<br>
-$$</li>
-</ul>
-</li>
-<li class="lvl-2">
-<p>特点：</p>
-<ul class="lvl-2">
-<li class="lvl-4">进程内存需求较大时分配更多页面框，内存需求较小时分配更少。</li>
-<li class="lvl-4">适用于进程内存需求差异较大的场景，能较好地满足高需求进程的性能。</li>
-</ul>
-</li>
-</ul>
-<p><strong>优点</strong>：充分利用资源，能够根据需求动态调整分配。</p>
-<p><strong>缺点</strong>：计算复杂度较高，对需求量估计不准确时可能影响性能。</p>
-<hr>
-<h3 id="3-考虑优先权的分配算法"><a class="header-anchor" href="#3-考虑优先权的分配算法">¶</a><strong>3. 考虑优先权的分配算法</strong></h3>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>分配方法：</p>
-<ul class="lvl-2">
-<li class="lvl-4">在按比例分配的基础上，结合进程的优先级分配物理块。</li>
-<li class="lvl-4">系统会为高优先级进程分配更多的页面框，而低优先级进程分配较少。</li>
-<li class="lvl-4">假设优先级为 <code>Pi</code>，则分配公式可以扩展为：<br>
-$$<br>
-\text{分配的页面框数} = N \times \frac{P_i \cdot S_i}{\sum_{j=1}^{M} (P_j \cdot S_j)}<br>
-$$</li>
-</ul>
-</li>
-<li class="lvl-2">
-<p>特点：</p>
-<ul class="lvl-2">
-<li class="lvl-4">确保高优先级进程在资源分配上得到保障。</li>
-</ul>
-</li>
-<li class="lvl-2">
-<p>适用于多任务操作系统，优先保证关键任务或重要用户的性能。</p>
-</li>
-</ul>
-<p><strong>优点</strong>：保障高优先级任务的运行性能。</p>
-<p><strong>缺点</strong>：可能导致低优先级进程长时间无法获得足够的资源，影响其运行。</p>
-<hr />
-<div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
-      <categories>
-        <category>408 - OS</category>
-      </categories>
-      <tags>
-        <tag>大学</tag>
-        <tag>408</tag>
-        <tag>OS</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>请求分页-移位寄存器</title>
     <url>/posts/3d2c198d.html</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
@@ -4916,96 +4984,6 @@ $$</li>
       </tags>
   </entry>
   <entry>
-    <title>SRAM与DRAM-改错</title>
-    <url>/posts/2b174fb2.html</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
-
-<div class="callout callout-tip">
-    <div class="callout-head">
-        <span class="callout-head-icon">💡</span>
-        <span class="callout-head-text" style="color:#009688">TIP</span>
-    </div>
-    <div class="callout-contents">
-        <p><p></p>
-<p>SRAM与DRAM改错</p>
-<p>相关链接|<a href="./posts/9e51c077">SRAM和DRAM</a></p>
-</p>
-    </div>
-</div><span id="more"></span>
-<ol>
-<li class="lvl-3">
-<p>动态RAM采用哪种刷新方式刷新时，不存在死时间</p>
-<ul class="lvl-2">
-<li class="lvl-5"><em>集中刷新</em>：集中刷新必然存在死时间</li>
-<li class="lvl-5"><em>分散刷新</em>：机器的存取周期中的一段时间用来读/写，另一段时间用来刷新，因此不存在死时间，但存取周期变长</li>
-<li class="lvl-5"><em>异步刷新</em>：异步刷新虽然缩短了死时间，但死时间依然存在</li>
-</ul>
-</li>
-</ol>
-
-<div class="callout callout-tip">
-    <div class="callout-head">
-        <span class="callout-head-icon">💡</span>
-        <span class="callout-head-text" style="color:#009688">TIP</span>
-    </div>
-    <div class="callout-contents">
-        <p><p></p>
-<h4>关于芯片引脚数的计算：</h4>
-<ol>
-<li class="lvl-3">
-<p>某一DRAM芯片，采用地址复用技术，其容量为$1024*8$位，除电源和接地端外，该芯片的引脚数最少是？</p>
-<ul class="lvl-3">
-<li class="lvl-5">$1024*8$位，因此可寻址范围是$1024B = 2^{10}B$，按字节寻址。采用地址复用技术时，通过行通选和列通选分行、列两次传送地址信号，因此地址线减半为5根，数据线仍为$8$根；加上行通选和列通选及读/写（片选线用行通选代替）4根，总共是$17$根</li>
-</ul>
-<blockquote>
-<p>总结：</p>
-<p>DRAM，动态RAM的地址计算</p>
-<p>$引脚数 = \text{地址线(复用，减半)} + 数据线 + \text{行/列通选(2根)} + \text{读/写(两根)}$</p>
-</p>
-    </div>
-</div></li>
-</ol>
-</blockquote>
-
-<div class="callout callout-tip">
-    <div class="callout-head">
-        <span class="callout-head-icon">💡</span>
-        <span class="callout-head-text" style="color:#009688">TIP</span>
-    </div>
-    <div class="callout-contents">
-        <p><p></p>
-<h4>关于不同访存方式的耗时计算</h4>
-<ol>
-<li class="lvl-3">
-<p>某机器采用四体交叉存储器，现分别执行下述操作：</p>
-<ul class="lvl-3">
-<li class="lvl-5">读取$6$个连续地址单元中存放的存储字，重复80次</li>
-<li class="lvl-5">读取$8$个连续地址单元中存放的存储字，重复60次</li>
-</ul>
-<p>则前一操作和后一操作所花费的时间之比为?</p>
-<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412191651753.png" alt="image-20241219165101405"></p>
-
-<div class="callout callout-note">
-    <div class="callout-head">
-        <span class="callout-head-icon">📝</span>
-        <span class="callout-head-text" style="color:#673ab7">NOTE</span>
-    </div>
-    <div class="callout-contents">
-        <p><p></p>
-<p>在做该类型的题目时，要根据不同的访存策略，画出每个存储器访问状态的甘特图!</p>
-</p>
-    </div>
-</div></li>
-</ol>
-</p>
-    </div>
-</div><hr />
-<div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
-      <categories>
-        <category>未分类</category>
-      </categories>
-  </entry>
-  <entry>
     <title>请求分页-页面框</title>
     <url>/posts/6dc856e2.html</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
@@ -5107,6 +5085,148 @@ $$</li>
         <tag>408</tag>
         <tag>OS</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>进程同步</title>
+    <url>/posts/4de07942.html</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p><img src="./assets/image-20241220204542857.png" alt="image-20241220204542857"></p>
+<p>相关链接|<a href="./posts/1ba791ab#%E6%AD%BB%E9%94%81%E7%9A%84%E5%BF%85%E8%A6%81%E6%9D%A1%E4%BB%B6">死锁的必要条件</a></p>
+</p>
+    </div>
+</div><span id="more"></span>
+<h2 id="概念"><a class="header-anchor" href="#概念">¶</a>概念</h2>
+<h3 id="临界区"><a class="header-anchor" href="#临界区">¶</a>临界区</h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><span style="color:red">临界区：进程中涉及临界资源的代码段</span></p>
+</li>
+<li class="lvl-2">
+<p>进入区．用于检查是否可以进入临界区的代码段。</p>
+</li>
+<li class="lvl-2">
+<p>退出区：将临界区正被访问的标志恢复为未被访问标志。</p>
+</li>
+<li class="lvl-2">
+<p>剩余区：其他代码</p>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412201921936.png" alt="image-20241220192132479"></p>
+<h3 id="同步进制应该遵守的准则"><a class="header-anchor" href="#同步进制应该遵守的准则">¶</a>同步进制应该遵守的准则</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412201922898.png" alt="image-20241220192225160"></p>
+<h2 id="进程同步机制"><a class="header-anchor" href="#进程同步机制">¶</a>进程同步机制</h2>
+<h3 id="软件同步机制"><a class="header-anchor" href="#软件同步机制">¶</a>软件同步机制</h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>软件同步机制</p>
+<p>使用编程方法解决临界区问题</p>
+</li>
+<li class="lvl-2">
+<p>硬件同步机制</p>
+<p>使用特殊的硬件指令，可有效的实现进程互斥</p>
+</li>
+<li class="lvl-2">
+<p><strong>信号量机制</strong></p>
+</li>
+<li class="lvl-2">
+<p>管程机制</p>
+</li>
+</ul>
+<h3 id="信号量机制"><a class="header-anchor" href="#信号量机制">¶</a>信号量机制</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412201929170.png" alt="image-20241220192922246"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412201928780.png" alt="image-20241220192858207"></p>
+<h4 id="信号量的使用"><a class="header-anchor" href="#信号量的使用">¶</a>信号量的使用</h4>
+<ol>
+<li class="lvl-3">
+<p><strong>定义信号量</strong></p>
+<p><span style="color:blue">一种临界资源，定义一个信号量</span></p>
+<p>互斥 —— 临界资源 —— s</p>
+</li>
+<li class="lvl-3">
+<p><strong>初值</strong></p>
+<p><code>s.value</code> = <span style="color:red">资源总数</span></p>
+</li>
+<li class="lvl-3">
+<p><strong>PV操作</strong></p>
+<p>进临界区前 <code>P(s)</code></p>
+<p>退出临界区<code>V(s)</code></p>
+</li>
+</ol>
+<h4 id="利用信号量实现前驱-同步"><a class="header-anchor" href="#利用信号量实现前驱-同步">¶</a>利用信号量实现前驱/同步</h4>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412201938064.png" alt="image-20241220193803461"></p>
+<h3 id="管程机制"><a class="header-anchor" href="#管程机制">¶</a>管程机制</h3>
+<p>管程定义的是公共的数据结构，如消息队列</p>
+<blockquote>
+<p>进程定义的私有的数据结构，对进程是封闭的，进程无法访问</p>
+</blockquote>
+<p>感觉像是将进程的同步与互斥封装到资源的使用中</p>
+<blockquote>
+<p>就像是，在使用套接字时，会有个函数专门管理连接请求，在使用的过程中，我们发现，会有一个模式：即，当调用函数进行网络连接时，如果当前没有连接请求，调用函数的进程就会阻塞，而程序中不用显示的引用PV操作，而是利用库函数，对进程状态进行管控，简化了同步过程。</p>
+</blockquote>
+<p>在进程访问资源时，都会调用管程，以申请资源，从而达到进程互斥的效果。</p>
+<p>管程的三个特性</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>模块化（封装性）</p>
+</li>
+<li class="lvl-2">
+<p>抽象数据类型</p>
+</li>
+<li class="lvl-2">
+<p>信息隐蔽</p>
+</li>
+</ul>
+<h2 id="经典的进程同步问题"><a class="header-anchor" href="#经典的进程同步问题">¶</a>经典的进程同步问题</h2>
+<h3 id="生产者消费者模型"><a class="header-anchor" href="#生产者消费者模型">¶</a>生产者消费者模型</h3>
+<h4 id="一个生产者，一个消费者，一个缓冲区"><a class="header-anchor" href="#一个生产者，一个消费者，一个缓冲区">¶</a>一个生产者，一个消费者，一个缓冲区</h4>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412202018579.png" alt="image-20241220201806894"></p>
+<h4 id="多个生产者，多个消费者，n个缓冲区"><a class="header-anchor" href="#多个生产者，多个消费者，n个缓冲区">¶</a>多个生产者，多个消费者，n个缓冲区</h4>
+<p>首先，生产者们与消费者们会相互竞争缓冲区队列，因为他们都会对缓冲区队列状态产生改变</p>
+<p>其中，生产者们要竞争空位，以放入产品，消费者们要相互竞争产品。</p>
+<p>所以还有空位信号量和物品信号量</p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412202025662.png" alt="image-20241220202557051"></p>
+<p><big><strong>但申请空位/商品，必须在申请缓冲区队列之前</strong></big>，可以这样理解，先申请空位/商品，在申请进入缓冲区放/拿商品。</p>
+<p>而且如果先申请进入队列，而恰好没有空位，此时进程会阻塞，而进程已经进入 进入队列的临界区，此时其他进程也讲无法进入队列临界区，导致消费者无法进入临界区消费，最后导致死锁。</p>
+<h3 id="读者写者问题"><a class="header-anchor" href="#读者写者问题">¶</a>读者写者问题</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412202031920.png" alt="image-20241220203146955"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412202034935.png" alt="image-20241220203455858"></p>
+<blockquote>
+<p>写者需要等待所有读者进程均退出后才能接着写</p>
+<p>如果当前无读者，则可能资源处于“写”状态，需要申请；</p>
+<p>如果当前有读者，说明当前资源处于“读”状态，无需申请；</p>
+<p>如果当前所有读者均读完<small>（readcount == 0  即没有读者了）</small>，可能等待队列中有写者在被阻塞，则最后一个读者负责唤醒“写进程”。</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412202040568.png" alt="image-20241220204045095"></p>
+<h3 id="哲学家进餐问题"><a class="header-anchor" href="#哲学家进餐问题">¶</a>哲学家进餐问题</h3>
+<p><img src="./assets/image-20241220204127428.png" alt="image-20241220204127428"></p>
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p>破坏死锁的任何一个必要条件即可<a href="./posts/1ba791ab#%E6%AD%BB%E9%94%81%E7%9A%84%E5%BF%85%E8%A6%81%E6%9D%A1%E4%BB%B6">死锁的必要条件</a></p>
+</p>
+    </div>
+</div><h3 id="信号量使用总结"><a class="header-anchor" href="#信号量使用总结">¶</a>信号量使用总结</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412202044395.png" alt="image-20241220204453017"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412202045083.png" alt="image-20241220204510426"></p>
+<p><img src="./assets/image-20241220204530903.png" alt="image-20241220204530903"></p>
+<hr />
+<div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
+      <categories>
+        <category>未分类</category>
+      </categories>
   </entry>
   <entry>
     <title>调页策略</title>
@@ -5268,8 +5388,8 @@ $$</li>
       </tags>
   </entry>
   <entry>
-    <title>进程同步</title>
-    <url>/posts/4de07942.html</url>
+    <title>SRAM与DRAM-改错</title>
+    <url>/posts/2b174fb2.html</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
 
 <div class="callout callout-tip">
@@ -5279,115 +5399,21 @@ $$</li>
     </div>
     <div class="callout-contents">
         <p><p></p>
-<p><img src="./assets/image-20241220204542857.png" alt="image-20241220204542857"></p>
-<p>相关链接|<a href="./posts/1ba791ab#%E6%AD%BB%E9%94%81%E7%9A%84%E5%BF%85%E8%A6%81%E6%9D%A1%E4%BB%B6">死锁的必要条件</a></p>
+<p>SRAM与DRAM改错</p>
+<p>相关链接|<a href="./posts/9e51c077">SRAM和DRAM</a></p>
 </p>
     </div>
 </div><span id="more"></span>
-<h2 id="概念"><a class="header-anchor" href="#概念">¶</a>概念</h2>
-<h3 id="临界区"><a class="header-anchor" href="#临界区">¶</a>临界区</h3>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p><span style="color:red">临界区：进程中涉及临界资源的代码段</span></p>
-</li>
-<li class="lvl-2">
-<p>进入区．用于检查是否可以进入临界区的代码段。</p>
-</li>
-<li class="lvl-2">
-<p>退出区：将临界区正被访问的标志恢复为未被访问标志。</p>
-</li>
-<li class="lvl-2">
-<p>剩余区：其他代码</p>
-</li>
-</ul>
-<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412201921936.png" alt="image-20241220192132479"></p>
-<h3 id="同步进制应该遵守的准则"><a class="header-anchor" href="#同步进制应该遵守的准则">¶</a>同步进制应该遵守的准则</h3>
-<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412201922898.png" alt="image-20241220192225160"></p>
-<h2 id="进程同步机制"><a class="header-anchor" href="#进程同步机制">¶</a>进程同步机制</h2>
-<h3 id="软件同步机制"><a class="header-anchor" href="#软件同步机制">¶</a>软件同步机制</h3>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>软件同步机制</p>
-<p>使用编程方法解决临界区问题</p>
-</li>
-<li class="lvl-2">
-<p>硬件同步机制</p>
-<p>使用特殊的硬件指令，可有效的实现进程互斥</p>
-</li>
-<li class="lvl-2">
-<p><strong>信号量机制</strong></p>
-</li>
-<li class="lvl-2">
-<p>管程机制</p>
-</li>
-</ul>
-<h3 id="信号量机制"><a class="header-anchor" href="#信号量机制">¶</a>信号量机制</h3>
-<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412201929170.png" alt="image-20241220192922246"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412201928780.png" alt="image-20241220192858207"></p>
-<h4 id="信号量的使用"><a class="header-anchor" href="#信号量的使用">¶</a>信号量的使用</h4>
 <ol>
 <li class="lvl-3">
-<p><strong>定义信号量</strong></p>
-<p><span style="color:blue">一种临界资源，定义一个信号量</span></p>
-<p>互斥 —— 临界资源 —— s</p>
-</li>
-<li class="lvl-3">
-<p><strong>初值</strong></p>
-<p><code>s.value</code> = <span style="color:red">资源总数</span></p>
-</li>
-<li class="lvl-3">
-<p><strong>PV操作</strong></p>
-<p>进临界区前 <code>P(s)</code></p>
-<p>退出临界区<code>V(s)</code></p>
+<p>动态RAM采用哪种刷新方式刷新时，不存在死时间</p>
+<ul class="lvl-2">
+<li class="lvl-5"><em>集中刷新</em>：集中刷新必然存在死时间</li>
+<li class="lvl-5"><em>分散刷新</em>：机器的存取周期中的一段时间用来读/写，另一段时间用来刷新，因此不存在死时间，但存取周期变长</li>
+<li class="lvl-5"><em>异步刷新</em>：异步刷新虽然缩短了死时间，但死时间依然存在</li>
+</ul>
 </li>
 </ol>
-<h4 id="利用信号量实现前驱-同步"><a class="header-anchor" href="#利用信号量实现前驱-同步">¶</a>利用信号量实现前驱/同步</h4>
-<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412201938064.png" alt="image-20241220193803461"></p>
-<h3 id="管程机制"><a class="header-anchor" href="#管程机制">¶</a>管程机制</h3>
-<p>管程定义的是公共的数据结构，如消息队列</p>
-<blockquote>
-<p>进程定义的私有的数据结构，对进程是封闭的，进程无法访问</p>
-</blockquote>
-<p>感觉像是将进程的同步与互斥封装到资源的使用中</p>
-<blockquote>
-<p>就像是，在使用套接字时，会有个函数专门管理连接请求，在使用的过程中，我们发现，会有一个模式：即，当调用函数进行网络连接时，如果当前没有连接请求，调用函数的进程就会阻塞，而程序中不用显示的引用PV操作，而是利用库函数，对进程状态进行管控，简化了同步过程。</p>
-</blockquote>
-<p>在进程访问资源时，都会调用管程，以申请资源，从而达到进程互斥的效果。</p>
-<p>管程的三个特性</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>模块化（封装性）</p>
-</li>
-<li class="lvl-2">
-<p>抽象数据类型</p>
-</li>
-<li class="lvl-2">
-<p>信息隐蔽</p>
-</li>
-</ul>
-<h2 id="经典的进程同步问题"><a class="header-anchor" href="#经典的进程同步问题">¶</a>经典的进程同步问题</h2>
-<h3 id="生产者消费者模型"><a class="header-anchor" href="#生产者消费者模型">¶</a>生产者消费者模型</h3>
-<h4 id="一个生产者，一个消费者，一个缓冲区"><a class="header-anchor" href="#一个生产者，一个消费者，一个缓冲区">¶</a>一个生产者，一个消费者，一个缓冲区</h4>
-<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412202018579.png" alt="image-20241220201806894"></p>
-<h4 id="多个生产者，多个消费者，n个缓冲区"><a class="header-anchor" href="#多个生产者，多个消费者，n个缓冲区">¶</a>多个生产者，多个消费者，n个缓冲区</h4>
-<p>首先，生产者们与消费者们会相互竞争缓冲区队列，因为他们都会对缓冲区队列状态产生改变</p>
-<p>其中，生产者们要竞争空位，以放入产品，消费者们要相互竞争产品。</p>
-<p>所以还有空位信号量和物品信号量</p>
-<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412202025662.png" alt="image-20241220202557051"></p>
-<p><big><strong>但申请空位/商品，必须在申请缓冲区队列之前</strong></big>，可以这样理解，先申请空位/商品，在申请进入缓冲区放/拿商品。</p>
-<p>而且如果先申请进入队列，而恰好没有空位，此时进程会阻塞，而进程已经进入 进入队列的临界区，此时其他进程也讲无法进入队列临界区，导致消费者无法进入临界区消费，最后导致死锁。</p>
-<h3 id="读者写者问题"><a class="header-anchor" href="#读者写者问题">¶</a>读者写者问题</h3>
-<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412202031920.png" alt="image-20241220203146955"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412202034935.png" alt="image-20241220203455858"></p>
-<blockquote>
-<p>写者需要等待所有读者进程均退出后才能接着写</p>
-<p>如果当前无读者，则可能资源处于“写”状态，需要申请；</p>
-<p>如果当前有读者，说明当前资源处于“读”状态，无需申请；</p>
-<p>如果当前所有读者均读完<small>（readcount == 0  即没有读者了）</small>，可能等待队列中有写者在被阻塞，则最后一个读者负责唤醒“写进程”。</p>
-</blockquote>
-<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412202040568.png" alt="image-20241220204045095"></p>
-<h3 id="哲学家进餐问题"><a class="header-anchor" href="#哲学家进餐问题">¶</a>哲学家进餐问题</h3>
-<p><img src="./assets/image-20241220204127428.png" alt="image-20241220204127428"></p>
 
 <div class="callout callout-tip">
     <div class="callout-head">
@@ -5396,14 +5422,56 @@ $$</li>
     </div>
     <div class="callout-contents">
         <p><p></p>
-<p>破坏死锁的任何一个必要条件即可<a href="./posts/1ba791ab#%E6%AD%BB%E9%94%81%E7%9A%84%E5%BF%85%E8%A6%81%E6%9D%A1%E4%BB%B6">死锁的必要条件</a></p>
+<h4>关于芯片引脚数的计算：</h4>
+<ol>
+<li class="lvl-3">
+<p>某一DRAM芯片，采用地址复用技术，其容量为$1024*8$位，除电源和接地端外，该芯片的引脚数最少是？</p>
+<ul class="lvl-3">
+<li class="lvl-5">$1024*8$位，因此可寻址范围是$1024B = 2^{10}B$，按字节寻址。采用地址复用技术时，通过行通选和列通选分行、列两次传送地址信号，因此地址线减半为5根，数据线仍为$8$根；加上行通选和列通选及读/写（片选线用行通选代替）4根，总共是$17$根</li>
+</ul>
+<blockquote>
+<p>总结：</p>
+<p>DRAM，动态RAM的地址计算</p>
+<p>$引脚数 = \text{地址线(复用，减半)} + 数据线 + \text{行/列通选(2根)} + \text{读/写(两根)}$</p>
 </p>
     </div>
-</div><h3 id="信号量使用总结"><a class="header-anchor" href="#信号量使用总结">¶</a>信号量使用总结</h3>
-<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412202044395.png" alt="image-20241220204453017"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412202045083.png" alt="image-20241220204510426"></p>
-<p><img src="./assets/image-20241220204530903.png" alt="image-20241220204530903"></p>
-<hr />
+</div></li>
+</ol>
+</blockquote>
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<h4>关于不同访存方式的耗时计算</h4>
+<ol>
+<li class="lvl-3">
+<p>某机器采用四体交叉存储器，现分别执行下述操作：</p>
+<ul class="lvl-3">
+<li class="lvl-5">读取$6$个连续地址单元中存放的存储字，重复80次</li>
+<li class="lvl-5">读取$8$个连续地址单元中存放的存储字，重复60次</li>
+</ul>
+<p>则前一操作和后一操作所花费的时间之比为?</p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412191651753.png" alt="image-20241219165101405"></p>
+
+<div class="callout callout-note">
+    <div class="callout-head">
+        <span class="callout-head-icon">📝</span>
+        <span class="callout-head-text" style="color:#673ab7">NOTE</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p>在做该类型的题目时，要根据不同的访存策略，画出每个存储器访问状态的甘特图!</p>
+</p>
+    </div>
+</div></li>
+</ol>
+</p>
+    </div>
+</div><hr />
 <div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
       <categories>
         <category>未分类</category>
@@ -5432,8 +5500,8 @@ $$</li>
       </categories>
   </entry>
   <entry>
-    <title>双口RAM和多模块存储器</title>
-    <url>/posts/eb3d57f9.html</url>
+    <title>存储器概述-改错</title>
+    <url>/posts/3e13835c.html</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
 
 <div class="callout callout-tip">
@@ -5443,151 +5511,33 @@ $$</li>
     </div>
     <div class="callout-contents">
         <p><p></p>
-<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412181945596.png" alt="image-20241218194526205"></p>
+<p>存储器概述改错</p>
 </p>
     </div>
 </div><span id="more"></span>
-<h2 id="双端口ROM"><a class="header-anchor" href="#双端口ROM">¶</a>双端口ROM</h2>
-<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412181946113.png" alt="image-20241218194614774"></p>
-<blockquote>
-<p>需要由两组完全独立的数据线、地址线、控制线。</p>
-<p>CPU、RAM中也要有更复杂的控制电路</p>
-</blockquote>
-<p>两个端口对同一主存操作有一下4种情况</p>
 <ol>
 <li class="lvl-3">
-<p>两个端口同时对不同的地址单元存取数据。👌</p>
+<p>磁盘属于直接存取存储器</p>
 </li>
 <li class="lvl-3">
-<p>两个端口同时对同一地址单元读出数据👌</p>
+<p>设机器字长为$32$位，一个容量为$16MB$的存储器，CPU按半字存储，其可寻址的单元数是：</p>
+<ul class="lvl-2">
+<li class="lvl-5">$16{MB} = 2<sup>{24}B$，由于字长为32位，现按半字(2B)寻址，可寻址单元数为$2</sup>{24}B/2B = 2^{23}$。</li>
+</ul>
 </li>
 <li class="lvl-3">
-<p>两个端口同时对同一地址单元写入数据🚫</p>
+<p>若某存储器存储周期位250ns，每次读出16位，该存储器的数据传输速率为</p>
+<ul class="lvl-2">
+<li class="lvl-5">每个存储周期读出$16bit = 2B$，因此数据传输速率为$2B/(250*10<sup>{-9})$，即$8*10</sup>4B/s$</li>
+</ul>
 </li>
 <li class="lvl-3">
-<p>两个端口同时对同一个地址单元,一个写入数据,一个读出数据🚫</p>
 </li>
 </ol>
-<blockquote>
-<p>对比操作系统,”读者写者问题”</p>
-</blockquote>
-<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412182328791.png" alt="image-20241218202233225"></p>
-<h2 id="多体并行存储器"><a class="header-anchor" href="#多体并行存储器">¶</a>多体并行存储器</h2>
-<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412182328241.png" alt="image-20241218202740359"></p>
-<h3 id="交叉编址"><a class="header-anchor" href="#交叉编址">¶</a>交叉编址</h3>
-<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412182328327.png" alt="image-20241218202847344"></p>
-<h4 id="高位交叉编址"><a class="header-anchor" href="#高位交叉编址">¶</a>高位交叉编址</h4>
-<p>地址的前几位表示是哪一个芯片</p>
-<p>如 ,  上图中 ,  高位部分  (前面的<span style="color:blue">00</span>)  就是用于表示选择$M_0$芯片的</p>
-<h4 id="低位交叉编址"><a class="header-anchor" href="#低位交叉编址">¶</a>低位交叉编址</h4>
-<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412182328323.png" alt="image-20241218203356731"></p>
-
-<div class="callout callout-tip">
-    <div class="callout-head">
-        <span class="callout-head-icon">💡</span>
-        <span class="callout-head-text" style="color:#009688">TIP</span>
-    </div>
-    <div class="callout-contents">
-        <p><p></p>
-<p>对于高位交叉编址,   和低位交叉编址.</p>
-<p>地址的实际值是不太一样的</p>
-<p>对于高位交叉编址,  就像是在第一个内存条编完0~7</p>
-<p>在到下一个内存条边8之后的</p>
-<p>而,   地位交叉编址,  就像是横着编址</p>
-<p>先从第一个存储器到最后一个存储器,  依次在第一个存储单元上编上0~4</p>
-<p>在从第一个存储器第二个存储单元开始,依次往后编址</p>
-<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412182039551.png" alt="image-20241218203939989"></p>
-</p>
-    </div>
-</div>
-<div class="callout callout-note">
-    <div class="callout-head">
-        <span class="callout-head-icon">📝</span>
-        <span class="callout-head-text" style="color:#673ab7">NOTE</span>
-    </div>
-    <div class="callout-contents">
-        <p><p></p>
-<p>在交叉编址的多体存储器部分</p>
-<p><big><strong>连续访问同一个存储体,   是需要等待刷新时间的</strong></big></p>
-<p>即,    需要等待一个整个存取时间<small>(加上了刷新时间)</small></p>
-</p>
-    </div>
-</div><p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412182048168.png" alt="image-20241218204838550"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412182328881.png" alt="image-20241218205030135"></p>
-<p>当需要读出地址连续的四个单元时,   低位交叉编址和高位交叉编址访存时间不同</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>对高位交叉编址,   访问连续地址时,    由于高位不变,   实际上是访问同一块存储体的连续地址,   则每次读取都需要等待一整个存取周期</p>
-</li>
-<li class="lvl-2">
-<p>对于低位交叉编址,   访问连续地址时,   由于低位是变化的,   实际上是在分别访问每块存储体的相同位置的存储单元,   而访存完第一个存储体,   无需等待第一个存储体是否完成刷新,   直接访问第二个就可以</p>
-</li>
-</ul>
-<p>若,   设每个存储体存取周期为$T$</p>
-<p>存取时间为$r$,  假设$T=4r$</p>
-<p>则,   访问高地址交叉编址需要耗时$5T$,   访问低地址交叉编址需要耗时$T+4r$</p>
-
-<div class="callout callout-tip">
-    <div class="callout-head">
-        <span class="callout-head-icon">💡</span>
-        <span class="callout-head-text" style="color:#009688">TIP</span>
-    </div>
-    <div class="callout-contents">
-        <p><p></p>
-<p>低位交叉编址的多体存储器，连续取n个存储字耗时$T+(n-1)r$</p>
-</p>
-    </div>
-</div><blockquote>
-<p>宏观上来看，读写一个字的时间接近$r$</p>
-</blockquote>
-
-<div class="callout callout-tip">
-    <div class="callout-head">
-        <span class="callout-head-icon">💡</span>
-        <span class="callout-head-text" style="color:#009688">TIP</span>
-    </div>
-    <div class="callout-contents">
-        <p><p></p>
-<p>因为，在实际使用中，程序寻访的通常是连续的地址空间</p>
-<p>所以这里讨论的就是连续访问连续地址的情况</p>
-</p>
-    </div>
-</div><h3 id="应该取几个“体”"><a class="header-anchor" href="#应该取几个“体”">¶</a>应该取几个“体”</h3>
-<p>采用<mark>流水线</mark>的方式并行存取（宏观上并行，微观上串行）</p>
-<p>宏观上，一个存储周期内，m体交叉存储器可以提供的数据量位单个模块m倍</p>
-<p>存取周期为T，<span style="color:red">存取时间为$r$</span></p>
-<p>为了使流水线不间断，应保证模块数 m&gt;=T/r</p>
-<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412182329040.png" alt="image-20241218230442183"></p>
-
-<div class="callout callout-tip">
-    <div class="callout-head">
-        <span class="callout-head-icon">💡</span>
-        <span class="callout-head-text" style="color:#009688">TIP</span>
-    </div>
-    <div class="callout-contents">
-        <p><p></p>
-<p>如何判断当前读取的是那个存储体？</p>
-<p>首先可以将地址转为2进制，然后看最后几个</p>
-<p>或者，将地址对单元数取余</p>
-</p>
-    </div>
-</div><p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412182329702.png" alt="image-20241218231050318"></p>
-<h2 id="多模块存储器"><a class="header-anchor" href="#多模块存储器">¶</a>多模块存储器</h2>
-<h3 id="多体并行存储器-2"><a class="header-anchor" href="#多体并行存储器-2">¶</a>多体并行存储器</h3>
-<p>每个模块都有相同的容量和存取速度。</p>
-<p>各模块都有独立的读写控制电路、地址寄存器和数据寄存器。</p>
-<p>他们既能并行工作，又能交叉工作</p>
-<h3 id="单体多字存储器"><a class="header-anchor" href="#单体多字存储器">¶</a>单体多字存储器</h3>
-<p>每个存储单元存储$m$个字</p>
-<p>总线宽度为$m$个字</p>
-<p>一次并行读出$m$个字</p>
-<p>每次只能同时取$m$个字，不能单独存取其中某个字</p>
-<p>指令和数据在主存内必须是连续存放的</p>
-<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412182329600.png" alt="image-20241218231856328"></p>
 <hr />
 <div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
       <categories>
-        <category>计组</category>
+        <category>未分类</category>
       </categories>
   </entry>
   <entry>
@@ -5800,47 +5750,6 @@ $$</li>
       </categories>
   </entry>
   <entry>
-    <title>存储器概述-改错</title>
-    <url>/posts/3e13835c.html</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
-
-<div class="callout callout-tip">
-    <div class="callout-head">
-        <span class="callout-head-icon">💡</span>
-        <span class="callout-head-text" style="color:#009688">TIP</span>
-    </div>
-    <div class="callout-contents">
-        <p><p></p>
-<p>存储器概述改错</p>
-</p>
-    </div>
-</div><span id="more"></span>
-<ol>
-<li class="lvl-3">
-<p>磁盘属于直接存取存储器</p>
-</li>
-<li class="lvl-3">
-<p>设机器字长为$32$位，一个容量为$16MB$的存储器，CPU按半字存储，其可寻址的单元数是：</p>
-<ul class="lvl-2">
-<li class="lvl-5">$16{MB} = 2<sup>{24}B$，由于字长为32位，现按半字(2B)寻址，可寻址单元数为$2</sup>{24}B/2B = 2^{23}$。</li>
-</ul>
-</li>
-<li class="lvl-3">
-<p>若某存储器存储周期位250ns，每次读出16位，该存储器的数据传输速率为</p>
-<ul class="lvl-2">
-<li class="lvl-5">每个存储周期读出$16bit = 2B$，因此数据传输速率为$2B/(250*10<sup>{-9})$，即$8*10</sup>4B/s$</li>
-</ul>
-</li>
-<li class="lvl-3">
-</li>
-</ol>
-<hr />
-<div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
-      <categories>
-        <category>未分类</category>
-      </categories>
-  </entry>
-  <entry>
     <title>计组-第三章-主存储器的基本组成</title>
     <url>/posts/55b84d3b.html</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
@@ -5894,6 +5803,165 @@ $$</li>
 <div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
       <categories>
         <category>未分类</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>双口RAM和多模块存储器</title>
+    <url>/posts/eb3d57f9.html</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412181945596.png" alt="image-20241218194526205"></p>
+</p>
+    </div>
+</div><span id="more"></span>
+<h2 id="双端口ROM"><a class="header-anchor" href="#双端口ROM">¶</a>双端口ROM</h2>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412181946113.png" alt="image-20241218194614774"></p>
+<blockquote>
+<p>需要由两组完全独立的数据线、地址线、控制线。</p>
+<p>CPU、RAM中也要有更复杂的控制电路</p>
+</blockquote>
+<p>两个端口对同一主存操作有一下4种情况</p>
+<ol>
+<li class="lvl-3">
+<p>两个端口同时对不同的地址单元存取数据。👌</p>
+</li>
+<li class="lvl-3">
+<p>两个端口同时对同一地址单元读出数据👌</p>
+</li>
+<li class="lvl-3">
+<p>两个端口同时对同一地址单元写入数据🚫</p>
+</li>
+<li class="lvl-3">
+<p>两个端口同时对同一个地址单元,一个写入数据,一个读出数据🚫</p>
+</li>
+</ol>
+<blockquote>
+<p>对比操作系统,”读者写者问题”</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412182328791.png" alt="image-20241218202233225"></p>
+<h2 id="多体并行存储器"><a class="header-anchor" href="#多体并行存储器">¶</a>多体并行存储器</h2>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412182328241.png" alt="image-20241218202740359"></p>
+<h3 id="交叉编址"><a class="header-anchor" href="#交叉编址">¶</a>交叉编址</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412182328327.png" alt="image-20241218202847344"></p>
+<h4 id="高位交叉编址"><a class="header-anchor" href="#高位交叉编址">¶</a>高位交叉编址</h4>
+<p>地址的前几位表示是哪一个芯片</p>
+<p>如 ,  上图中 ,  高位部分  (前面的<span style="color:blue">00</span>)  就是用于表示选择$M_0$芯片的</p>
+<h4 id="低位交叉编址"><a class="header-anchor" href="#低位交叉编址">¶</a>低位交叉编址</h4>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412182328323.png" alt="image-20241218203356731"></p>
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p>对于高位交叉编址,   和低位交叉编址.</p>
+<p>地址的实际值是不太一样的</p>
+<p>对于高位交叉编址,  就像是在第一个内存条编完0~7</p>
+<p>在到下一个内存条边8之后的</p>
+<p>而,   地位交叉编址,  就像是横着编址</p>
+<p>先从第一个存储器到最后一个存储器,  依次在第一个存储单元上编上0~4</p>
+<p>在从第一个存储器第二个存储单元开始,依次往后编址</p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412182039551.png" alt="image-20241218203939989"></p>
+</p>
+    </div>
+</div>
+<div class="callout callout-note">
+    <div class="callout-head">
+        <span class="callout-head-icon">📝</span>
+        <span class="callout-head-text" style="color:#673ab7">NOTE</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p>在交叉编址的多体存储器部分</p>
+<p><big><strong>连续访问同一个存储体,   是需要等待刷新时间的</strong></big></p>
+<p>即,    需要等待一个整个存取时间<small>(加上了刷新时间)</small></p>
+</p>
+    </div>
+</div><p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412182048168.png" alt="image-20241218204838550"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412182328881.png" alt="image-20241218205030135"></p>
+<p>当需要读出地址连续的四个单元时,   低位交叉编址和高位交叉编址访存时间不同</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>对高位交叉编址,   访问连续地址时,    由于高位不变,   实际上是访问同一块存储体的连续地址,   则每次读取都需要等待一整个存取周期</p>
+</li>
+<li class="lvl-2">
+<p>对于低位交叉编址,   访问连续地址时,   由于低位是变化的,   实际上是在分别访问每块存储体的相同位置的存储单元,   而访存完第一个存储体,   无需等待第一个存储体是否完成刷新,   直接访问第二个就可以</p>
+</li>
+</ul>
+<p>若,   设每个存储体存取周期为$T$</p>
+<p>存取时间为$r$,  假设$T=4r$</p>
+<p>则,   访问高地址交叉编址需要耗时$5T$,   访问低地址交叉编址需要耗时$T+4r$</p>
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p>低位交叉编址的多体存储器，连续取n个存储字耗时$T+(n-1)r$</p>
+</p>
+    </div>
+</div><blockquote>
+<p>宏观上来看，读写一个字的时间接近$r$</p>
+</blockquote>
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p>因为，在实际使用中，程序寻访的通常是连续的地址空间</p>
+<p>所以这里讨论的就是连续访问连续地址的情况</p>
+</p>
+    </div>
+</div><h3 id="应该取几个“体”"><a class="header-anchor" href="#应该取几个“体”">¶</a>应该取几个“体”</h3>
+<p>采用<mark>流水线</mark>的方式并行存取（宏观上并行，微观上串行）</p>
+<p>宏观上，一个存储周期内，m体交叉存储器可以提供的数据量位单个模块m倍</p>
+<p>存取周期为T，<span style="color:red">存取时间为$r$</span></p>
+<p>为了使流水线不间断，应保证模块数 m&gt;=T/r</p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412182329040.png" alt="image-20241218230442183"></p>
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p>如何判断当前读取的是那个存储体？</p>
+<p>首先可以将地址转为2进制，然后看最后几个</p>
+<p>或者，将地址对单元数取余</p>
+</p>
+    </div>
+</div><p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412182329702.png" alt="image-20241218231050318"></p>
+<h2 id="多模块存储器"><a class="header-anchor" href="#多模块存储器">¶</a>多模块存储器</h2>
+<h3 id="多体并行存储器-2"><a class="header-anchor" href="#多体并行存储器-2">¶</a>多体并行存储器</h3>
+<p>每个模块都有相同的容量和存取速度。</p>
+<p>各模块都有独立的读写控制电路、地址寄存器和数据寄存器。</p>
+<p>他们既能并行工作，又能交叉工作</p>
+<h3 id="单体多字存储器"><a class="header-anchor" href="#单体多字存储器">¶</a>单体多字存储器</h3>
+<p>每个存储单元存储$m$个字</p>
+<p>总线宽度为$m$个字</p>
+<p>一次并行读出$m$个字</p>
+<p>每次只能同时取$m$个字，不能单独存取其中某个字</p>
+<p>指令和数据在主存内必须是连续存放的</p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412182329600.png" alt="image-20241218231856328"></p>
+<hr />
+<div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
+      <categories>
+        <category>计组</category>
       </categories>
   </entry>
   <entry>
@@ -5991,35 +6059,6 @@ $$</li>
 <hr />
 <div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>
 ]]></content>
-      <categories>
-        <category>未分类</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>计组-补</title>
-    <url>/posts/9b5bdad6.html</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
-
-<div class="callout callout-tip">
-    <div class="callout-head">
-        <span class="callout-head-icon">💡</span>
-        <span class="callout-head-text" style="color:#009688">TIP</span>
-    </div>
-    <div class="callout-contents">
-        <p><p></p>
-<p>放一些散装知识点</p>
-<p>相关链接|</p>
-</p>
-    </div>
-</div><span id="more"></span>
-<h4 id="变量所占的存储长度"><a class="header-anchor" href="#变量所占的存储长度">¶</a>变量所占的存储长度</h4>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>double：占64位</p>
-</li>
-</ul>
-<hr />
-<div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
       <categories>
         <category>未分类</category>
       </categories>
@@ -6157,6 +6196,35 @@ $$</li>
 </div><p><img src="./assets/image-20241217170820557.png" alt="image-20241217170820557"></p>
 <hr />
 <div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div><div id="footnotes"><hr><h4>相关注解</h4><ol class="custom-footnotes"><li id="fn:1" class="footnote-item"><span class="footnote-content">即存储字长<a href="#fnref:1" rev="footnote"> ↩</a></span></li></ol></div>]]></content>
+      <categories>
+        <category>未分类</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>计组-补</title>
+    <url>/posts/9b5bdad6.html</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p>放一些散装知识点</p>
+<p>相关链接|</p>
+</p>
+    </div>
+</div><span id="more"></span>
+<h4 id="变量所占的存储长度"><a class="header-anchor" href="#变量所占的存储长度">¶</a>变量所占的存储长度</h4>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>double：占64位</p>
+</li>
+</ul>
+<hr />
+<div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
       <categories>
         <category>未分类</category>
       </categories>
