@@ -449,6 +449,188 @@ $$</p>
       </tags>
   </entry>
   <entry>
+    <title>处理机的调度与死锁</title>
+    <url>/posts/1ba791ab.html</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412201117837.png" alt="image-20241220111714119"></p>
+<p>相关链接|</p>
+</p>
+    </div>
+</div><span id="more"></span>
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<h2>平均周转时间 与 平均等待时间？</h2>
+<ul class="lvl-1">
+<li class="lvl-2">
+<p>周转时间 = 作用完成时间 - 作业到达时间</p>
+</li>
+<li class="lvl-2">
+<p>带权周转时间 = 周转时间 / 服务时间</p>
+</li>
+<li class="lvl-2">
+<p>平均周转时间 = 作业周转总时间 / 作业个数</p>
+</li>
+<li class="lvl-2">
+<p>平均带权周转时间 = 带权周转总时间 / 作业个数</p>
+</li>
+</ul>
+</p>
+    </div>
+</div><h2 id="调度算法"><a class="header-anchor" href="#调度算法">¶</a>调度算法</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>先来先服务算法（FCFS）（<strong>F</strong>irst <strong>C</strong>ome, <strong>F</strong>irst <strong>S</strong>erved.）</p>
+</li>
+<li class="lvl-2">
+<p>短作业优先算法（SJF）（<strong>S</strong>hortest <strong>J</strong>ob <strong>F</strong>irst）</p>
+</li>
+<li class="lvl-2">
+<p>优先级调度（PR）</p>
+</li>
+<li class="lvl-2">
+<p>高响应比优先调度算法（HRRN）(<strong>h</strong>ighest <strong>r</strong>esponse <strong>r</strong>atio <strong>n</strong>ext)</p>
+</li>
+</ul>
+<h3 id="算法性能评价"><a class="header-anchor" href="#算法性能评价">¶</a>算法性能评价</h3>
+<h4 id="周转时间"><a class="header-anchor" href="#周转时间">¶</a>周转时间</h4>
+<ol>
+<li class="lvl-5">
+<p>周转时间 = 完成时间 - 到达时间</p>
+</li>
+<li class="lvl-5">
+<p>平均周转时间：周转时间/进程数</p>
+</li>
+<li class="lvl-5">
+<p>带权周转时间：周转时间/服务时间</p>
+</li>
+<li class="lvl-5">
+<p>平均带权周转时间：带权周转时间/进程数</p>
+</li>
+</ol>
+<h4 id="响应时间"><a class="header-anchor" href="#响应时间">¶</a>响应时间</h4>
+<p>从用户通过键盘提交一个请求开始，到系统首次产生响应为止的时间，包括键盘输入时间、信息处理时间和信息回收时间</p>
+<h4 id="截止时间"><a class="header-anchor" href="#截止时间">¶</a>截止时间</h4>
+<p>某任务必须开始执行的时间（开始截止时间）和执行完成时间（完成截止时间）</p>
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<h4>非抢占式调度</h4>
+<p>指进程一旦获得处理机，只有在该进程任务完成或因某事间而阻塞才让出处理机，绝不允许某进程抢占已经分配出去的处理机。</p>
+<h4>抢占式调度</h4>
+<p>抢占式调度  <small>(PreemptiveMode)</small> 允许调度程序根据某种原则，暂停某个占用处理机的进程，抢占已经分配出去的处理机。抢占的原则有优先权原则、短作业优先原则和时间片原则。</p>
+</p>
+    </div>
+</div><h3 id="短作业优先算法-small-SJF-small"><a class="header-anchor" href="#短作业优先算法-small-SJF-small">¶</a>短作业优先算法 <small>SJF</small></h3>
+<p>从等待队列中取下<strong>服务时间最短</strong>的进程进行执行</p>
+<h5 id="非抢占式调度"><a class="header-anchor" href="#非抢占式调度">¶</a>非抢占式调度</h5>
+<ol>
+<li class="lvl-3">
+<p>找出最先到达的进程（该进程的完成时间=到达时间+服务时间）；</p>
+</li>
+<li class="lvl-3">
+<p>根据上一进程的完成时间，找到在这个完成时间内所有到达的进程，并找到这些进程中服务时间最短的那个，然后计算它的完成时间（<strong>该进程的完成时间=上一进程的完成时间+该进程服务时间</strong>）；</p>
+</li>
+<li class="lvl-3">
+<p>重复2直至完成所有进程的计算。</p>
+</li>
+</ol>
+<h5 id="抢占式调度"><a class="header-anchor" href="#抢占式调度">¶</a>抢占式调度</h5>
+<ol>
+<li class="lvl-3">
+<p>找出最先到达的进程（该进程的完成时间=到达时间+服务时间）</p>
+</li>
+<li class="lvl-3">
+<p>根据上一进程的完成时间，找到在这个完成时间内所有到达的进程，并找到这些进程中服务时间最短的那个，<strong>在进程运行中，有新到达的进程时，会比较两者的服务时间（该进程剩余的服务时间与新进程的服务时间进行比较，若小则继续运行，若大则暂停进程，新进程运行。</strong>）</p>
+</li>
+<li class="lvl-3">
+<p>重复2直至完成所有进程的计算。</p>
+</li>
+</ol>
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p>这里有<em><strong>基于最短服务时间</strong></em>和<strong>基于最短剩余服务时间</strong>两种</p>
+<p>上面提供的抢占式调度流程，是基于最短剩余时间的</p>
+</p>
+    </div>
+</div><blockquote>
+<p><strong>SJF特点是降低了系统平均周转时间。</strong></p>
+<p><strong>但对长作业不利，长作业有可能长时间得不到调度。</strong></p>
+</blockquote>
+<h3 id="优先级调度算法"><a class="header-anchor" href="#优先级调度算法">¶</a>优先级调度算法</h3>
+<h3 id="高响应比优先调度算法"><a class="header-anchor" href="#高响应比优先调度算法">¶</a>高响应比优先调度算法</h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><span style="color:blue">响应比</span></p>
+<p>$$<br>
+R_P = \frac{\text{等待时间}+\text{要求服务时间}}{\text{要求服务时间}} = \frac{\text{响应时间}}{\text{要求服务时间}} = 1 + \frac{\text{等待时间}}{\text{服务时间}}<br>
+$$</p>
+</li>
+</ul>
+
+<div class="callout callout-note">
+    <div class="callout-head">
+        <span class="callout-head-icon">📝</span>
+        <span class="callout-head-text" style="color:#673ab7">NOTE</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<h3>相关例题</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412201632298.png" alt="image-20241220163207688"></p>
+<h4>解题方略</h4>
+<p>画表画轴</p>
+<p>在考察这类知识点时，一般题目都会给出进程<strong>到达时间</strong>以及进程<strong>运行时间</strong>  <small>(也叫服务时间)</small></p>
+<p>在草稿纸上画表，加上<strong>开始时间</strong>，<strong>完成时间</strong>，<strong>周转时间</strong>，<strong>带权周转时间</strong>项</p>
+<p>然后，画数轴，来反映进程执行状态</p>
+<p><img src="./assets/image-20241220165621402.png" alt="image-20241220165621402"></p>
+</p>
+    </div>
+</div><h4 id="优缺点"><a class="header-anchor" href="#优缺点">¶</a>优缺点</h4>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>如等待时间相同，取决于运行时间，类似于SJF</p>
+</li>
+<li class="lvl-2">
+<p>如运行时间相同，取决于等待时间，类似于FCFS</p>
+</li>
+<li class="lvl-2">
+<p>长作业可随其等待时间的增加而提高，也可得到服务</p>
+</li>
+<li class="lvl-2">
+<p>缺点：每次调度之前，都需要计算响应比，增加系统开销</p>
+</li>
+</ul>
+<hr />
+<div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
+      <categories>
+        <category>未分类</category>
+      </categories>
+  </entry>
+  <entry>
     <title>第2章-进程的描述与控制</title>
     <url>/posts/b9cdc318.html</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
@@ -888,6 +1070,21 @@ $$</p>
 </li>
 </ul>
 <p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412201059500.png" alt="image-20241220104928083"></p>
+<h3 id="进程线程对比"><a class="header-anchor" href="#进程线程对比">¶</a>进程线程对比</h3>
+<ol>
+<li class="lvl-3">
+<p>需要频繁创建销毁的优先用线程</p>
+</li>
+<li class="lvl-3">
+<p>需要进行大量计算的优先使用线程。所谓大量计算，会耗费很多CPU，切换频繁，优先选择线程。</p>
+</li>
+<li class="lvl-3">
+<p>强相关处理用线程，弱相关处理用进程</p>
+</li>
+<li class="lvl-3">
+<p>可能要拓展到多机分布的用进程，多核分布的用线程</p>
+</li>
+</ol>
 
 <div class="callout callout-tip">
     <div class="callout-head">
