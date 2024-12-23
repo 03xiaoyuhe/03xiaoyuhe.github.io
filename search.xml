@@ -449,6 +449,100 @@ $$</p>
       </tags>
   </entry>
   <entry>
+    <title>磁盘空间管理</title>
+    <url>/posts/292fbdbc.html</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p>相关链接|</p>
+</p>
+    </div>
+</div><span id="more"></span>
+<h2 id="外存组织方式"><a class="header-anchor" href="#外存组织方式">¶</a>外存组织方式</h2>
+<h3 id="外存组织方式-2"><a class="header-anchor" href="#外存组织方式-2">¶</a>外存组织方式</h3>
+<h4 id="显式链接——FAT"><a class="header-anchor" href="#显式链接——FAT">¶</a>显式链接——FAT</h4>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>FAT：文件分配表</p>
+</li>
+<li class="lvl-2">
+<p>将一个文件离散的存储在外存上，将链接个物理块的指针显式的登记在一张文件分配表FAT中，FAT整个系统一张，每个表项序号为对应物理块号，表项内容为文件下一物理块的指针</p>
+</li>
+<li class="lvl-2">
+<p>文件首个物理块地址被登记在文件目录中</p>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412231014179.png" alt="image-20241223101435502"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412231020236.png" alt="image-20241223102005862"></p>
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p>关于FAT表项的位数，与文件总数紧密相连，要能表示所有文件的存储地址</p>
+</p>
+    </div>
+</div>
+<div class="callout callout-note">
+    <div class="callout-head">
+        <span class="callout-head-icon">📝</span>
+        <span class="callout-head-text" style="color:#673ab7">NOTE</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<h4>FAT技术——相关计算1</h4>
+<p>磁盘块（扇区）大小，FAT表项大小，簇的大小——磁盘容量</p>
+<ul class="lvl-1">
+<li class="lvl-2">
+<p>FAT12：FAT表项12位，簇大小为1，2，4，8个扇区</p>
+</li>
+<li class="lvl-2">
+<p>FAT16：FAT表项16为，簇大小为4，8，…，64个扇区</p>
+</li>
+<li class="lvl-2">
+<p>FAT32：FAT表项32位，簇大小的8个扇区</p>
+</li>
+</ul>
+</p>
+    </div>
+</div><h4 id="混合索引"><a class="header-anchor" href="#混合索引">¶</a>混合索引</h4>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412231025668.png" alt="image-20241223102511222"></p>
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p>在Unix文件管理中，文件控制块中的文件索引一个有13项</p>
+<p>即，从0~12，共13项</p>
+<p>而，0~9是正常的直接链接</p>
+<p>即，0~9的所有直接指向文件</p>
+<p>而，10~12，则是分级索引</p>
+<p>其中，10，是一级索引，即用索引方式存放文件结构</p>
+<p>11，是二级索引</p>
+<p>12，是三级索引</p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412231029973.png" alt="image-20241223102921220"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412231030086.png" alt="image-20241223103024215"></p>
+</p>
+    </div>
+</div><hr />
+<div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
+      <categories>
+        <category>未分类</category>
+      </categories>
+  </entry>
+  <entry>
     <title>文件管理</title>
     <url>/posts/ae533703.html</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
