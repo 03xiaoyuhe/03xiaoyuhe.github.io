@@ -32,7 +32,7 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412241452727.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412241626925.png">
 <meta property="article:published_time" content="2024-12-24T04:29:46.000Z">
-<meta property="article:modified_time" content="2024-12-24T09:34:57.794Z">
+<meta property="article:modified_time" content="2024-12-24T11:52:47.980Z">
 <meta property="article:author" content="听">
 <meta property="article:tag" content="大学">
 <meta property="article:tag" content="408">
@@ -228,7 +228,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2024-12-24 12:29:46 / 修改时间：17:34:57" itemprop="dateCreated datePublished" datetime="2024-12-24T12:29:46+08:00">2024-12-24</time>
+              <time title="创建时间：2024-12-24 12:29:46 / 修改时间：19:52:47" itemprop="dateCreated datePublished" datetime="2024-12-24T12:29:46+08:00">2024-12-24</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -584,6 +584,90 @@
 <p><small>利用虚拟存储技术或自动覆盖技术，从逻辑上扩充内存</small></p>
 </li>
 </ol>
+<h3 id="用户程序的主要处理阶段"><a class="header-anchor" href="#用户程序的主要处理阶段">¶</a>用户程序的主要处理阶段</h3>
+<ol>
+<li class="lvl-3">
+<p><strong>编辑阶段</strong>：创建源文件</p>
+</li>
+<li class="lvl-3">
+<p><strong>编译阶段</strong>：由编译程序将用户进程源代码编译成若干目标模块，生成目标文件</p>
+</li>
+<li class="lvl-3">
+<p><strong>链接阶段</strong>：由链接程序编译后形成的一组目标模块及所需的库函数链接到一起，形成一个完整的装入模块，生成可执行文件</p>
+</li>
+<li class="lvl-3">
+<p><strong>装入阶段</strong>：由装入程序将装入模块装入内存运行</p>
+</li>
+<li class="lvl-3">
+<p><strong>运行阶段</strong>：</p>
+</li>
+</ol>
+<h3 id="相关概念"><a class="header-anchor" href="#相关概念">¶</a>相关概念</h3>
+<h4 id="程序的装入"><a class="header-anchor" href="#程序的装入">¶</a>程序的装入</h4>
+<h5 id="绝对装入"><a class="header-anchor" href="#绝对装入">¶</a>绝对装入</h5>
+<p>在编译时，如果知道程序将驻留在内存什么位置，那么，编译程序将产生绝对地址的目标代码。即按照物理内存的位置赋予实际的物理地址</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>优点</strong>：在时间上效率很高</p>
+</li>
+<li class="lvl-2">
+<p><strong>缺点</strong>：</p>
+<ol>
+<li class="lvl-5">由于内存大小限制，能够装入内存的并发执行的进程大大减少</li>
+<li class="lvl-5">编译程序必须知道内存当前空闲地址部分和其地址，而在多道程序下，编译程序根本不可能知道当前空闲地址的部分，因此绝对装入方式只适用于弹道程序环境</li>
+</ol>
+</li>
+</ul>
+<h5 id="静态重定位"><a class="header-anchor" href="#静态重定位">¶</a>静态重定位</h5>
+<p>在程序装入对目标代码装入内存的过程中完成，是指在程序开始运行前，程序中指令数据的各个地址均已完成重定位，即完成虚拟地址到内存地址的映射。地址变换通常是在装入时一次完成的，以后不会改变</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>优点</strong>：不需要硬件支持（这里的硬件，指的是后文提到的重定位寄存器）（对比动态重定位）</p>
+</li>
+<li class="lvl-2">
+<p><strong>缺点</strong>：程序在静态重定位之后就不能在内存中搬动了，并且要求程序的存储空间是连续的（对比动态重定位）</p>
+</li>
+</ul>
+<h5 id="动态重定位"><a class="header-anchor" href="#动态重定位">¶</a>动态重定位</h5>
+<p>动态重定位的方式是把地址转换推迟到程序真正执行时才进行。但这种方式需要硬件支持，也就是重定位寄存器的支持，否则会影响指令执行速度</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>优点</strong>：可以解决碎片问题。（因为不需要像静态重定位一样要求程序装入，每个模块之间的存储位置不一定需要相联，只需要由自己的重定位寄存器就行）</p>
+</li>
+<li class="lvl-2">
+<p><strong>缺点</strong>：需要硬件支持</p>
+</li>
+</ul>
+<h4 id="程序的链接"><a class="header-anchor" href="#程序的链接">¶</a>程序的链接</h4>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>静态链接</strong>：在程序运行之前，先将各目标及他们所需要的库函数链接生成一个完整的可执行程序，以后不在拆开</p>
+</li>
+<li class="lvl-2">
+<p><strong>装入式链接</strong>：将用户源程序编译后所得到的一组目标模块，在装入内存时，采用边装入边链接的链接方式</p>
+</li>
+<li class="lvl-2">
+<p><strong>运行时链接</strong>：对某些目标模块的链接，是在程序执行中需要该目标模块时，才对它进行的链接。其优点时便于修改和更新，便于实现对目标模块的共享。</p>
+</li>
+</ul>
+<h3 id="内存空间的分配与回收"><a class="header-anchor" href="#内存空间的分配与回收">¶</a>内存空间的分配与回收</h3>
+<h4 id="连续分配管理方式"><a class="header-anchor" href="#连续分配管理方式">¶</a>连续分配管理方式</h4>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>单一连续分配</strong>：分配到内存固定的区域（单用户/单任务的操作系统）</p>
+</li>
+<li class="lvl-2">
+<p><strong>固定连续分配</strong>：分配到内存不同的固定区域，分区可以相等可以不等，但要求一定是固定。</p>
+</li>
+<li class="lvl-2">
+<p><strong>动态连续分区</strong>：</p>
+<ul class="lvl-2">
+<li class="lvl-4">最佳适应</li>
+<li class="lvl-4">最坏适应</li>
+<li class="lvl-4">邻近适应</li>
+</ul>
+</li>
+</ul>
 <hr />
 <div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>
     </div>
@@ -667,7 +751,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text">操作系统概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9F%A5%E8%AF%86%E7%82%B9"><span class="nav-number">1.1.</span> <span class="nav-text">知识点</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%9B%9B%E4%B8%AA%E5%9F%BA%E6%9C%AC%E7%89%B9%E5%BE%81"><span class="nav-number">1.1.0.0.1.</span> <span class="nav-text">操作系统四个基本特征</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E4%B8%BB%E8%A6%81%E5%8A%9F%E8%83%BD%E5%8C%85%E6%8B%AC"><span class="nav-number">1.1.0.1.</span> <span class="nav-text">操作系统的主要功能包括</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92%E7%9A%84%E5%8E%86%E7%A8%8B"><span class="nav-number">1.1.0.1.1.</span> <span class="nav-text">人机交互的历程</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-number">1.2.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%84%E7%90%86%E6%9C%BA%E7%8A%B6%E6%80%81"><span class="nav-number">1.3.</span> <span class="nav-text">处理机状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%9F%E8%AF%AD"><span class="nav-number">1.4.</span> <span class="nav-text">原语</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%AD%E6%96%AD%E3%80%81%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8%E3%80%81%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84"><span class="nav-number">1.5.</span> <span class="nav-text">中断、系统调用、体系结构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86"><span class="nav-number">2.</span> <span class="nav-text">进程管理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">2.0.1.</span> <span class="nav-text">进程的组成</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%84%E7%90%86%E6%9C%BA%E8%B0%83%E5%BA%A6"><span class="nav-number">2.1.</span> <span class="nav-text">处理机调度</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%86%E7%B1%BB"><span class="nav-number">2.1.1.</span> <span class="nav-text">分类</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9B%E7%A8%8B%E5%90%8C%E6%AD%A5"><span class="nav-number">2.2.</span> <span class="nav-text">进程同步</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8E%9F%E5%9B%A0"><span class="nav-number">2.2.1.</span> <span class="nav-text">原因</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%B6%E7%BA%A6%E5%85%B3%E7%B3%BB"><span class="nav-number">2.2.2.</span> <span class="nav-text">制约关系</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%B4%E7%95%8C%E8%B5%84%E6%BA%90"><span class="nav-number">2.2.3.</span> <span class="nav-text">临界资源</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%B4%E7%95%8C%E5%8C%BA"><span class="nav-number">2.2.4.</span> <span class="nav-text">临界区</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B8%B4%E7%95%8C%E5%8C%BA%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="nav-number">2.2.4.1.</span> <span class="nav-text">临界区的作用</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%90%8C%E6%AD%A5%E6%9C%BA%E5%88%B6"><span class="nav-number">2.2.5.</span> <span class="nav-text">同步机制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%B4%E7%95%8C%E5%8C%BA%E4%BA%92%E6%96%A5"><span class="nav-number">2.2.6.</span> <span class="nav-text">临界区互斥</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8E%9F%E5%88%99"><span class="nav-number">2.2.6.1.</span> <span class="nav-text">原则</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#PV%E6%93%8D%E4%BD%9C"><span class="nav-number">2.2.7.</span> <span class="nav-text">PV操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%BB%E9%94%81"><span class="nav-number">2.2.8.</span> <span class="nav-text">死锁</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89"><span class="nav-number">2.2.8.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BA%A7%E7%94%9F%E7%9A%84%E5%8E%9F%E5%9B%A0"><span class="nav-number">2.2.8.2.</span> <span class="nav-text">产生的原因</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%BF%85%E8%A6%81%E7%9A%84%E6%9D%A1%E4%BB%B6"><span class="nav-number">2.2.8.3.</span> <span class="nav-text">必要的条件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95"><span class="nav-number">2.2.8.4.</span> <span class="nav-text">解决方法</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86"><span class="nav-number">3.</span> <span class="nav-text">内存管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E7%9A%84%E7%9B%AE%E7%9A%84%E5%92%8C%E6%84%8F%E4%B9%89"><span class="nav-number">3.1.</span> <span class="nav-text">内存管理的目的和意义</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BC%95%E5%85%A5%E7%9B%AE%E7%9A%84"><span class="nav-number">3.1.1.</span> <span class="nav-text">引入目的</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%BB%E8%A6%81%E5%8A%9F%E8%83%BD"><span class="nav-number">3.1.2.</span> <span class="nav-text">主要功能</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text">操作系统概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9F%A5%E8%AF%86%E7%82%B9"><span class="nav-number">1.1.</span> <span class="nav-text">知识点</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%9B%9B%E4%B8%AA%E5%9F%BA%E6%9C%AC%E7%89%B9%E5%BE%81"><span class="nav-number">1.1.0.0.1.</span> <span class="nav-text">操作系统四个基本特征</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E4%B8%BB%E8%A6%81%E5%8A%9F%E8%83%BD%E5%8C%85%E6%8B%AC"><span class="nav-number">1.1.0.1.</span> <span class="nav-text">操作系统的主要功能包括</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92%E7%9A%84%E5%8E%86%E7%A8%8B"><span class="nav-number">1.1.0.1.1.</span> <span class="nav-text">人机交互的历程</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-number">1.2.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%84%E7%90%86%E6%9C%BA%E7%8A%B6%E6%80%81"><span class="nav-number">1.3.</span> <span class="nav-text">处理机状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%9F%E8%AF%AD"><span class="nav-number">1.4.</span> <span class="nav-text">原语</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%AD%E6%96%AD%E3%80%81%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8%E3%80%81%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84"><span class="nav-number">1.5.</span> <span class="nav-text">中断、系统调用、体系结构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86"><span class="nav-number">2.</span> <span class="nav-text">进程管理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">2.0.1.</span> <span class="nav-text">进程的组成</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%84%E7%90%86%E6%9C%BA%E8%B0%83%E5%BA%A6"><span class="nav-number">2.1.</span> <span class="nav-text">处理机调度</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%86%E7%B1%BB"><span class="nav-number">2.1.1.</span> <span class="nav-text">分类</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9B%E7%A8%8B%E5%90%8C%E6%AD%A5"><span class="nav-number">2.2.</span> <span class="nav-text">进程同步</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8E%9F%E5%9B%A0"><span class="nav-number">2.2.1.</span> <span class="nav-text">原因</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%B6%E7%BA%A6%E5%85%B3%E7%B3%BB"><span class="nav-number">2.2.2.</span> <span class="nav-text">制约关系</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%B4%E7%95%8C%E8%B5%84%E6%BA%90"><span class="nav-number">2.2.3.</span> <span class="nav-text">临界资源</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%B4%E7%95%8C%E5%8C%BA"><span class="nav-number">2.2.4.</span> <span class="nav-text">临界区</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B8%B4%E7%95%8C%E5%8C%BA%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="nav-number">2.2.4.1.</span> <span class="nav-text">临界区的作用</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%90%8C%E6%AD%A5%E6%9C%BA%E5%88%B6"><span class="nav-number">2.2.5.</span> <span class="nav-text">同步机制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%B4%E7%95%8C%E5%8C%BA%E4%BA%92%E6%96%A5"><span class="nav-number">2.2.6.</span> <span class="nav-text">临界区互斥</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8E%9F%E5%88%99"><span class="nav-number">2.2.6.1.</span> <span class="nav-text">原则</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#PV%E6%93%8D%E4%BD%9C"><span class="nav-number">2.2.7.</span> <span class="nav-text">PV操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%BB%E9%94%81"><span class="nav-number">2.2.8.</span> <span class="nav-text">死锁</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89"><span class="nav-number">2.2.8.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BA%A7%E7%94%9F%E7%9A%84%E5%8E%9F%E5%9B%A0"><span class="nav-number">2.2.8.2.</span> <span class="nav-text">产生的原因</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%BF%85%E8%A6%81%E7%9A%84%E6%9D%A1%E4%BB%B6"><span class="nav-number">2.2.8.3.</span> <span class="nav-text">必要的条件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95"><span class="nav-number">2.2.8.4.</span> <span class="nav-text">解决方法</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86"><span class="nav-number">3.</span> <span class="nav-text">内存管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E7%9A%84%E7%9B%AE%E7%9A%84%E5%92%8C%E6%84%8F%E4%B9%89"><span class="nav-number">3.1.</span> <span class="nav-text">内存管理的目的和意义</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BC%95%E5%85%A5%E7%9B%AE%E7%9A%84"><span class="nav-number">3.1.1.</span> <span class="nav-text">引入目的</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%BB%E8%A6%81%E5%8A%9F%E8%83%BD"><span class="nav-number">3.1.2.</span> <span class="nav-text">主要功能</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%A8%E6%88%B7%E7%A8%8B%E5%BA%8F%E7%9A%84%E4%B8%BB%E8%A6%81%E5%A4%84%E7%90%86%E9%98%B6%E6%AE%B5"><span class="nav-number">3.2.</span> <span class="nav-text">用户程序的主要处理阶段</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E6%A6%82%E5%BF%B5"><span class="nav-number">3.3.</span> <span class="nav-text">相关概念</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A8%8B%E5%BA%8F%E7%9A%84%E8%A3%85%E5%85%A5"><span class="nav-number">3.3.1.</span> <span class="nav-text">程序的装入</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%BB%9D%E5%AF%B9%E8%A3%85%E5%85%A5"><span class="nav-number">3.3.1.1.</span> <span class="nav-text">绝对装入</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%9D%99%E6%80%81%E9%87%8D%E5%AE%9A%E4%BD%8D"><span class="nav-number">3.3.1.2.</span> <span class="nav-text">静态重定位</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8A%A8%E6%80%81%E9%87%8D%E5%AE%9A%E4%BD%8D"><span class="nav-number">3.3.1.3.</span> <span class="nav-text">动态重定位</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A8%8B%E5%BA%8F%E7%9A%84%E9%93%BE%E6%8E%A5"><span class="nav-number">3.3.2.</span> <span class="nav-text">程序的链接</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%85%E5%AD%98%E7%A9%BA%E9%97%B4%E7%9A%84%E5%88%86%E9%85%8D%E4%B8%8E%E5%9B%9E%E6%94%B6"><span class="nav-number">3.4.</span> <span class="nav-text">内存空间的分配与回收</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%9E%E7%BB%AD%E5%88%86%E9%85%8D%E7%AE%A1%E7%90%86%E6%96%B9%E5%BC%8F"><span class="nav-number">3.4.1.</span> <span class="nav-text">连续分配管理方式</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
