@@ -449,6 +449,176 @@ $$</p>
       </tags>
   </entry>
   <entry>
+    <title>速成笔记</title>
+    <url>/posts/1f328572.html</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p>相关链接|</p>
+</p>
+    </div>
+</div><span id="more"></span>
+<h2 id="操作系统概述"><a class="header-anchor" href="#操作系统概述">¶</a>操作系统概述</h2>
+<h3 id="知识点"><a class="header-anchor" href="#知识点">¶</a>知识点</h3>
+<h6 id="操作系统四个基本特征"><a class="header-anchor" href="#操作系统四个基本特征">¶</a>操作系统四个基本特征</h6>
+<p>并发、共享、虚拟、异步</p>
+<h5 id="操作系统的主要功能包括"><a class="header-anchor" href="#操作系统的主要功能包括">¶</a>操作系统的主要功能包括</h5>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>处理机管理</p>
+</li>
+<li class="lvl-2">
+<p>存储管理</p>
+</li>
+<li class="lvl-2">
+<p>设备管理</p>
+</li>
+<li class="lvl-2">
+<p>文件管理</p>
+</li>
+<li class="lvl-2">
+<p>用户接口</p>
+</li>
+</ul>
+<h6 id="人机交互的历程"><a class="header-anchor" href="#人机交互的历程">¶</a>人机交互的历程</h6>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>手工操作阶段</p>
+<ul class="lvl-2">
+<li class="lvl-4">人机速度矛盾</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>单道批处理阶段</p>
+<ul class="lvl-2">
+<li class="lvl-4">系统资源利用率还是很低</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>多道批处理阶段</p>
+<ul class="lvl-2">
+<li class="lvl-4">缺乏人机交互，进程运行无法终止</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>分时操作系统</p>
+<ul class="lvl-2">
+<li class="lvl-4">不支持插队，不能处理紧急事件</li>
+<li class="lvl-4">分时系统中，时间片一定，用户数越多，响应时间越长
+<ul class="lvl-4">
+<li class="lvl-6"><small>分时系统中，像是给每个用户分一个时间片，排队的进行访问，故用户数越多，排到的时间越长，响应时间越长</small></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>实时操作系统</p>
+</li>
+</ul>
+<h3 id="基本概念"><a class="header-anchor" href="#基本概念">¶</a>基本概念</h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>特权指令</strong>：不允许用户程序使用（只允许操作系统使用）如IO指令，中断进程</p>
+</li>
+<li class="lvl-2">
+<p><strong>非特权指令</strong>：普通的运算指令</p>
+</li>
+<li class="lvl-2">
+<p><strong>内核程序</strong>：系统的管理者，可执行一切指令、运行在核心态</p>
+</li>
+<li class="lvl-2">
+<p><strong>应用程序</strong>：普通引用程序只能执行非特权指令，运行在用户态</p>
+</li>
+</ul>
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p>还有一个**“访管指令”**，访管指令是在用户态使用的，该指令的还以是用户资源进入核心态。</p>
+<p>核心态无需再次进入核心态</p>
+<p>故，CPU处于核心态时，它可以执行出“访管”指令外的全部指令</p>
+</p>
+    </div>
+</div><h3 id="处理机状态"><a class="header-anchor" href="#处理机状态">¶</a>处理机状态</h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>用户态（目态）：CPU只能执行非特权指令</p>
+</li>
+<li class="lvl-2">
+<p>核心态（又称管态、内核态）：可以执行所有指令</p>
+</li>
+<li class="lvl-2">
+<p>用户态到核心态：通过中断（是硬件完成的）</p>
+</li>
+</ul>
+
+<div class="callout callout-warning">
+    <div class="callout-head">
+        <span class="callout-head-icon">⚠️</span>
+        <span class="callout-head-text" style="color:#e5a700">WARNING</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p>用户态到核心态的转换时通过中断，即硬件完成的，并不是操作系统，也不是中断处理程序。</p>
+<p>核心态到用户态的转换，是通过操作系统完成的。</p>
+</p>
+    </div>
+</div><h3 id="原语"><a class="header-anchor" href="#原语">¶</a>原语</h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>处在操作系统最底层，是最接近硬件的部分</p>
+</li>
+<li class="lvl-2">
+<p>这些程序的运行具有原子性，器操作只能一气喝成</p>
+</li>
+<li class="lvl-2">
+<p>这些程序的运行时间都较短，而且调用频繁</p>
+</li>
+</ul>
+<h3 id="中断、系统调用、体系结构"><a class="header-anchor" href="#中断、系统调用、体系结构">¶</a>中断、系统调用、体系结构</h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>内中断（异常，信号来自内部）</p>
+<ul class="lvl-2">
+<li class="lvl-4">自愿中断————指令中断</li>
+<li class="lvl-4">强迫中断：硬件中断、软件中断（eg：0/0）</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>外中断（中断，信号来自于外部）：外设请求、人工干预（打印机）</p>
+</li>
+<li class="lvl-2">
+<p>系统调用：</p>
+<ul class="lvl-2">
+<li class="lvl-4">系统给程序员（应用程序）提供的唯一接口，可获得OS的服务，在用户态发生核心态处理</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>体系结构：大内核、微内核</p>
+</li>
+</ul>
+<hr />
+<div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
+      <categories>
+        <category>408 - OS</category>
+      </categories>
+      <tags>
+        <tag>大学</tag>
+        <tag>408</tag>
+        <tag>OS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>磁盘空间管理</title>
     <url>/posts/292fbdbc.html</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
@@ -1972,6 +2142,7 @@ $$<br>
 </p>
     </div>
 </div><span id="more"></span>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412241130994.png" alt="image-20241224113023779"></p>
 <hr />
 <div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
       <categories>
@@ -6292,16 +6463,39 @@ $$</p>
     <div class="callout-contents">
         <p><p></p>
 <h4>勘误</h4>
-<p>经过讨论，该部分的计算应该以题目给出图片为准。</p>
-<p>我们首先对上图进行详细声明：</p>
-<p>第一行的$\lambda$，即查询对应页表是否在<code>TLB</code>的时间</p>
-<p>第二行第一列$t$，即访问主存中的页表花费时间</p>
-<p>第二行第二列$\lambda$，即更新TLB，并将$V_A$转换为物理地址花费时间</p>
-<p>第三行第一列$\varepsilon$，即缺页处理总时间</p>
-<p>第三行右侧 $t$，即<code>cache</code>缺页处理总时间</p>
-<p>最后一行 $c$，访问<code>cache</code>存取数据时间。</p>
-<p>则根据流程图，各情况处理的实际耗费时间就显而易见了。</p>
-<p><big>值得一提的是，上图之前所给的时间计算是没有将<code>cache</code>考虑进去的</big></p>
+<p><span style="color:red"><big>严格按照上图中的过程计算</big></span></p>
+<p><big><strong>声明</strong></big></p>
+<p><img src="./assets/image-20241223171247181.png" alt="image-20241223171247181"></p>
+<center><small>完整虚存处理图</small></center>
+<p>完整过程描述：</p>
+<p>一个有快表的系统，同时系统中不存在Cache</p>
+<ol>
+<li class="lvl-3">
+<p>首先是快表命中的情况</p>
+<ol>
+<li class="lvl-6">查询快表，进行地址转换（<strong>访问快表</strong>）</li>
+<li class="lvl-6">访问对应的页（<strong>访问内存</strong>）</li>
+</ol>
+</li>
+<li class="lvl-3">
+<p>然后是快表未命中的情况</p>
+<ol>
+<li class="lvl-6">查询快表，发现没有命中（<strong>访问快表</strong>）</li>
+<li class="lvl-6">查询内存中的页表（<strong>访问内存</strong>）</li>
+<li class="lvl-6">访问对应的页，在该处又会产生两种情况
+<ol>
+<li class="lvl-9">没有发生缺页，访问对应的页（<strong>访问内存</strong>）</li>
+<li class="lvl-9">发生缺页
+<ol>
+<li class="lvl-12">先执行缺页处理（<strong>缺页处理</strong>）</li>
+<li class="lvl-12">在访问对应的页（<strong>访问内存</strong>）</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
 </p>
     </div>
 </div><h4 id="抖动与工作集"><a class="header-anchor" href="#抖动与工作集">¶</a>抖动与工作集</h4>
