@@ -460,6 +460,7 @@ $$</p>
     </div>
     <div class="callout-contents">
         <p><p></p>
+<p>放一些选择填空会出的点</p>
 <p>相关链接|</p>
 </p>
     </div>
@@ -579,7 +580,7 @@ $$</p>
 <p>处在操作系统最底层，是最接近硬件的部分</p>
 </li>
 <li class="lvl-2">
-<p>这些程序的运行具有原子性，器操作只能一气喝成</p>
+<p>这些程序的运行具有原子性其操作只能一气喝成</p>
 </li>
 <li class="lvl-2">
 <p>这些程序的运行时间都较短，而且调用频繁</p>
@@ -608,6 +609,159 @@ $$</p>
 </li>
 </ul>
 <h2 id="进程管理"><a class="header-anchor" href="#进程管理">¶</a>进程管理</h2>
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<h4>进程的组成</h4>
+<p>包括程序、数据、进程控制块</p>
+</p>
+    </div>
+</div><p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412241452727.png" alt="image-20241224145205278"></p>
+<h3 id="处理机调度"><a class="header-anchor" href="#处理机调度">¶</a>处理机调度</h3>
+<p>是对处理机进行分配，即从就绪队列中按照指定的算法，选择一个进程并将处理机分配给它运行，以实现进程并发的执行</p>
+<h4 id="分类"><a class="header-anchor" href="#分类">¶</a>分类</h4>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>高级调度（作业调度</p>
+</li>
+<li class="lvl-2">
+<p>中级调度（内存置换</p>
+</li>
+<li class="lvl-2">
+<p>多级调度（进程调度</p>
+</li>
+</ul>
+<h3 id="进程同步"><a class="header-anchor" href="#进程同步">¶</a>进程同步</h3>
+<h4 id="原因"><a class="header-anchor" href="#原因">¶</a>原因</h4>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>协调进程之间相互制约关系</p>
+</li>
+</ul>
+<h4 id="制约关系"><a class="header-anchor" href="#制约关系">¶</a>制约关系</h4>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>同步</strong>：进程同步也是进程之间直接的制约关系，是为完成某种任务而建立的两个或多个线程，这个线程需要在某些位置上协调他们的工作层次而等待、传递信息所产生的制约关系。进程间的直接制约关系来源于他们之间的合作</p>
+</li>
+<li class="lvl-2">
+<p><strong>互斥</strong>：也称间接制约关系。当一个进程进入临界区使用临界资源时，另给进程必须等待，当占用临界资源的进程退出临界区后，另进程才允许去访问此临界资源</p>
+</li>
+</ul>
+<h4 id="临界资源"><a class="header-anchor" href="#临界资源">¶</a>临界资源</h4>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>一次仅允许一个进程使用的资源</p>
+</li>
+</ul>
+<h4 id="临界区"><a class="header-anchor" href="#临界区">¶</a>临界区</h4>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>在每个进程访问临界资源的那段程序，当多个线程并发执行时，如果它们都能够访问和修改同一资源，就可能导致数据的不一致和程序的错误行为。为了避免这种情况，临界区通常通过限制同时执行这段代码的线程数量，来确保对共享资源的访问是互斥的</p>
+</li>
+</ul>
+<h5 id="临界区的作用"><a class="header-anchor" href="#临界区的作用">¶</a>临界区的作用</h5>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>保护共享资源</p>
+</li>
+<li class="lvl-2">
+<p>防止竞态条件</p>
+</li>
+<li class="lvl-2">
+<p>提高程序稳定性</p>
+</li>
+</ul>
+<p>临界区的实现通常依赖于同步机制，如互斥锁、信号量、或条件变量</p>
+<h4 id="同步机制"><a class="header-anchor" href="#同步机制">¶</a>同步机制</h4>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>互斥锁</strong>（Mutex）：互斥锁是最常用的同步机制之一。当一个线程进入临界区时，它会获取一个互斥锁；当进程退出临界区时，它会释放互斥锁。其他进程进入临界区时，如果锁已被占用，则会被阻塞，直到互斥锁被释放</p>
+</li>
+<li class="lvl-2">
+<p><strong>信号量</strong>（Semaphore）：信号量是一种<em>更通用</em>的同步机制，它可以用来控制多个线程对多个资源的访问。在临界区场景中，信号量可以被设置为1，以模拟互斥锁的行为</p>
+</li>
+<li class="lvl-2">
+<p><strong>条件变量</strong>（Condition Variable）：条件变量通常与互斥锁一起使用，用于在多个进程之间传递信号。虽然条件变量不直接用于实现临界区，但它可以在线程鞥带进入临界区时提供有效的等待和唤醒机制</p>
+</li>
+</ul>
+<h4 id="临界区互斥"><a class="header-anchor" href="#临界区互斥">¶</a>临界区互斥</h4>
+<h5 id="原则"><a class="header-anchor" href="#原则">¶</a>原则</h5>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>空闲让进</p>
+</li>
+<li class="lvl-2">
+<p>忙则等待</p>
+</li>
+<li class="lvl-2">
+<p>有限等待</p>
+</li>
+<li class="lvl-2">
+<p>让权等待</p>
+</li>
+</ul>
+<h4 id="PV操作"><a class="header-anchor" href="#PV操作">¶</a>PV操作</h4>
+<blockquote>
+<p>PV必须成对出现</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412241626925.png" alt="image-20241224162602748"></p>
+<h4 id="死锁"><a class="header-anchor" href="#死锁">¶</a>死锁</h4>
+<h5 id="定义"><a class="header-anchor" href="#定义">¶</a>定义</h5>
+<p>多个进程因争夺资源而造成的一种僵局，如果没有外力，这些进程将无法推进</p>
+<h5 id="产生的原因"><a class="header-anchor" href="#产生的原因">¶</a>产生的原因</h5>
+<p>非剥夺资源的竞争和进程的不恰当推进顺序</p>
+<h5 id="必要的条件"><a class="header-anchor" href="#必要的条件">¶</a>必要的条件</h5>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>互斥</p>
+</li>
+<li class="lvl-2">
+<p>环路等待</p>
+</li>
+<li class="lvl-2">
+<p>不可剥夺</p>
+</li>
+<li class="lvl-2">
+<p>请求和保持</p>
+</li>
+</ul>
+<h5 id="解决方法"><a class="header-anchor" href="#解决方法">¶</a>解决方法</h5>
+<ol>
+<li class="lvl-3">
+<p>预防死锁</p>
+<ul class="lvl-2">
+<li class="lvl-5">破坏互斥条件</li>
+<li class="lvl-5">破坏不剥夺条件</li>
+<li class="lvl-5">破坏请求和保持条件</li>
+<li class="lvl-5">破坏循环等待条件</li>
+</ul>
+</li>
+<li class="lvl-3">
+<p>避免死锁</p>
+<ul class="lvl-2">
+<li class="lvl-5">安全状态、银行家算法</li>
+</ul>
+</li>
+<li class="lvl-3">
+<p>检测死锁</p>
+<ul class="lvl-2">
+<li class="lvl-5">利用死锁定理</li>
+</ul>
+</li>
+<li class="lvl-3">
+<p>解除死锁</p>
+<ul class="lvl-2">
+<li class="lvl-5">资源剥夺法</li>
+<li class="lvl-5">撤销进程法</li>
+<li class="lvl-5">进程回退法</li>
+</ul>
+</li>
+</ol>
 <hr />
 <div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
       <categories>
@@ -926,7 +1080,7 @@ $$</p>
     <div class="callout-contents">
         <p><p></p>
 <p><img src="./assets/image-20241220204542857.png" alt="image-20241220204542857"></p>
-<p>相关链接|<a href="./posts/1ba791ab#%E6%AD%BB%E9%94%81%E7%9A%84%E5%BF%85%E8%A6%81%E6%9D%A1%E4%BB%B6">死锁的必要条件</a></p>
+<p>相关链接|<a href="/posts/1ba791ab#%E6%AD%BB%E9%94%81%E7%9A%84%E5%BF%85%E8%A6%81%E6%9D%A1%E4%BB%B6">死锁的必要条件</a></p>
 </p>
     </div>
 </div><span id="more"></span>
