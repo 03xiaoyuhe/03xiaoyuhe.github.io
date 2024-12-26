@@ -21,25 +21,21 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="💡         TIP">
+  <meta name="description" content="💡         TIP                    相关链接|">
 <meta property="og:type" content="article">
-<meta property="og:title" content="计组-第三章-只读存储器ROM">
-<meta property="og:url" content="http://example.com/posts/4bd706e9.html">
+<meta property="og:title" content="3.5.1+3.5.2-Cache的基本工作原理">
+<meta property="og:url" content="http://example.com/posts/1e2c87d9.html">
 <meta property="og:site_name" content="Ting&#39;s Blog">
-<meta property="og:description" content="💡         TIP">
+<meta property="og:description" content="💡         TIP                    相关链接|">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412180945837.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412181924131.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412181929447.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412181934036.png">
-<meta property="article:published_time" content="2024-12-18T01:37:55.000Z">
-<meta property="article:modified_time" content="2024-12-26T06:45:53.924Z">
+<meta property="article:published_time" content="2024-12-26T09:35:09.000Z">
+<meta property="article:modified_time" content="2024-12-26T09:35:15.371Z">
 <meta property="article:author" content="听">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png">
 
-<link rel="canonical" href="http://example.com/posts/4bd706e9.html">
+<link rel="canonical" href="http://example.com/posts/1e2c87d9.html">
 
 
 <script id="page-configurations">
@@ -52,7 +48,7 @@
   };
 </script>
 
-  <title>计组-第三章-只读存储器ROM | Ting's Blog</title>
+  <title>3.5.1+3.5.2-Cache的基本工作原理 | Ting's Blog</title>
   
 
 
@@ -202,7 +198,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/posts/4bd706e9.html">
+    <link itemprop="mainEntityOfPage" href="http://example.com/posts/1e2c87d9.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101430362.jpg">
@@ -215,7 +211,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          计组-第三章-只读存储器ROM
+          3.5.1+3.5.2-Cache的基本工作原理
         </h1>
 
         <div class="post-meta">
@@ -225,31 +221,17 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2024-12-18 09:37:55" itemprop="dateCreated datePublished" datetime="2024-12-18T09:37:55+08:00">2024-12-18</time>
+              <time title="创建时间：2024-12-26 17:35:09 / 修改时间：17:35:15" itemprop="dateCreated datePublished" datetime="2024-12-26T17:35:09+08:00">2024-12-26</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-12-26 14:45:53" itemprop="dateModified" datetime="2024-12-26T14:45:53+08:00">2024-12-26</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/408/" itemprop="url" rel="index"><span itemprop="name">408</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/408/%E8%AE%A1%E7%BB%84/" itemprop="url" rel="index"><span itemprop="name">计组</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/408/%E8%AE%A1%E7%BB%84/%E7%AC%AC%E4%B8%89%E7%AB%A0-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/" itemprop="url" rel="index"><span itemprop="name">第三章.存储系统</span></a>
+                  <a href="/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/" itemprop="url" rel="index"><span itemprop="name">未分类</span></a>
                 </span>
             </span>
 
@@ -273,89 +255,12 @@
     </div>
     <div class="callout-contents">
         <p><p></p>
-<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412180945837.png" alt="image-20241218094522856"></p>
+<p>相关链接|</p>
 </p>
     </div>
 </div><span id="more"></span>
-<h2 id="了解各种ROM"><a class="header-anchor" href="#了解各种ROM">¶</a>了解各种ROM</h2>
-<h3 id="MROM"><a class="header-anchor" href="#MROM">¶</a>MROM</h3>
-<p>掩模式只读ROM</p>
-<p>厂家按照客户需求，在芯片生产过长中直接写入信息，之后<span style="color:red">任何人不可重写</span>（只能读出）</p>
-<p>可靠性高、灵活性差、生产周期长、只适合批量定制</p>
-<h3 id="PROM"><a class="header-anchor" href="#PROM">¶</a>PROM</h3>
-<p>可编程只读ROM</p>
-<p>用户可用专门PROM写入器写入信息，写<span style="color:red">写一次之后就无法更改</span></p>
-<h3 id="EPROM"><a class="header-anchor" href="#EPROM">¶</a>EPROM</h3>
-<p>可擦除可编程只读存储器</p>
-<p>允许用户写入信息，之后用某种方法擦除数据，<span style="color:red">可进行多次重写</span></p>
-<h3 id="UVEPROM"><a class="header-anchor" href="#UVEPROM">¶</a>UVEPROM</h3>
-<p>用紫外线照射8~20分钟，擦除<mark>所有信息</mark></p>
-<h3 id="EEROM"><a class="header-anchor" href="#EEROM">¶</a>EEROM</h3>
-<p>(也常记为$E^2PROM$，第一个E是Electioneering)</p>
-<p>可用“电擦除”的方式，擦除<mark>特定的字</mark></p>
-<h3 id="Flash-Mermory"><a class="header-anchor" href="#Flash-Mermory">¶</a>Flash Mermory</h3>
-<p>闪速存储器（注：U盘，SD卡，就是闪存)</p>
-<p>在EEPROM基础上发展而来，断电后也能保持信息，且<span style="color:red">可进行多次快速擦除重写</span></p>
-<p>注意：由于闪存需要擦除再写入，因此<mark>闪存的“写”速度要比“读”速度更慢</mark></p>
-
-<div class="callout callout-tip">
-    <div class="callout-head">
-        <span class="callout-head-icon">💡</span>
-        <span class="callout-head-text" style="color:#009688">TIP</span>
-    </div>
-    <div class="callout-contents">
-        <p><p></p>
-<p>每个存储元只需单个MOS管，位密度比RAM高</p>
-</p>
-    </div>
-</div><h3 id="SSD-Solid-State-Drives"><a class="header-anchor" href="#SSD-Solid-State-Drives">¶</a>SSD(Solid State Drives)</h3>
-<p>固态硬盘</p>
-<p>由控制单元+存储单元（Flash芯片）构成，与闪存存储器的核心区别在于控制单元不一样，但存储介质都类似，<span style="color:red">可进行多次快速擦除重写</span>.</p>
-<p>SSD速度块、功耗低、价格高。目前个人电脑常常用SSD取代传统的机械硬盘</p>
-
-<div class="callout callout-warning">
-    <div class="callout-head">
-        <span class="callout-head-icon">⚠️</span>
-        <span class="callout-head-text" style="color:#e5a700">WARNING</span>
-    </div>
-    <div class="callout-contents">
-        <p><p></p>
-<p>虽然**SSD与Flash（U盘、SD卡）**都可读可写，但他们都还属于ROM，</p>
-<p><big><strong>即<mark>只读存储器</mark></strong></big></p>
-</p>
-    </div>
-</div><h2 id="计算机内的重要ROM"><a class="header-anchor" href="#计算机内的重要ROM">¶</a>计算机内的重要ROM</h2>
-<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412181924131.png" alt="image-20241218192456757"></p>
-<p>主板上的BIOS芯片（ROM），存储了“自举装入程序”，负责引导装入操作系统（开机）</p>
-
-<div class="callout callout-tip">
-    <div class="callout-head">
-        <span class="callout-head-icon">💡</span>
-        <span class="callout-head-text" style="color:#009688">TIP</span>
-    </div>
-    <div class="callout-contents">
-        <p><p></p>
-<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412181929447.png" alt="image-20241218192900504"></p>
-<p>我们常所的“内存条”就是主存，但事实上，主板上的ROM芯片也是“主存”的一部分</p>
-<p>逻辑上，主存由RAM+ROM组成，且两者常统一编址</p>
-</p>
-    </div>
-</div><h2 id="总结"><a class="header-anchor" href="#总结">¶</a>总结</h2>
-<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412181934036.png" alt="image-20241218193406493"></p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>很多ROM芯片虽然名字是“Read-Only”，但是<mark>很多ROM也可以“写”</mark></p>
-</li>
-<li class="lvl-2">
-<p><mark>闪存的写速度一般比读速度更慢</mark>，因为写入前要先擦除</p>
-</li>
-<li class="lvl-2">
-<p>RAM芯片是易失性的，ROM芯片是非易失性的，很多<mark>ROM也都是具有”随机存取“的特性</mark></p>
-</li>
-</ul>
 <hr />
-<div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>
-
+<div style="text-align: center;color:#4d648d;font-size:50px;">(完)</div>
     </div>
 
     
@@ -370,12 +275,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/posts/9e51c077.html" rel="prev" title="计组-第三章-SRAM和DRAM">
-      <i class="fa fa-chevron-left"></i> 计组-第三章-SRAM和DRAM
+    <a href="/posts/54bffdf5.html" rel="prev" title="外部存储器">
+      <i class="fa fa-chevron-left"></i> 外部存储器
     </a></div>
       <div class="post-nav-item">
-    <a href="/posts/eb3d57f9.html" rel="next" title="双口RAM和多模块存储器">
-      双口RAM和多模块存储器 <i class="fa fa-chevron-right"></i>
+    <a href="/posts/bb85a050.html" rel="next" title="3.5.3-Cache与主存的映射方式">
+      3.5.3-Cache与主存的映射方式 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -435,7 +340,6 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%86%E8%A7%A3%E5%90%84%E7%A7%8DROM"><span class="nav-number">1.</span> <span class="nav-text">了解各种ROM</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#MROM"><span class="nav-number">1.1.</span> <span class="nav-text">MROM</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PROM"><span class="nav-number">1.2.</span> <span class="nav-text">PROM</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#EPROM"><span class="nav-number">1.3.</span> <span class="nav-text">EPROM</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UVEPROM"><span class="nav-number">1.4.</span> <span class="nav-text">UVEPROM</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#EEROM"><span class="nav-number">1.5.</span> <span class="nav-text">EEROM</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Flash-Mermory"><span class="nav-number">1.6.</span> <span class="nav-text">Flash Mermory</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SSD-Solid-State-Drives"><span class="nav-number">1.7.</span> <span class="nav-text">SSD(Solid State Drives)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%86%85%E7%9A%84%E9%87%8D%E8%A6%81ROM"><span class="nav-number">2.</span> <span class="nav-text">计算机内的重要ROM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

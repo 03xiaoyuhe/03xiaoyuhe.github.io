@@ -450,6 +450,82 @@ $$</p>
       </tags>
   </entry>
   <entry>
+    <title>3.5.3-Cache与主存的映射方式</title>
+    <url>/posts/bb85a050.html</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p>相关链接|</p>
+</p>
+    </div>
+</div><span id="more"></span>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412261117696.png" alt="image-20241226111710525"></p>
+<h3 id="全相联映射"><a class="header-anchor" href="#全相联映射">¶</a>全相联映射</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412261119088.png" alt="image-20241226111947501"></p>
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p>提高了命中率，只要cache没有满，就可以存</p>
+</p>
+    </div>
+</div><h3 id="直接映射"><a class="header-anchor" href="#直接映射">¶</a>直接映射</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412261130493.png" alt="image-20241226113021569"></p>
+<p>块号末尾三位，反应了应该存放在Cache块中的哪个位置</p>
+<p>实际在cache存放标记时，也只需要存放前面19位，末尾三位与块号直接对应，无需存放。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412261135329.png" alt="image-20241226113503748"></p>
+<h3 id="组相联映射"><a class="header-anchor" href="#组相联映射">¶</a>组相联映射</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412261137927.png" alt="image-20241226113753352"></p>
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412261138537.png" alt="image-20241226113823483"></p>
+</p>
+    </div>
+</div><hr />
+<div style="text-align: center;color:#4d648d;font-size:50px;">(完)</div>]]></content>
+      <categories>
+        <category>未分类</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>3.5.1+3.5.2-Cache的基本工作原理</title>
+    <url>/posts/1e2c87d9.html</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p>相关链接|</p>
+</p>
+    </div>
+</div><span id="more"></span>
+<hr />
+<div style="text-align: center;color:#4d648d;font-size:50px;">(完)</div>]]></content>
+      <categories>
+        <category>未分类</category>
+      </categories>
+  </entry>
+  <entry>
     <title>外部存储器</title>
     <url>/posts/54bffdf5.html</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
@@ -545,7 +621,50 @@ $$<br>
 </blockquote>
 </li>
 </ul>
-<hr />
+<h3 id="磁盘地址"><a class="header-anchor" href="#磁盘地址">¶</a>磁盘地址</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412261709715.png" alt="image-20241226170958634"></p>
+<blockquote>
+<p>例如，</p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412261710344.png" alt="image-20241226171037285"></p>
+</blockquote>
+<h3 id="磁盘的工作过程"><a class="header-anchor" href="#磁盘的工作过程">¶</a>磁盘的工作过程</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412261711702.png" alt="image-20241226171128627"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412261712718.png" alt="image-20241226171213642"></p>
+<h2 id="磁盘阵列"><a class="header-anchor" href="#磁盘阵列">¶</a>磁盘阵列</h2>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412261712931.png" alt="image-20241226171256854"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412261713815.png" alt="image-20241226171338732"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412261713191.png" alt="image-20241226171354113"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412261714484.png" alt="image-20241226171443399"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412261716731.png" alt="image-20241226171656664"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412261718019.png" alt="image-20241226171845941"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412261719172.png" alt="image-20241226171955101"></p>
+<h2 id="固态硬盘SSD"><a class="header-anchor" href="#固态硬盘SSD">¶</a>固态硬盘SSD</h2>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412261721593.png" alt="image-20241226172132486"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412261723463.png" alt="image-20241226172317360"></p>
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p>系统读写固态硬盘是以一个页为单位的</p>
+<p>也就是说，固态硬盘中的一个页相当于磁盘中的一个扇区</p>
+</p>
+    </div>
+</div>
+<div class="callout callout-warning">
+    <div class="callout-head">
+        <span class="callout-head-icon">⚠️</span>
+        <span class="callout-head-text" style="color:#e5a700">WARNING</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p>以块为单位擦除，擦除后，每个块可以被写一次，被读无限次</p>
+</p>
+    </div>
+</div><hr />
 <div style="text-align: center;color:#4d648d;font-size:50px;">(完)</div>]]></content>
       <categories>
         <category>OS</category>
@@ -2985,10 +3104,20 @@ $$<br>
 </p>
     </div>
 </div><span id="more"></span>
-<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412241130994.png" alt="image-20241224113023779"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412261117696.png" alt="image-20241226111710525"></p>
-<h3 id="全相联映射"><a class="header-anchor" href="#全相联映射">¶</a>全相联映射</h3>
-<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412261119088.png" alt="image-20241226111947501"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412261741152.png" alt="image-20241226174114040"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412261741274.png" alt="image-20241226174133203"></p>
+<h2 id="存储器芯片的输入输出信号"><a class="header-anchor" href="#存储器芯片的输入输出信号">¶</a>存储器芯片的输入输出信号</h2>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412261743720.png" alt="image-20241226174324667"></p>
+<h3 id="位扩展"><a class="header-anchor" href="#位扩展">¶</a>位扩展</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412261745112.png" alt="image-20241226174551023"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412261747477.png" alt="image-20241226174710399"></p>
+<h3 id="字扩展"><a class="header-anchor" href="#字扩展">¶</a>字扩展</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412261752076.png" alt="image-20241226175245985"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412261755725.png" alt="image-20241226175557634"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412261759344.png" alt="image-20241226175900280"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412261759896.png" alt="image-20241226175945684"></p>
+<h2 id="总结"><a class="header-anchor" href="#总结">¶</a>总结</h2>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412261801842.png" alt="image-20241226180106765"></p>
 
 <div class="callout callout-tip">
     <div class="callout-head">
@@ -2997,25 +3126,8 @@ $$<br>
     </div>
     <div class="callout-contents">
         <p><p></p>
-<p>提高了命中率，只要cache没有满，就可以存</p>
-</p>
-    </div>
-</div><h3 id="直接映射"><a class="header-anchor" href="#直接映射">¶</a>直接映射</h3>
-<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412261130493.png" alt="image-20241226113021569"></p>
-<p>块号末尾三位，反应了应该存放在Cache块中的哪个位置</p>
-<p>实际在cache存放标记时，也只需要存放前面19位，末尾三位与块号直接对应，无需存放。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412261135329.png" alt="image-20241226113503748"></p>
-<h3 id="组相联映射"><a class="header-anchor" href="#组相联映射">¶</a>组相联映射</h3>
-<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412261137927.png" alt="image-20241226113753352"></p>
-
-<div class="callout callout-tip">
-    <div class="callout-head">
-        <span class="callout-head-icon">💡</span>
-        <span class="callout-head-text" style="color:#009688">TIP</span>
-    </div>
-    <div class="callout-contents">
-        <p><p></p>
-<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412261138537.png" alt="image-20241226113823483"></p>
+<h4>补充知识-译码器</h4>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412261803025.png" alt="image-20241226180308959"></p>
 </p>
     </div>
 </div><hr />
