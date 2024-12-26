@@ -450,6 +450,132 @@ $$</p>
       </tags>
   </entry>
   <entry>
+    <title>外部存储器</title>
+    <url>/posts/54bffdf5.html</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412261704217.png" alt="image-20241226170415159"></p>
+<p>相关链接|</p>
+</p>
+    </div>
+</div><span id="more"></span>
+<h2 id="磁表面存储器"><a class="header-anchor" href="#磁表面存储器">¶</a>磁表面存储器</h2>
+<h3 id="优点"><a class="header-anchor" href="#优点">¶</a>优点</h3>
+<ol>
+<li class="lvl-3">
+<p>存储容量大，位价格低；</p>
+</li>
+<li class="lvl-3">
+<p>记录介质可以重复利用</p>
+</li>
+<li class="lvl-3">
+<p>记录介质信息可以长期保存而不丢失，甚至可以脱机存档</p>
+</li>
+<li class="lvl-3">
+<p>非破坏性读出，读出是不需要再生</p>
+</li>
+</ol>
+<h3 id="缺点"><a class="header-anchor" href="#缺点">¶</a>缺点</h3>
+<ol>
+<li class="lvl-3">
+<p>存取速度慢</p>
+</li>
+<li class="lvl-3">
+<p>机械结构复杂</p>
+</li>
+<li class="lvl-3">
+<p>对工作环境要求较高</p>
+</li>
+</ol>
+<h2 id="磁盘存储器"><a class="header-anchor" href="#磁盘存储器">¶</a>磁盘存储器</h2>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412261622185.png" alt="image-20241226162157054"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412261628961.png" alt="image-20241226162755028"></p>
+<h3 id="磁盘的性能指标"><a class="header-anchor" href="#磁盘的性能指标">¶</a>磁盘的性能指标</h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>磁盘容量</strong>：</p>
+<p>一个磁盘所能存储的字节总数称为磁盘容量。磁盘容量有非格式化和格式化容量之分。</p>
+<blockquote>
+<p>非格式化容量是指磁记录表面可以利用的磁化单元总数</p>
+<p>格式化容量是指按照某种特定的记录格式所能存储的信息的总量</p>
+</blockquote>
+</li>
+<li class="lvl-2">
+<p><strong>记录密度</strong>：</p>
+<p>记录密度是指盘片单位面积上记录的二进制的信息量，通常以道目睹、位密度、面密度标识</p>
+<blockquote>
+<p>道密度是沿磁盘半径方向单位长度上的磁道数</p>
+<p>位密度是磁道单位长度上能记录的二进制代码位数</p>
+<p>面密度是位密度和道密度的乘积</p>
+</blockquote>
+
+<div class="callout callout-warning">
+    <div class="callout-head">
+        <span class="callout-head-icon">⚠️</span>
+        <span class="callout-head-text" style="color:#e5a700">WARNING</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p><strong>注意：</strong></p>
+<p>磁盘所有磁道记录的信息量一定是相等的，并不是圆越大信息越多，故每个磁道的位密度都不同</p>
+</p>
+    </div>
+</div></li>
+<li class="lvl-2">
+<p><strong>平均存取时间</strong>：<br>
+$$<br>
+平均存取时间 = &amp;\text{寻道时间（磁头移动到目的磁道）}+ \<br>
+&amp;\text{旋转延迟时间（磁头定位到所在扇区）}+ \<br>
+&amp;\text{传输时间（传输数据所花费的时间）}<br>
+$$<br>
+<img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412261701734.png" alt="image-20241226170158632"></p>
+</li>
+<li class="lvl-2">
+<p><strong>数据传输率</strong>：</p>
+<p>磁盘存储器再单位时间内性主机发送数据的字节数，称为数据传输率。</p>
+<blockquote>
+<p>假设磁盘转速为$r$（转/秒），每条磁道容量为N个字节，则数据传输率为$D_r = rN$</p>
+</blockquote>
+</li>
+</ul>
+<hr />
+<div style="text-align: center;color:#4d648d;font-size:50px;">(完)</div>]]></content>
+      <categories>
+        <category>OS</category>
+        <category>计组</category>
+        <category>第三章.存储系统</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>4.1指令系统的基本格式</title>
+    <url>/posts/688831be.html</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p>相关链接|</p>
+</p>
+    </div>
+</div><span id="more"></span>
+<hr />
+<div style="text-align: center;color:#4d648d;font-size:50px;">(完)</div>]]></content>
+      <categories>
+        <category>未分类</category>
+      </categories>
+  </entry>
+  <entry>
     <title>虚拟存储器</title>
     <url>/posts/fd972ae3.html</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
@@ -3447,7 +3573,7 @@ $$<br>
 </p>
     </div>
 </div><span id="more"></span>
-<h2 id="存储器的层次结果"><a class="header-anchor" href="#存储器的层次结果">¶</a>存储器的层次结果</h2>
+<h2 id="存储器的层次结构"><a class="header-anchor" href="#存储器的层次结构">¶</a>存储器的层次结构</h2>
 <p><img src="./assets/image-20241217163358988.png" alt="image-20241217163358988"></p>
 <h2 id="存储器的分类"><a class="header-anchor" href="#存储器的分类">¶</a>存储器的分类</h2>
 <h3 id="按层次"><a class="header-anchor" href="#按层次">¶</a>按层次</h3>
