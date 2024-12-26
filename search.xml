@@ -161,7 +161,8 @@
 <hr />
 <div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
       <categories>
-        <category>408 - OS</category>
+        <category>408</category>
+        <category>OS</category>
       </categories>
       <tags>
         <tag>大学</tag>
@@ -1391,7 +1392,8 @@ $$</p>
 </div><hr />
 <div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
       <categories>
-        <category>未分类</category>
+        <category>408</category>
+        <category>OS</category>
       </categories>
   </entry>
   <entry>
@@ -1484,7 +1486,8 @@ $$</p>
 </div><hr />
 <div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
       <categories>
-        <category>未分类</category>
+        <category>408</category>
+        <category>OS</category>
       </categories>
   </entry>
   <entry>
@@ -1591,7 +1594,8 @@ $$</p>
 <hr />
 <div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
       <categories>
-        <category>未分类</category>
+        <category>408</category>
+        <category>OS</category>
       </categories>
   </entry>
   <entry>
@@ -2063,7 +2067,8 @@ $$<br>
 <hr />
 <div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
       <categories>
-        <category>未分类</category>
+        <category>408</category>
+        <category>OS</category>
       </categories>
   </entry>
   <entry>
@@ -2542,7 +2547,8 @@ $$<br>
 </div><hr />
 <div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
       <categories>
-        <category>未分类</category>
+        <category>408</category>
+        <category>OS</category>
       </categories>
   </entry>
   <entry>
@@ -5123,7 +5129,8 @@ CMake 能自动处理动态库的依赖，确保库按正确顺序链接。</p>
 <hr />
 <div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>]]></content>
       <categories>
-        <category>408 - OS</category>
+        <category>408</category>
+        <category>OS</category>
       </categories>
       <tags>
         <tag>大学</tag>
