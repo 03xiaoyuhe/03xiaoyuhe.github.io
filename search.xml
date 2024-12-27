@@ -891,10 +891,27 @@ $$<br>
 <p>奈奎斯特定理：$R_b = 2H*log_2V \ (bps)$</p>
 </li>
 <li class="lvl-3">
-<p>香农定理：$R_b = H*log2(1+S/N)\ (bps)$</p>
+<p>香农定理：$R_b = H*log_2(1+S/N)\ (bps)$</p>
 </li>
 </ol>
-<h3 id="CRC校验码"><a class="header-anchor" href="#CRC校验码">¶</a>CRC校验码</h3>
+<p>$R_b$：信道的最高数据传输速率</p>
+<p>$V$：码元状态数</p>
+<p>$H$：信道带宽</p>
+<p>$S/N$：信噪比</p>
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p>信噪比$S/N$单位较小，通常以<span style="color:red">分贝</span>的形式给出，需要转换</p>
+<h4>分贝</h4>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412271334036.png" alt="image-20241227133452940"></p>
+</p>
+    </div>
+</div><h3 id="CRC校验码"><a class="header-anchor" href="#CRC校验码">¶</a>CRC校验码</h3>
 <ol>
 <li class="lvl-3">
 <p>已知：被传输数据块<em>DATA</em>，除数<em>P</em>或<em>生成多项式$G(X)$</em></p>
@@ -907,16 +924,58 @@ $$<br>
 <p>已知：接收方收到的数据和除数P，判断该数是否出错</p>
 </li>
 </ol>
-<blockquote>
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p>余数比校验码少一位！</p>
+</p>
+    </div>
+</div><blockquote>
 <p><strong>例题</strong> <strong>P112 3-07 3-08</strong></p>
 </blockquote>
-<h3 id="CSMA-CD协议中最段帧长度的计算"><a class="header-anchor" href="#CSMA-CD协议中最段帧长度的计算">¶</a>CSMA/CD协议中最段帧长度的计算</h3>
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<h6>例题 P112 3-07</h6>
+<p>要发送的数据为 $101110$ 。采用 $CRC$ 校验码的生成多项式是 $P(X) = X^3 + 1$ 试求添加在数据后面的余数</p>
+<p><mark>注意！$X^3 + 1$ 对应的校验码为 $\overset31 \overset20 \overset10 \overset01$ 而非 $\overset21 \overset10 \overset01$。</mark></p>
+</p>
+    </div>
+</div><h3 id="CSMA-CD协议中最段帧长度的计算"><a class="header-anchor" href="#CSMA-CD协议中最段帧长度的计算">¶</a>CSMA/CD协议中最段帧长度的计算</h3>
 <ul class="lvl-0">
 <li class="lvl-2">
 <p>P113 3-20 冲突窗口的计算</p>
 </li>
 </ul>
-<h3 id="发送时延和传播时延的计算"><a class="header-anchor" href="#发送时延和传播时延的计算">¶</a>发送时延和传播时延的计算</h3>
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<h6>以太网最小帧长度问题</h6>
+<p>$$<br>
+\underset{\text帧的传播时长}t = \text数据帧长度 / \text数据传输速率\<br>
+\underset{\text信号传播时延}T = \text两站点的距离 / \text信号传播速度\<br>
+\underset{\text保证在帧的传输过程中检测到冲突}{t &gt;= 2*T}<br>
+$$</p>
+<p>即，保证在冲突信号发回时，帧还没有发完</p>
+<p>即帧的发送时长大于信号传播时延的两倍</p>
+</p>
+    </div>
+</div><h3 id="发送时延和传播时延的计算"><a class="header-anchor" href="#发送时延和传播时延的计算">¶</a>发送时延和传播时延的计算</h3>
 <ul class="lvl-0">
 <li class="lvl-2">
 <p>P39 1-17</p>
@@ -3128,6 +3187,8 @@ $$<br>
         <p><p></p>
 <h4>补充知识-译码器</h4>
 <p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412261803025.png" alt="image-20241226180308959"></p>
+<h5>74LS138</h5>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412262146520.png" alt="image-20241226214653458"></p>
 </p>
     </div>
 </div><hr />
