@@ -450,6 +450,64 @@ $$</p>
       </tags>
   </entry>
   <entry>
+    <title>3-数据链路层-局域网</title>
+    <url>/posts/ff91f528.html</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p>相关链接|</p>
+</p>
+    </div>
+</div><span id="more"></span>
+<hr />
+<div style="text-align: center;color:#4d648d;font-size:50px;">(完)</div>]]></content>
+      <categories>
+        <category>未分类</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>3-数据链路层-广域网</title>
+    <url>/posts/a2e55340.html</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p>相关链接|</p>
+</p>
+    </div>
+</div><span id="more"></span>
+<h3 id="数据链路层"><a class="header-anchor" href="#数据链路层">¶</a>数据链路层</h3>
+<h4 id="比特填充定界法"><a class="header-anchor" href="#比特填充定界法">¶</a>比特填充定界法</h4>
+<p>用一组比特作为帧的起始和结束，如$01111110$</p>
+<p>利用<strong>0 比特插入法</strong>来解决数据传输透明性的问题：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>发送方在发送数据时，在连续5个1后插入一个0；接收方在接收到连续的5个1后若跟着一个0，删除0。</p>
+</li>
+</ul>
+<h4 id="基本的-span-style-color-red-差错检测-span-方法"><a class="header-anchor" href="#基本的-span-style-color-red-差错检测-span-方法">¶</a>基本的<span style="color:red">差错检测</span>方法</h4>
+<h5 id="循环冗余校验码（CRC）"><a class="header-anchor" href="#循环冗余校验码（CRC）">¶</a>循环冗余校验码（CRC）</h5>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412282234882.png" alt="image-20241228223413816"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412282234490.png" alt="image-20241228223427444"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412282234094.png" alt="image-20241228223445045"></p>
+<hr />
+<div style="text-align: center;color:#4d648d;font-size:50px;">(完)</div>]]></content>
+      <categories>
+        <category>未分类</category>
+      </categories>
+  </entry>
+  <entry>
     <title>2.5-信道复用技术</title>
     <url>/posts/ef176f0c.html</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
@@ -465,6 +523,24 @@ $$</p>
 </p>
     </div>
 </div><span id="more"></span>
+<h3 id="信道复用"><a class="header-anchor" href="#信道复用">¶</a>信道复用</h3>
+<h4 id="信道复用的定义"><a class="header-anchor" href="#信道复用的定义">¶</a>信道复用的定义</h4>
+<p>为了提高通道线路的利用效率，降低通信成本，在一条物理线路上同时传输多路信息；</p>
+<h4 id="信道复用分类"><a class="header-anchor" href="#信道复用分类">¶</a>信道复用分类</h4>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>频分多路复用</p>
+</li>
+<li class="lvl-2">
+<p>波分多路复用</p>
+</li>
+<li class="lvl-2">
+<p><strong>时分多路复用</strong></p>
+</li>
+<li class="lvl-2">
+<p><strong>码分多路复用</strong></p>
+</li>
+</ul>
 <hr />
 <div style="text-align: center;color:#4d648d;font-size:50px;">(完)</div>]]></content>
       <categories>
