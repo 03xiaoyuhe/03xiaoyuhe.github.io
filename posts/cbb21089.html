@@ -21,30 +21,25 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="💡         TIP                     相关链接|">
+  <meta name="description" content="💡         TIP                    相关链接|">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Cache写策略">
-<meta property="og:url" content="http://example.com/posts/3f4cf4e9.html">
+<meta property="og:title" content="6-应用层">
+<meta property="og:url" content="http://example.com/posts/cbb21089.html">
 <meta property="og:site_name" content="Ting&#39;s Blog">
-<meta property="og:description" content="💡         TIP                     相关链接|">
+<meta property="og:description" content="💡         TIP                    相关链接|">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412261407506.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412261414771.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412261417376.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412261424026.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412261427631.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412261431430.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412261433778.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412261433290.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412261435472.png">
-<meta property="article:published_time" content="2024-12-26T06:05:55.000Z">
-<meta property="article:modified_time" content="2024-12-26T06:45:38.608Z">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412291723275.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412291725177.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412291725682.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412291726440.png">
+<meta property="article:published_time" content="2024-12-29T09:17:38.000Z">
+<meta property="article:modified_time" content="2024-12-29T09:34:24.436Z">
 <meta property="article:author" content="听">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png">
 
-<link rel="canonical" href="http://example.com/posts/3f4cf4e9.html">
+<link rel="canonical" href="http://example.com/posts/cbb21089.html">
 
 
 <script id="page-configurations">
@@ -57,7 +52,7 @@
   };
 </script>
 
-  <title>Cache写策略 | Ting's Blog</title>
+  <title>6-应用层 | Ting's Blog</title>
   
 
 
@@ -207,7 +202,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/posts/3f4cf4e9.html">
+    <link itemprop="mainEntityOfPage" href="http://example.com/posts/cbb21089.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101430362.jpg">
@@ -220,7 +215,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Cache写策略
+          6-应用层
         </h1>
 
         <div class="post-meta">
@@ -232,7 +227,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2024-12-26 14:05:55 / 修改时间：14:45:38" itemprop="dateCreated datePublished" datetime="2024-12-26T14:05:55+08:00">2024-12-26</time>
+              <time title="创建时间：2024-12-29 17:17:38 / 修改时间：17:34:24" itemprop="dateCreated datePublished" datetime="2024-12-29T17:17:38+08:00">2024-12-29</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -240,15 +235,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/408/" itemprop="url" rel="index"><span itemprop="name">408</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/408/%E8%AE%A1%E7%BB%84/" itemprop="url" rel="index"><span itemprop="name">计组</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/408/%E8%AE%A1%E7%BB%84/%E7%AC%AC%E4%B8%89%E7%AB%A0-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/" itemprop="url" rel="index"><span itemprop="name">第三章.存储系统</span></a>
+                  <a href="/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/" itemprop="url" rel="index"><span itemprop="name">未分类</span></a>
                 </span>
             </span>
 
@@ -272,58 +259,42 @@
     </div>
     <div class="callout-contents">
         <p><p></p>
-<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412261407506.png" alt="image-20241226140657366"></p>
 <p>相关链接|</p>
 </p>
     </div>
 </div><span id="more"></span>
-
-<div class="callout callout-tip">
-    <div class="callout-head">
-        <span class="callout-head-icon">💡</span>
-        <span class="callout-head-text" style="color:#009688">TIP</span>
-    </div>
-    <div class="callout-contents">
-        <p><p></p>
-<p>不讨论读命中，读不命中的情况？</p>
-<p>读操作不会导致Cache和主存的数据不一致</p>
-</p>
-    </div>
-</div><h2 id="写命中"><a class="header-anchor" href="#写命中">¶</a>写命中</h2>
+<h3 id="DNS"><a class="header-anchor" href="#DNS">¶</a>DNS</h3>
+<h4 id="主要功能"><a class="header-anchor" href="#主要功能">¶</a>主要功能</h4>
+<p>将域名转换为对应主机 IP</p>
+<h4 id="域名系统的命名规范"><a class="header-anchor" href="#域名系统的命名规范">¶</a>域名系统的命名规范</h4>
+<p>层次命名机制</p>
+<p>在名字中引入层次型结构，其结构层次对应于名字管理机构的层次，每一级机构只负责给它的下级机构授权命名范围</p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412291723275.png" alt="image-20241229172356197"></p>
 <ul class="lvl-0">
 <li class="lvl-2">
-<p><strong>写回法</strong></p>
-<p>当CPU对Cache写命中时，只修改Cache的内容，而不立即写入主存，只有当此块被换出时才写回主存</p>
-<p>同时，若该块在没有修改的情况下被换出，则不需要写回</p>
-<p>存在数据不一致隐患</p>
-<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412261414771.png" alt="image-20241226141409255"></p>
-</li>
-<li class="lvl-2">
-<p><strong>全写法（写直通法，write-through）</strong></p>
-<p>当Cache写命中时，必须把数据同时写入Cache和主存，一般使用写缓冲</p>
-<p>访存次数增加，速度变慢，但更能保证数据一致性</p>
-<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412261417376.png" alt="image-20241226141727699"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412261424026.png" alt="image-20241226142428464"></p>
+<p><strong>域名区域自治</strong>：每一个服务器都能够为直接子节点指派域名，而对其他区域无权干涉</p>
 </li>
 </ul>
-<h3 id="写不命中"><a class="header-anchor" href="#写不命中">¶</a>写不命中</h3>
+<h4 id="常用域名的含义"><a class="header-anchor" href="#常用域名的含义">¶</a>常用域名的含义</h4>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412291725177.png" alt="image-20241229172528129"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412291725682.png" alt="image-20241229172545621"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412291726440.png" alt="image-20241229172626282"></p>
+<h3 id="FTP"><a class="header-anchor" href="#FTP">¶</a>FTP</h3>
+<p>文件传输协议</p>
+<h4 id="主要功能-2"><a class="header-anchor" href="#主要功能-2">¶</a>主要功能</h4>
+<p>将文件从以太计算机传输到另一台计算机上，并保证数据传输的可靠性</p>
 <ul class="lvl-0">
 <li class="lvl-2">
-<p><strong>写分配法</strong></p>
-<p>当CPU对Cache<span style="color:red">写不命中时</span>，把主存的块调入Cache，在Cache中修改。通常<mark>搭配写回法</mark>使用</p>
-<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412261427631.png" alt="image-20241226142733273"></p>
-</li>
-<li class="lvl-2">
-<p><strong>非写分配法</strong></p>
-<p>当CPU对Cache<span style="color:red">写不命中时</span>只写入主存，不调入Cache，搭配<mark>全写法</mark>使用</p>
-<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412261431430.png" alt="image-20241226143107155"></p>
+<p>采用*<u>客户端/服务器</u><em>，将</em><u>TCP协议</u>*作为传输层协议</p>
 </li>
 </ul>
-<h2 id="多级Cache"><a class="header-anchor" href="#多级Cache">¶</a>多级Cache</h2>
-<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412261433778.png" alt="image-20241226143306530"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412261433290.png" alt="image-20241226143355503"></p>
-<h2 id="总结"><a class="header-anchor" href="#总结">¶</a>总结</h2>
-<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412261435472.png" alt="image-20241226143458491"></p>
+<h3 id="SMTP"><a class="header-anchor" href="#SMTP">¶</a>SMTP</h3>
+<p>简单邮件传输协议 SMTP</p>
+<p>在用户代理和邮件服务器以及邮件服务器和邮件服务器之间传送邮件</p>
+<h3 id="MIME"><a class="header-anchor" href="#MIME">¶</a>MIME</h3>
+<p>多用途因特网邮件拓展MIME</p>
+<p>为了方便通过邮件发送不同类型的数据，如音频、视频等，对邮件格式进行了扩充。</p>
+<h3 id="DHCP"><a class="header-anchor" href="#DHCP">¶</a>DHCP</h3>
 <hr />
 <div style="text-align: center;color:#4d648d;font-size:50px;">(完)</div>
     </div>
@@ -340,13 +311,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/posts/47b18223.html" rel="prev" title="Cache的替换算法">
-      <i class="fa fa-chevron-left"></i> Cache的替换算法
+    <a href="/posts/826510dd.html" rel="prev" title="5-传输层">
+      <i class="fa fa-chevron-left"></i> 5-传输层
     </a></div>
-      <div class="post-nav-item">
-    <a href="/posts/fd972ae3.html" rel="next" title="虚拟存储器">
-      虚拟存储器 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -405,7 +373,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%99%E5%91%BD%E4%B8%AD"><span class="nav-number">1.</span> <span class="nav-text">写命中</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%99%E4%B8%8D%E5%91%BD%E4%B8%AD"><span class="nav-number">1.1.</span> <span class="nav-text">写不命中</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%9A%E7%BA%A7Cache"><span class="nav-number">2.</span> <span class="nav-text">多级Cache</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#DNS"><span class="nav-number">1.</span> <span class="nav-text">DNS</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%BB%E8%A6%81%E5%8A%9F%E8%83%BD"><span class="nav-number">1.1.</span> <span class="nav-text">主要功能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9F%9F%E5%90%8D%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83"><span class="nav-number">1.2.</span> <span class="nav-text">域名系统的命名规范</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E5%9F%9F%E5%90%8D%E7%9A%84%E5%90%AB%E4%B9%89"><span class="nav-number">1.3.</span> <span class="nav-text">常用域名的含义</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#FTP"><span class="nav-number">2.</span> <span class="nav-text">FTP</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%BB%E8%A6%81%E5%8A%9F%E8%83%BD-2"><span class="nav-number">2.1.</span> <span class="nav-text">主要功能</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SMTP"><span class="nav-number">3.</span> <span class="nav-text">SMTP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MIME"><span class="nav-number">4.</span> <span class="nav-text">MIME</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DHCP"><span class="nav-number">5.</span> <span class="nav-text">DHCP</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

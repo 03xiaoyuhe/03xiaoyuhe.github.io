@@ -31,7 +31,7 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412291600898.png">
 <meta property="article:published_time" content="2024-12-29T07:58:46.000Z">
-<meta property="article:modified_time" content="2024-12-29T08:34:54.997Z">
+<meta property="article:modified_time" content="2024-12-29T09:49:14.818Z">
 <meta property="article:author" content="听">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png">
@@ -224,7 +224,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2024-12-29 15:58:46 / 修改时间：16:34:54" itemprop="dateCreated datePublished" datetime="2024-12-29T15:58:46+08:00">2024-12-29</time>
+              <time title="创建时间：2024-12-29 15:58:46 / 修改时间：17:49:14" itemprop="dateCreated datePublished" datetime="2024-12-29T15:58:46+08:00">2024-12-29</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -264,6 +264,14 @@
 <p><strong>IP 协议提供无连接、不可靠的数据传输服务</strong></p>
 <h4 id="IP-数据报格式"><a class="header-anchor" href="#IP-数据报格式">¶</a>IP 数据报格式</h4>
 <p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412291600898.png" alt="image-20241229160047852"></p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>首部长度</strong>：以4个字节为一个单位的报文的长度，即<strong>报文长度 = 数值*4</strong></p>
+</li>
+<li class="lvl-2">
+<p><strong>总长度</strong>：占16位，指首部和数据之和的长度，<strong>单位为字节</strong></p>
+</li>
+</ul>
 <h4 id="IP-数据报的分片与重组"><a class="header-anchor" href="#IP-数据报的分片与重组">¶</a>IP 数据报的分片与重组</h4>
 <p>当数据报的长度大于MTU，路由器分片；由目的主机对分片进行组装</p>
 <p>由报文中的 <strong>标识</strong>，<strong>标志</strong>，<strong>片偏移</strong>来反应。</p>
@@ -403,7 +411,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives">
         
-          <span class="site-state-item-count">62</span>
+          <span class="site-state-item-count">63</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -578,7 +586,7 @@
                     },
                     visualMap: {
                         min: 0,
-                        max: Math.max(...[["2024-12-09",3],["2024-12-10",8],["2024-12-11",9],["2024-12-12",3],["2024-12-13",4],["2024-12-15",1],["2024-12-17",3],["2024-12-18",2],["2024-12-19",6],["2024-12-20",2],["2024-12-22",2],["2024-12-23",1],["2024-12-24",1],["2024-12-26",8],["2024-12-28",7],["2024-12-29",2]].map(item => item[1])),
+                        max: Math.max(...[["2024-12-09",3],["2024-12-10",8],["2024-12-11",9],["2024-12-12",3],["2024-12-13",4],["2024-12-15",1],["2024-12-17",3],["2024-12-18",2],["2024-12-19",6],["2024-12-20",2],["2024-12-22",2],["2024-12-23",1],["2024-12-24",1],["2024-12-26",8],["2024-12-28",7],["2024-12-29",3]].map(item => item[1])),
                         calculable: false,
                         orient: 'horizontal', // 横向布局
                         right: '5%',
@@ -598,7 +606,7 @@
                     series: [{
                         type: 'heatmap',
                         coordinateSystem: 'calendar',
-                        data: [["2024-12-09",3],["2024-12-10",8],["2024-12-11",9],["2024-12-12",3],["2024-12-13",4],["2024-12-15",1],["2024-12-17",3],["2024-12-18",2],["2024-12-19",6],["2024-12-20",2],["2024-12-22",2],["2024-12-23",1],["2024-12-24",1],["2024-12-26",8],["2024-12-28",7],["2024-12-29",2]]
+                        data: [["2024-12-09",3],["2024-12-10",8],["2024-12-11",9],["2024-12-12",3],["2024-12-13",4],["2024-12-15",1],["2024-12-17",3],["2024-12-18",2],["2024-12-19",6],["2024-12-20",2],["2024-12-22",2],["2024-12-23",1],["2024-12-24",1],["2024-12-26",8],["2024-12-28",7],["2024-12-29",3]]
                     }]
                 });
             }
@@ -621,7 +629,7 @@
                     series: [{
                         name: 'Articles',
                         type: 'line',
-                        data: [62],
+                        data: [63],
                         smooth: true,
                         lineStyle: { color: '#5470C6', width: 2 },
                         itemStyle: { color: '#5470C6' },
@@ -671,13 +679,13 @@
                     },
                     yAxis: {
                         type: 'category',
-                        data: [{"name":"408","value":31},{"name":"OS","value":22},{"name":"未分类","value":17},{"name":"计组","value":11},{"name":"第三章.存储系统","value":11}].map(category => category.name).reverse(),
+                        data: [{"name":"408","value":31},{"name":"OS","value":22},{"name":"未分类","value":18},{"name":"计组","value":11},{"name":"第三章.存储系统","value":11}].map(category => category.name).reverse(),
                         axisLabel: { fontSize: 12 }
                     },
                     series: [{
                         name: 'Category Count',
                         type: 'bar',
-                        data: [{"name":"408","value":31},{"name":"OS","value":22},{"name":"未分类","value":17},{"name":"计组","value":11},{"name":"第三章.存储系统","value":11}].map(category => category.value).reverse(),
+                        data: [{"name":"408","value":31},{"name":"OS","value":22},{"name":"未分类","value":18},{"name":"计组","value":11},{"name":"第三章.存储系统","value":11}].map(category => category.value).reverse(),
                         label: {
                             show: true,
                             position: 'right',
