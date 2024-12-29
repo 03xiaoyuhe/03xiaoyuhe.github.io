@@ -465,6 +465,54 @@ $$</p>
 </p>
     </div>
 </div><span id="more"></span>
+<h3 id="CSMA-CD"><a class="header-anchor" href="#CSMA-CD">¶</a>CSMA/CD</h3>
+<p>解决介质共享问题的核心技术</p>
+<ol>
+<li class="lvl-3">
+<p>某站点想要发送数据，它必须首先侦听信道；</p>
+</li>
+<li class="lvl-3">
+<p>如果信道空闲，立即发送数据；如果信道忙，则继续侦听信道，直到信道变为空闲，立即发送数据；</p>
+</li>
+<li class="lvl-3">
+<p>站点在发送过程中继续检测信道，若一直未检测到碰撞，则把该数据成功发送完毕；如果检测到冲突，立即停止发送数据，发送干扰信号，然后执行指数退避算法，等待一随机长的时间，重新侦听信道，返回第2步。</p>
+</li>
+</ol>
+<h3 id="冲突窗口的概念"><a class="header-anchor" href="#冲突窗口的概念">¶</a>冲突窗口的概念</h3>
+<p>在一个局域网中，A、B两结点是距离最远的两点，相距D，信号传播速度V，A在发送数据后最多在W时间后可以检测出所有可能的冲突：$W=2D/V$,$W$被称为冲突窗口。</p>
+<h3 id="Ethernet帧格式"><a class="header-anchor" href="#Ethernet帧格式">¶</a>Ethernet帧格式</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412291540494.png" alt="image-20241229154028441"></p>
+<h3 id="最小帧长度"><a class="header-anchor" href="#最小帧长度">¶</a>最小帧长度</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412291541588.png" alt="image-20241229154143518"></p>
+<h3 id="地址解析协议"><a class="header-anchor" href="#地址解析协议">¶</a>地址解析协议</h3>
+<h4 id="作用"><a class="header-anchor" href="#作用">¶</a>作用</h4>
+<p>主机或路由器每一网络接口都有一个ARP模块，将在<strong>同一网段</strong>上的目的IP地址作为输入，返回其MAC地址，作为封装数据帧的目的物理地址</p>
+<h4 id="运行机制"><a class="header-anchor" href="#运行机制">¶</a>运行机制</h4>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412291547281.png" alt="image-20241229154740209"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412291548559.png" alt="image-20241229154804518"></p>
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p>注意！询问时发的是广播包</p>
+<p>而对应IP的回答是单播包</p>
+</p>
+    </div>
+</div><h4 id="常用命令"><a class="header-anchor" href="#常用命令">¶</a>常用命令</h4>
+<p><code>arp -a</code>显示当前的ARP表</p>
+<h3 id="交换机"><a class="header-anchor" href="#交换机">¶</a>交换机</h3>
+<h4 id="交换机表的生成"><a class="header-anchor" href="#交换机表的生成">¶</a>交换机表的生成</h4>
+<p>每当主机通过交换机转发数据时，交换机就会记录当前主机的MAC以及发送的端口，同时设置定时器，以节省内存</p>
+<h4 id="交换机转发数据的工作原理"><a class="header-anchor" href="#交换机转发数据的工作原理">¶</a>交换机转发数据的工作原理</h4>
+<p>如果交换机表中有对应主机的端口，则直接向目的端口单播，但如果查不到，就对所有端口广播</p>
+<h4 id="STP协议的作用"><a class="header-anchor" href="#STP协议的作用">¶</a>STP协议的作用</h4>
+<p>即 生成树协议，防止网桥网络中冗余链路出现环路工作。</p>
+<h4 id="虚拟局域网-VLAN"><a class="header-anchor" href="#虚拟局域网-VLAN">¶</a>虚拟局域网 VLAN</h4>
+<p><mark>一个VLAN = 一个广播域 =一个IP地址网段</mark></p>
 <hr />
 <div style="text-align: center;color:#4d648d;font-size:50px;">(完)</div>]]></content>
       <categories>
