@@ -193,6 +193,324 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/posts/f041ded5.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101430362.jpg">
+      <meta itemprop="name" content="听">
+      <meta itemprop="description" content="放一些个人笔记">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ting's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/f041ded5.html" class="post-title-link" itemprop="url">请求分页-LRU的实际实现过程</a>
+        </h2>
+
+        <div class="post-meta">
+        
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-12-11 17:02:13" itemprop="dateCreated datePublished" datetime="2024-12-11T17:02:13+08:00">2024-12-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-12-26 14:53:32" itemprop="dateModified" datetime="2024-12-26T14:53:32+08:00">2024-12-26</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/408/" itemprop="url" rel="index"><span itemprop="name">408</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/408/OS/" itemprop="url" rel="index"><span itemprop="name">OS</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<h4>实际实现</h4>
+<p><strong>最近最久未使用（LRU）算法</strong> 的实现可以通过移位寄存器或栈的方式完成。这两种方式各有特点：</p>
+<h5><strong>1. 用移位寄存器实现 LRU</strong></h5>
+<p>移位寄存器是一种硬件或软件模拟的寄存结构，通过移位操作记录页面访问的历史。实现过程如下：</p>
+<ul class="lvl-1">
+<li class="lvl-2">
+<p>每个页面框分配一个寄存器，初始值为 0。</p>
+</li>
+<li class="lvl-2">
+<p>每次页面访问时，将该寄存器的最高位置为 1，其余位依次右移。</p>
+</li>
+<li class="lvl-2">
+<p>未访问的页面寄存器位移后会逐渐变成更小的值。</p>
+</li>
+<li class="lvl-2">
+<p>页面置换时，选择寄存器值最小的页面，即最久未使用的页面。</p>
+</li>
+</ul>
+<p>这种实现方式简单直观，但寄存器的位数增加会带来更多硬件需求，因此通常适合于特定规模的小型系统【18】【19】。</p>
+<h5><strong>2. 用栈实现 LRU</strong></h5>
+<p>通过栈来管理页面访问，栈顶表示最近使用的页面，栈底表示最久未使用的页面：</p>
+<ul class="lvl-1">
+<li class="lvl-2">
+<p>每次页面被访问时，若其已在栈中，则将其从原位置移除并放到栈顶。</p>
+</li>
+<li class="lvl-2">
+<p>若页面不在栈中，则将其直接插入栈顶。</p>
+</li>
+<li class="lvl-2">
+<p>如果栈已满，移除栈底元素（最久未使用页面），然后插入新页面。</p>
+</li>
+</ul>
+<p>栈的实现可以通过链表实现动态插入删除操作，同时保证页面顺序的调整。相比移位寄存器，栈方法适合于较大规模的系统，灵活性更高，但需要额外的空间来存储栈【18】【19】。</p>
+<p>以上两种方法在实际系统中应用时，还会因性能需求选择优化的数据结构（如哈希表结合链表），以便实现更高效的页面访问与置换管理。</p>
+</p>
+    </div>
+</div>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/f041ded5.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/posts/3d2c198d.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101430362.jpg">
+      <meta itemprop="name" content="听">
+      <meta itemprop="description" content="放一些个人笔记">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ting's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/3d2c198d.html" class="post-title-link" itemprop="url">请求分页-移位寄存器</a>
+        </h2>
+
+        <div class="post-meta">
+        
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-12-11 16:49:52" itemprop="dateCreated datePublished" datetime="2024-12-11T16:49:52+08:00">2024-12-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-12-26 14:48:01" itemprop="dateModified" datetime="2024-12-26T14:48:01+08:00">2024-12-26</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/408/" itemprop="url" rel="index"><span itemprop="name">408</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/408/OS/" itemprop="url" rel="index"><span itemprop="name">OS</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p><strong>移位寄存器</strong>（Shift Register）是一种数字电路，用于将数据按照一定规则在其存储单元之间移动。它是由一组触发器（Flip-Flop）组成的逻辑电路，每个触发器存储一个位数据。</p>
+</p>
+    </div>
+</div>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/3d2c198d.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/posts/1bd5413e.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101430362.jpg">
+      <meta itemprop="name" content="听">
+      <meta itemprop="description" content="放一些个人笔记">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ting's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/1bd5413e.html" class="post-title-link" itemprop="url">关于hexo插件hexo-graph的使用</a>
+        </h2>
+
+        <div class="post-meta">
+        
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-12-11 14:48:28 / 修改时间：14:50:05" itemprop="dateCreated datePublished" datetime="2024-12-11T14:48:28+08:00">2024-12-11</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/hexo/" itemprop="url" rel="index"><span itemprop="name">hexo</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p>记一下文章&quot;关于&quot;页的书写</p>
+<p>插件地址<a target="_blank" rel="noopener" href="https://github.com/codepzj/hexo-graph">codepzj/hexo-graph: hexo-graph，一个基于echarts，集成博客热力图，博客月份统计图，分类统计图，标签统计图的多元化插件。</a></p>
+</p>
+    </div>
+</div>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/1bd5413e.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/posts/6dc856e2.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -873,265 +1191,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/posts/c6910d47.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101430362.jpg">
-      <meta itemprop="name" content="听">
-      <meta itemprop="description" content="放一些个人笔记">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ting's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/posts/c6910d47.html" class="post-title-link" itemprop="url">关于博客中使用的脚注功能</a>
-        </h2>
-
-        <div class="post-meta">
-        
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2024-12-10 16:39:56" itemprop="dateCreated datePublished" datetime="2024-12-10T16:39:56+08:00">2024-12-10</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-12-11 19:32:15" itemprop="dateModified" datetime="2024-12-11T19:32:15+08:00">2024-12-11</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%8A%98%E8%85%BEhexo/" itemprop="url" rel="index"><span itemprop="name">折腾hexo</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
-
-<div class="callout callout-tip">
-    <div class="callout-head">
-        <span class="callout-head-icon">💡</span>
-        <span class="callout-head-text" style="color:#009688">TIP</span>
-    </div>
-    <div class="callout-contents">
-        <p><p></p>
-<p>记录一下博客中脚注配置的相关内容</p>
-</p>
-    </div>
-</div>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/posts/c6910d47.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/posts/b90b7ae5.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101430362.jpg">
-      <meta itemprop="name" content="听">
-      <meta itemprop="description" content="放一些个人笔记">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ting's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/posts/b90b7ae5.html" class="post-title-link" itemprop="url">操作系统第六章复习</a>
-        </h2>
-
-        <div class="post-meta">
-        
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2024-12-10 15:39:50" itemprop="dateCreated datePublished" datetime="2024-12-10T15:39:50+08:00">2024-12-10</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-12-26 14:49:43" itemprop="dateModified" datetime="2024-12-26T14:49:43+08:00">2024-12-26</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/408/" itemprop="url" rel="index"><span itemprop="name">408</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/408/OS/" itemprop="url" rel="index"><span itemprop="name">OS</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
-
-<div class="callout callout-note">
-    <div class="callout-head">
-        <span class="callout-head-icon">📝</span>
-        <span class="callout-head-text" style="color:#673ab7">NOTE</span>
-    </div>
-    <div class="callout-contents">
-        <p><p></p>
-<p>放一下操作系统第六章复习笔记吧</p>
-</p>
-    </div>
-</div>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/posts/b90b7ae5.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/posts/8dc8b2ab.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101430362.jpg">
-      <meta itemprop="name" content="听">
-      <meta itemprop="description" content="放一些个人笔记">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ting's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/posts/8dc8b2ab.html" class="post-title-link" itemprop="url">折腾hexo</a>
-        </h2>
-
-        <div class="post-meta">
-        
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2024-12-10 13:57:31 / 修改时间：15:24:05" itemprop="dateCreated datePublished" datetime="2024-12-10T13:57:31+08:00">2024-12-10</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/posts/8dc8b2ab.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1203,7 +1262,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives">
         
-          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-count">66</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1378,7 +1437,7 @@
                     },
                     visualMap: {
                         min: 0,
-                        max: Math.max(...[["2024-12-09",3],["2024-12-10",8],["2024-12-11",9],["2024-12-12",3],["2024-12-13",4],["2024-12-15",1],["2024-12-17",3],["2024-12-18",2],["2024-12-19",6],["2024-12-20",2],["2024-12-22",2],["2024-12-23",1],["2024-12-24",1],["2024-12-26",8],["2024-12-28",6],["2024-12-29",4]].map(item => item[1])),
+                        max: Math.max(...[["2024-12-09",3],["2024-12-10",8],["2024-12-11",9],["2024-12-12",3],["2024-12-13",4],["2024-12-15",1],["2024-12-17",3],["2024-12-18",2],["2024-12-19",6],["2024-12-20",2],["2024-12-22",2],["2024-12-23",1],["2024-12-24",1],["2024-12-26",8],["2024-12-28",6],["2024-12-29",7]].map(item => item[1])),
                         calculable: false,
                         orient: 'horizontal', // 横向布局
                         right: '5%',
@@ -1398,7 +1457,7 @@
                     series: [{
                         type: 'heatmap',
                         coordinateSystem: 'calendar',
-                        data: [["2024-12-09",3],["2024-12-10",8],["2024-12-11",9],["2024-12-12",3],["2024-12-13",4],["2024-12-15",1],["2024-12-17",3],["2024-12-18",2],["2024-12-19",6],["2024-12-20",2],["2024-12-22",2],["2024-12-23",1],["2024-12-24",1],["2024-12-26",8],["2024-12-28",6],["2024-12-29",4]]
+                        data: [["2024-12-09",3],["2024-12-10",8],["2024-12-11",9],["2024-12-12",3],["2024-12-13",4],["2024-12-15",1],["2024-12-17",3],["2024-12-18",2],["2024-12-19",6],["2024-12-20",2],["2024-12-22",2],["2024-12-23",1],["2024-12-24",1],["2024-12-26",8],["2024-12-28",6],["2024-12-29",7]]
                     }]
                 });
             }
@@ -1421,7 +1480,7 @@
                     series: [{
                         name: 'Articles',
                         type: 'line',
-                        data: [63],
+                        data: [66],
                         smooth: true,
                         lineStyle: { color: '#5470C6', width: 2 },
                         itemStyle: { color: '#5470C6' },
@@ -1471,13 +1530,13 @@
                     },
                     yAxis: {
                         type: 'category',
-                        data: [{"name":"408","value":31},{"name":"OS","value":22},{"name":"未分类","value":18},{"name":"计组","value":11},{"name":"第三章.存储系统","value":11}].map(category => category.name).reverse(),
+                        data: [{"name":"408","value":31},{"name":"OS","value":22},{"name":"未分类","value":21},{"name":"计组","value":11},{"name":"第三章.存储系统","value":11}].map(category => category.name).reverse(),
                         axisLabel: { fontSize: 12 }
                     },
                     series: [{
                         name: 'Category Count',
                         type: 'bar',
-                        data: [{"name":"408","value":31},{"name":"OS","value":22},{"name":"未分类","value":18},{"name":"计组","value":11},{"name":"第三章.存储系统","value":11}].map(category => category.value).reverse(),
+                        data: [{"name":"408","value":31},{"name":"OS","value":22},{"name":"未分类","value":21},{"name":"计组","value":11},{"name":"第三章.存储系统","value":11}].map(category => category.value).reverse(),
                         label: {
                             show: true,
                             position: 'right',

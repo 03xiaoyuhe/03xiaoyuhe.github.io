@@ -21,21 +21,47 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="💡         TIP                    PPT计算机网络概论，知识点总结 相关链接|1.2-计算机体系结构与网络协议">
+  <meta name="description" content="💡         TIP                     相关链接|">
 <meta property="og:type" content="article">
-<meta property="og:title" content="1.1计算机网络概论">
-<meta property="og:url" content="http://example.com/posts/f4cb0304.html">
+<meta property="og:title" content="4.2.2-数据寻址">
+<meta property="og:url" content="http://example.com/posts/325e4559.html">
 <meta property="og:site_name" content="Ting&#39;s Blog">
-<meta property="og:description" content="💡         TIP                    PPT计算机网络概论，知识点总结 相关链接|1.2-计算机体系结构与网络协议">
+<meta property="og:description" content="💡         TIP                     相关链接|">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png">
-<meta property="article:published_time" content="2024-12-28T11:58:11.000Z">
-<meta property="article:modified_time" content="2024-12-29T09:51:32.601Z">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412292223645.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412292228519.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412292228412.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412292229157.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412292229790.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412292231610.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412292232496.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412292250861.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412311002527.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412311005087.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412311006181.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412311007893.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412311015177.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412311022050.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412311038591.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412311045847.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412311049347.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412311055317.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412311056549.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412311103015.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412311114037.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412311113162.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412311121786.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412311122524.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412311123925.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412311125453.png">
+<meta property="article:published_time" content="2024-12-29T13:20:43.000Z">
+<meta property="article:modified_time" content="2024-12-31T03:25:46.688Z">
 <meta property="article:author" content="听">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png">
 
-<link rel="canonical" href="http://example.com/posts/f4cb0304.html">
+<link rel="canonical" href="http://example.com/posts/325e4559.html">
 
 
 <script id="page-configurations">
@@ -48,7 +74,7 @@
   };
 </script>
 
-  <title>1.1计算机网络概论 | Ting's Blog</title>
+  <title>4.2.2-数据寻址 | Ting's Blog</title>
   
 
 
@@ -198,7 +224,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/posts/f4cb0304.html">
+    <link itemprop="mainEntityOfPage" href="http://example.com/posts/325e4559.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101430362.jpg">
@@ -211,7 +237,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          1.1计算机网络概论
+          4.2.2-数据寻址
         </h1>
 
         <div class="post-meta">
@@ -222,14 +248,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2024-12-28 19:58:11" itemprop="dateCreated datePublished" datetime="2024-12-28T19:58:11+08:00">2024-12-28</time>
+              <time title="创建时间：2024-12-29 21:20:43" itemprop="dateCreated datePublished" datetime="2024-12-29T21:20:43+08:00">2024-12-29</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-12-29 17:51:32" itemprop="dateModified" datetime="2024-12-29T17:51:32+08:00">2024-12-29</time>
+                <time title="修改时间：2024-12-31 11:25:46" itemprop="dateModified" datetime="2024-12-31T11:25:46+08:00">2024-12-31</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -261,72 +287,230 @@
     </div>
     <div class="callout-contents">
         <p><p></p>
-<p>PPT计算机网络概论，知识点总结</p>
-<p>相关链接|<a href="/posts/ec7daff7">1.2-计算机体系结构与网络协议</a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412292223645.png" alt="image-20241229222335572"></p>
+<p>相关链接|</p>
 </p>
     </div>
 </div><span id="more"></span>
-<h3 id="计算机网络的分类"><a class="header-anchor" href="#计算机网络的分类">¶</a>计算机网络的分类</h3>
-<h4 id="按覆盖范围分"><a class="header-anchor" href="#按覆盖范围分">¶</a>按覆盖范围分</h4>
-<ol>
-<li class="lvl-3">
-<p><strong>广域网</strong></p>
-<p><small>作用范围通常为几十到几千公里，任务是长距离运送主机所发送的数据</small></p>
-</li>
-<li class="lvl-3">
-<p><strong>城域网</strong></p>
-<p><small>作用范围一般是一个城市</small></p>
-</li>
-<li class="lvl-3">
-<p><strong>局域网</strong></p>
-<p><small>如<strong>校园网</strong>或<strong>企业网</strong></small></p>
-</li>
-<li class="lvl-3">
-<p><strong>个人区域网</strong></p>
-<p><small>是在个人工作的地方把属于个人使用的电子设备，用无线设备连接起来的网络</small></p>
-</li>
-</ol>
-<h4 id="按用户使用者分"><a class="header-anchor" href="#按用户使用者分">¶</a>按用户使用者分</h4>
-<ol>
-<li class="lvl-3">
-<p><strong>公用网</strong></p>
-<p><small>按规定交纳费用的人都可以使用的网络。也可称为公众网。</small></p>
-</li>
-<li class="lvl-3">
-<p><strong>专用网</strong></p>
-<p><small>为特殊业务工作的需要而建造的网络。</small></p>
-</li>
-</ol>
-<h4 id="按拓扑结构分"><a class="header-anchor" href="#按拓扑结构分">¶</a>按拓扑结构分</h4>
+<blockquote>
+<p>有的地址码指的就是真实地址，如 <code>JMP 7</code></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412292228519.png" alt="image-20241229222809441"></p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412292228412.png" alt="image-20241229222838337"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412292229157.png" alt="image-20241229222917091"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412292229790.png" alt="image-20241229222942725"></p>
+<h3 id="直接寻址"><a class="header-anchor" href="#直接寻址">¶</a>直接寻址</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412292231610.png" alt="image-20241229223149541"></p>
+<p>指令字中的形式地址 A 就是操作数的真实地址 EA，即 EA = A。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412292232496.png" alt="image-20241229223207428"></p>
+<p>一条指令的执行：</p>
 <ul class="lvl-0">
 <li class="lvl-2">
-<p>星形网络</p>
+<p>取指令 访存1次</p>
 </li>
 <li class="lvl-2">
-<p>环形网络</p>
-</li>
-<li class="lvl-2">
-<p>总线网络</p>
-</li>
-<li class="lvl-2">
-<p>网状结构</p>
+<p>执行指令 访存1次</p>
+<p>不考虑存结果</p>
 </li>
 </ul>
-<h3 id="计算机网络的性能指标"><a class="header-anchor" href="#计算机网络的性能指标">¶</a>计算机网络的性能指标</h3>
-<p>单位换算：<br>
-$$<br>
-k = 10^3 \\<br>
-M = 10^6 \\<br>
-G = 10^9<br>
-$$</p>
-<p>$$<br>
-\text{发送时延} = \frac{数据帧长度}{发送速率}<br>
-$$</p>
-<p>$$<br>
-\text{传播时延} = \frac{信道长度}{电磁波在信道上的传播速率}<br>
-$$</p>
+<p>共访存2次</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>优点</strong>：</p>
+<p>简单，指令执行阶段仅访问一次主存</p>
+<p>不需要专门计算操作数的地址</p>
+</li>
+<li class="lvl-2">
+<p><strong>缺点</strong>：</p>
+<p>A 的位数决定了该指令操作数的寻址范围</p>
+<p>操作数的地址不易修改</p>
+</li>
+</ul>
+<h3 id="间接寻址"><a class="header-anchor" href="#间接寻址">¶</a>间接寻址</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412292250861.png" alt="image-20241229225005777"></p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>优点</strong>：</p>
+<p>可扩大寻址范围（有效地址EA的位数大于形式地址A的位数）。</p>
+<p>便于编制程序（间接寻址可以方便地完成子程序返回）</p>
+</li>
+<li class="lvl-2">
+<p><strong>缺点</strong>：</p>
+<p>指令在执行阶段要多次访存（一次间址需两次访存，多次寻址需要根据存储字的最高位确定几次访存）</p>
+</li>
+</ul>
+<h3 id="寄存器寻址"><a class="header-anchor" href="#寄存器寻址">¶</a>寄存器寻址</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412311002527.png" alt="image-20241231100202456"></p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>优点</strong>：</p>
+<p>指令在执行阶段不访问主存，只访问寄存器，</p>
+<p>指令字短且执行速度快，支持向量/矩阵 运算</p>
+</li>
+<li class="lvl-2">
+<p><strong>缺点</strong>：</p>
+<p>寄存器价格昂贵，计算机中寄存器个数有限</p>
+</li>
+</ul>
+<h3 id="寄存器间接寻址"><a class="header-anchor" href="#寄存器间接寻址">¶</a>寄存器间接寻址</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412311005087.png" alt="image-20241231100554000"></p>
+<h3 id="隐含寻址"><a class="header-anchor" href="#隐含寻址">¶</a>隐含寻址</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412311006181.png" alt="image-20241231100639114"></p>
+<h3 id="立即寻址"><a class="header-anchor" href="#立即寻址">¶</a>立即寻址</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412311007893.png" alt="image-20241231100724816"></p>
+<blockquote>
+<p>如果指令后加了 # 然后马上跟了一个数字，则说明 # 后面的是立即数，而不是地址</p>
+</blockquote>
+<p>一条指令的执行：</p>
+<p>​	取指令 访存1次</p>
+<p>​	执行指令 访存1次</p>
+<p>​	暂不考虑存结果</p>
+<p>​	共访存1次</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>优点</strong>：指令执行阶段不访问主存，指令执行时间最短</p>
+</li>
+<li class="lvl-2">
+<p><strong>缺点</strong>：</p>
+<p>A 的位数限制了立即数的范围</p>
+<p>如 A 的位数位n，且立即数采用补码时，可表示的数据范围为 $-2^{n-1} ~ 2^{n-1}-1$</p>
+</li>
+</ul>
+<h2 id="偏移寻址"><a class="header-anchor" href="#偏移寻址">¶</a>偏移寻址</h2>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412311015177.png" alt="image-20241231101536101"></p>
+<h3 id="基址寻址"><a class="header-anchor" href="#基址寻址">¶</a>基址寻址</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412311022050.png" alt="image-20241231102246944"></p>
+<blockquote>
+<p>注：</p>
+<p>BR——base address register</p>
+<p>EA——effective<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--medium hint--rounded hint--bounce" aria-label="effective /ɪˈfektɪv/ adj. 产生预期结果的，有效的；实际的，事实上的；（法律、规则等）生效的，起作用的；给人深刻印象的">[1]</span></a></sup> address</p>
+</blockquote>
+<p><strong>BR</strong>：<strong>专门的基址寄存器</strong></p>
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p>可对比操作系统第三章第一节，OS课中的“重定位寄存器”就是“基址寄存器”</p>
+</p>
+    </div>
+</div><ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>优点</strong>：便于程序“浮动”，方便实现多道程序并发运行</p>
+</li>
+</ul>
+<blockquote>
+<p>拓展：程序运行前，CPU 将 BR 的值修改为该程序的起始地址（存在操作系统PCB中）</p>
+</blockquote>
+<blockquote>
+<p>基址寄存器是<mark>面向操作系统</mark>的，其<mark>内容由操作系统或管理程序确定</mark>。在程序执行过程中，基址寄存器的内容不变（作为基地址），形式地址可变（作为偏移量）。</p>
+<p>当采用通用寄存器作为基址寄存器时，可由<mark>用户决定哪个寄存器作为基址寄存器</mark>，但其<mark>内容仍由操作系统确定</mark></p>
+</blockquote>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>优点</strong>：</p>
+<p>可扩大寻址范围（基址寄存器的位数大于形式地址A的位数）</p>
+<p>用户不必考虑自己的程序存于主存的哪一块空间区域，故<mark>有利于多道程序设计</mark>，以及用于<mark>编制浮动程序（整个程序在内存里面的浮动）</mark></p>
+</li>
+</ul>
+<h3 id="变址寻址"><a class="header-anchor" href="#变址寻址">¶</a>变址寻址</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412311038591.png" alt="image-20241231103834477"></p>
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p>变址寄存器是<mark>面向用户</mark>的，在程序执行过程中，<mark>变址寄存器的内容可由用户改变</mark><span style="color:red">(IX 作为偏移量)</span>，形式地址<span style="color:red"> A 不变（作为基地址）</span></p>
+<blockquote>
+<p>基址寻址中，BR保持不变作为基地址，A作为偏移量</p>
+</p>
+    </div>
+</div></blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412311045847.png" alt="image-20241231104517735"></p>
+<blockquote>
+<p>可以用变址寻址解决循环中连续访问空间编程不方便的问题</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412311049347.png" alt="image-20241231104942234"></p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>优点</strong>：</p>
+<p>在数组处理过程中，可设定 A 为数组的首地址，不断改变变址寄存器 IX 的 内容，便可以很容易形成数组中任一数据的地址，特别<mark>适合编制循环程序</mark>。</p>
+</li>
+</ul>
+<blockquote>
+<h4 id="复合寻址"><a class="header-anchor" href="#复合寻址">¶</a>复合寻址</h4>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412311055317.png" alt="image-20241231105509220"></p>
+</blockquote>
+<h3 id="相对寻址"><a class="header-anchor" href="#相对寻址">¶</a>相对寻址</h3>
+<p>==$EA = (PC) + A$，其中 <strong>A 是相对于PC</strong> 所指地址的<strong>位移量</strong>，可正可负，<strong>补码表示</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412311056549.png" alt="image-20241231105644417"></p>
+
+<div class="callout callout-warning">
+    <div class="callout-head">
+        <span class="callout-head-icon">⚠️</span>
+        <span class="callout-head-text" style="color:#e5a700">WARNING</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p><mark>A 并不是相对于当前指令地址的位移量</mark></p>
+<p>因为PC总会指向下一条将要执行的指令</p>
+<p>在取得当前指令后，PC的值会自动加1，从而指向下一条指令</p>
+<p><mark>A 应该是<strong>基于下一条地址</strong>的偏移量</mark></p>
+</p>
+    </div>
+</div><p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412311103015.png" alt="image-20241231110347916"></p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>优点</strong></p>
+<p>操作数的地址不是固定的，它随着PC指的变化而变化，而且与指令地址之间总是相差一个固定值，因此<mark>便于程序浮动</mark>（一段代码在程序内部的浮动）</p>
+<p>相对寻址<mark>广泛用于转移指令</mark></p>
+</li>
+</ul>
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<h4>硬件如何实现数的“比较”</h4>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412311114037.png" alt="image-20241231111423976"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412311113162.png" alt="image-20241231111359043"></p>
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p>有的机器把 PSW 称为 <em>标志寄存器</em></p>
+</p>
+    </div>
+</div></p>
+    </div>
+</div><h2 id="堆栈寻址"><a class="header-anchor" href="#堆栈寻址">¶</a>堆栈寻址</h2>
+<p>操作数存放在堆栈中，隐含使用堆栈指针（SP）作为操作数地址。</p>
+<p>堆栈是存储器（或专用存储器）中一块特定的按“后进先出（LIFO）”原则管理的存储区，该存储器中被读/写的地址是用一个特定的寄存器给出的，该寄存器称为堆栈指针（SP）。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412311121786.png" alt="image-20241231112155686"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412311122524.png" alt="image-20241231112214445"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412311123925.png" alt="image-20241231112356855"></p>
+<blockquote>
+<p>对于软堆栈，对栈的压入或者弹出，都需要进行一次访存</p>
+<p>而 硬堆栈则不需要</p>
+</blockquote>
+<p>堆栈可用于函数调用时，保存当前函数的相关信息（可参考数据结构“算法空间复杂度”的视频）</p>
+<h2 id="总结"><a class="header-anchor" href="#总结">¶</a>总结</h2>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412311125453.png" alt="image-20241231112525333"></p>
 <hr />
-<div style="text-align: center;color:#4d648d;font-size:50px;">(完)</div>
+<div style="text-align: center;color:#4d648d;font-size:50px;">(完)</div><div id="footnotes"><hr><h4>相关注解</h4><ol class="custom-footnotes"><li id="fn:1" class="footnote-item"><span class="footnote-content">effective /ɪˈfektɪv/ adj. 产生预期结果的，有效的；实际的，事实上的；（法律、规则等）生效的，起作用的；给人深刻印象的<a href="#fnref:1" rev="footnote"> ↩</a></span></li></ol></div>
     </div>
 
     
@@ -341,13 +525,10 @@ $$</p>
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/posts/bb85a050.html" rel="prev" title="3.5.3-Cache与主存的映射方式">
-      <i class="fa fa-chevron-left"></i> 3.5.3-Cache与主存的映射方式
+    <a href="/posts/d88f2ebf.html" rel="prev" title="4.2.1-指令寻址">
+      <i class="fa fa-chevron-left"></i> 4.2.1-指令寻址
     </a></div>
-      <div class="post-nav-item">
-    <a href="/posts/ec7daff7.html" rel="next" title="1.2-网络体系结构与网络协议">
-      1.2-网络体系结构与网络协议 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -406,7 +587,7 @@ $$</p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9A%84%E5%88%86%E7%B1%BB"><span class="nav-number">1.</span> <span class="nav-text">计算机网络的分类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8C%89%E8%A6%86%E7%9B%96%E8%8C%83%E5%9B%B4%E5%88%86"><span class="nav-number">1.1.</span> <span class="nav-text">按覆盖范围分</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8C%89%E7%94%A8%E6%88%B7%E4%BD%BF%E7%94%A8%E8%80%85%E5%88%86"><span class="nav-number">1.2.</span> <span class="nav-text">按用户使用者分</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8C%89%E6%8B%93%E6%89%91%E7%BB%93%E6%9E%84%E5%88%86"><span class="nav-number">1.3.</span> <span class="nav-text">按拓扑结构分</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9A%84%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87"><span class="nav-number">2.</span> <span class="nav-text">计算机网络的性能指标</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%B4%E6%8E%A5%E5%AF%BB%E5%9D%80"><span class="nav-number">1.</span> <span class="nav-text">直接寻址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%97%B4%E6%8E%A5%E5%AF%BB%E5%9D%80"><span class="nav-number">2.</span> <span class="nav-text">间接寻址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%84%E5%AD%98%E5%99%A8%E5%AF%BB%E5%9D%80"><span class="nav-number">3.</span> <span class="nav-text">寄存器寻址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%84%E5%AD%98%E5%99%A8%E9%97%B4%E6%8E%A5%E5%AF%BB%E5%9D%80"><span class="nav-number">4.</span> <span class="nav-text">寄存器间接寻址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9A%90%E5%90%AB%E5%AF%BB%E5%9D%80"><span class="nav-number">5.</span> <span class="nav-text">隐含寻址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AB%8B%E5%8D%B3%E5%AF%BB%E5%9D%80"><span class="nav-number">6.</span> <span class="nav-text">立即寻址</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%81%8F%E7%A7%BB%E5%AF%BB%E5%9D%80"><span class="nav-number"></span> <span class="nav-text">偏移寻址</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E5%9D%80%E5%AF%BB%E5%9D%80"><span class="nav-number">1.</span> <span class="nav-text">基址寻址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%98%E5%9D%80%E5%AF%BB%E5%9D%80"><span class="nav-number">2.</span> <span class="nav-text">变址寻址</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%8D%E5%90%88%E5%AF%BB%E5%9D%80"><span class="nav-number">2.1.</span> <span class="nav-text">复合寻址</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%B8%E5%AF%B9%E5%AF%BB%E5%9D%80"><span class="nav-number">3.</span> <span class="nav-text">相对寻址</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">3.1.</span> <span class="nav-text">硬件如何实现数的“比较”</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A0%86%E6%A0%88%E5%AF%BB%E5%9D%80"><span class="nav-number"></span> <span class="nav-text">堆栈寻址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number"></span> <span class="nav-text">总结</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#footnotes"><span class="nav-number">0.1.</span> <span class="nav-text">相关注解</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 

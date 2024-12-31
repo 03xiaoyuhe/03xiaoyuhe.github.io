@@ -33,10 +33,11 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412261216886.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412261216992.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412261236061.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412261254036.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412261250759.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412261254036.png">
 <meta property="article:published_time" content="2024-12-26T03:40:48.000Z">
-<meta property="article:modified_time" content="2024-12-26T06:45:40.939Z">
+<meta property="article:modified_time" content="2024-12-30T14:58:18.364Z">
 <meta property="article:author" content="听">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png">
@@ -227,10 +228,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2024-12-26 11:40:48 / 修改时间：14:45:40" itemprop="dateCreated datePublished" datetime="2024-12-26T11:40:48+08:00">2024-12-26</time>
+              <time title="创建时间：2024-12-26 11:40:48" itemprop="dateCreated datePublished" datetime="2024-12-26T11:40:48+08:00">2024-12-26</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-12-30 22:58:18" itemprop="dateModified" datetime="2024-12-30T22:58:18+08:00">2024-12-30</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -306,7 +313,7 @@
 <ol>
 <li class="lvl-3">命中时，所命中的行的计数器清零，<mark>比其低的计数器加1，其余不变</mark>。<small>可以保证计数器的最大值可以达到的范围恰好是Cache的总数</small></li>
 <li class="lvl-3">未命中且还有空闲行时，<strong>新装入的</strong>行的计数器<strong>置0</strong>，其余<strong>非空闲行</strong>全<strong>加1</strong></li>
-<li class="lvl-3">未命中且无空闲行时，计数值最大的信息块被淘汰，新装行的块的计数器置0，其他全加1https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412261254036.png。<small>为什么没说空闲行的事呢，因为此时已经没有空闲行了</small></li>
+<li class="lvl-3">未命中且无空闲行时，计数值最大的信息块被淘汰，新装行的块的计数器置0，其他全加1<img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412261254036.png" alt="">。<small>为什么没说空闲行的事呢，因为此时已经没有空闲行了</small></li>
 </ol>
 </p>
     </div>
@@ -425,7 +432,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives">
         
-          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-count">66</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -600,7 +607,7 @@
                     },
                     visualMap: {
                         min: 0,
-                        max: Math.max(...[["2024-12-09",3],["2024-12-10",8],["2024-12-11",9],["2024-12-12",3],["2024-12-13",4],["2024-12-15",1],["2024-12-17",3],["2024-12-18",2],["2024-12-19",6],["2024-12-20",2],["2024-12-22",2],["2024-12-23",1],["2024-12-24",1],["2024-12-26",8],["2024-12-28",6],["2024-12-29",4]].map(item => item[1])),
+                        max: Math.max(...[["2024-12-09",3],["2024-12-10",8],["2024-12-11",9],["2024-12-12",3],["2024-12-13",4],["2024-12-15",1],["2024-12-17",3],["2024-12-18",2],["2024-12-19",6],["2024-12-20",2],["2024-12-22",2],["2024-12-23",1],["2024-12-24",1],["2024-12-26",8],["2024-12-28",6],["2024-12-29",7]].map(item => item[1])),
                         calculable: false,
                         orient: 'horizontal', // 横向布局
                         right: '5%',
@@ -620,7 +627,7 @@
                     series: [{
                         type: 'heatmap',
                         coordinateSystem: 'calendar',
-                        data: [["2024-12-09",3],["2024-12-10",8],["2024-12-11",9],["2024-12-12",3],["2024-12-13",4],["2024-12-15",1],["2024-12-17",3],["2024-12-18",2],["2024-12-19",6],["2024-12-20",2],["2024-12-22",2],["2024-12-23",1],["2024-12-24",1],["2024-12-26",8],["2024-12-28",6],["2024-12-29",4]]
+                        data: [["2024-12-09",3],["2024-12-10",8],["2024-12-11",9],["2024-12-12",3],["2024-12-13",4],["2024-12-15",1],["2024-12-17",3],["2024-12-18",2],["2024-12-19",6],["2024-12-20",2],["2024-12-22",2],["2024-12-23",1],["2024-12-24",1],["2024-12-26",8],["2024-12-28",6],["2024-12-29",7]]
                     }]
                 });
             }
@@ -643,7 +650,7 @@
                     series: [{
                         name: 'Articles',
                         type: 'line',
-                        data: [63],
+                        data: [66],
                         smooth: true,
                         lineStyle: { color: '#5470C6', width: 2 },
                         itemStyle: { color: '#5470C6' },
@@ -693,13 +700,13 @@
                     },
                     yAxis: {
                         type: 'category',
-                        data: [{"name":"408","value":31},{"name":"OS","value":22},{"name":"未分类","value":18},{"name":"计组","value":11},{"name":"第三章.存储系统","value":11}].map(category => category.name).reverse(),
+                        data: [{"name":"408","value":31},{"name":"OS","value":22},{"name":"未分类","value":21},{"name":"计组","value":11},{"name":"第三章.存储系统","value":11}].map(category => category.name).reverse(),
                         axisLabel: { fontSize: 12 }
                     },
                     series: [{
                         name: 'Category Count',
                         type: 'bar',
-                        data: [{"name":"408","value":31},{"name":"OS","value":22},{"name":"未分类","value":18},{"name":"计组","value":11},{"name":"第三章.存储系统","value":11}].map(category => category.value).reverse(),
+                        data: [{"name":"408","value":31},{"name":"OS","value":22},{"name":"未分类","value":21},{"name":"计组","value":11},{"name":"第三章.存储系统","value":11}].map(category => category.value).reverse(),
                         label: {
                             show: true,
                             position: 'right',
