@@ -450,6 +450,95 @@ $$</p>
       </tags>
   </entry>
   <entry>
+    <title>5.4.3-微指令的设计</title>
+    <url>/posts/f36ad788.html</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p>相关链接|</p>
+</p>
+    </div>
+</div><span id="more"></span>
+<hr />
+<div style="text-align: center;color:#4d648d;font-size:50px;">(完)</div>]]></content>
+      <categories>
+        <category>未分类</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>5.4.2-微程序控制器</title>
+    <url>/posts/4b657053.html</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p>相关链接|</p>
+</p>
+    </div>
+</div><span id="more"></span>
+<h2 id="设计思路"><a class="header-anchor" href="#设计思路">¶</a>设计思路</h2>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501012302447.png" alt="image-20250101230232324"></p>
+<h2 id="基本结构"><a class="header-anchor" href="#基本结构">¶</a>基本结构</h2>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501012308896.png" alt="image-20250101230855796"></p>
+<h2 id="工作原理"><a class="header-anchor" href="#工作原理">¶</a>工作原理</h2>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501012312347.png" alt="image-20250101231244190"></p>
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<h6><span style="color:red">选择常考</span></h6>
+<p>通常是公用的，故如果某指令系统中有n条机器指令，则CM中微程序<small>段</small>的个数至少是 n+1 个</p>
+<p><small>也可以，微程序只有n个，每个指令对应一个微程序</small></p>
+</p>
+    </div>
+</div>
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p>一些早期的CPU、物联网设备的CPU可以不提供间接寻址和中断功能，因此这类CPU可以不包含间指周期、中断周期的微程序段</p>
+</p>
+    </div>
+</div>
+<div class="callout callout-warning">
+    <div class="callout-head">
+        <span class="callout-head-icon">⚠️</span>
+        <span class="callout-head-text" style="color:#e5a700">WARNING</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p>物理上，取指周期、执行周期看起来像是两个微程序</p>
+<p>但逻辑上应该把它们看作一个整体。因此，“<span style="color:red">一条程序对应一个微程序</span>”的说法是正确的</p>
+<p><big>我们要把取指、间指、执行、中断这些微程序段，看作<strong>一个整体的微程序</strong></big></p>
+</p>
+    </div>
+</div><h2 id="总结"><a class="header-anchor" href="#总结">¶</a>总结</h2>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501012325795.png" alt="image-20250101232501635"></p>
+<hr />
+<div style="text-align: center;color:#4d648d;font-size:50px;">(完)</div>]]></content>
+      <categories>
+        <category>未分类</category>
+      </categories>
+  </entry>
+  <entry>
     <title>5.4.1-硬布线控制器</title>
     <url>/posts/a7949be6.html</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
@@ -465,6 +554,24 @@ $$</p>
 </p>
     </div>
 </div><span id="more"></span>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501012131216.png" alt="image-20250101213140086"></p>
+<blockquote>
+<p><big><big> 。</big></big></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501012132943.png" alt="image-20250101213241870"></p>
+</blockquote>
+<h3 id="设计"><a class="header-anchor" href="#设计">¶</a>设计</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501012229284.png" alt="image-20250101222913211"></p>
+<h4 id="分析每个指令的微操作序列"><a class="header-anchor" href="#分析每个指令的微操作序列">¶</a>分析每个指令的微操作序列</h4>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501012234602.png" alt="image-20250101223450497"></p>
+<h4 id="安排微操作时序"><a class="header-anchor" href="#安排微操作时序">¶</a>安排微操作时序</h4>
+<h5 id="取指周期"><a class="header-anchor" href="#取指周期">¶</a>取指周期</h5>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501012239341.png" alt="image-20250101223933250"></p>
+<h5 id="间指周期"><a class="header-anchor" href="#间指周期">¶</a>间指周期</h5>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501012240651.png" alt="image-20250101224018594"></p>
+<h5 id="执行周期"><a class="header-anchor" href="#执行周期">¶</a>执行周期</h5>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501012242057.png" alt="image-20250101224255980"></p>
+<h3 id="特点"><a class="header-anchor" href="#特点">¶</a>特点</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501012253684.png" alt="image-20250101225319622"></p>
 <hr />
 <div style="text-align: center;color:#4d648d;font-size:50px;">(完)</div>]]></content>
       <categories>
