@@ -33,10 +33,16 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412261119088.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412261130493.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412261135329.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501011726915.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501011726897.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501011742694.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501011742337.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412261137927.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501011823311.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501011824888.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412261138537.png">
 <meta property="article:published_time" content="2024-12-26T09:36:25.000Z">
-<meta property="article:modified_time" content="2024-12-26T09:38:02.390Z">
+<meta property="article:modified_time" content="2025-01-01T10:35:00.013Z">
 <meta property="article:author" content="听">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png">
@@ -227,10 +233,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2024-12-26 17:36:25 / 修改时间：17:38:02" itemprop="dateCreated datePublished" datetime="2024-12-26T17:36:25+08:00">2024-12-26</time>
+              <time title="创建时间：2024-12-26 17:36:25" itemprop="dateCreated datePublished" datetime="2024-12-26T17:36:25+08:00">2024-12-26</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-01-01 18:35:00" itemprop="dateModified" datetime="2025-01-01T18:35:00+08:00">2025-01-01</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -266,7 +278,20 @@
     </div>
 </div><span id="more"></span>
 <p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412261117696.png" alt="image-20241226111710525"></p>
-<h3 id="全相联映射"><a class="header-anchor" href="#全相联映射">¶</a>全相联映射</h3>
+
+<div class="callout callout-warning">
+    <div class="callout-head">
+        <span class="callout-head-icon">⚠️</span>
+        <span class="callout-head-text" style="color:#e5a700">WARNING</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<h4><span style="color:red">注意！</span></h4>
+<p>无论一个主存块是多大的，系统均按字寻址</p>
+<p>如果一个主存块的大小不是一个字节，则<strong>题目给出的地址</strong>中<strong>最后几位一定有块内地址</strong></p>
+</p>
+    </div>
+</div><h3 id="全相联映射"><a class="header-anchor" href="#全相联映射">¶</a>全相联映射</h3>
 <p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412261119088.png" alt="image-20241226111947501"></p>
 
 <div class="callout callout-tip">
@@ -284,7 +309,28 @@
 <p>块号末尾三位，反应了应该存放在Cache块中的哪个位置</p>
 <p>实际在cache存放标记时，也只需要存放前面19位，末尾三位与块号直接对应，无需存放。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412261135329.png" alt="image-20241226113503748"></p>
-<h3 id="组相联映射"><a class="header-anchor" href="#组相联映射">¶</a>组相联映射</h3>
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<h4>相关例题</h4>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501011726915.png" alt="image-20250101172625852"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501011726897.png" alt="image-20250101172645834"></p>
+<p><strong>解题方略</strong>：</p>
+<p>在做该类型的题目时，可以先将题目给出的主存地址化为二进制，<em>不能偷懒！</em>，不要觉得扣着算更快！，先化成二进制在计算更加直观，在打草稿时也更好记录，自然可以做的更快。</p>
+<p>另外，要注意<strong>给出的地址中后几位往往包含块内地址</strong>，<strong>块内地址，是不参与映射运算的</strong>！</p>
+<p>所以在做题目时，要先看看块内地址是几位，如果块大小不是16整数倍字节，扣扣做题方式可就非常<del>爽</del>了，因为不好扣了<small><code>\哭笑</code> <code>\手动狗头</code></small>，所以还是规范一下<strong>做这类题目时还是把地址化化，好歹化成二进制好算</strong>，又不是计网，爆炸级的位数要分段算。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501011742694.png" alt="image-20250101174233630"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501011742337.png" alt="image-20250101174253290"></p>
+<p><em><big>盖亚！</big></em>，怎么说<strong>129号单元也带块内地址啊！</strong></p>
+<p>绷绷绷🖥️🦐</p>
+</p>
+    </div>
+</div><h3 id="组相联映射"><a class="header-anchor" href="#组相联映射">¶</a>组相联映射</h3>
 <p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412261137927.png" alt="image-20241226113753352"></p>
 
 <div class="callout callout-tip">
@@ -294,10 +340,35 @@
     </div>
     <div class="callout-contents">
         <p><p></p>
-<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412261138537.png" alt="image-20241226113823483"></p>
+<h3>关于题目中说的 <em>X路组相联映射</em></h3>
+<p>即，<strong>每组X块</strong></p>
+<p>例如，二路组相联映射方式，即<strong>每组2块</strong></p>
 </p>
     </div>
-</div><hr />
+</div>
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<h4>相关例题</h4>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501011823311.png" alt="image-20250101182338250"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501011824888.png" alt="image-20250101182405816"></p>
+<p><small>还是扯上比较器了，基础课和课本里都没有</small></p>
+<blockquote>
+<p><strong>比较器</strong>用于<strong>并行的比较</strong>分组中所有Cache行的Tag标记与欲访问物理地址的Tag标记位</p>
+<p>即，<strong>一个分组中一个Cache块和一个比较器相连</strong>。</p>
+<p>在找的时候，首先根据主存块号直接就可以确定组号，然后就要解决主存块到底存在这个分组中哪个Cache块，然后为了加快查找速度，所以设计了这个比较器。</p>
+<p>估计是这样的：用一个与门把对应位连起来，然后输出1就是相同，输出0就是不相同</p>
+<p>最后在一起与一下就是当前Cache块是否匹配了。</p>
+</p>
+    </div>
+</div></blockquote>
+<h2 id="总结"><a class="header-anchor" href="#总结">¶</a>总结</h2>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412261138537.png" alt="image-20241226113823483"></p>
+<hr />
 <div style="text-align: center;color:#4d648d;font-size:50px;">(完)</div>
     </div>
 
@@ -378,7 +449,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%A8%E7%9B%B8%E8%81%94%E6%98%A0%E5%B0%84"><span class="nav-number">1.</span> <span class="nav-text">全相联映射</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%B4%E6%8E%A5%E6%98%A0%E5%B0%84"><span class="nav-number">2.</span> <span class="nav-text">直接映射</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%84%E7%9B%B8%E8%81%94%E6%98%A0%E5%B0%84"><span class="nav-number">3.</span> <span class="nav-text">组相联映射</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">注意！</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%A8%E7%9B%B8%E8%81%94%E6%98%A0%E5%B0%84"><span class="nav-number"></span> <span class="nav-text">全相联映射</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%B4%E6%8E%A5%E6%98%A0%E5%B0%84"><span class="nav-number"></span> <span class="nav-text">直接映射</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">相关例题</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%84%E7%9B%B8%E8%81%94%E6%98%A0%E5%B0%84"><span class="nav-number"></span> <span class="nav-text">组相联映射</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number"></span> <span class="nav-text">关于题目中说的 X路组相联映射</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">相关例题</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number"></span> <span class="nav-text">总结</span></a></div>
       </div>
       <!--/noindex-->
 
@@ -394,7 +465,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives">
         
-          <span class="site-state-item-count">68</span>
+          <span class="site-state-item-count">75</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -434,7 +505,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2024</span>
+  <span itemprop="copyrightYear">2025</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -569,7 +640,7 @@
                     },
                     visualMap: {
                         min: 0,
-                        max: Math.max(...[["2024-12-09",3],["2024-12-10",8],["2024-12-11",9],["2024-12-12",3],["2024-12-13",4],["2024-12-15",1],["2024-12-17",3],["2024-12-18",2],["2024-12-19",6],["2024-12-20",2],["2024-12-22",2],["2024-12-23",1],["2024-12-24",1],["2024-12-26",8],["2024-12-28",6],["2024-12-29",7],["2024-12-31",2]].map(item => item[1])),
+                        max: Math.max(...[["2024-12-09",3],["2024-12-10",8],["2024-12-11",9],["2024-12-12",3],["2024-12-13",4],["2024-12-15",1],["2024-12-17",3],["2024-12-18",2],["2024-12-19",6],["2024-12-20",2],["2024-12-22",2],["2024-12-23",1],["2024-12-24",1],["2024-12-26",8],["2024-12-28",6],["2024-12-29",7],["2024-12-31",5],["2025-01-01",4]].map(item => item[1])),
                         calculable: false,
                         orient: 'horizontal', // 横向布局
                         right: '5%',
@@ -589,7 +660,7 @@
                     series: [{
                         type: 'heatmap',
                         coordinateSystem: 'calendar',
-                        data: [["2024-12-09",3],["2024-12-10",8],["2024-12-11",9],["2024-12-12",3],["2024-12-13",4],["2024-12-15",1],["2024-12-17",3],["2024-12-18",2],["2024-12-19",6],["2024-12-20",2],["2024-12-22",2],["2024-12-23",1],["2024-12-24",1],["2024-12-26",8],["2024-12-28",6],["2024-12-29",7],["2024-12-31",2]]
+                        data: [["2024-12-09",3],["2024-12-10",8],["2024-12-11",9],["2024-12-12",3],["2024-12-13",4],["2024-12-15",1],["2024-12-17",3],["2024-12-18",2],["2024-12-19",6],["2024-12-20",2],["2024-12-22",2],["2024-12-23",1],["2024-12-24",1],["2024-12-26",8],["2024-12-28",6],["2024-12-29",7],["2024-12-31",5],["2025-01-01",4]]
                     }]
                 });
             }
@@ -602,7 +673,7 @@
                 monthlyChart.setOption({
                     xAxis: {
                         type: 'category',
-                        data: ["2024-12"],
+                        data: ["2024-12","2025-01"],
                         axisLabel: { fontSize: 12 }
                     },
                     yAxis: {
@@ -612,7 +683,7 @@
                     series: [{
                         name: 'Articles',
                         type: 'line',
-                        data: [68],
+                        data: [71,4],
                         smooth: true,
                         lineStyle: { color: '#5470C6', width: 2 },
                         itemStyle: { color: '#5470C6' },
@@ -662,13 +733,13 @@
                     },
                     yAxis: {
                         type: 'category',
-                        data: [{"name":"408","value":31},{"name":"未分类","value":23},{"name":"OS","value":22},{"name":"计组","value":11},{"name":"第三章.存储系统","value":11}].map(category => category.name).reverse(),
+                        data: [{"name":"408","value":31},{"name":"未分类","value":30},{"name":"OS","value":22},{"name":"计组","value":11},{"name":"第三章.存储系统","value":11}].map(category => category.name).reverse(),
                         axisLabel: { fontSize: 12 }
                     },
                     series: [{
                         name: 'Category Count',
                         type: 'bar',
-                        data: [{"name":"408","value":31},{"name":"未分类","value":23},{"name":"OS","value":22},{"name":"计组","value":11},{"name":"第三章.存储系统","value":11}].map(category => category.value).reverse(),
+                        data: [{"name":"408","value":31},{"name":"未分类","value":30},{"name":"OS","value":22},{"name":"计组","value":11},{"name":"第三章.存储系统","value":11}].map(category => category.value).reverse(),
                         label: {
                             show: true,
                             position: 'right',

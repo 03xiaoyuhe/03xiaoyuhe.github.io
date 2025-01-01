@@ -450,6 +450,345 @@ $$</p>
       </tags>
   </entry>
   <entry>
+    <title>5.4.1-硬布线控制器</title>
+    <url>/posts/a7949be6.html</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p>相关链接|</p>
+</p>
+    </div>
+</div><span id="more"></span>
+<hr />
+<div style="text-align: center;color:#4d648d;font-size:50px;">(完)</div>]]></content>
+      <categories>
+        <category>未分类</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>5.3-数据通路</title>
+    <url>/posts/2e7df3d7.html</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p>相关链接|</p>
+</p>
+    </div>
+</div><span id="more"></span>
+<h2 id="单总线结构-small-small-会在大题中出-small-small"><a class="header-anchor" href="#单总线结构-small-small-会在大题中出-small-small">¶</a>单总线结构 <small><small>会在大题中出</small></small></h2>
+<h3 id="数据通路"><a class="header-anchor" href="#数据通路">¶</a>数据通路</h3>
+<p>数据在功能部件之间传送的路径</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>信息从哪里开始、</p>
+</li>
+<li class="lvl-2">
+<p>中间经过哪些部件</p>
+</li>
+<li class="lvl-2">
+<p>最后传到哪里</p>
+</li>
+</ul>
+<p>由控制部件产生的控制信号建立数据通路</p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501011958321.png" alt="image-20250101195836215"></p>
+<blockquote>
+<p>**注意：**所有的控制信号都是由CU发出的，则CU与其他需要发送控制信号的地方均有直接连线</p>
+</blockquote>
+<blockquote>
+<p><strong>内部总线</strong>是指同一部件，如CPU内部连接的各部件，如CPU内部连接各寄存器及运算部件之间的总线；</p>
+<p><strong>系统总线</strong>是指同一台计算机系统的各部件，如CPU、内存、通道和各类I/O接口间的总线</p>
+</blockquote>
+<h3 id="寄存器之间数据传送"><a class="header-anchor" href="#寄存器之间数据传送">¶</a>寄存器之间数据传送</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501012005850.png" alt="image-20250101200515783"></p>
+
+<div class="callout callout-warning">
+    <div class="callout-head">
+        <span class="callout-head-icon">⚠️</span>
+        <span class="callout-head-text" style="color:#e5a700">WARNING</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p>**注意！**这里需要注明 PCout有效等控制信息</p>
+</p>
+    </div>
+</div><h3 id="主存与CPU之间的数据传送"><a class="header-anchor" href="#主存与CPU之间的数据传送">¶</a>主存与CPU之间的数据传送</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501012008378.png" alt="image-20250101200835311"></p>
+<blockquote>
+<p>这里应该是MDRinE，这里的E指的是外部总线</p>
+<p>而MDRin是内部总线</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501012011656.png" alt="image-20250101201122614"></p>
+<h3 id="执行算逻运算"><a class="header-anchor" href="#执行算逻运算">¶</a>执行算逻运算</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501012014004.png" alt="image-20250101201422953"></p>
+<h3 id="总结"><a class="header-anchor" href="#总结">¶</a>总结</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501012023174.png" alt="image-20250101202333098"></p>
+<h2 id="专用通路结构"><a class="header-anchor" href="#专用通路结构">¶</a>专用通路结构</h2>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501012026101.png" alt="image-20250101202638022"></p>
+<h3 id="取值周期"><a class="header-anchor" href="#取值周期">¶</a>取值周期</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501012028147.png" alt="image-20250101202804081"></p>
+<h3 id="相关例题"><a class="header-anchor" href="#相关例题">¶</a>相关例题</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501012033619.png" alt="image-20250101203318525"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501012035303.png" alt="image-20250101203503217"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501012036681.png" alt="image-20250101203623589"></p>
+<blockquote>
+<p>M(MAR) 指，主存中的MAR所指的地址数据</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501012041971.png" alt="image-20250101204149883"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501012044773.png" alt="image-20250101204432665"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501012046926.png" alt="image-20250101204631847"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501012047757.png" alt="image-20250101204740654"></p>
+<h3 id="总结-2"><a class="header-anchor" href="#总结-2">¶</a>总结</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501012048630.png" alt="image-20250101204840559"></p>
+<hr />
+<div style="text-align: center;color:#4d648d;font-size:50px;">(完)</div>]]></content>
+      <categories>
+        <category>未分类</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>5.2-指令执行过程</title>
+    <url>/posts/bc0566c2.html</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p>相关链接|</p>
+</p>
+    </div>
+</div><span id="more"></span>
+<h2 id="指令周期"><a class="header-anchor" href="#指令周期">¶</a>指令周期</h2>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501011921500.png" alt="image-20250101192147411"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501011923158.png" alt="image-20250101192355101"></p>
+<blockquote>
+<p>机器周期就是完成一个完整的小工作，如取指</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501011927299.png" alt="image-20250101192753235"></p>
+<h3 id="指令周期流程"><a class="header-anchor" href="#指令周期流程">¶</a>指令周期流程</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501011930317.png" alt="image-20250101193034220"></p>
+<blockquote>
+<p>用触发器标识当前的指令周期在什么阶段</p>
+</blockquote>
+<h2 id="指令周期的数据流"><a class="header-anchor" href="#指令周期的数据流">¶</a>指令周期的数据流</h2>
+<h3 id="取值周期"><a class="header-anchor" href="#取值周期">¶</a>取值周期</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501011935636.png" alt="image-20250101193503546"></p>
+<h3 id="间址周期"><a class="header-anchor" href="#间址周期">¶</a>间址周期</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501011938924.png" alt="image-20250101193824852"></p>
+<h3 id="中断周期"><a class="header-anchor" href="#中断周期">¶</a>中断周期</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501011945263.png" alt="image-20250101194544136"></p>
+<h2 id="指令执行方案"><a class="header-anchor" href="#指令执行方案">¶</a>指令执行方案</h2>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501011949649.png" alt="image-20250101194946538"></p>
+<h2 id="总结"><a class="header-anchor" href="#总结">¶</a>总结</h2>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501011950343.png" alt="image-20250101195054251"></p>
+<hr />
+<div style="text-align: center;color:#4d648d;font-size:50px;">(完)</div>]]></content>
+      <categories>
+        <category>未分类</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>5.1-CPU功能和基本结构</title>
+    <url>/posts/db45ce2f.html</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p>相关链接|</p>
+</p>
+    </div>
+</div><span id="more"></span>
+<h3 id="CPU的功能"><a class="header-anchor" href="#CPU的功能">¶</a>CPU的功能</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501011847443.png" alt="image-20250101184751380"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501011850784.png" alt="image-20250101185003720"></p>
+<h3 id="运算器基本结构"><a class="header-anchor" href="#运算器基本结构">¶</a>运算器基本结构</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501011858173.png" alt="image-20250101185832084"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501011903447.png" alt="image-20250101190352357"></p>
+<h3 id="控制器基本结构"><a class="header-anchor" href="#控制器基本结构">¶</a>控制器基本结构</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501011913818.png" alt="image-20250101191314716"></p>
+<h3 id="CPU的基本结构"><a class="header-anchor" href="#CPU的基本结构">¶</a>CPU的基本结构</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501011916094.png" alt="image-20250101191613013"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501011917859.png" alt="image-20250101191700767"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501011917522.png" alt="image-20250101191724445"></p>
+<h2 id="总结"><a class="header-anchor" href="#总结">¶</a>总结</h2>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501011918785.png" alt="image-20250101191818714"></p>
+<hr />
+<div style="text-align: center;color:#4d648d;font-size:50px;">(完)</div>]]></content>
+      <categories>
+        <category>未分类</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>4.4-CISC和RISC</title>
+    <url>/posts/24d502b.html</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412311745325.png" alt="image-20241231174539270"></p>
+<p>相关链接|</p>
+</p>
+    </div>
+</div><span id="more"></span>
+<h2 id="CISC和RISC"><a class="header-anchor" href="#CISC和RISC">¶</a>CISC和RISC</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>CISC</strong>：Complex Instruction Set Computer</p>
+<p>设计思路：一条指令完成一个复杂的基本功能</p>
+<p>代表：x86架构，主要用于笔记本、台式机等</p>
+</li>
+<li class="lvl-2">
+<p><strong>RISC</strong>：Reduced Instruction Set Computer</p>
+<p>设计思路：一条指令完成一个基本“动作”；</p>
+<p>​		多条指令组合完成一个复杂的基本功能</p>
+<p>代表：ARM架构，主要用于手机、平板电脑</p>
+</li>
+</ul>
+
+<div class="callout callout-note">
+    <div class="callout-head">
+        <span class="callout-head-icon">📝</span>
+        <span class="callout-head-text" style="color:#673ab7">NOTE</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p>2-8定律：典型程序中 80% 的语句仅仅使用处理机中 20% 的指令</p>
+</p>
+    </div>
+</div><p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412311755918.png" alt="image-20241231175554853"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412311756641.png" alt="image-20241231175645584"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412311757308.png" alt="image-20241231175710228"></p>
+<hr />
+<div style="text-align: center;color:#4d648d;font-size:50px;">(完)</div>]]></content>
+      <categories>
+        <category>未分类</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>4.3.4-函数调用的机器级表示</title>
+    <url>/posts/a92fe814.html</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p>相关链接|</p>
+</p>
+    </div>
+</div><span id="more"></span>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412311630118.png" alt="image-20241231163002025"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412311631928.png" alt="image-20241231163137844"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412311647528.png" alt="image-20241231164745407"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412311648683.png" alt="image-20241231164816603"></p>
+<hr />
+<div style="text-align: center;color:#4d648d;font-size:50px;">(完)</div>]]></content>
+      <categories>
+        <category>未分类</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>4.3.3-循环语句的机器表示</title>
+    <url>/posts/f06e02c9.html</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p>相关链接|</p>
+</p>
+    </div>
+</div><span id="more"></span>
+<h3 id="使用Jmp"><a class="header-anchor" href="#使用Jmp">¶</a>使用Jmp</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412311619917.png" alt="image-20241231161918825"></p>
+<h3 id="使用-loop"><a class="header-anchor" href="#使用-loop">¶</a>使用 loop</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412311620237.png" alt="image-20241231162036130"></p>
+<blockquote>
+<p>只有ecx具有循环计数器功能，故这里只能使用ecx</p>
+</blockquote>
+<p>理论上，能使用loop指令实现的功能一定能用条件转移指令实现</p>
+<p>使用loop指令可能会使代码更清晰简洁</p>
+<blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412311625908.png" alt="image-20241231162526857"></p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412311700518.png" alt="image-20241231170053438"></p>
+<h3 id="如何切换帧"><a class="header-anchor" href="#如何切换帧">¶</a>如何切换帧</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412311706952.png" alt="image-20241231170649856"></p>
+<blockquote>
+<p>就是先存一下上一个函数的栈帧基地址，然后当前函数栈帧就是存放上个函数栈帧基地址的位置的下一个地址。</p>
+<p>在还原上一层函数栈帧时，只需要取出先前存放的上一层函数基址就可以完成，栈底就是存放基址地址位置的上一位</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412311714095.png" alt="image-20241231171457007"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412311716681.png" alt="image-20241231171618596"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412311717632.png" alt="image-20241231171709522"></p>
+<h3 id="如何传递参数和返回值"><a class="header-anchor" href="#如何传递参数和返回值">¶</a>如何传递参数和返回值</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412311725695.png" alt="image-20241231172530587"></p>
+<blockquote>
+<p>[ebp+8] 是第一个传入参数</p>
+<p>[ebp+12]是第二个传入参数</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412311727250.png" alt="image-20241231172701158"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412311729208.png" alt="image-20241231172929100"></p>
+<blockquote>
+<p>这里箭头位置使用了两行代码</p>
+<p>为什么不直接写：</p>
+<p>mov [esp+4] , [esp-8] ?</p>
+<p>因为x86 指令系统中，指令中的数据不允许两个都同时来自内存，会影响执行效率</p>
+</blockquote>
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p>函数调用的返回值，一般都存放在eax寄存器中</p>
+</p>
+    </div>
+</div><p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412311738673.png" alt="image-20241231173826575"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412311736999.png" alt="image-20241231173646905"></p>
+<h2 id="总结"><a class="header-anchor" href="#总结">¶</a>总结</h2>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412311738461.png" alt="image-20241231173847377"></p>
+<hr />
+<div style="text-align: center;color:#4d648d;font-size:50px;">(完)</div>]]></content>
+      <categories>
+        <category>未分类</category>
+      </categories>
+  </entry>
+  <entry>
     <title>4.3.2-选择语句的机器级表示</title>
     <url>/posts/d4f27f89.html</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
@@ -465,6 +804,14 @@ $$</p>
 </p>
     </div>
 </div><span id="more"></span>
+<h3 id="无条件转移指令"><a class="header-anchor" href="#无条件转移指令">¶</a>无条件转移指令</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412311603515.png" alt="image-20241231160324433"></p>
+<h3 id="条件转移指令"><a class="header-anchor" href="#条件转移指令">¶</a>条件转移指令</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412311605112.png" alt="image-20241231160520026"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412311608852.png" alt="image-20241231160847780"></p>
+<blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412311613412.png" alt="image-20241231161335324"></p>
+</blockquote>
 <hr />
 <div style="text-align: center;color:#4d648d;font-size:50px;">(完)</div>]]></content>
       <categories>
@@ -1604,7 +1951,20 @@ $$</p>
     </div>
 </div><span id="more"></span>
 <p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412261117696.png" alt="image-20241226111710525"></p>
-<h3 id="全相联映射"><a class="header-anchor" href="#全相联映射">¶</a>全相联映射</h3>
+
+<div class="callout callout-warning">
+    <div class="callout-head">
+        <span class="callout-head-icon">⚠️</span>
+        <span class="callout-head-text" style="color:#e5a700">WARNING</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<h4><span style="color:red">注意！</span></h4>
+<p>无论一个主存块是多大的，系统均按字寻址</p>
+<p>如果一个主存块的大小不是一个字节，则<strong>题目给出的地址</strong>中<strong>最后几位一定有块内地址</strong></p>
+</p>
+    </div>
+</div><h3 id="全相联映射"><a class="header-anchor" href="#全相联映射">¶</a>全相联映射</h3>
 <p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412261119088.png" alt="image-20241226111947501"></p>
 
 <div class="callout callout-tip">
@@ -1622,7 +1982,28 @@ $$</p>
 <p>块号末尾三位，反应了应该存放在Cache块中的哪个位置</p>
 <p>实际在cache存放标记时，也只需要存放前面19位，末尾三位与块号直接对应，无需存放。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412261135329.png" alt="image-20241226113503748"></p>
-<h3 id="组相联映射"><a class="header-anchor" href="#组相联映射">¶</a>组相联映射</h3>
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<h4>相关例题</h4>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501011726915.png" alt="image-20250101172625852"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501011726897.png" alt="image-20250101172645834"></p>
+<p><strong>解题方略</strong>：</p>
+<p>在做该类型的题目时，可以先将题目给出的主存地址化为二进制，<em>不能偷懒！</em>，不要觉得扣着算更快！，先化成二进制在计算更加直观，在打草稿时也更好记录，自然可以做的更快。</p>
+<p>另外，要注意<strong>给出的地址中后几位往往包含块内地址</strong>，<strong>块内地址，是不参与映射运算的</strong>！</p>
+<p>所以在做题目时，要先看看块内地址是几位，如果块大小不是16整数倍字节，扣扣做题方式可就非常<del>爽</del>了，因为不好扣了<small><code>\哭笑</code> <code>\手动狗头</code></small>，所以还是规范一下<strong>做这类题目时还是把地址化化，好歹化成二进制好算</strong>，又不是计网，爆炸级的位数要分段算。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501011742694.png" alt="image-20250101174233630"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501011742337.png" alt="image-20250101174253290"></p>
+<p><em><big>盖亚！</big></em>，怎么说<strong>129号单元也带块内地址啊！</strong></p>
+<p>绷绷绷🖥️🦐</p>
+</p>
+    </div>
+</div><h3 id="组相联映射"><a class="header-anchor" href="#组相联映射">¶</a>组相联映射</h3>
 <p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412261137927.png" alt="image-20241226113753352"></p>
 
 <div class="callout callout-tip">
@@ -1632,10 +2013,35 @@ $$</p>
     </div>
     <div class="callout-contents">
         <p><p></p>
-<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412261138537.png" alt="image-20241226113823483"></p>
+<h3>关于题目中说的 <em>X路组相联映射</em></h3>
+<p>即，<strong>每组X块</strong></p>
+<p>例如，二路组相联映射方式，即<strong>每组2块</strong></p>
 </p>
     </div>
-</div><hr />
+</div>
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<h4>相关例题</h4>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501011823311.png" alt="image-20250101182338250"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501011824888.png" alt="image-20250101182405816"></p>
+<p><small>还是扯上比较器了，基础课和课本里都没有</small></p>
+<blockquote>
+<p><strong>比较器</strong>用于<strong>并行的比较</strong>分组中所有Cache行的Tag标记与欲访问物理地址的Tag标记位</p>
+<p>即，<strong>一个分组中一个Cache块和一个比较器相连</strong>。</p>
+<p>在找的时候，首先根据主存块号直接就可以确定组号，然后就要解决主存块到底存在这个分组中哪个Cache块，然后为了加快查找速度，所以设计了这个比较器。</p>
+<p>估计是这样的：用一个与门把对应位连起来，然后输出1就是相同，输出0就是不相同</p>
+<p>最后在一起与一下就是当前Cache块是否匹配了。</p>
+</p>
+    </div>
+</div></blockquote>
+<h2 id="总结"><a class="header-anchor" href="#总结">¶</a>总结</h2>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412261138537.png" alt="image-20241226113823483"></p>
+<hr />
 <div style="text-align: center;color:#4d648d;font-size:50px;">(完)</div>]]></content>
       <categories>
         <category>未分类</category>
@@ -1657,6 +2063,9 @@ $$</p>
 </p>
     </div>
 </div><span id="more"></span>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501011811708.png" alt="image-20250101181125651"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501011811534.png" alt="image-20250101181144379"></p>
+<p><small>还在说这题怎么错了，结果是读一次写一次，读的时候每命中，但写的时候命中了</small></p>
 <hr />
 <div style="text-align: center;color:#4d648d;font-size:50px;">(完)</div>]]></content>
       <categories>
@@ -1745,12 +2154,28 @@ $$</p>
 <li class="lvl-2">
 <p><strong>平均存取时间</strong>：<br>
 $$<br>
-平均存取时间 = &amp;\text{寻道时间（磁头移动到目的磁道）}+ \<br>
-&amp;\text{旋转延迟时间（磁头定位到所在扇区）}+ \<br>
+平均存取时间 = &amp;\text{寻道时间（磁头移动到目的磁道）}+ \\<br>
+&amp;\text{旋转延迟时间（磁头定位到所在扇区）}+ \\<br>
 &amp;\text{传输时间（传输数据所花费的时间）}<br>
 $$<br>
 <img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412261701734.png" alt="image-20241226170158632"></p>
 </li>
+</ul>
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<h4>相关例题</h4>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501011245772.png" alt="image-20250101124527719"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501011246308.png" alt="image-20250101124625259"></p>
+<p>平均查询时间为：磁盘转一圈时间的一半，因为最长是转一整圈，最快是不用转，直接就到了；所以平均值就是转一半</p>
+</p>
+    </div>
+</div><ul class="lvl-0">
 <li class="lvl-2">
 <p><strong>数据传输率</strong>：</p>
 <p>磁盘存储器再单位时间内性主机发送数据的字节数，称为数据传输率。</p>
@@ -1776,7 +2201,20 @@ $$<br>
 <p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412261716731.png" alt="image-20241226171656664"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412261718019.png" alt="image-20241226171845941"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412261719172.png" alt="image-20241226171955101"></p>
-<h2 id="固态硬盘SSD"><a class="header-anchor" href="#固态硬盘SSD">¶</a>固态硬盘SSD</h2>
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<h4>综合题目</h4>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501011257936.png" alt="image-20250101125751870"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501011258713.png" alt="image-20250101125811661"></p>
+</p>
+    </div>
+</div><h2 id="固态硬盘SSD"><a class="header-anchor" href="#固态硬盘SSD">¶</a>固态硬盘SSD</h2>
 <p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412261721593.png" alt="image-20241226172132486"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412261723463.png" alt="image-20241226172317360"></p>
 
@@ -4814,7 +5252,20 @@ $$<br>
 <p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412261755725.png" alt="image-20241226175557634"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412261759344.png" alt="image-20241226175900280"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412261759896.png" alt="image-20241226175945684"></p>
-<h2 id="总结"><a class="header-anchor" href="#总结">¶</a>总结</h2>
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<h4>字位扩展相关例题</h4>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501011105924.png" alt="image-20250101110521779"></p>
+<p><small>首先，我们发现，以 4B 为编址单位，则如果使用 8KB（8K*8 位）的存储芯片构造 32 KB 的存储体时，显而易见：首先肯定要先完成位拓展，因为原芯片不能按 4B 寻址；其次，在考虑字扩展，本题中，恰好，当完成位扩展后总容量刚好为 32KB，故无需进行字扩展。</small></p>
+</p>
+    </div>
+</div><h2 id="总结"><a class="header-anchor" href="#总结">¶</a>总结</h2>
 <p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412261801842.png" alt="image-20241226180106765"></p>
 
 <div class="callout callout-tip">
