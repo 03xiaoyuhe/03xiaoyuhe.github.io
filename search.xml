@@ -450,6 +450,28 @@ $$</p>
       </tags>
   </entry>
   <entry>
+    <title>5.4.4-微指令控制单元的设计</title>
+    <url>/posts/6463c2e8.html</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p>相关链接|</p>
+</p>
+    </div>
+</div><span id="more"></span>
+<hr />
+<div style="text-align: center;color:#4d648d;font-size:50px;">(完)</div>]]></content>
+      <categories>
+        <category>未分类</category>
+      </categories>
+  </entry>
+  <entry>
     <title>5.4.3-微指令的设计</title>
     <url>/posts/f36ad788.html</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
@@ -465,6 +487,107 @@ $$</p>
 </p>
     </div>
 </div><span id="more"></span>
+<blockquote>
+<p><strong>相容性</strong>微命令：可以并行完成的微命令</p>
+<p><strong>互斥性</strong>微命令：不允许并行完成的微命令</p>
+</blockquote>
+<h2 id="微指令的格式"><a class="header-anchor" href="#微指令的格式">¶</a>微指令的格式</h2>
+<h3 id="水平型微指令"><a class="header-anchor" href="#水平型微指令">¶</a>水平型微指令</h3>
+<p><big>一条微指令能定义<strong>多个</strong>可并行的微命令</big></p>
+<p>基本格式</p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501012334550.png" alt="image-20250101233429459"></p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>优点</strong>：微程序短，执行速度快</p>
+</li>
+<li class="lvl-2">
+<p><strong>缺点</strong>：微指令长，编写微程序较麻烦</p>
+</li>
+</ul>
+<h3 id="垂直型微指令"><a class="header-anchor" href="#垂直型微指令">¶</a>垂直型微指令</h3>
+<p><big>一条微指令只能定义<strong>一个</strong>微命令，由微操作码字段规定具体功能</big></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501012337744.png" alt="image-20250101233702695"></p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>优点</strong>：微指令短，简单，规整，便于编写微程序；</p>
+</li>
+<li class="lvl-2">
+<p><strong>缺点</strong>：微程序长，执行速度慢，工作效率低。</p>
+</li>
+</ul>
+<blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501012337128.png" alt="image-20250101233745016"></p>
+</blockquote>
+<h3 id="混合型微指令"><a class="header-anchor" href="#混合型微指令">¶</a>混合型微指令</h3>
+<p><big>在垂直型的基础上增加一些不太复杂的并行操作。</big></p>
+<p><big>微指令较短，仍便于编写，微程序也不长，执行速度加快</big></p>
+<h2 id="微指令的编码方式"><a class="header-anchor" href="#微指令的编码方式">¶</a>微指令的编码方式</h2>
+<p>微指令的编码方式由称为微程序的控制方式，它是指如何对微指令控制字段进行编码，以形成控制信号。编码的目标是在保证速度的情况下，尽量缩短微指令字长。</p>
+<h3 id="直接编码（直接控制）方式"><a class="header-anchor" href="#直接编码（直接控制）方式">¶</a>直接编码（直接控制）方式</h3>
+<p>在微指令的操作控制字段中，<strong>每一位代表一个微操作命令</strong></p>
+<p>某位为**“1”**表示该控制信号有效</p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501012349781.png" alt="image-20250101234921684"></p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>优点</strong>：简单、直观，执行速度快，操作并行性好</p>
+</li>
+<li class="lvl-2">
+<p><strong>缺点</strong>：微指令字长过长，n个微命令就要要求微指令的操作字段有n位，造成控存容量极大。</p>
+</li>
+</ul>
+<h3 id="字段直接编码"><a class="header-anchor" href="#字段直接编码">¶</a>字段直接编码</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501012354279.png" alt="image-20250101235448166"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501012355150.png" alt="image-20250101235506035"></p>
+<blockquote>
+<p><strong>例题</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501012357065.png" alt="image-20250101235739976"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501012358880.png" alt="image-20250101235801792"></p>
+<p>若采用<em>直接编码</em>方式，则控制字段需要 33 位</p>
+</blockquote>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>优点</strong>：可以缩短微指令字长</p>
+</li>
+<li class="lvl-2">
+<p><strong>缺点</strong>：要通过译码电路后再发出微指令，因此比直接编码方式慢。</p>
+</li>
+</ul>
+<h3 id="字段间编指方式"><a class="header-anchor" href="#字段间编指方式">¶</a>字段间编指方式</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501020001304.png" alt="image-20250102000129223"></p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>优点</strong>：可进一步缩短微指令字长</p>
+</li>
+<li class="lvl-2">
+<p><strong>缺点</strong>：削弱了微指令的并行控制能力，故通常作为字段直接编码方式的一种辅助手段。</p>
+</li>
+</ul>
+<h3 id="微指令的地址形成方式"><a class="header-anchor" href="#微指令的地址形成方式">¶</a>微指令的地址形成方式</h3>
+<ol>
+<li class="lvl-3">
+<p>微指令的<strong>下地址字段指出</strong>，微指令格式中设置一个下地址字段，由微指令的下地址字段直接指出后继微指令的地址，这种方式又称为<strong>断定方式</strong></p>
+</li>
+<li class="lvl-3">
+<p>根据机器指令的<strong>操作码</strong>形成，当机器指令取至指令寄存器后，微指令的地址由操作码经微地址形成部件形成</p>
+</li>
+<li class="lvl-3">
+<p>增量<strong>计数器法</strong>（CMAR）+1$\longrightarrow$ CMAR</p>
+</li>
+<li class="lvl-3">
+<p>分支转移    转移方式：指明判别条件；转移地址：指明转移成功后的去向。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501020936648.png" alt="image-20250102093637596"></p>
+</li>
+<li class="lvl-3">
+<p>通过测试网络</p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501020937360.png" alt="image-20250102093735298"></p>
+</li>
+<li class="lvl-3">
+<p>由硬件产生微指令入口地址</p>
+<p><strong>第一条微指令</strong>  由专门的<strong>硬件</strong>产生（用专门的硬件记录取指周期微指令程序首地址）</p>
+</li>
+</ol>
+<h2 id="总结"><a class="header-anchor" href="#总结">¶</a>总结</h2>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021031029.png" alt="image-20250102103130932"></p>
 <hr />
 <div style="text-align: center;color:#4d648d;font-size:50px;">(完)</div>]]></content>
       <categories>
