@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.3.0">
+<link rel="stylesheet" href="/css/custom.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="💡         TIP                    相关链接|">
+<meta property="og:type" content="article">
+<meta property="og:title" content="5.6-指令流水线基本概念和性能指标">
+<meta property="og:url" content="http://example.com/posts/22015bf9.html">
+<meta property="og:site_name" content="Ting&#39;s Blog">
+<meta property="og:description" content="💡         TIP                    相关链接|">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021053888.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021056733.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021056071.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021059244.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021059500.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021101684.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021102552.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021106154.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021107779.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021107174.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021108155.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021108884.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021144689.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021151836.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021155589.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021203615.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021204154.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021207671.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021210902.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021211682.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021212161.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021213465.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021216490.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021217428.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021217826.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021218633.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021219792.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021354246.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021931457.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021110520.png">
+<meta property="article:published_time" content="2025-01-02T02:50:56.000Z">
+<meta property="article:modified_time" content="2025-01-03T04:05:29.254Z">
+<meta property="article:author" content="听">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png">
+
+<link rel="canonical" href="http://example.com/posts/22015bf9.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>5.6-指令流水线基本概念和性能指标 | Ting's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Ting's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">听的无名小站</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/posts/22015bf9.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101430362.jpg">
+      <meta itemprop="name" content="听">
+      <meta itemprop="description" content="放一些个人笔记">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ting's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          5.6-指令流水线基本概念和性能指标
+        </h1>
+
+        <div class="post-meta">
+        
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2025-01-02 10:50:56" itemprop="dateCreated datePublished" datetime="2025-01-02T10:50:56+08:00">2025-01-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-01-03 12:05:29" itemprop="dateModified" datetime="2025-01-03T12:05:29+08:00">2025-01-03</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/" itemprop="url" rel="index"><span itemprop="name">未分类</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p>相关链接|</p>
+</p>
+    </div>
+</div><span id="more"></span>
+<h2 id="定义"><a class="header-anchor" href="#定义">¶</a>定义</h2>
+<blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021053888.png" alt="image-20250102105335802"></p>
+<ul class="lvl-1">
+<li class="lvl-2">顺序执行方式
+<ul class="lvl-3">
+<li class="lvl-4"><strong>优点</strong>：控制简单，硬件代价小</li>
+<li class="lvl-4"><strong>缺点</strong>：执行指令的速度较慢，在任何时刻，处理机中只有一条指令在执行，各功能部件的利用率很低。</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>一次重叠执行方式</strong><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021056733.png" alt="image-20250102105626690"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021056071.png" alt="image-20250102105614009"></p>
+<ul class="lvl-2">
+<li class="lvl-4">
+<p><strong>优点</strong>：程序的执行时间缩短了1/3，各功能部件的利用率明显提高</p>
+</li>
+<li class="lvl-4">
+<p><strong>缺点</strong>：需要付出硬件上较大开销的代价，控制过程也比顺序执行复杂了</p>
+</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p><strong>二次重叠方式</strong><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021059244.png" alt="image-20250102105902185"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021059500.png" alt="image-20250102105916437"></p>
+<blockquote>
+<p><strong>也可以把每条指令的执行过程分成4个或5个阶段，分成5个阶段是比较常见的做法.</strong></p>
+</blockquote>
+</li>
+</ul>
+<h2 id="表示方法"><a class="header-anchor" href="#表示方法">¶</a>表示方法</h2>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021101684.png" alt="image-20250102110129621"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021102552.png" alt="image-20250102110221489"></p>
+<h2 id="性能指标"><a class="header-anchor" href="#性能指标">¶</a>性能指标</h2>
+<ol>
+<li class="lvl-3">
+<p><strong>吞吐率</strong></p>
+<p>吞吐率是指在单位时间内流水线所完成的任务数量，或是输出结果的数量</p>
+<blockquote>
+<p>或是 单位时间内，我们可以完成多少条指令</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021106154.png" alt="image-20250102110641065"></p>
+</li>
+<li class="lvl-3">
+<p><strong>加速比</strong><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021107779.png" alt="image-20250102110715722"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021107174.png" alt="image-20250102110739105"></p>
+</li>
+<li class="lvl-3">
+<p><strong>效率</strong><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021108155.png" alt="image-20250102110810111"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021108884.png" alt="image-20250102110829807"></p>
+</li>
+</ol>
+<h2 id="影响因素"><a class="header-anchor" href="#影响因素">¶</a>影响因素</h2>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021144689.png" alt="image-20250102114444588"></p>
+<blockquote>
+<p>MIPS架构</p>
+</blockquote>
+<ol>
+<li class="lvl-3">
+<p><strong>结构相关</strong> 资源冲突</p>
+<p>由于多条指令在同一时刻争用同一资源而形成的冲突称为结构相关</p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021151836.png" alt="image-20250102115120753"></p>
+<ul class="lvl-2">
+<li class="lvl-5">
+<p><strong>解决方案</strong></p>
+<ol>
+<li class="lvl-8">
+<p>后一指令暂停一周期</p>
+</li>
+<li class="lvl-8">
+<p>资源重复配置</p>
+<p>数据寄存器+指令寄存器</p>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+<li class="lvl-3">
+<p><strong>数据相关</strong>（数据冲突）</p>
+<p>数据相关指在一个程序中，存在必须等前一条指令执行完才能执行后一条指令的情况</p>
+<p>则这两条指令即为数据相关<img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021155589.png" alt="image-20250102115530510"></p>
+<ul class="lvl-2">
+<li class="lvl-5">
+<p><strong>解决方案</strong>：</p>
+<ol>
+<li class="lvl-8">
+<p>把遇到数据相关的指令及其后续指令都暂停一至几个时钟周期，知道数据相关问题消失后再继续执行。可分为硬件阻塞（stall）和软件插入“NOP”两种方法。</p>
+</li>
+<li class="lvl-8">
+<p>数据旁路技术。<small>也叫转发机制</small></p>
+<p>加一条引脚</p>
+</li>
+<li class="lvl-8">
+<p>编译优化：通过编译器调整指令顺序来解决数据相关。</p>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+<li class="lvl-3">
+<p><strong>控制相关</strong>（控制冲突）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021203615.png" alt="image-20250102120313565"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021204154.png" alt="image-20250102120407082"></p>
+<ul class="lvl-2">
+<li class="lvl-5">
+<p><strong>解决办法</strong>：</p>
+<ol>
+<li class="lvl-8">
+<p><strong>转移指令分支预测</strong></p>
+<p>简单预测（永远猜 true 或 false）</p>
+<p>动态预测（根据历史情况动态调整）</p>
+</li>
+<li class="lvl-8">
+<p><strong>预取转移成功和不成功两个控制流方向上的目标指令</strong></p>
+</li>
+<li class="lvl-8">
+<p><strong>加快和提前形成条件码</strong></p>
+</li>
+<li class="lvl-8">
+<p><strong>提高转移方向的猜准率</strong></p>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021207671.png" alt="image-20250102120740609"></p>
+<h2 id="流水线的分类"><a class="header-anchor" href="#流水线的分类">¶</a>流水线的分类</h2>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021210902.png" alt="image-20250102121035826"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021211682.png" alt="image-20250102121113616"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021212161.png" alt="image-20250102121221078"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021213465.png" alt="image-20250102121303395"></p>
+<h2 id="流水线的多发技术"><a class="header-anchor" href="#流水线的多发技术">¶</a>流水线的多发技术</h2>
+<ol>
+<li class="lvl-3">
+<p><strong>超标量技术</strong><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021216490.png" alt="image-20250102121602406"></p>
+<blockquote>
+<p>需要与乱序发射做对比，乱序发射中允许用户在执行中修改指令的执行顺序</p>
+</blockquote>
+</li>
+<li class="lvl-3">
+<p><strong>超流水技术</strong><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021217428.png" alt="image-20250102121722370"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021217826.png" alt="image-20250102121748779"></p>
+</li>
+<li class="lvl-3">
+<p><strong>超长指令字</strong><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021218633.png" alt="image-20250102121843554"></p>
+</li>
+</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021219792.png" alt="image-20250102121901691"></p>
+<h2 id="五段式指令流水线"><a class="header-anchor" href="#五段式指令流水线">¶</a>五段式指令流水线</h2>
+<h3 id="运算器指令的执行过程"><a class="header-anchor" href="#运算器指令的执行过程">¶</a>运算器指令的执行过程</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021354246.png" alt="image-20250102135424171"></p>
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<h4>例题</h4>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021931457.png" alt="image-20250102193136320"></p>
+</p>
+    </div>
+</div><h2 id="总结"><a class="header-anchor" href="#总结">¶</a>总结</h2>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021110520.png" alt="image-20250102111034429"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">-- HUMAN RESOURCE MACHINE PROGRAM --</span><br><span class="line"></span><br><span class="line">a:</span><br><span class="line">b:</span><br><span class="line">    INBOX   </span><br><span class="line">    COPYTO   0</span><br><span class="line">    JUMPN    d</span><br><span class="line">    COMMENT  0</span><br><span class="line">c:</span><br><span class="line">    OUTBOX  </span><br><span class="line">    BUMPDN   0</span><br><span class="line">    JUMPN    a</span><br><span class="line">    JUMP     c</span><br><span class="line">    COMMENT  1</span><br><span class="line">d:</span><br><span class="line">    COMMENT  2</span><br><span class="line">e:</span><br><span class="line">    OUTBOX  </span><br><span class="line">    BUMPUP   0</span><br><span class="line">    JUMPN    e</span><br><span class="line">    OUTBOX  </span><br><span class="line">    COMMENT  3</span><br><span class="line">    JUMP     b</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">DEFINE COMMENT 0</span><br><span class="line">eJzjZmBgaI+4Wx4bGVQ6M8G6QLSyKNN28swMoDCDf/UT5YNVQnqqNb/bVWtMjjCMglEwCoYdAABfKg+i</span><br><span class="line">;</span><br><span class="line"></span><br><span class="line">DEFINE COMMENT 1</span><br><span class="line">eJzjYWBgUAwKKi0vFSm82m5d8GP620KgEMPP8gCj6dWZVfeqN24A8e9Vp2x6XbnsLsMoGAWjYFgBAM9E</span><br><span class="line">E6M;</span><br><span class="line"></span><br><span class="line">DEFINE COMMENT 2</span><br><span class="line">eJxjY2BgyAi6Wy4Webf8cLxT9cuS+vqoKfX1DKNgFIyCEQEAmiIJ/g;</span><br><span class="line"></span><br><span class="line">DEFINE COMMENT 3</span><br><span class="line">eJxjZmBg8C70bPu44nc7wygYBaNgxAEAleoEqg;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<hr />
+<div style="text-align: center;color:#4d648d;font-size:50px;">(完)</div>
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/posts/6463c2e8.html" rel="prev" title="5.4.4-微指令控制单元的设计">
+      <i class="fa fa-chevron-left"></i> 5.4.4-微指令控制单元的设计
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/posts/14bba0ce.html" rel="next" title="5.7-多处理机">
+      5.7-多处理机 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89"><span class="nav-number">1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A1%A8%E7%A4%BA%E6%96%B9%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">表示方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87"><span class="nav-number">3.</span> <span class="nav-text">性能指标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BD%B1%E5%93%8D%E5%9B%A0%E7%B4%A0"><span class="nav-number">4.</span> <span class="nav-text">影响因素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%81%E6%B0%B4%E7%BA%BF%E7%9A%84%E5%88%86%E7%B1%BB"><span class="nav-number">5.</span> <span class="nav-text">流水线的分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%81%E6%B0%B4%E7%BA%BF%E7%9A%84%E5%A4%9A%E5%8F%91%E6%8A%80%E6%9C%AF"><span class="nav-number">6.</span> <span class="nav-text">流水线的多发技术</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%94%E6%AE%B5%E5%BC%8F%E6%8C%87%E4%BB%A4%E6%B5%81%E6%B0%B4%E7%BA%BF"><span class="nav-number">7.</span> <span class="nav-text">五段式指令流水线</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%90%E7%AE%97%E5%99%A8%E6%8C%87%E4%BB%A4%E7%9A%84%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B"><span class="nav-number">7.1.</span> <span class="nav-text">运算器指令的执行过程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">7.1.1.</span> <span class="nav-text">例题</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">8.</span> <span class="nav-text">总结</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="听"
+      src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101430362.jpg">
+  <p class="site-author-name" itemprop="name">听</p>
+  <div class="site-description" itemprop="description">放一些个人笔记</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+        
+          <span class="site-state-item-count">82</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories">
+          
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags">
+          
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">听</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js"></script>
+        <!-- ECharts 图表容器 -->
+        
+        <script>
+            if(document.getElementById('heatmapChart')){
+                const heatmapChart = echarts.init(document.getElementById('heatmapChart'));
+                const containerWidth = document.getElementById('heatmapChart').offsetWidth;
+                const cellSize = Math.max(Math.floor(containerWidth / 60));
+                console.log(cellSize)
+                heatmapChart.setOption({
+                    tooltip: {
+                        position: 'top',
+                        formatter: params => `${params.value[0]}: ${params.value[1]} Articles`
+                    },
+                    visualMap: {
+                        min: 0,
+                        max: Math.max(...[["2024-12-09",3],["2024-12-10",8],["2024-12-11",9],["2024-12-12",3],["2024-12-13",4],["2024-12-15",1],["2024-12-17",3],["2024-12-18",2],["2024-12-19",6],["2024-12-20",2],["2024-12-22",2],["2024-12-23",1],["2024-12-24",1],["2024-12-26",8],["2024-12-28",6],["2024-12-29",7],["2024-12-31",5],["2025-01-01",6],["2025-01-02",4],["2025-02-14",1]].map(item => item[1])),
+                        calculable: false,
+                        orient: 'horizontal', // 横向布局
+                        right: '5%',
+                        bottom: '5%',
+                        inRange: { color: ['#FFEFD5', '#FFA07A', '#FF4500'] }
+                    },
+                    calendar: {
+                        top: '20%',
+                        left: 'center',
+                        range: new Date().getFullYear(),
+                        cellSize: cellSize, // 方格大小
+                        splitLine: { lineStyle: { color: '#E0E0E0', width: 1 } },
+                        itemStyle: { borderWidth: 1, borderColor: '#E0E0E0' },
+                        dayLabel: { firstDay: 1, fontSize: 12, color: '#333', show: false },
+                        monthLabel: { fontSize: 12, color: '#555' }
+                    },
+                    series: [{
+                        type: 'heatmap',
+                        coordinateSystem: 'calendar',
+                        data: [["2024-12-09",3],["2024-12-10",8],["2024-12-11",9],["2024-12-12",3],["2024-12-13",4],["2024-12-15",1],["2024-12-17",3],["2024-12-18",2],["2024-12-19",6],["2024-12-20",2],["2024-12-22",2],["2024-12-23",1],["2024-12-24",1],["2024-12-26",8],["2024-12-28",6],["2024-12-29",7],["2024-12-31",5],["2025-01-01",6],["2025-01-02",4],["2025-02-14",1]]
+                    }]
+                });
+            }
+        </script>
+    
+        
+        <script>
+            if(document.getElementById('monthlyChart')){
+                const monthlyChart = echarts.init(document.getElementById('monthlyChart'));
+                monthlyChart.setOption({
+                    xAxis: {
+                        type: 'category',
+                        data: ["2024-12","2025-01","2025-02"],
+                        axisLabel: { fontSize: 12 }
+                    },
+                    yAxis: {
+                        type: 'value',
+                        splitLine: { lineStyle: { type: 'dashed', color: '#ccc' } }
+                    },
+                    series: [{
+                        name: 'Articles',
+                        type: 'line',
+                        data: [71,10,1],
+                        smooth: true,
+                        lineStyle: { color: '#5470C6', width: 2 },
+                        itemStyle: { color: '#5470C6' },
+                        areaStyle: { color: 'rgba(84, 112, 198, 0.4)' },
+                        animationDuration: 1000
+                    }]
+                });
+            }
+        </script>
+    
+        
+        <script>
+            if(document.getElementById('tagsChart')){    
+                const tagsChart = echarts.init(document.getElementById('tagsChart'));
+                tagsChart.setOption({
+                    tooltip: { trigger: 'item', formatter: '{b}: {c} ({d}%)' },
+                    series: [{
+                        type: 'pie',
+                        radius: '60%',
+                        data: [{"name":"大学","value":16},{"name":"408","value":15},{"name":"OS","value":15},{"name":"C/C++","value":3},{"name":"编程","value":3},{"name":"项目构建工具","value":2},{"name":"hexo 建设","value":2},{"name":"Latex","value":1}],
+                        label: {
+                            position: 'outside',
+                            formatter: '{b} {c} ({d}%)',
+                            fontSize: 12
+                        },
+                        color: ['#5470C6', '#91CC75', '#FAC858', '#EE6666', '#73C0DE', '#3BA272', '#FC8452', '#9A60B4'],
+                        animationDuration: 1000
+                    }],
+                    legend: {
+                        bottom: '0',
+                        left: 'center',
+                        data: [{"name":"大学","value":16},{"name":"408","value":15},{"name":"OS","value":15},{"name":"C/C++","value":3},{"name":"编程","value":3},{"name":"项目构建工具","value":2},{"name":"hexo 建设","value":2},{"name":"Latex","value":1}].map(tag => tag.name),
+                        textStyle: { fontSize: 12 }
+                    }
+                });
+            }
+        </script>
+    
+        
+        <script>
+            if(document.getElementById('categoriesChart')){
+                const categoriesChart = echarts.init(document.getElementById('categoriesChart'));
+                categoriesChart.setOption({
+                    xAxis: {
+                        type: 'value',
+                        splitLine: { lineStyle: { type: 'dashed', color: '#ccc' } }
+                    },
+                    yAxis: {
+                        type: 'category',
+                        data: [{"name":"未分类","value":36},{"name":"408","value":31},{"name":"OS","value":22},{"name":"计组","value":11},{"name":"第三章.存储系统","value":11}].map(category => category.name).reverse(),
+                        axisLabel: { fontSize: 12 }
+                    },
+                    series: [{
+                        name: 'Category Count',
+                        type: 'bar',
+                        data: [{"name":"未分类","value":36},{"name":"408","value":31},{"name":"OS","value":22},{"name":"计组","value":11},{"name":"第三章.存储系统","value":11}].map(category => category.value).reverse(),
+                        label: {
+                            show: true,
+                            position: 'right',
+                            fontSize: 12
+                        },
+                        itemStyle: {
+                            color: new echarts.graphic.LinearGradient(0, 0, 1, 0, [
+                                { offset: 0, color: '#91CC75' },
+                                { offset: 1, color: '#73C0DE' }
+                            ])
+                        },
+                        animationDuration: 1000
+                    }]
+                });
+            }
+        </script>
+    
+    </body>
+</html>

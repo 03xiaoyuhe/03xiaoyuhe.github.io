@@ -450,8 +450,40 @@ $$</p>
       </tags>
   </entry>
   <entry>
-    <title>5.4.4-微指令控制单元的设计</title>
-    <url>/posts/6463c2e8.html</url>
+    <title>profit</title>
+    <url>/posts/f5ba2ac1.html</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p>“Profit”一词源自拉丁语 <em>profiteri</em>，意为“公开宣布”或“显露出来”。最初指的是公开宣告某事，以便引起注意和获取好处。随着时间发展，这种“宣告”逐渐与实际获得回报相关，尤其在商业交易中。最终，<em>profiteri</em> 演变为法语 <em>profit</em>，进入英语并指代“经济回报”或“利润”。与“benefit”相似，但“profit”更侧重经济得益。</p>
+<p>相关链接|</p>
+</p>
+    </div>
+</div><span id="more"></span>
+<p>“Profit” 这个词的来源与拉丁语有关，源自拉丁语词汇 <em>profiteri</em>，意思是“公开宣布”或“表达”。这个词由 <em>pro-</em>（表示“向前”）和 <em>fateri</em>（意思是“承认”或“表明”）构成，最初指的是“公开宣告”或“显露出来”。</p>
+<p>在早期社会，任何重要的公开宣告通常会引起注意，并且常常伴随着获得某种利益或好处。例如，商人或领导者公开宣布一项交易或决策，目的是让人们认识到其中的好处。这种“公开宣告”逐渐与实际获得回报或利益相联系，尤其是在商业和交易中，宣告常常意味着达成互惠协议或获得经济上的盈利。</p>
+<p>随着时间的推移，<em>profiteri</em> 在中世纪法语中变成了 <em>profit</em>，并最终进入英语，表示“利益”或“盈余”。因此，“profit” 的意思逐渐引申为“从某事中获得经济回报或好处”，最终成为今天我们所理解的“利润”一词。</p>
+<p>这个词与“benefit”有些相似，但“profit”更强调的是经济上的得益，尤其是在商业活动或交易中。</p>
+<hr />
+<div style="text-align: center;color:#4d648d;font-size:50px;">(完)</div>]]></content>
+      <categories>
+        <category>单词考据</category>
+      </categories>
+      <tags>
+        <tag>考研</tag>
+        <tag>英语</tag>
+        <tag>单词</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>选择-填空</title>
+    <url>/posts/e6ffa982.html</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
 
 <div class="callout callout-tip">
@@ -465,6 +497,310 @@ $$</p>
 </p>
     </div>
 </div><span id="more"></span>
+<h2 id="奇偶校验"><a class="header-anchor" href="#奇偶校验">¶</a>奇偶校验</h2>
+<h4 id="奇校验与偶校验"><a class="header-anchor" href="#奇校验与偶校验">¶</a>奇校验与偶校验</h4>
+<p>在数字通信系统中，奇偶校验通过设置规则来检查一组给定的位中1的数量。如果采用奇校验，那么每个数据单元（如字节）中1的总数必须是奇数；如果采用偶校验，则这些1的总数必须是偶数。</p>
+<h5 id="校验位的计算"><a class="header-anchor" href="#校验位的计算">¶</a>校验位的计算</h5>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>奇校验</strong>：如果数据单元中1的数量已经是奇数，则校验位设置为0；否则，校验位设置为1。</p>
+</li>
+<li class="lvl-2">
+<p><strong>偶校验</strong>：如果数据单元中1的数量已经是偶数，则校验位设置为0；否则，校验位设置为1。</p>
+</li>
+</ul>
+<h5 id="示例"><a class="header-anchor" href="#示例">¶</a>示例</h5>
+<p>假设数据单元为8位，并且使用奇校验：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>数据 <code>10110011</code> 中有5个1，因此符合奇数要求，校验位为0。</p>
+</li>
+<li class="lvl-2">
+<p>数据 <code>11001010</code> 中有4个1，不符合奇数要求，校验位为1。</p>
+</li>
+</ul>
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p>是<strong>符合</strong>为<strong>0</strong></p>
+<p><strong>不符合</strong>为<strong>1</strong></p>
+</p>
+    </div>
+</div><hr />
+<div style="text-align: center;color:#4d648d;font-size:50px;">(完)</div>]]></content>
+      <categories>
+        <category>未分类</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>5.7-多处理机</title>
+    <url>/posts/14bba0ce.html</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021944032.png" alt="image-20250102194430976"></p>
+<p>相关链接|</p>
+</p>
+    </div>
+</div><span id="more"></span>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021944260.png" alt="image-20250102194401171"></p>
+<h2 id="硬件多线程"><a class="header-anchor" href="#硬件多线程">¶</a>硬件多线程</h2>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021947581.png" alt="image-20250102194755529"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021949948.png" alt="image-20250102194929886"></p>
+<hr />
+<div style="text-align: center;color:#4d648d;font-size:50px;">(完)</div>]]></content>
+      <categories>
+        <category>未分类</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>5.6-指令流水线基本概念和性能指标</title>
+    <url>/posts/22015bf9.html</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p>相关链接|</p>
+</p>
+    </div>
+</div><span id="more"></span>
+<h2 id="定义"><a class="header-anchor" href="#定义">¶</a>定义</h2>
+<blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021053888.png" alt="image-20250102105335802"></p>
+<ul class="lvl-1">
+<li class="lvl-2">顺序执行方式
+<ul class="lvl-3">
+<li class="lvl-4"><strong>优点</strong>：控制简单，硬件代价小</li>
+<li class="lvl-4"><strong>缺点</strong>：执行指令的速度较慢，在任何时刻，处理机中只有一条指令在执行，各功能部件的利用率很低。</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>一次重叠执行方式</strong><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021056733.png" alt="image-20250102105626690"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021056071.png" alt="image-20250102105614009"></p>
+<ul class="lvl-2">
+<li class="lvl-4">
+<p><strong>优点</strong>：程序的执行时间缩短了1/3，各功能部件的利用率明显提高</p>
+</li>
+<li class="lvl-4">
+<p><strong>缺点</strong>：需要付出硬件上较大开销的代价，控制过程也比顺序执行复杂了</p>
+</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p><strong>二次重叠方式</strong><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021059244.png" alt="image-20250102105902185"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021059500.png" alt="image-20250102105916437"></p>
+<blockquote>
+<p><strong>也可以把每条指令的执行过程分成4个或5个阶段，分成5个阶段是比较常见的做法.</strong></p>
+</blockquote>
+</li>
+</ul>
+<h2 id="表示方法"><a class="header-anchor" href="#表示方法">¶</a>表示方法</h2>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021101684.png" alt="image-20250102110129621"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021102552.png" alt="image-20250102110221489"></p>
+<h2 id="性能指标"><a class="header-anchor" href="#性能指标">¶</a>性能指标</h2>
+<ol>
+<li class="lvl-3">
+<p><strong>吞吐率</strong></p>
+<p>吞吐率是指在单位时间内流水线所完成的任务数量，或是输出结果的数量</p>
+<blockquote>
+<p>或是 单位时间内，我们可以完成多少条指令</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021106154.png" alt="image-20250102110641065"></p>
+</li>
+<li class="lvl-3">
+<p><strong>加速比</strong><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021107779.png" alt="image-20250102110715722"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021107174.png" alt="image-20250102110739105"></p>
+</li>
+<li class="lvl-3">
+<p><strong>效率</strong><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021108155.png" alt="image-20250102110810111"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021108884.png" alt="image-20250102110829807"></p>
+</li>
+</ol>
+<h2 id="影响因素"><a class="header-anchor" href="#影响因素">¶</a>影响因素</h2>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021144689.png" alt="image-20250102114444588"></p>
+<blockquote>
+<p>MIPS架构</p>
+</blockquote>
+<ol>
+<li class="lvl-3">
+<p><strong>结构相关</strong> 资源冲突</p>
+<p>由于多条指令在同一时刻争用同一资源而形成的冲突称为结构相关</p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021151836.png" alt="image-20250102115120753"></p>
+<ul class="lvl-2">
+<li class="lvl-5">
+<p><strong>解决方案</strong></p>
+<ol>
+<li class="lvl-8">
+<p>后一指令暂停一周期</p>
+</li>
+<li class="lvl-8">
+<p>资源重复配置</p>
+<p>数据寄存器+指令寄存器</p>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+<li class="lvl-3">
+<p><strong>数据相关</strong>（数据冲突）</p>
+<p>数据相关指在一个程序中，存在必须等前一条指令执行完才能执行后一条指令的情况</p>
+<p>则这两条指令即为数据相关<img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021155589.png" alt="image-20250102115530510"></p>
+<ul class="lvl-2">
+<li class="lvl-5">
+<p><strong>解决方案</strong>：</p>
+<ol>
+<li class="lvl-8">
+<p>把遇到数据相关的指令及其后续指令都暂停一至几个时钟周期，知道数据相关问题消失后再继续执行。可分为硬件阻塞（stall）和软件插入“NOP”两种方法。</p>
+</li>
+<li class="lvl-8">
+<p>数据旁路技术。<small>也叫转发机制</small></p>
+<p>加一条引脚</p>
+</li>
+<li class="lvl-8">
+<p>编译优化：通过编译器调整指令顺序来解决数据相关。</p>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+<li class="lvl-3">
+<p><strong>控制相关</strong>（控制冲突）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021203615.png" alt="image-20250102120313565"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021204154.png" alt="image-20250102120407082"></p>
+<ul class="lvl-2">
+<li class="lvl-5">
+<p><strong>解决办法</strong>：</p>
+<ol>
+<li class="lvl-8">
+<p><strong>转移指令分支预测</strong></p>
+<p>简单预测（永远猜 true 或 false）</p>
+<p>动态预测（根据历史情况动态调整）</p>
+</li>
+<li class="lvl-8">
+<p><strong>预取转移成功和不成功两个控制流方向上的目标指令</strong></p>
+</li>
+<li class="lvl-8">
+<p><strong>加快和提前形成条件码</strong></p>
+</li>
+<li class="lvl-8">
+<p><strong>提高转移方向的猜准率</strong></p>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021207671.png" alt="image-20250102120740609"></p>
+<h2 id="流水线的分类"><a class="header-anchor" href="#流水线的分类">¶</a>流水线的分类</h2>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021210902.png" alt="image-20250102121035826"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021211682.png" alt="image-20250102121113616"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021212161.png" alt="image-20250102121221078"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021213465.png" alt="image-20250102121303395"></p>
+<h2 id="流水线的多发技术"><a class="header-anchor" href="#流水线的多发技术">¶</a>流水线的多发技术</h2>
+<ol>
+<li class="lvl-3">
+<p><strong>超标量技术</strong><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021216490.png" alt="image-20250102121602406"></p>
+<blockquote>
+<p>需要与乱序发射做对比，乱序发射中允许用户在执行中修改指令的执行顺序</p>
+</blockquote>
+</li>
+<li class="lvl-3">
+<p><strong>超流水技术</strong><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021217428.png" alt="image-20250102121722370"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021217826.png" alt="image-20250102121748779"></p>
+</li>
+<li class="lvl-3">
+<p><strong>超长指令字</strong><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021218633.png" alt="image-20250102121843554"></p>
+</li>
+</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021219792.png" alt="image-20250102121901691"></p>
+<h2 id="五段式指令流水线"><a class="header-anchor" href="#五段式指令流水线">¶</a>五段式指令流水线</h2>
+<h3 id="运算器指令的执行过程"><a class="header-anchor" href="#运算器指令的执行过程">¶</a>运算器指令的执行过程</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021354246.png" alt="image-20250102135424171"></p>
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<h4>例题</h4>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021931457.png" alt="image-20250102193136320"></p>
+</p>
+    </div>
+</div><h2 id="总结"><a class="header-anchor" href="#总结">¶</a>总结</h2>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021110520.png" alt="image-20250102111034429"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">-- HUMAN RESOURCE MACHINE PROGRAM --</span><br><span class="line"></span><br><span class="line">a:</span><br><span class="line">b:</span><br><span class="line">    INBOX   </span><br><span class="line">    COPYTO   0</span><br><span class="line">    JUMPN    d</span><br><span class="line">    COMMENT  0</span><br><span class="line">c:</span><br><span class="line">    OUTBOX  </span><br><span class="line">    BUMPDN   0</span><br><span class="line">    JUMPN    a</span><br><span class="line">    JUMP     c</span><br><span class="line">    COMMENT  1</span><br><span class="line">d:</span><br><span class="line">    COMMENT  2</span><br><span class="line">e:</span><br><span class="line">    OUTBOX  </span><br><span class="line">    BUMPUP   0</span><br><span class="line">    JUMPN    e</span><br><span class="line">    OUTBOX  </span><br><span class="line">    COMMENT  3</span><br><span class="line">    JUMP     b</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">DEFINE COMMENT 0</span><br><span class="line">eJzjZmBgaI+4Wx4bGVQ6M8G6QLSyKNN28swMoDCDf/UT5YNVQnqqNb/bVWtMjjCMglEwCoYdAABfKg+i</span><br><span class="line">;</span><br><span class="line"></span><br><span class="line">DEFINE COMMENT 1</span><br><span class="line">eJzjYWBgUAwKKi0vFSm82m5d8GP620KgEMPP8gCj6dWZVfeqN24A8e9Vp2x6XbnsLsMoGAWjYFgBAM9E</span><br><span class="line">E6M;</span><br><span class="line"></span><br><span class="line">DEFINE COMMENT 2</span><br><span class="line">eJxjY2BgyAi6Wy4Webf8cLxT9cuS+vqoKfX1DKNgFIyCEQEAmiIJ/g;</span><br><span class="line"></span><br><span class="line">DEFINE COMMENT 3</span><br><span class="line">eJxjZmBg8C70bPu44nc7wygYBaNgxAEAleoEqg;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<hr />
+<div style="text-align: center;color:#4d648d;font-size:50px;">(完)</div>]]></content>
+      <categories>
+        <category>未分类</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>5.4.4-微指令控制单元的设计</title>
+    <url>/posts/6463c2e8.html</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png" alt="" style="width:100%" />  
+
+<div class="callout callout-tip">
+    <div class="callout-head">
+        <span class="callout-head-icon">💡</span>
+        <span class="callout-head-text" style="color:#009688">TIP</span>
+    </div>
+    <div class="callout-contents">
+        <p><p></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021033565.png" alt="image-20250102103353523"></p>
+<p>相关链接|</p>
+</p>
+    </div>
+</div><span id="more"></span>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021037513.png" alt="image-20250102103716412"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021038172.png" alt="image-20250102103816076"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021040939.png" alt="image-20250102104029885"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021042890.png" alt="image-20250102104235825"></p>
+<h2 id="微程序设计分类"><a class="header-anchor" href="#微程序设计分类">¶</a>微程序设计分类</h2>
+<ol>
+<li class="lvl-3">
+<p>静态微程序设计和动态微程序设计</p>
+<ul class="lvl-2">
+<li class="lvl-5">
+<p><strong>静态</strong></p>
+<p>微程序无需改变，采用 <strong>ROM</strong></p>
+</li>
+<li class="lvl-5">
+<p><strong>动态</strong></p>
+<p>通过 <strong>改变微指令</strong> 和 <strong>程序</strong> 改变机器指令</p>
+<p>有利于仿真，采用 <strong>EPROM</strong></p>
+</li>
+</ul>
+</li>
+<li class="lvl-3">
+<p>毫微程序设计</p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021047055.png" alt="image-20250102104707993"></p>
+</li>
+</ol>
+<h2 id="比较"><a class="header-anchor" href="#比较">¶</a>比较</h2>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021047822.png" alt="image-20250102104728761"></p>
+<h2 id="回顾"><a class="header-anchor" href="#回顾">¶</a>回顾</h2>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501021049438.png" alt="image-20250102104925348"></p>
 <hr />
 <div style="text-align: center;color:#4d648d;font-size:50px;">(完)</div>]]></content>
       <categories>
@@ -5913,6 +6249,53 @@ $$<br>
 <p>每15.6us内有0.5us的&quot;死时间&quot;</p>
 </li>
 </ul>
+</li>
+<li class="lvl-5">
+<p><strong>集中刷新</strong>：</p>
+<p>在规定的一个刷新周期内，对全部存储单元集中一段时间逐行进行刷新（用专门的时间进行刷新）</p>
+<p><strong>例</strong></p>
+<p>对128*128的存储芯片进行刷新，存储周期为0.5$\mu s$ ，刷新周期为2ms（再刷新到这里）</p>
+<p><small>刷新：是对信息读出再写入，所以所需要的时间也是0.5$\mu s$</small></p>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501022021382.png" alt="img"></p>
+<p>2ms的刷新周期，所占存取周期数为，$2000 \mu s/0.5\mu s = 4000\text{（个）}$</p>
+<p>共有128行需要进行刷新，则刷新占128个存取周期，则刷新时间为：</p>
+<p>$128 * 0.5\mu s = 64 \mu s$</p>
+<p>读/写或维持的时间：</p>
+<p>$2000\mu s-64\mu s = 1936\mu s$</p>
+<p>读/写或维持的存储周期为</p>
+<p>4000-128 = 3872（个）</p>
+</li>
+<li class="lvl-5">
+<p><strong>分散刷新</strong></p>
+<p>是指对每行存储单元的刷新分散到每个存储周期内完成（对某一行某芯片进行读写操作后，紧接着刷新 包含在了读写周期内）</p>
+<p><strong>例</strong>：对128×128的矩阵的存储芯片进行刷新，读/写周期为0.5s（读一次或写一次），<img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501022029640.png" alt="在这里插入图片描述"></p>
+<p>将刷新分散到存储周期内完成，则存储周期就包含了刷新时间</p>
+<p>此时，存储周期（存储器进行两次独立的存储器操作 读或写）为</p>
+<p>$t = 0.5\mu s + 0.5 \mu s= 1\mu s$</p>
+<p>刷新（刷新以行算）一行的时间为$1\mu s$，全部刷新完的时间为：</p>
+<p>$128 * 1\mu s = 128\mu s$</p>
+<p>此时比2ms小的多，在刷新到此间隔$128\mu s$</p>
+<ul class="lvl-4">
+<li class="lvl-7">
+<p><strong>优点</strong>：无死区</p>
+</li>
+<li class="lvl-7">
+<p><strong>缺点</strong>：存取周期长，整个系统的速度降低了</p>
+</li>
+</ul>
+</li>
+<li class="lvl-5">
+<p><strong>异步刷新</strong></p>
+<p>前两种方式的结合，缩短了死时间，充分利用了最大刷新间隔为2ms的特点（只要在2ms内对这一行刷新一遍就行）</p>
+<p><strong>例</strong>：对128×128的矩阵的存储芯片进行刷新，存储周期为0.5s，刷新周期为2ms</p>
+<blockquote>
+<p>刷新周期：即一个单元最长过多长时间必须刷新一次</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202501022036835.png" alt="在这里插入图片描述"></p>
+<p>2ms对每行刷新一遍</p>
+<p>$2000\mu s /128 = 15.6\mu s$</p>
+<p>即每隔15.6μs刷新一行</p>
+<p>每行的刷新时间仍然为0.5μs。刷新一行就停一个存储周期，“死时间缩短为0.5μs”（15.6μs内刷新一行 其他全用来读写）</p>
 </li>
 </ul>
 </li>
