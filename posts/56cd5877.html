@@ -21,24 +21,21 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="💡         TIP                    最少使用置换算法 (LFU, Least Frequently Used) 是一种基于页面访问频率的页面置换算法，其核心思想是将内存中使用频率最少的页面作为置换候选，确保较少被访问的页面优先被淘汰。LFU 算法适用于需要精确控制页面访问频率的场景，但在实际应用中常常因为实现复杂性和性能瓶颈而需要">
+  <meta name="description" content="💡         TIP                    “Fare”起源于拉丁语 ferre（“承受”或“带来”），其意义从“携带”扩展到“支付费用”的含义，进而引申为“交通费用”和“乘客”。此外，由于其与“结果”相关，词义也发展为“饭菜”或“餐饮”。 相关链接|">
 <meta property="og:type" content="article">
-<meta property="og:title" content="请求分页-LFU">
-<meta property="og:url" content="http://example.com/posts/78bb016d.html">
+<meta property="og:title" content="fare">
+<meta property="og:url" content="http://example.com/posts/56cd5877.html">
 <meta property="og:site_name" content="Ting&#39;s Blog">
-<meta property="og:description" content="💡         TIP                    最少使用置换算法 (LFU, Least Frequently Used) 是一种基于页面访问频率的页面置换算法，其核心思想是将内存中使用频率最少的页面作为置换候选，确保较少被访问的页面优先被淘汰。LFU 算法适用于需要精确控制页面访问频率的场景，但在实际应用中常常因为实现复杂性和性能瓶颈而需要">
+<meta property="og:description" content="💡         TIP                    “Fare”起源于拉丁语 ferre（“承受”或“带来”），其意义从“携带”扩展到“支付费用”的含义，进而引申为“交通费用”和“乘客”。此外，由于其与“结果”相关，词义也发展为“饭菜”或“餐饮”。 相关链接|">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png">
-<meta property="article:published_time" content="2024-12-11T12:00:53.000Z">
-<meta property="article:modified_time" content="2024-12-26T06:53:23.465Z">
+<meta property="article:published_time" content="2025-02-14T08:27:42.000Z">
+<meta property="article:modified_time" content="2025-02-14T08:28:26.923Z">
 <meta property="article:author" content="听">
-<meta property="article:tag" content="大学">
-<meta property="article:tag" content="408">
-<meta property="article:tag" content="OS">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101418265.png">
 
-<link rel="canonical" href="http://example.com/posts/78bb016d.html">
+<link rel="canonical" href="http://example.com/posts/56cd5877.html">
 
 
 <script id="page-configurations">
@@ -51,7 +48,7 @@
   };
 </script>
 
-  <title>请求分页-LFU | Ting's Blog</title>
+  <title>fare | Ting's Blog</title>
   
 
 
@@ -201,7 +198,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/posts/78bb016d.html">
+    <link itemprop="mainEntityOfPage" href="http://example.com/posts/56cd5877.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/03xiaoyuhe/PicStore/img/202412101430362.jpg">
@@ -214,7 +211,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          请求分页-LFU
+          fare
         </h1>
 
         <div class="post-meta">
@@ -224,27 +221,17 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2024-12-11 20:00:53" itemprop="dateCreated datePublished" datetime="2024-12-11T20:00:53+08:00">2024-12-11</time>
+              <time title="创建时间：2025-02-14 16:27:42 / 修改时间：16:28:26" itemprop="dateCreated datePublished" datetime="2025-02-14T16:27:42+08:00">2025-02-14</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-12-26 14:53:23" itemprop="dateModified" datetime="2024-12-26T14:53:23+08:00">2024-12-26</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/408/" itemprop="url" rel="index"><span itemprop="name">408</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/408/OS/" itemprop="url" rel="index"><span itemprop="name">OS</span></a>
+                  <a href="/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/" itemprop="url" rel="index"><span itemprop="name">未分类</span></a>
                 </span>
             </span>
 
@@ -268,108 +255,29 @@
     </div>
     <div class="callout-contents">
         <p><p></p>
-<p><strong>最少使用置换算法 (LFU, Least Frequently Used)</strong> 是一种基于页面访问频率的页面置换算法，其核心思想是将内存中使用频率最少的页面作为置换候选，确保较少被访问的页面优先被淘汰。LFU 算法适用于需要精确控制页面访问频率的场景，但在实际应用中常常因为实现复杂性和性能瓶颈而需要进行优化。</p>
+<p>“Fare”起源于拉丁语 <em>ferre</em>（“承受”或“带来”），其意义从“携带”扩展到“支付费用”的含义，进而引申为“交通费用”和“乘客”。此外，由于其与“结果”相关，词义也发展为“饭菜”或“餐饮”。</p>
+<p>相关链接|</p>
 </p>
     </div>
 </div><span id="more"></span>
-<h3 id="LFU-算法原理"><a class="header-anchor" href="#LFU-算法原理">¶</a><strong>LFU 算法原理</strong></h3>
-<p>LFU 算法通过记录每个页面的访问频率（即页面被访问的次数）来决定哪些页面应该被淘汰。当需要替换页面时，选择访问频率最少的页面进行替换。如果有多个页面的访问频率相同，则通常按照其他规则（如 FIFO）进一步选择页面。</p>
-<h3 id="LFU-的实现步骤"><a class="header-anchor" href="#LFU-的实现步骤">¶</a><strong>LFU 的实现步骤</strong></h3>
+<h1>Fare</h1>
+<p>“Fare” 一词源自拉丁语 <em>ferre</em>，意思是“承受”或“带来”，本意指“携带”或“运送”。随着时间的推移，它的含义逐渐扩展。</p>
 <ol>
 <li class="lvl-3">
-<p><strong>初始化</strong>：</p>
-<ul class="lvl-2">
-<li class="lvl-5">为每个页面分配一个计数器，用于记录该页面的访问次数。</li>
-<li class="lvl-5">页面访问时，计数器加一。</li>
-</ul>
+<p><strong>交通费用（如 bus fare, train fare）</strong><br>
+“Fare”最早表示“支付费用”以换取某种服务，特别是运输服务。这一意义的形成与人们为获得交通工具的使用而支付费用密切相关，逐渐演变为今天我们所说的“交通费用”。</p>
 </li>
 <li class="lvl-3">
-<p><strong>页面访问</strong>：</p>
-<ul class="lvl-2">
-<li class="lvl-5">如果页面在内存中，增加页面的访问频率（计数器加一）。</li>
-<li class="lvl-5">如果页面不在内存中：
-<ul class="lvl-4">
-<li class="lvl-7">若内存已满，则选择访问频率最少的页面进行置换。</li>
-<li class="lvl-7">将新页面加载到内存，并设置访问频率为 1。</li>
-</ul>
-</li>
-</ul>
+<p><strong>乘客（fare-paying passenger）</strong><br>
+由于“fare”与支付费用紧密相连，它逐渐用来指代支付费用的乘客。因此，乘客也被称作“fare”。</p>
 </li>
 <li class="lvl-3">
-<p><strong>页面置换</strong>：</p>
-<ul class="lvl-2">
-<li class="lvl-5">在内存已满时，选择访问频率最小的页面进行淘汰。</li>
-<li class="lvl-5">如果有多个页面的访问频率相同，则使用其他策略（如 FIFO）进一步确定淘汰页面。</li>
-</ul>
-</li>
-<li class="lvl-3">
-<p><strong>优化</strong>：</p>
-<ul class="lvl-2">
-<li class="lvl-5">在实际应用中，为了避免频繁淘汰的情况，可以引入衰减机制，即定期减少页面的访问频率，使得较久未访问的页面可以逐渐“过期”。</li>
-<li class="lvl-5">结合其他策略（如时间局部性）可以进一步优化 LFU 的效果。</li>
-</ul>
+<p><strong>饭菜（a good fare, meal）</strong><br>
+“Fare”也用来指代食物或餐饮，这一意义源自它表示“结果”或“进展”的原始含义。人们获得的食物或餐点被视为“结果”，因此“fare”也引申为“饭菜”或“餐饮”。</p>
 </li>
 </ol>
-<h3 id="LFU-的优缺点"><a class="header-anchor" href="#LFU-的优缺点">¶</a><strong>LFU 的优缺点</strong></h3>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>优点：</p>
-<ul class="lvl-2">
-<li class="lvl-4">LFU 更能反映页面的实际使用情况，尤其适合处理那些经常使用的页面和较少访问的页面之间的差异。</li>
-<li class="lvl-4">与 FIFO 不同，LFU 会根据页面的访问历史来判断哪些页面应该继续留在内存中，从而避免了 FIFO 在某些场景下的缺陷（如热点页面被淘汰的情况）。</li>
-</ul>
-</li>
-<li class="lvl-2">
-<p>缺点：</p>
-<ul class="lvl-2">
-<li class="lvl-4"><strong>实现复杂性</strong>：LFU 算法需要为每个页面维护一个访问计数器，这增加了系统的开销。</li>
-<li class="lvl-4"><strong>性能瓶颈</strong>：每次访问页面时，都需要更新访问计数器，并且置换时需要遍历所有页面，找到访问频率最小的页面，这在大规模系统中可能会导致性能问题。</li>
-<li class="lvl-4"><strong>长时间未使用页面</strong>：LFU 在某些情况下可能会保留一些长期未访问但仍然有高访问频率的页面，这在时间局部性较强的场景中可能不适用。</li>
-</ul>
-</li>
-</ul>
-<h3 id="优化方法"><a class="header-anchor" href="#优化方法">¶</a><strong>优化方法</strong></h3>
-<p>由于 LFU 算法容易受到高频页面占用内存的影响，现代系统中往往采用以下优化方法：</p>
-<ol>
-<li class="lvl-3">
-<p><strong>衰减机制</strong>：定期减小页面的访问计数，使得长期未访问的页面计数器值会逐渐降低，避免低频页面被长期保留。</p>
-</li>
-<li class="lvl-3">
-<p><strong>结合其他算法</strong>：例如，结合 LRU（最近最久未使用）策略，使用 LFU+LRU（如 LFU 结合链表）来同时考虑页面的访问频率和最近的访问时间，提升整体性能。</p>
-</li>
-</ol>
-<h3 id="LFU-与-FIFO-比较"><a class="header-anchor" href="#LFU-与-FIFO-比较">¶</a><strong>LFU 与 FIFO 比较</strong></h3>
-<p>LFU 算法是 FIFO 算法的一种改进。FIFO 仅根据页面进入内存的顺序来决定置换，而 LFU 则考虑了页面的使用频率，从而能更精确地反映页面的实际需求。相比 FIFO，LFU 更能避免热点页面被淘汰的情况，但其实现和维护的复杂性较高。</p>
-<h3 id="示例"><a class="header-anchor" href="#示例">¶</a><strong>示例</strong></h3>
-<p>假设我们有一个大小为 3 的页面框，页面访问序列如下：<code>1, 2, 3, 1, 2, 4, 5</code>。初始时，所有页面的访问频率为 0。每次访问时，页面的频率会增加，最终进行置换时会选择频率最小的页面。</p>
-<ol>
-<li class="lvl-3">
-<p>访问页面 <code>1</code>：内存中插入页面 <code>1</code>，频率为 <code>[1]</code>。</p>
-</li>
-<li class="lvl-3">
-<p>访问页面 <code>2</code>：内存中插入页面 <code>2</code>，频率为 <code>[1, 1]</code>。</p>
-</li>
-<li class="lvl-3">
-<p>访问页面 <code>3</code>：内存中插入页面 <code>3</code>，频率为 <code>[1, 1, 1]</code>。</p>
-</li>
-<li class="lvl-3">
-<p>再次访问页面 <code>1</code>：频率更新为 <code>[2, 1, 1]</code>。</p>
-</li>
-<li class="lvl-3">
-<p>再次访问页面 <code>2</code>：频率更新为 <code>[2, 2, 1]</code>。</p>
-</li>
-<li class="lvl-3">
-<p>访问页面 <code>4</code>：页面 <code>3</code> 被淘汰（频率最小），插入页面 <code>4</code>，频率为 <code>[2, 2, 1]</code>。</p>
-</li>
-<li class="lvl-3">
-<p>访问页面 <code>5</code>：页面 <code>1</code> 被淘汰（频率最小），插入页面 <code>5</code>，频率为 <code>[2, 2, 1]</code>。</p>
-</li>
-</ol>
-<p>在这个过程中，LFU 根据访问频率选择淘汰页面，相比 FIFO 更能有效管理频繁访问的页面。</p>
-<h3 id="总结"><a class="header-anchor" href="#总结">¶</a><strong>总结</strong></h3>
-<p>LFU 算法是一种有效的页面置换策略，适用于处理那些访问频率差异较大的场景。它相比 FIFO 更能反映页面的实际使用情况，但其实现复杂度和性能问题可能需要结合其他策略进行优化。在现代操作系统中，LFU 和其改进版本（如 LFU+LRU）通常会与其他页面管理策略一起使用，以达到更好的性能效果。</p>
 <hr />
-<div style="text-align: center;color:rgba(0,0,0,0.8);"><big><big>(完)</big></big></div>
+<div style="text-align: center;color:#4d648d;font-size:50px;">(完)</div>
     </div>
 
     
@@ -377,11 +285,6 @@
     
 
       <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/%E5%A4%A7%E5%AD%A6/" rel="tag"><i class="fa fa-tag"></i> 大学</a>
-              <a href="/tags/408/" rel="tag"><i class="fa fa-tag"></i> 408</a>
-              <a href="/tags/OS/" rel="tag"><i class="fa fa-tag"></i> OS</a>
-          </div>
 
         
 
@@ -389,13 +292,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/posts/f041ded5.html" rel="prev" title="请求分页-LRU的实际实现过程">
-      <i class="fa fa-chevron-left"></i> 请求分页-LRU的实际实现过程
+    <a href="/posts/165dbfa7.html" rel="prev" title="benifit">
+      <i class="fa fa-chevron-left"></i> benifit
     </a></div>
-      <div class="post-nav-item">
-    <a href="/posts/f830ee25.html" rel="next" title="调页策略">
-      调页策略 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -454,7 +354,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#LFU-%E7%AE%97%E6%B3%95%E5%8E%9F%E7%90%86"><span class="nav-number">1.</span> <span class="nav-text">LFU 算法原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LFU-%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%AD%A5%E9%AA%A4"><span class="nav-number">2.</span> <span class="nav-text">LFU 的实现步骤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LFU-%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="nav-number">3.</span> <span class="nav-text">LFU 的优缺点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%98%E5%8C%96%E6%96%B9%E6%B3%95"><span class="nav-number">4.</span> <span class="nav-text">优化方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LFU-%E4%B8%8E-FIFO-%E6%AF%94%E8%BE%83"><span class="nav-number">5.</span> <span class="nav-text">LFU 与 FIFO 比较</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B"><span class="nav-number">6.</span> <span class="nav-text">示例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">7.</span> <span class="nav-text">总结</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">Fare</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
